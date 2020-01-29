@@ -1,7 +1,6 @@
-Wrangling Data in R
+Format and shape your data in R with the tidyverse
 ================
 
-  - [intro](#intro)
   - [Variable types](#variable-types)
   - [step1](#step1)
   - [step2](#step2)
@@ -15,53 +14,70 @@ Wrangling Data in R
   - [Appendix 3: Scenario Checklist](#appendix-3-scenario-checklist)
   - [Scenario contents](#scenario-contents)
 
-This is the `README.md` file for the Katacoda scenario titled,
-“Wrangling Data in R”
+This is the `README.md` file for the Katacoda scenario titled, “*Format
+and shape your data in R with the tidyverse*”
 
-## intro
+-----
 
-This scenario will show you how to wrangle variables (columns) from one
-type to another. Data are rarely collected in a format they can be
-immediately analyzed or visualized in, so this is a common task.
+This scenario will introduce how to use R to change columns from one
+type (or class) to another. In the wild, we rarely collect data in a
+format that they can be immediately analyzed or visualized in, so data
+wrangling is a common task.
 
 ## Variable types
 
-Recall that variables can be characters, logical, numbers (integer and
-double). We will be converting variables from one form to another using
+Recall that variables can be characters (or strings), logicals (or
+boolean), and numbers (integer and double). In this first exercise,
+we’ll be converting variables from one form to another using
 [`dplyr`](https://dplyr.tidyverse.org/), a package from the
 [`tidyverse`](https://www.tidyverse.org/).
 
+To learn more about variable types, check out the transformation chapter
+in [R for Data Science](https://r4ds.had.co.nz/transform.html).
+
 ## step1
 
-    Launch the R REPL with `R`{{execute}}
-    
-    Install and load the `tidyverse` package.
-    
-    ```
-    # packages
-    install.packages(c("tidyverse", "babynames"))
-    library(tidyverse)
-    ```{{execute}}
-    
-    When using a function from a package, the syntax is `package::function()`. We will use the `tibble` package to create the `BpData` dataset with the code below.
-    
-    To view the contents of `BpData`, you simply enter the name into the console and a preview of the data will print to the Terminal.
-    
-    ```
-    # create BpData data
-    BpData <- tibble::tribble(
-        # variable names ---------------------------------------------------------
-             ~name,         ~dob, ~weight_kilos, ~height_meters, ~bp_dia, ~bp_sys,
-        # data  ------------------------------------------------------------------
-            "john", "1985-10-13",          100L,            '2.1',     80L,    130L,
-           "peter", "1979-08-04",           82L,            '1.9',     65L,    126L,
-           "steve", "1981-04-23",           95L,            '1.7',     70L,    119L,
-           "sally", "1983-03-28",           72L,            '1.5',     75L,    129L,
-            "beth", "1986-06-07",           76L,            '1.6',     78L,    126L,
-            "kate", "1982-08-19",           69L,            '1.5',     74L,    121L)
-    # print data
-    BpData
-    ```{{execute}}
+> The `step1` file starts the scenario off an intro to R packages (the
+> `library()` function), and how to create a data set in R to play with.
+> This is important because having an ability to create data in R allows
+> us to create a [minimal reproducible
+> example](https://stackoverflow.com/help/minimal-reproducible-example),
+> which gives us access to [The R questions on
+> StackOverflow.](https://stackoverflow.com/questions/tagged/r).
+
+> The markdown for the `step1.md` file is below.
+
+```` markdown
+Launch the R REPL with `R`{{execute}}
+
+Install and load the `tidyverse` package.
+
+```
+# packages
+install.packages(c("tidyverse", "babynames"))
+library(tidyverse)
+```{{execute}}
+
+When using a function from a package, the syntax is `package::function()`. We will use the `tibble` package to create the `BpData` dataset with the code below.
+
+To view the contents of `BpData`, you simply enter the name into the console and a preview of the data will print to the Terminal.
+
+```
+# create BpData data
+BpData <- tibble::tribble(
+    # variable names ---------------------------------------------------------
+         ~name,         ~dob, ~weight_kilos, ~height_meters, ~bp_dia, ~bp_sys,
+    # data  ------------------------------------------------------------------
+        "john", "1985-10-13",          100L,            '2.1',     80L,    130L,
+       "peter", "1979-08-04",           82L,            '1.9',     65L,    126L,
+       "steve", "1981-04-23",           95L,            '1.7',     70L,    119L,
+       "sally", "1983-03-28",           72L,            '1.5',     75L,    129L,
+        "beth", "1986-06-07",           76L,            '1.6',     78L,    126L,
+        "kate", "1982-08-19",           69L,            '1.5',     74L,    121L)
+# print data
+BpData
+```{{execute}}
+````
 
 ## step2
 
