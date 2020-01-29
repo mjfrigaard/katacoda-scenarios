@@ -1,6 +1,6 @@
 {
-  "title": "Wrangling Data in R",
-  "description": "Learn how to wrangle variables, rows, and entire data sets",
+  "title": "R (tidyverse): Format and shape your data in R",
+  "description": "Use R's tidyverse packages to wrangle variables, rows, and entire data sets!",
   "difficulty": "Intermediate",
   "time": "30 min",
   "details": {
