@@ -4,7 +4,7 @@ Install and load the `tidyverse` package.
 
 ```
 # packages
-install.packages(c("tidyverse", "babynames"))
+install.packages("tidyverse")
 library(tidyverse)
 ```{{execute}}
 
