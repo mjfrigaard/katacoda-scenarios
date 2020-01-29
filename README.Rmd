@@ -173,9 +173,18 @@ Does the scenario start consistently and in a timely manner? More than 5 minutes
 - [ ] Do the goals and lessons learned items match the steps in the scenario?
 
 
-## Scenario contents
+## R scenarios
 
-This scenario covers...
+Launch the REPL via `R`
+
+An example function in R is `hello<-function() cat("Hello, world!\n")`
+
+This can be called from the command line `hello()`
+
+To display a plot, ensure you call `dev.off()` function.
+
+More demos are available with `demo()`
+
 
 
 

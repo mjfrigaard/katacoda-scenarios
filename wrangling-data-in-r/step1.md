@@ -1,6 +1,8 @@
+Launch the R REPL with `R`{{execute}}
+
 Install and load the `tidyverse` package.
 
-```r
+```
 install.packages("tidyverse")
 library(tidyverse)
 ```{{execute}}
