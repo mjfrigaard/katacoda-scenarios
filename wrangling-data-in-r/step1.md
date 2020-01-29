@@ -13,15 +13,11 @@ When using a function from a package, the syntax is `package::function()`. We wi
 To view the contents of `BpData`, you simply enter the name into the console and a preview of the data will print to the Terminal.
 
 ```
-# packages
-# install.packages(c("tidyverse", "babynames"))
-library(tidyverse)
-
 # create data
 BpData <- tibble::tribble(
   # variable names
   ~name, ~dob, ~wt_kg, ~ht_m, ~bp_d, ~bp_s,
-  # data  
+  # data
   "john", "1985-10-13", 100L, "2.1", 80L, 130L,
   "peter", "1979-08-04", 82L, "1.9", 65L, 126L,
   "steve", "1981-04-23", 95L, "1.7", 70L, 119L,
