@@ -1,0 +1,84 @@
+---
+title: "Wrangling Data in R"
+output: 
+  github_document: 
+    fig_height: 6
+    fig_width: 8
+    toc: yes
+---
+
+```{r setup, include=FALSE}
+library(hrbrthemes)
+library(extrafont)
+library(knitr)
+library(rmdformats)
+library(tidyverse)
+library(magrittr)
+library(skimr)
+library(rlang)
+library(gt)
+library(visdat)
+library(inspectdf)
+library(foreign)
+library(naniar)
+# images folder
+if (!file.exists("figs")) {
+  dir.create("figs")
+}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
+  tidy = FALSE,
+  fig.width = 10,
+  fig.height = 7.5,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "figs/"
+)
+knitr::opts_knit$set(
+  width = 78
+)
+base::options(
+  tibble.print_max = 25,
+  tibble.width = 78,
+  scipen = 100000000
+)
+ggplot2::theme_set(hrbrthemes::theme_ipsum_tw(
+  base_size = 10,
+  strip_text_size = 11,
+  axis_title_size = 13,
+  plot_title_size = 17,
+  subtitle_size = 13,
+  base_family = "Ubuntu",
+  strip_text_family = "TitilliumWeb-Regular",
+  axis_title_family = "TitilliumWeb-Regular",
+  subtitle_family = "TitilliumWeb-Regular",
+  plot_title_family = "JosefinSans-Regular"
+))
+```
+
+```{r step1}
+# packages
+# install.packages(c("tidyverse", "babynames"))
+library(tidyverse)
+
+# create data
+BpData <- tibble::tribble(
+    # variable names ---------------------------------------------------------
+         ~name,         ~dob, ~weight_kilos, ~height_meters, ~bp_dia, ~bp_sys,
+    # data  ------------------------------------------------------------------
+        "john", "1985-10-13",          100L,            '2.1',     80L,    130L,
+       "peter", "1979-08-04",           82L,            '1.9',     65L,    126L,
+       "steve", "1981-04-23",           95L,            '1.7',     70L,    119L,
+       "sally", "1983-03-28",           72L,            '1.5',     75L,    129L,
+        "beth", "1986-06-07",           76L,            '1.6',     78L,    126L,
+        "kate", "1982-08-19",           69L,            '1.5',     74L,    121L)
+# print data
+BpData
+```
+
+
+
+
