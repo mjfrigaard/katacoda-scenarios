@@ -175,6 +175,10 @@ Does the scenario start consistently and in a timely manner? More than 5 minutes
 
 ## R scenarios
 
+
+~~~
+
+```r
 Launch the REPL via `R`
 
 An example function in R is `hello<-function() cat("Hello, world!\n")`
@@ -184,6 +188,10 @@ This can be called from the command line `hello()`
 To display a plot, ensure you call `dev.off()` function.
 
 More demos are available with `demo()`
+
+```
+
+~~~
 
 
 

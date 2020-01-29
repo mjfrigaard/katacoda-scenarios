@@ -65,7 +65,23 @@ double). We will be converting variables from one form to another using
 
 ## step2
 
+```` 
+
+```
+# load data
+EconDataWide <- ggplot2::economics
+EconDataWide %>% glimpse(78)
+
+# change structure
+tidyr::pivot_longer()
+```
+````
+
 ## step3
+
+    ```
+    
+    ```
 
 ## step4
 

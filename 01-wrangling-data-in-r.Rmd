@@ -27,6 +27,7 @@ if (!file.exists("figs")) {
 }
 knitr::opts_chunk$set(
   echo = TRUE,
+  eval = FALSE,
   cache = FALSE,
   prompt = FALSE,
   tidy = FALSE,
@@ -66,9 +67,9 @@ library(tidyverse)
 
 # create data
 BpData <- tibble::tribble(
-  # variable names ---------------------------------------------------------
+  # variable names
   ~name, ~dob, ~wt_kg, ~ht_m, ~bp_d, ~bp_s,
-  # data  ------------------------------------------------------------------
+  # data
   "john", "1985-10-13", 100L, "2.1", 80L, 130L,
   "peter", "1979-08-04", 82L, "1.9", 65L, 126L,
   "steve", "1981-04-23", 95L, "1.7", 70L, 119L,

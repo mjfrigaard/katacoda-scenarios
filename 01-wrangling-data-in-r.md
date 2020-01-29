@@ -1,18 +1,7 @@
-Launch the R REPL with `R`{{execute}}
+Wrangling Data in R
+================
 
-Install and load the `tidyverse` package.
-
-```
-# packages
-install.packages("tidyverse")
-library(tidyverse)
-```{{execute}}
-
-When using a function from a package, the syntax is `package::function()`. We will use the `tibble` package to create the `BpData` dataset with the code below.
-
-To view the contents of `BpData`, you simply enter the name into the console and a preview of the data will print to the Terminal.
-
-```
+``` r
 # packages
 # install.packages(c("tidyverse", "babynames"))
 library(tidyverse)
@@ -21,7 +10,7 @@ library(tidyverse)
 BpData <- tibble::tribble(
   # variable names
   ~name, ~dob, ~wt_kg, ~ht_m, ~bp_d, ~bp_s,
-  # data  
+  # data
   "john", "1985-10-13", 100L, "2.1", 80L, 130L,
   "peter", "1979-08-04", 82L, "1.9", 65L, 126L,
   "steve", "1981-04-23", 95L, "1.7", 70L, 119L,
@@ -31,4 +20,31 @@ BpData <- tibble::tribble(
 )
 # print data
 BpData
-```{{execute}}
+```
+
+``` r
+# load data
+EconDataWide <- ggplot2::economics
+EconDataWide %>% glimpse(78)
+
+# change structure
+tidyr::pivot_longer()
+```
+
+``` r
+# load data
+EconDataLong <- ggplot2::economics_long
+EconDataLong %>% glimpse(78)
+
+# change structure
+tidyr::pivot_wider()
+```
+
+``` r
+# load data
+EconDataLong <- ggplot2::economics_long
+EconDataLong %>% glimpse(78)
+
+# change structure
+tidyr::pivot_wider()
+```

@@ -19,7 +19,7 @@ Katacoda scenarios
       - [Appendix 2: Katacoda
         guidelines](#appendix-2-katacoda-guidelines)
       - [Appendix 3: Scenario Checklist](#appendix-3-scenario-checklist)
-      - [Scenario contents](#scenario-contents)
+      - [R scenarios](#r-scenarios)
 
 This is the `README.Rmd` file for the Katacoda scenarios.
 
@@ -215,6 +215,20 @@ minutes to start would be cause to reconsider your build decisions.
   - [ ] Do the goals and lessons learned items match the steps in the
     scenario?
 
-## Scenario contents
+## R scenarios
 
-This scenario covers…
+```` 
+
+```r
+Launch the REPL via `R`
+
+An example function in R is `hello<-function() cat("Hello, world!\n")`
+
+This can be called from the command line `hello()`
+
+To display a plot, ensure you call `dev.off()` function.
+
+More demos are available with `demo()`
+
+```
+````
