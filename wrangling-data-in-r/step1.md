@@ -8,7 +8,9 @@ install.packages(c("tidyverse", "babynames"))
 library(tidyverse)
 ```{{execute}}
 
-Create and view the `BpData` dataset with the code below.
+When using a function from a package, the syntax is `package::function()`. We will use the `tibble` package to create the `BpData` dataset with the code below.
+
+To view the contents of `BpData`, you simply enter the name into the console and a preview of the data will print to the Terminal.
 
 ```
 # create BpData data
