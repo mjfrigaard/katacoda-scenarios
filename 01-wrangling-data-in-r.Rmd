@@ -75,9 +75,9 @@ To learn more about variable types, check out the transformation chapter in [R f
 
 ## step 1
 
-> The `step1` file starts the scenario off an intro to R packages (the `library()` function), and how to create a data set in R to play with. This is important because having an ability to create data in R allows us to create a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example), which gives us access to [The R questions on StackOverflow.](https://stackoverflow.com/questions/tagged/r).
+<!--  The `step1` file starts the scenario off an intro to R packages (the `library()` function), and how to create a data set in R to play with. This is important because having an ability to create data in R allows us to create a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example), which gives us access to [The R questions on StackOverflow.](https://stackoverflow.com/questions/tagged/r).
 
-> The markdown for the `step1.md` file is below.
+The markdown for the `step1.md` file is below. -->
 
 Launch the R REPL with `R`
 
@@ -109,11 +109,15 @@ tidyverse::tidyverse_logo()
 
 ### Creating data
 
-Next we're going to create a dataset with the `tibble::tribble()` function. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, 
+Next we're going to create a dataset with the `tibble::tribble()` function. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works.
+
+### Assignment 
+
+In R, there are multiple [assignment operators](https://developer.r-project.org/equalAssign.html), but we're going to use `=` because it's common in other languages (like Python and Java).
 
 ```{r step1-3, eval=TRUE}
 # create data
-BpData <- tibble::tribble(
+BpData = tibble::tribble(
   # variable names
   ~name, ~dob, ~wt_kg, ~ht_m, ~bp_d, ~bp_s,
   # data
@@ -136,17 +140,22 @@ BpData
 
 ## Step 2
 
-Functions are the verbs in the R language, and the data we've created is like an object (or noun). In English grammar, verbs do things to objects. In R, the functions allow us to  our data.
+As noted earlier, functions are the verbs in the R language, and the data we've created is the object. Just like in English grammar, verbs (functions) do things to objects.
 
-We'll start by doing a very common task in data wrangling: changing the format of a variable.
+```{r step2-1}
+source("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/wrangling-data-in-r/src/BpData.R")
+```
 
-### Change the format of a variable
 
-We are going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
+We'll start by doing a very common task in data wrangling: changing the format of an existing variable. The primary `tidyverse` package for data manipulation is [`dplyr`](https://dplyr.tidyverse.org/).
 
-This is how `dplyr::mutate()` works:
+### Making a character variable numeric
 
-```{r step2-1, eval=FALSE}
+We're going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
+
+How `dplyr::mutate()` works:
+
+```{r step2-2, eval=FALSE}
 # a data set
 dplyr::mutate(.data = DataFrame, 
               # changed variable
@@ -161,7 +170,7 @@ As you can see from the code and comments above, first we enter the data set (`D
 
 So if we run the code below, we should find the `ht_m` variable changes from character (`<chr>`) to numeric (or double `<dbl>`).
 
-```{r step2-2}
+```{r step2-3, eval=TRUE}
 # BpData data set
 dplyr::mutate(.data = BpData, 
               # # changed variable
@@ -169,12 +178,24 @@ dplyr::mutate(.data = BpData,
                   # function used to change variable
                   base::as.numeric(
                       # original variable name
-                      ht_m),)
+                      ht_m))
 ```
 
-Now we can see the `ht_m` variable is a `<dbl>`. 
+Now we can see the `ht_m` variable is a `<dbl>`. **It's always a good idea to check your data wrangling before assigning it back to the data frame.** Now that we see this variable is formatted the way we want it, we can assign it back to the `BpData` object.
 
-### Assignment 
+```{r step2-4}
+# BpData data set
+dplyr::mutate(.data = BpData, 
+              # # changed variable
+              ht_m = 
+                  # function used to change variable
+                  base::as.numeric(
+                      # original variable name
+                      ht_m)) = BpData
+```
+
+
+
 
 
 

@@ -1,22 +1,32 @@
 Launch the R REPL with `R`
 
-## The `tidyverse`
+### Loading packages 
 
 The  `tidyverse` started as the brainchild of RStudio Chief Scientist [Hadley Wickham](http://hadley.nz/). The `tidyverse` package actually loads multiple packages, all of which are centered around the common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf) (more on this later). These packages were designed to work well together.
 
-Install and load the `tidyverse` package with the `install.packages()` and `library()`.
+Install the `tidyverse` package (this requires an internet connection outside of Katacoda).
 
 ```
-# packages
 install.packages("tidyverse")
+```
+
+ Load the package with the `library()` function.
+
+```
 library(tidyverse)
-```{{execute}}
+```
+
+R is an object-oriented and functional programming language. This just means it's made up of objects and functions. When we load data into R, we're creating a data object. In order to do things to this data object (manipulate, analyze, visualize, model, etc.), we'll need to use functions.
+
+### Using functions
 
 If you want to use a function from a package, the syntax for doing this is `package::function()`. For example, below we'll use the `tidyverse_logo()` function from the `tidyverse` package to view the awesome logo. 
 
 ```
 tidyverse::tidyverse_logo()
-```{{execute}}
+``````{{execute}}
+
+### Creating data
 
 Next we're going to create a dataset with the `tibble::tribble()` function. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, 
 
@@ -41,4 +51,3 @@ To view the contents of `BpData`, we can enter the name into the console and a p
 # print data
 BpData
 ```{{execute}}
-
