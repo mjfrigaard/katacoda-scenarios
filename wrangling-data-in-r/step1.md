@@ -1,4 +1,4 @@
-Launch the R REPL with `R`
+Launch the R REPL with `R`{{execute}}
 
 ### Loading packages 
 
