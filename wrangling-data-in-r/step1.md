@@ -1,6 +1,10 @@
-Launch the R REPL with `R`{{execute}}
+Launch the R REPL with `R`
 
-Install and load the `tidyverse` package.
+## The `tidyverse`
+
+The  `tidyverse` started as the brainchild of RStudio Chief Scientist [Hadley Wickham](http://hadley.nz/). The `tidyverse` package actually loads multiple packages, all of which are centered around the common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf) (more on this later). These packages were designed to work well together.
+
+Install and load the `tidyverse` package with the `install.packages()` and `library()`.
 
 ```
 # packages
@@ -8,9 +12,13 @@ install.packages("tidyverse")
 library(tidyverse)
 ```{{execute}}
 
-When using a function from a package, the syntax is `package::function()`. We will use the `tibble` package to create the `BpData` dataset with the code below.
+If you want to use a function from a package, the syntax for doing this is `package::function()`. For example, below we'll use the `tidyverse_logo()` function from the `tidyverse` package to view the awesome logo. 
 
-To view the contents of `BpData`, you simply enter the name into the console and a preview of the data will print to the Terminal.
+```
+tidyverse::tidyverse_logo()
+```{{execute}}
+
+Next we're going to create a dataset with the `tibble::tribble()` function. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, 
 
 ```
 # create data
@@ -25,6 +33,12 @@ BpData <- tibble::tribble(
   "beth", "1986-06-07", 76L, "1.6", 78L, 126L,
   "kate", "1982-08-19", 69L, "1.5", 74L, 121L
 )
+```{{execute}}
+
+To view the contents of `BpData`, we can enter the name into the console and a preview of the data will print to the Terminal.
+
+```
 # print data
 BpData
 ```{{execute}}
+

@@ -60,11 +60,58 @@ ggplot2::theme_set(hrbrthemes::theme_ipsum_tw(
 ))
 ```
 
-```{r step1}
-# packages
-# install.packages(c("tidyverse", "babynames"))
-library(tidyverse)
+## Intro
 
+```markdown
+This scenario will introduce how to use R to change columns from one type (or class) to another. In the wild, we rarely collect data in a format that they can be immediately analyzed or visualized in, so data wrangling is a common task.
+
+## Variable types
+
+Recall that variables can be characters (or strings), logicals (or boolean), and numbers (integer and double). In this first exercise, we'll be converting variables from one form to another using [`dplyr`](https://dplyr.tidyverse.org/), a package from the [`tidyverse`](https://www.tidyverse.org/).
+
+To learn more about variable types, check out the transformation chapter in [R for Data Science](https://r4ds.had.co.nz/transform.html).
+```
+
+
+## step 1
+
+> The `step1` file starts the scenario off an intro to R packages (the `library()` function), and how to create a data set in R to play with. This is important because having an ability to create data in R allows us to create a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example), which gives us access to [The R questions on StackOverflow.](https://stackoverflow.com/questions/tagged/r).
+
+> The markdown for the `step1.md` file is below.
+
+Launch the R REPL with `R`
+
+### Loading packages 
+
+The  `tidyverse` started as the brainchild of RStudio Chief Scientist [Hadley Wickham](http://hadley.nz/). The `tidyverse` package actually loads multiple packages, all of which are centered around the common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf) (more on this later). These packages were designed to work well together.
+
+Install the `tidyverse` package (this requires an internet connection outside of Katacoda).
+
+```{r step1-1, eval=FALSE}
+install.packages("tidyverse")
+```
+
+ Load the package with the `library()` function.
+
+```{r step1-2, eval=TRUE}
+library(tidyverse)
+```
+
+R is an object-oriented and functional programming language. This just means it's made up of objects and functions. When we load data into R, we're creating a data object. In order to do things to this data object (manipulate, analyze, visualize, model, etc.), we'll need to use functions.
+
+### Using functions
+
+If you want to use a function from a package, the syntax for doing this is `package::function()`. For example, below we'll use the `tidyverse_logo()` function from the `tidyverse` package to view the awesome logo. 
+
+```{r step1-2, eval=TRUE}
+tidyverse::tidyverse_logo()
+```
+
+### Creating data
+
+Next we're going to create a dataset with the `tibble::tribble()` function. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, 
+
+```{r step1-3, eval=TRUE}
 # create data
 BpData <- tibble::tribble(
   # variable names
@@ -77,9 +124,60 @@ BpData <- tibble::tribble(
   "beth", "1986-06-07", 76L, "1.6", 78L, 126L,
   "kate", "1982-08-19", 69L, "1.5", 74L, 121L
 )
+```
+
+To view the contents of `BpData`, we can enter the name into the console and a preview of the data will print to the Terminal.
+
+```{r step1-3, eval=TRUE}
 # print data
 BpData
 ```
+
+
+## Step 2
+
+Functions are the verbs in the R language, and the data we've created is like an object (or noun). In English grammar, verbs do things to objects. In R, the functions allow us to  our data.
+
+We'll start by doing a very common task in data wrangling: changing the format of a variable.
+
+### Change the format of a variable
+
+We are going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
+
+This is how `dplyr::mutate()` works:
+
+```{r step2-1, eval=FALSE}
+# a data set
+dplyr::mutate(.data = DataFrame, 
+              # changed variable
+              `new variable name` = 
+                  # function used to change variable
+                   some_function(
+                      # current variable name
+                      `old variable name`))
+```
+
+As you can see from the code and comments above, first we enter the data set (`DataFrame`), then the name of the new variable we want to create (`new variable name`), the equals sign `=`, then the function we want to apply `some_function()` and the original variable we want to apply it to `old variable name`.
+
+So if we run the code below, we should find the `ht_m` variable changes from character (`<chr>`) to numeric (or double `<dbl>`).
+
+```{r step2-2}
+# BpData data set
+dplyr::mutate(.data = BpData, 
+              # # changed variable
+              ht_m = 
+                  # function used to change variable
+                  base::as.numeric(
+                      # original variable name
+                      ht_m),)
+```
+
+Now we can see the `ht_m` variable is a `<dbl>`. 
+
+### Assignment 
+
+
+
 
 
 ```{r step2}
