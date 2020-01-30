@@ -142,10 +142,11 @@ BpData
 
 As noted earlier, functions are the verbs in the R language, and the data we've created is the object. Just like in English grammar, verbs (functions) do things to objects.
 
-```{r step2-1}
-source("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/wrangling-data-in-r/src/BpData.R")
-```
+The code below loads the data from a web url.
 
+```{r step2-1}
+base::source("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/wrangling-data-in-r/src/BpData.R")
+```
 
 We'll start by doing a very common task in data wrangling: changing the format of an existing variable. The primary `tidyverse` package for data manipulation is [`dplyr`](https://dplyr.tidyverse.org/).
 
@@ -185,16 +186,16 @@ Now we can see the `ht_m` variable is a `<dbl>`. **It's always a good idea to ch
 
 ```{r step2-4}
 # BpData data set
-dplyr::mutate(.data = BpData, 
+BpData = dplyr::mutate(.data = BpData, 
               # # changed variable
               ht_m = 
                   # function used to change variable
                   base::as.numeric(
                       # original variable name
-                      ht_m)) = BpData
+                      ht_m))
 ```
 
-
+This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`. 
 
 
 

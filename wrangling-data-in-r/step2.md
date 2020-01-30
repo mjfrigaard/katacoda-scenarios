@@ -1,44 +1,56 @@
-Functions are the verbs in the R language, and any data we load into R is like an object (or noun). The functions in R allow us to manipulate, analyze, visualize, and model any data we've loaded into R.
+As noted earlier, functions are the verbs in the R language, and the data we've created is the object. Just like in English grammar, verbs (functions) do things to objects.
 
-We'll start by doing a very common task in data wrangling: changing the format of a variable.
-
-### Change the format of a variable
-
-The code below creates the BpData again:
+The code below loads the data from a web url.
 
 ```
-# create data
-BpData <- tibble::tribble(
-  # variable names
-  ~name, ~dob, ~wt_kg, ~ht_m, ~bp_d, ~bp_s,
-  # data
-  "john", "1985-10-13", 100L, "2.1", 80L, 130L,
-  "peter", "1979-08-04", 82L, "1.9", 65L, 126L,
-  "steve", "1981-04-23", 95L, "1.7", 70L, 119L,
-  "sally", "1983-03-28", 72L, "1.5", 75L, 129L,
-  "beth", "1986-06-07", 76L, "1.6", 78L, 126L,
-  "kate", "1982-08-19", 69L, "1.5", 74L, 121L
-)
+base::source("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/wrangling-data-in-r/src/BpData.R")
 ```{{execute}}
+
+We'll start by doing a very common task in data wrangling: changing the format of an existing variable. The primary `tidyverse` package for data manipulation is [`dplyr`](https://dplyr.tidyverse.org/).
+
+### Making a character variable numeric
 
 We're going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
 
-Generically speaking, is how `dplyr::mutate()` works:
+How `dplyr::mutate()` works:
 
 ```
-dplyr::mutate(.data = DataFrame, `new variable` = some_function(`old variable`))
+# a data set
+dplyr::mutate(.data = DataFrame, 
+              # changed variable
+              `new variable name` = 
+                  # function used to change variable
+                   some_function(
+                      # current variable name
+                      `old variable name`))
 ```
 
-As you can see from the code above, first we specify the data (`DataFrame`), then the name of the new variable we want to create (`new variable`), the equals sign `=`, then the function we want to apply to the original variable `some_function(`old variable`)`.
+As you can see from the code and comments above, first we enter the data set (`DataFrame`), then the name of the new variable we want to create (`new variable name`), the equals sign `=`, then the function we want to apply `some_function()` and the original variable we want to apply it to `old variable name`.
 
-If we replace `DataFrame` with ``BpData`, and use `base::as.numeric()` to create If we run the code below, we find check to see if the `ht_m` variable becomes `<dbl>`.
+So if we run the code below, we should find the `ht_m` variable changes from character (`<chr>`) to numeric (or double `<dbl>`).
 
 ```
-dplyr::mutate(.data = BpData, ht_m = base::as.numeric(ht_m))
+# BpData data set
+dplyr::mutate(.data = BpData, 
+              # # changed variable
+              ht_m = 
+                  # function used to change variable
+                  base::as.numeric(
+                      # original variable name
+                      ht_m))
 ```{{execute}}
 
+Now we can see the `ht_m` variable is a `<dbl>`. **It's always a good idea to check your data wrangling before assigning it back to the data frame.** Now that we see this variable is formatted the way we want it, we can assign it back to the `BpData` object.
 
+```
+# BpData data set
+BpData = dplyr::mutate(.data = BpData, 
+              # # changed variable
+              ht_m = 
+                  # function used to change variable
+                  base::as.numeric(
+                      # original variable name
+                      ht_m))
+```{{execute}}
 
-
-
-
+This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`. 
