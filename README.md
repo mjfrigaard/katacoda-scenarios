@@ -21,12 +21,14 @@ Katacoda scenarios
       - [Appendix 3: Scenario Checklist](#appendix-3-scenario-checklist)
       - [R scenarios](#r-scenarios)
 
-This is the `README.Rmd` file for the Katacoda scenarios.
+This is the `README.Rmd` file for the Katacoda scenarios. All the
+scenarios and courses can be found on my profile page
+[here](https://katacoda.com/mjfrigaard).
 
 # Setup
 
-This is a scenario for Katacoda (from O’Reilly). This file will walk
-through the setup and some tips for using the Katacoda interface.
+This README covers how to set up a scenario for Katacoda (from O’Reilly)
+and some tips for using the Katacoda interface.
 
 ## Step 1: Downloading CLI for Katacoda
 
@@ -68,12 +70,7 @@ Scenario created successfully.
 This creates the following folder contents:
 
 ``` bash
-katacoda-scenarios/
-├── README.Rmd
-├── README.md
-└── wrangling-data-in-r
-    ├── README.Rmd
-    ├── README.md
+├── wrangling-data-in-r
     ├── finish.md
     ├── index.json
     ├── intro.md
@@ -81,13 +78,12 @@ katacoda-scenarios/
     ├── step2.md
     ├── step3.md
     ├── step4.md
-    ├── step5.md
+    └── step5.md
+    # I added this
     └── wrangling-data-in-r.Rproj
-
-1 directory, 13 files
 ```
 
-I’ve added the `wrangling-data-in-r.Rproj` file (to use RStudio).
+I’ve added the `.Rproj` file (to use RStudio).
 
 ## Step 4: Configure Github repository
 

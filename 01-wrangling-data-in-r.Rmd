@@ -138,7 +138,7 @@ BpData
 ```
 
 
-## Step 2
+## step 2
 
 As noted earlier, functions are the verbs in the R language, and the data we've created is the object. Just like in English grammar, verbs (functions) do things to objects.
 
@@ -197,7 +197,9 @@ BpData = dplyr::mutate(.data = BpData,
 
 This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`. 
 
+Other examples of data wrangling 
 
+## step 3
 
 
 
