@@ -1,5 +1,5 @@
 ---
-title: "Wrangling Data in R"
+title: "Wrangling Data in R (Katacoda Scenario)"
 output: 
   github_document: 
     fig_height: 6
@@ -59,6 +59,36 @@ ggplot2::theme_set(hrbrthemes::theme_ipsum_tw(
   plot_title_family = "JosefinSans-Regular"
 ))
 ```
+
+## Setup  
+
+This scenario is built using the following commands in the Terminal pane in RStudio. 
+
+```bash
+# create a new scenario
+$ katacoda scenarios:create
+? Friendly url:  1-wrangle-data-in-r
+? Scenario Title:  Wrangling Data in R
+? Scenario Description:  Learn how to restructure and manipulate data in R
+? Difficulty Level:  Intermediate
+? Estimated time: (Please specify in minutes or hours e.g. 2 hours) 90 minutes
+? Number of Steps (Not including intro & finish):  24
+? Image:  rlang:3.4
+? Layout:  Editor + Terminal
+Scenario created successfully.
+```
+
+The following folder was created from these commands. 
+
+```{r 1-wrangle-data-in-r}
+fs::dir_tree("1-wrangle-data-in-r")
+```
+
+We can see all `steps`, the `intro`, and `finish` markdown files. There is also an `index.json` file for managing all the steps in the Katacoda env.
+
+## Markdown syntax (Katacoda)
+
+
 
 ## Intro
 
@@ -244,3 +274,58 @@ EconDataLong %>% glimpse(78)
 # change structure
 tidyr::pivot_wider()
 ```
+
+
+
+## Appendix 1: Katacoda scenario tutorials
+
+The tutorial for building the scenario is [here](https://katacoda.com/scenario-examples/scenarios/create-scenario-101).
+
+I took notes on this tutorial and made them available in [this Google document](https://docs.google.com/document/d/e/2PACX-1vSf2w2onhH5t3IhuD4sYLoWqn46BLKMYFR7q3BHO8QTaRkVgXfhKvnl8T9uHrjmbVpTZVKCWrfxEl0R/pub).
+
+## Appendix 2: Katacoda guidelines
+
+There are multiple guidelines and resources for writing scenarios. O'Reilly has provided an *Authoring Guide* and *Formatting and Design Guide*.
+
+The link for these files can be found here:
+
++ [Katacoda Scenario Formatting and Design Guide for Authors](https://docs.google.com/document/d/1l4lofG5kAu8JFzumZPCsJJE2muCYe6rHSHCQsMlijd8/edit)
+
++ [Katacoda Scenario Authoring Guide](https://docs.google.com/document/d/14rudtruZQhRxvD3zcR3g75j5nuOgKGz4CYk8hdhaV-w/edit)
+
+## Appendix 3: Scenario Checklist
+
+**Scenario Readiness Checklist:**
+
+When you think your scenario is ready for publication, we recommend you run through the checklist below to ensure it is ready to go. [Reminder: We discuss these best practices in the Katacoda Formatting and Design Guide for Authors]:
+
+Does the scenario start consistently and in a timely manner? More than 5 minutes to start would be cause to reconsider your build decisions.
+
+- [ ] Are your intro and final pages present and are their respective goals and lessons learned in agreement?
+
+- [ ] Have you tested your scenario lately?
+
+- [ ] Do you agree with the leveling (beginner, intermediate, advanced) you indicated when you started the build?
+
+- [ ] Was learning time you entered correct, or should it be adjusted?
+
+- [ ] Are your versions of tools and other dependencies up to date?
+
+- [ ] Have you tried every instruction?
+
+- [ ] Have you written each step in the most concise manner possible?
+
+- [ ] Have you run your text through a spelling/grammar checker?
+
+- [ ] Are your credits to others given present and correct?
+
+- [ ] Are your images legal and with credits?
+
+- [ ] Are your hyperlinks all working?
+
+- [ ] Do the goals and lessons learned items match the steps in the scenario?
+
+
+## Scenario contents
+
+This scenario covers...

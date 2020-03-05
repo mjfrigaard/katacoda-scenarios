@@ -9,7 +9,7 @@ This is the `README.Rmd` file for the Katacoda scenarios. All the scenarios and 
 
 # Setup
 
-This README covers how to set up a scenario for Katacoda (from O'Reilly) and some tips for using the Katacoda interface.
+This `README` covers how to set up a scenario for Katacoda (from O'Reilly) and some tips for using the Katacoda interface.
 
 ## Step 1: Downloading CLI for Katacoda
 
@@ -19,17 +19,15 @@ First download the installation pack from Terminal:
 npm install katacoda-cli --global
 ```
 
-## Step 2: Setup scenario with Katacoda
+## Step 2: Documentation for Katacoda Scenarios
 
-After receiving the Katacoda Invite email, you can log into Katacoda with a Github account.
+After receiving the Katacoda invite email, you can log into Katacoda with a Github account.
 
-For example, the url for my acount is created (`https//:katacoda.com/mjfrigaard`).
-
-The link for the katacoda documentation is [here](https://www.katacoda.com/docs).
-
-These steps were uses to set up the scenario for Katacoda.
+For example, the url for my account is created (`https//:katacoda.com/mjfrigaard`). The link for the Katacoda documentation is [here](https://www.katacoda.com/docs).
 
 ## Step 3: Create local repo for scenario
+
+These steps were uses to set up the scenario for Katacoda.
 
 
 ```bash
@@ -70,7 +68,7 @@ Create a new repository on Github, **without a README**, like the one located he
 
 The webhook setup is covered in multiple places. [Here is the official Katacoda documentation](https://katacoda.com/docs/configure-git), but I've also inluded a [Google Document](https://docs.google.com/document/d/e/2PACX-1vSf2w2onhH5t3IhuD4sYLoWqn46BLKMYFR7q3BHO8QTaRkVgXfhKvnl8T9uHrjmbVpTZVKCWrfxEl0R/pub) that outlines this process (with ample screenshots).
 
-### The Katacoda end...
+### On the Katacoda end...
 
 The important parts of the configuration for Katacoda are:
 
@@ -167,7 +165,9 @@ Does the scenario start consistently and in a timely manner? More than 5 minutes
 - [ ] Do the goals and lessons learned items match the steps in the scenario?
 
 
-## R scenarios
+## R Environments
+
+The Katacoda team recently rebuilt the R image, so I wanted to let you know that the latest-greatest R image you should be using in your Katacoda scenarios is `rlang:3.4`
 
 
 ~~~
