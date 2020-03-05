@@ -1,4 +1,10 @@
-Launch the R REPL with `R`{{execute}}
+# Lets get started!
+
+Launch an R session by clicking here -> `R`{{execute}}
+
+This is an R REPL (read-eval-print-loop) designed to run R in your browser. 
+
+R is an open-source statistical software, and thousands of users and developers have contributed over 10,000 packages for working with data. We will be using the popular 
 
 ### Loading packages 
 

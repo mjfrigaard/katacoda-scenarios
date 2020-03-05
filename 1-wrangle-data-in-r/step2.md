@@ -1,7 +1,6 @@
 ### Creating data
 
-Next we're going to create a dataset with the `tibble::tribble()` function. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, 
-
+It's hard to learn any of R's capabilities without some data, so let's create a data set with the `tibble::tribble()` function. 
 
 ```
 BpData <- tibble::tribble(
@@ -20,6 +19,8 @@ BpData <- tibble::tribble(
   57725L, "female", 12L, "Mexican", 46, "157.2", 90L, 111L, 67L
 )
 ```{{execute}}
+
+Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, 
 
 To view the contents of `BpData`, we can enter the name into the console and a preview of the data will print to the Terminal.
 
