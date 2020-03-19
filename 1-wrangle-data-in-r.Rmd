@@ -84,192 +84,48 @@ The following folder was created from these commands.
 fs::dir_tree("1-wrangle-data-in-r")
 ```
 
-We can see all `steps`, the `intro`, and `finish` markdown files. There is also an `index.json` file for managing all the steps in the Katacoda env.
+We can see all `steps`, the `intro`, and `finish` markdown files. There is also an `index.json` file for managing all the steps in the Katacoda environment.
 
 ## Markdown syntax (Katacoda)
 
+Katacoda comes with it's own flavor of Markdown, which you can learn more about [here.](https://katacoda.com/scenario-examples/scenarios/markdown-extensions). The main thing to know is that there are `execute` and `copy` extensions, which you can use in the markdown to indicate whether Katacoda should copy or run the code inside the R REPL.
 
+## Learner personas
 
-## Intro
+The learner personas for this scenario are: 
 
+1. Horatio is an executive at a tech company...
 
-This scenario will introduce how to use R to change columns from one type (or class) to another. In the wild, we rarely collect data in a format that they can be immediately analyzed or visualized in, so data wrangling is a common task.
+2. Judy is a product manager at a start-up...
 
-## Variable types
+3. Andrew is a graduate student in college...
+
+***
+
+### Intro
+
+This scenario will introduce you to the R language, data structures, the `tidyverse`, and it's underlying philosophy. 
+
+how to change columns from one type (or class) to another. In the wild, we rarely collect data in a format that they can be immediately analyzed or visualized in, so data wrangling is a common task.
+
+#### Variable types
 
 Recall that variables can be characters (or strings), logicals (or boolean), and numbers (integer and double). In this first exercise, we'll be converting variables from one form to another using [`dplyr`](https://dplyr.tidyverse.org/), a package from the [`tidyverse`](https://www.tidyverse.org/).
 
-## step 1
+### step 1
 
-<!--  The `step1` file starts the scenario off an intro to R packages (the `library()` function), and how to create a data set in R to play with. This is important because having an ability to create data in R allows us to create a [minimal reproducible example](https://stackoverflow.com/help/minimal-reproducible-example), which gives us access to [The R questions on StackOverflow.](https://stackoverflow.com/questions/tagged/r).
+The `step1` file starts the scenario off an intro to R packages (the `library()` function). The markdown for the `step1.md` file is below. 
 
-The markdown for the `step1.md` file is below. -->
+~~~
 
-Launch the R REPL with `R`
-
-### Loading packages 
-
-The  `tidyverse` started as the brainchild of RStudio Chief Scientist [Hadley Wickham](http://hadley.nz/). The `tidyverse` package actually loads multiple packages, all of which are centered around the common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf) (more on this later). These packages were designed to work well together.
-
-Install the `tidyverse` package (this requires an internet connection outside of Katacoda).
-
-```{r step1-1, eval=FALSE}
-install.packages("tidyverse")
-```
-
- Load the package with the `library()` function.
-
-```{r step1-2, eval=TRUE}
-library(tidyverse)
-```
-
-R is an object-oriented and functional programming language. That means it's made up of objects and functions. When we load data into R, we're creating a data object. In order to do things to this data object (manipulate, analyze, visualize, model, etc.), we'll need to use functions.
-
-### Using functions in R
-
-R comes with a lot of functions right out of the box, but sometimes we'll need additional functions for performing specific tasks. If we want to use a function from a package, the syntax for doing this is `package::function()`. For example, below we'll use the `tidyverse_logo()` function from the `tidyverse` package to view the awesome logo. 
-
-```{r step1-2, eval=TRUE}
-tidyverse::tidyverse_logo()
-```
-
-### Rectangular in R
-
-In this course, we'll assume most of the data you'll encounter is rectangular (columns and rows), like spreadsheet data from Googlesheets or Microsoft Excel. Data like these are stored in a [data.frame](https://stat.ethz.ch/R-manual/R-devel/library/base/html/data.frame.html) or [tibble](https://tibble.tidyverse.org/). In this course, we'll be using `tibble`'s because they have some additional bells and whistles that `data.frame`'s don't (we'll cover this in a bit).
-
-#### Creating data in R
-
-Data are usually loaded into R from an external source, but being able to create a dataset from scratch is also handy. We're going to create a `BpData` with the `tibble::tribble()` function. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works.
-
-#### Assignment 
-
-In R, there are multiple [assignment operators](https://developer.r-project.org/equalAssign.html), but we're going to use `=` because it's common in other languages (like Python and Java).
-
-```{r step1-3, eval=TRUE}
-BpData <- tibble::tribble(
-  # variable names
-  ~id, ~sex, ~age, ~race, ~wt_k, ~ht_m, ~pulse, ~bps_av, ~bpd_av,
-  # data
-  68440L, "male", 46L, "White", 80.7, "177.9", 58L, 93L, 66L,
-  70780L, "female", 11L, "White", 43, "157", 96L, 93L, 73L,
-  62222L, "male", 32L, "White", 80.1, "179", 78L, 104L, 73L,
-  63302L, "male", 28L, "Black", 81.6, "190.2", 70L, 115L, 66L,
-  68377L, "male", 74L, "White", 70.7, "173.2", 72L, 113L, 49L,
-  71272L, "male", 30L, "White", 76.9, "173.2", 68L, 111L, 70L,
-  62174L, "male", 80L, "White", 95.8, "168.1", 56L, 97L, 39L,
-  55956L, "male", 13L, "Black", 68.2, "167.8", 80L, 112L, 43L,
-  55246L, "female", 42L, "White", 56.7, "167.6", 66L, 87L, 55L,
-  57725L, "female", 12L, "Mexican", 46, "157.2", 90L, 111L, 67L
-)
-```
-
-To view the contents of `BpData`, we can enter the name into the console and a preview of the data will print to the Terminal. 
-
-```{r step1-3, eval=TRUE}
-# print data
-BpData
-```
+~~~
 
 
 ## step 2
 
-As noted earlier, functions are the verbs in the R language, and the data we've created is the object. Just like in English grammar, verbs (functions) do things to objects.
 
-The code below loads the data from a web url.
-
-```{r step2-1}
-base::source("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/wrangling-data-in-r/src/BpData.R")
-```
-
-We'll start by doing a very common task in data wrangling: changing the format of an existing variable. The primary `tidyverse` package for data manipulation is [`dplyr`](https://dplyr.tidyverse.org/).
-
-### Change the format of an existing variable
-
-We're going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
-
-How `dplyr::mutate()` works:
-
-```{r step2-2, eval=FALSE}
-# a data set
-dplyr::mutate(
-  .data = DataFrame,
-  # changed variable
-  `new variable name` =
-    # function used to change variable
-  some_function(
-    # current variable name
-    `old variable name`
-  )
-)
-```
-
-As you can see from the code and comments above, first we enter the data set (`DataFrame`), then the name of the new variable we want to create (`new variable name`), the equals sign `=`, then the function we want to apply `some_function()` and the original variable we want to apply it to `old variable name`.
-
-So if we run the code below, we should find the `ht_m` variable changes from character (`<chr>`) to numeric (or double `<dbl>`).
-
-```{r step2-3, eval=TRUE}
-# BpData data set
-dplyr::mutate(
-  .data = BpData,
-  # # changed variable
-  ht_m =
-    # function used to change variable
-  base::as.numeric(
-    # original variable name
-    ht_m
-  )
-)
-```
-
-Now we can see the `ht_m` variable is a `<dbl>`. **It's always a good idea to check your data wrangling before assigning it back to the data frame.** Now that we see this variable is formatted the way we want it, we can assign it back to the `BpData` object.
-
-```{r step2-4}
-# BpData data set
-BpData <- dplyr::mutate(
-  .data = BpData,
-  # # changed variable
-  ht_m =
-    # function used to change variable
-  base::as.numeric(
-    # original variable name
-    ht_m
-  )
-)
-```
-
-This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`. 
-
-Other examples of data wrangling functions include: 
 
 ## step 3
-
-
-```{r step2}
-# load data
-EconDataWide <- ggplot2::economics
-EconDataWide %>% glimpse(78)
-
-# change structure
-tidyr::pivot_longer()
-```
-
-```{r step3}
-# load data
-EconDataLong <- ggplot2::economics_long
-EconDataLong %>% glimpse(78)
-
-# change structure
-tidyr::pivot_wider()
-```
-
-```{r step5}
-# load data
-EconDataLong <- ggplot2::economics_long
-EconDataLong %>% glimpse(78)
-
-# change structure
-tidyr::pivot_wider()
-```
 
 
 
