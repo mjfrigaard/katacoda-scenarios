@@ -108,20 +108,21 @@ The introduction for this scenario is stored in the following file:
 fs::dir_tree("format-shape-data", regex = "intro")
 ```
 
-This 
+This covers the intro to R language, 
 
 ### step 1
 
 The `step1` file starts the scenario off an intro to R packages (the `library()` function). The markdown for the `step1.md` file is below. 
 
-~~~
+```{r step1}
+fs::dir_tree("format-shape-data", regex = "step1.md")
+```
 
-~~~
 
 
 ## step 2
 
-
+This step loads the data into R (using the `tibble` package). 
 
 ## step 3
 
