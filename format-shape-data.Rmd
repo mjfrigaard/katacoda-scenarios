@@ -126,22 +126,26 @@ This step loads the data into R (using the `tibble` package).
 
 ```{r create-SmallBobRoss, eval=FALSE}
 # datapasta::tribble_paste(fivethirtyeight::bob_ross %>%
-#   dplyr::select(title, episode_num, bushes, clouds) %>%
+#   dplyr::select(title, bushes, clouds) %>% 
 #   utils::head(5))
-SmallBobRoss <- tibble::tribble(~title, ~episode_num, ~bushes, ~clouds,
-                 "A WALK IN THE WOODS",            1,      1L,      0L,
-                        "MT. MCKINLEY",            2,      0L,      1L,
-                        "EBONY SUNSET",            3,      0L,      0L,
-                         "WINTER MIST",            4,      1L,      1L,
-                        "QUIET STREAM",            5,      0L,      0L)
 ```
+
+```{r SmallBobRoss}
+SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
+                  "A WALK IN THE WOODS",      1L,      0L,
+                         "MT. MCKINLEY",      0L,      1L,
+                         "EBONY SUNSET",      0L,      0L,
+                          "WINTER MIST",      1L,      1L,
+                         "QUIET STREAM",      0L,      0L)
+```
+
 
 
 ```{r SmallBobRoss}
 SmallBobRoss
 ```
 
-Export this for step3. 
+Export this for `step3.` 
 
 ## step 3
 
