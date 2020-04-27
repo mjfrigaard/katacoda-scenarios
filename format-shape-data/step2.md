@@ -40,14 +40,13 @@ There are a few things to pay attention to in the code above:
 1. The assignment operator `<-` is used to create the `SmallBobRoss` tibble, which is a data object   
 2. The `title`s in quotations (i.e. `"A WALK IN THE WOODS"`) creates a different kind of variable than the other numerical variables (like `episode_num` and `bushes`)  
 
-Tibbles are rectangular data objects. They have columns and rows for storing data, similar to a spreadsheet in Excel. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, 
-
+Tibbles are rectangular data objects. They have columns and rows for storing data, similar to a spreadsheet in Excel. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works.
 
 
 To view the contents of `SmallBobRoss`, we can enter the name into the console and a preview of the data will print to the Terminal.
 
 ```
 # print data
-SmallMsleep
+SmallBobRoss
 ```{{execute}}
 
