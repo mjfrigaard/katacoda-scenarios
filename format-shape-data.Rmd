@@ -1,5 +1,5 @@
 ---
-title: "Wrangling Data in R (Katacoda Scenario)"
+title: "Format and shape your data in R with the tidyverse"
 output: 
   github_document: 
     fig_height: 6
@@ -26,7 +26,7 @@ if (!file.exists("figs")) {
   dir.create("figs")
 }
 knitr::opts_chunk$set(
-  echo = TRUE,
+  echo = FALSE,
   eval = FALSE,
   cache = FALSE,
   prompt = FALSE,
@@ -66,22 +66,20 @@ This scenario is built using the following commands in the Terminal pane in RStu
 
 ```bash
 # create a new scenario
-$ katacoda scenarios:create
-? Friendly url:  1-wrangle-data-in-r
-? Scenario Title:  Wrangling Data in R
-? Scenario Description:  Learn how to restructure and manipulate data in R
+? Friendly url:  format-shape-data
+? Scenario Title:  Format and shape your data in R with the tidyverse
+? Scenario Description:  Quickly wrangle your data with the tidyr and dplyr packages from the tidyverse
 ? Difficulty Level:  Intermediate
-? Estimated time: (Please specify in minutes or hours e.g. 2 hours) 90 minutes
-? Number of Steps (Not including intro & finish):  24
+? Estimated time: (Please specify in minutes or hours e.g. 2 hours) 40
+? Number of Steps (Not including intro & finish):  12
 ? Image:  rlang:3.4
-? Layout:  Editor + Terminal
-Scenario created successfully.
+? Layout:  Terminal + Desktop
 ```
 
 The following folder was created from these commands. 
 
-```{r 1-wrangle-data-in-r}
-fs::dir_tree("1-wrangle-data-in-r")
+```{r format-shape-data}
+fs::dir_tree("format-shape-data")
 ```
 
 We can see all `steps`, the `intro`, and `finish` markdown files. There is also an `index.json` file for managing all the steps in the Katacoda environment.
@@ -89,8 +87,6 @@ We can see all `steps`, the `intro`, and `finish` markdown files. There is also 
 ## Markdown syntax (Katacoda)
 
 Katacoda comes with it's own flavor of Markdown, which you can learn more about [here.](https://katacoda.com/scenario-examples/scenarios/markdown-extensions). The main thing to know is that there are `execute` and `copy` extensions, which you can use in the markdown to indicate whether Katacoda should copy or run the code inside the R REPL.
-
-The markdown syntax for 
 
 ## Learner personas
 
@@ -106,13 +102,13 @@ The learner personas for this scenario are:
 
 ### Intro
 
-This scenario will introduce you to the R language, data structures, the `tidyverse`, and it's underlying philosophy. 
+The introduction for this scenario is stored in the following file:
 
-how to change columns from one type (or class) to another. In the wild, we rarely collect data in a format that they can be immediately analyzed or visualized in, so data wrangling is a common task.
+```{r intro}
+fs::dir_tree("format-shape-data", regex = "intro")
+```
 
-#### Variable types
-
-Recall that variables can be characters (or strings), logicals (or boolean), and numbers (integer and double). In this first exercise, we'll be converting variables from one form to another using [`dplyr`](https://dplyr.tidyverse.org/), a package from the [`tidyverse`](https://www.tidyverse.org/).
+This 
 
 ### step 1
 
