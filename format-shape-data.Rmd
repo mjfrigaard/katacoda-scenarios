@@ -152,6 +152,10 @@ fs::dir_ls("data")
 readr::write_csv(as.data.frame(SmallBobRoss), "data/SmallBobRoss.csv")
 ```
 
+```{r import-small-bob-ross}
+readr::read_csv(file = "https://bit.ly/small-bob-ross")
+```
+
 
 
 

@@ -1,11 +1,11 @@
 ## Download data into R
 
-As we noted earlier, functions are like verbs in the R language, and data we've created is the object. Similar to English grammar, verbs (functions) do things to objects. We can create data objects in R using through a variety of methods. 
+As we noted earlier, functions are like verbs in the R language, and data we've created is the object. Similar to English grammar, verbs (functions) do things to objects. We can create data objects in R using through a variety of methods.
 
 We can download data from a web url like the one below:
 
 ```
-base::source("http://bit.ly/tiny-data-set")
+SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
 ```{{execute}}
 
 
@@ -26,9 +26,9 @@ How `dplyr::mutate()` works:
 
 ```
 # a data set
-dplyr::mutate(.data = DataFrame, 
+dplyr::mutate(.data = DataFrame,
               # changed variable
-              `new variable name` = 
+              `new variable name` =
                   # function used to change variable
                    some_function(
                       # current variable name
@@ -41,9 +41,9 @@ So if we run the code below, we should find the `ht_m` variable changes from cha
 
 ```
 # BpData data set
-dplyr::mutate(.data = BpData, 
+dplyr::mutate(.data = BpData,
               # # changed variable
-              ht_m = 
+              ht_m =
                   # function used to change variable
                   base::as.numeric(
                       # original variable name
@@ -54,13 +54,13 @@ Now we can see the `ht_m` variable is a `<dbl>`. **It's always a good idea to ch
 
 ```
 # BpData data set
-BpData = dplyr::mutate(.data = BpData, 
+BpData = dplyr::mutate(.data = BpData,
               # # changed variable
-              ht_m = 
+              ht_m =
                   # function used to change variable
                   base::as.numeric(
                       # original variable name
                       ht_m))
 ```{{execute}}
 
-This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`. 
+This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`.
