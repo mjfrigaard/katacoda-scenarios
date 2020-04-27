@@ -124,23 +124,21 @@ fs::dir_tree("format-shape-data", regex = "step1.md")
 
 This step loads the data into R (using the `tibble` package). 
 
-```{r mtcars, eval=FALSE}
-# datapasta::tribble_paste(
-# datasets::mtcars %>% 
-#   tibble::rownames_to_column(var = "make") %>% 
-#   utils::head(5) %>% 
-#   dplyr::select(make, mpg, cyl, hp))
+```{r create-SmallBobRoss, eval=FALSE}
+# datapasta::tribble_paste(fivethirtyeight::bob_ross %>%
+#   dplyr::select(title, episode_num, bushes, clouds) %>%
+#   utils::head(5))
+SmallBobRoss <- tibble::tribble(~title, ~episode_num, ~bushes, ~clouds,
+                 "A WALK IN THE WOODS",            1,      1L,      0L,
+                        "MT. MCKINLEY",            2,      0L,      1L,
+                        "EBONY SUNSET",            3,      0L,      0L,
+                         "WINTER MIST",            4,      1L,      1L,
+                        "QUIET STREAM",            5,      0L,      0L)
 ```
 
 
-```{r SmallMtCars}
-SmallMtCars <- tibble::tribble(~make, ~mpg, ~cyl, ~hp,
-                         "Mazda RX4",   21,    6, 110,
-                     "Mazda RX4 Wag",   21,    6, 110,
-                        "Datsun 710", 22.8,    4,  93,
-                    "Hornet 4 Drive", 21.4,    6, 110,
-                 "Hornet Sportabout", 18.7,    8, 175)
-SmallMtCars
+```{r SmallBobRoss}
+SmallBobRoss
 ```
 
 
