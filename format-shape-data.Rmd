@@ -90,11 +90,13 @@ We can see all `steps`, the `intro`, and `finish` markdown files. There is also 
 
 Katacoda comes with it's own flavor of Markdown, which you can learn more about [here.](https://katacoda.com/scenario-examples/scenarios/markdown-extensions). The main thing to know is that there are `execute` and `copy` extensions, which you can use in the markdown to indicate whether Katacoda should copy or run the code inside the R REPL.
 
+The markdown syntax for 
+
 ## Learner personas
 
 The learner personas for this scenario are: 
 
-1. Horatio is an executive at a tech company...
+1. Horatio is an executive at a tech company who wants to learn more about 
 
 2. Judy is a product manager at a start-up...
 

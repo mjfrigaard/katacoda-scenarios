@@ -27,11 +27,18 @@ For example, the url for my account is created (`https//:katacoda.com/mjfrigaard
 
 ## Step 3: Create local repo for scenario
 
-These steps were uses to set up the scenario for Katacoda.
+I will be creating three scenarios for using R in Katacoda. They are listed below:
 
+*Scenario 1: Format and shape your data in R with the tidyverse*
+
+*Scenario 2: Build beautiful, customized graphs and charts in R with ggplot2*
+
+*Scenario 3: Combine narrative with numbers for effective storytelling in R*
+
+I used the following steps in the Terminal:
 
 ```bash
-(base) martinfrigaard@Martins-MBP @projects % katacoda scenarios:create
+$ katacoda scenarios:create
 ? Friendly url:  katacoda-scenarios
 ? Scenario Title:  title the scenario
 ? Scenario Description:  description of the scenario, displayed on the intro screen
@@ -60,7 +67,7 @@ This creates the following folder contents:
     └── wrangling-data-in-r.Rproj
 ```
 
-I've added the `.Rproj` file (to use RStudio).
+I'also added the `.Rproj` file (to use RStudio).
 
 ## Step 4: Configure Github repository
 
