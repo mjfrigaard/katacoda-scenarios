@@ -141,8 +141,18 @@ SmallBobRoss <- tibble::tribble(~title, ~episode_num, ~bushes, ~clouds,
 SmallBobRoss
 ```
 
+Export this for step3. 
 
 ## step 3
+
+Step 3 shows us how to import data into the R environment.
+
+```{r export-small-bob-ross}
+fs::dir_ls("data")
+readr::write_csv(as.data.frame(SmallBobRoss), "data/SmallBobRoss.csv")
+```
+
+
 
 
 

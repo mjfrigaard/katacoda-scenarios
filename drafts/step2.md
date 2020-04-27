@@ -14,10 +14,21 @@ SmallBobRoss <- tibble::tribble(~title, ~episode_num, ~bushes, ~clouds,
 ```{{execute}}
 
 
-Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works, To view the contents of `SmallBobRoss`, we can enter the name into the console and a preview of the data will print to the Terminal.
+Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works,
 
+A description of these variables is provided below:
+
+`episode_num`: Episode number
+
+`title`: Title of episode
+
+`bushes`: Present (`1`) or not (`0`)  
+
+`clouds`: Present (`1`) or not (`0`)
+
+To view the contents of `SmallBobRoss`, we can enter the name into the console and a preview of the data will print to the Terminal.
 
 ```
 # print data
-SmallBobRoss
+SmallMsleep
 ```{{execute}}
