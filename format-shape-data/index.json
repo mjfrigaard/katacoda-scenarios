@@ -61,7 +61,9 @@
       "text": "finish.md"
     }
   },
-  "environment": {},
+  "environment": {
+    "uilayout": "editor-terminal"
+  },
   "backend": {
     "imageid": "rlang:3.4"
   }

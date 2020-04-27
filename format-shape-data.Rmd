@@ -73,7 +73,7 @@ This scenario is built using the following commands in the Terminal pane in RStu
 ? Estimated time: (Please specify in minutes or hours e.g. 2 hours) 40
 ? Number of Steps (Not including intro & finish):  12
 ? Image:  rlang:3.4
-? Layout:  Terminal + Desktop
+? Layout:  Editor + Terminal
 ```
 
 The following folder was created from these commands. 
