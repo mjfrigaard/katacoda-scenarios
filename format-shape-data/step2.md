@@ -26,12 +26,12 @@ QUIET STREAM,5,0,0
 The code below creates `SmallBobRoss` from the data above in the R environment. 
 
 ```
-SmallBobRoss <- tibble::tribble(~title, ~episode_num, ~bushes, ~clouds,
-                 "A WALK IN THE WOODS",            1,      1L,      0L,
-                        "MT. MCKINLEY",            2,      0L,      1L,
-                        "EBONY SUNSET",            3,      0L,      0L,
-                         "WINTER MIST",            4,      1L,      1L,
-                        "QUIET STREAM",            5,      0L,      0L)
+SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
+                  "A WALK IN THE WOODS",      1L,      0L,
+                         "MT. MCKINLEY",      0L,      1L,
+                         "EBONY SUNSET",      0L,      0L,
+                          "WINTER MIST",      1L,      1L,
+                         "QUIET STREAM",      0L,      0L)
 ```{{execute}}
 
 

@@ -10,4 +10,4 @@ We can import data directly from a web url like the one below. The bitly link ta
 SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
 ```{{execute}}
 
-The code above loads the data from an external source 
+The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)).
