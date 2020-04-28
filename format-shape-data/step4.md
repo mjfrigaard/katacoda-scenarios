@@ -1,6 +1,8 @@
 # Two levels of data wrangling 
 
-We like to think of wrangling on two different levels. The first level deals with the data shape and structure. The second level of data wrangling refers with the format of the actual variables (which we will get to in the following steps). Questions we should be asking ourselves about data at this level include:
+We like to think of wrangling on two different levels. The first level deals with the data shape and structure. The second level of data wrangling refers to the format of individual  variables (which we will get to in the following steps). 
+
+Questions we should be asking ourselves about data at this level include:
 
 1. Approximately how many observations (or rows) should we be seeing?  
 2. Are all the rows unique (i.e.will each case have a row)?    
