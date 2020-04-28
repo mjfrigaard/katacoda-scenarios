@@ -13,11 +13,25 @@ We like to think of wrangling on two different levels. The first level deals wit
 A common task for data manipulation is moving columns to rows, or rows to columns. We refer to this as data The `tidyr` package in R makes this easy with the `tidyr::pivot_` functions. We'll be importing and restructuring the Bob Ross dataset.
 
 
-We will load the data into R using `fivethirtyeight::bob_ross`
+We will load the data into R using `fivethirtyeight::bob_ross`. First we have to install the package into the R environment, 
+
+```
+install.packages("fivethirtyeight")
+```{{execute}}
+
+Then we load the library. 
+
+```
+library(fivethirtyeight)
+```{{execute}}
+
+Now we can assign the `bob_ross` data frame into the `BobRoss` object. 
 
 ```
 BobRoss <- fivethirtyeight::bob_ross
 ```{{execute}}
+
+### View a dataset
 
 We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (the variables are presented horizontally, which as much data as possible printed to the screen).
 

@@ -24,13 +24,13 @@ Install the `tidyverse` package (this requires an internet connection outside of
 
 
 ```
-base::install.packages("tidyverse")
+install.packages("tidyverse")
 ```{{copy}}
 
 Load the package with the `base::library()` function.
 
 ```
-base::library(tidyverse)
+library(tidyverse)
 ```{{copy}}
 
 ### The R language
