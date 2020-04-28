@@ -17,8 +17,13 @@ We will load the data into R using `fivethirtyeight::bob_ross`
 
 ```
 BobRoss <- fivethirtyeight::bob_ross
-BobRoss %>% glimpse(78)
 ```{{execute}}
 
+We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (the variables are presented horizontally, which as much data as possible printed to the screen).
 
-`dplyr::glimpse()` is a very handy function for examining a dataset's structure and shape. 
+```
+BobRoss %>% glimpse(78)
+```{{cop}}
+
+
+`dplyr::glimpse()` is a very handy function for examining the structure and shape of a dataset. 

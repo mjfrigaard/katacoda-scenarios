@@ -14,21 +14,30 @@ We will be using the popular `dplyr` package for data manipulation. `dplyr` is p
 
 The `tidyverse` contains multiple packages. All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
 
-Install the `tidyverse` package (this requires an internet connection outside of Katacoda).
+Install the `tidyverse` package (this requires an internet connection outside of Katacoda) by clicking on the 'copy' icon below and pasting the code into the Terminal window. 
+
+<kbd>Ctrl</kbd>+<kbd>V</kbd>
+
+*or*
+
+<kbd>Cmd</kbd>+<kbd>V</kbd>
+
 
 ```
-install.packages("tidyverse")
-```
+base::install.packages("tidyverse")
+```{{copy}}
 
 Load the package with the `base::library()` function.
 
 ```
-library(tidyverse)
-```
+base::library(tidyverse)
+```{{copy}}
+
+### The R language
 
 R is an object-oriented and functional programming language, which means objects and functions make up the majority of R's grammar and syntax. When we load data into R, these data get stored in a data object. To do things to any data object (manipulate, analyze, visualize, model, etc.), we'll need to use functions. We can write custom functions, or we can use one of the over 10,000 user-written packages available on [CRAN](https://cran.r-project.org/). 
 
-### Using functions
+### Using R functions
 
 If we want to use a function from a package, the syntax for doing this is `package::function()` 
 
