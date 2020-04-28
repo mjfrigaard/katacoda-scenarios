@@ -1,26 +1,19 @@
-Format and shape your data in R with the tidyverse
-================
+---
+title: "Format and shape your data in R with the tidyverse"
+output: 
+  html_document: 
+    toc_depth: 6
+    highlight: textmate
+    keep_md: yes
+---
 
-  - [Setup](#setup)
-  - [Markdown syntax (Katacoda)](#markdown-syntax-katacoda)
-  - [Learner personas](#learner-personas)
-      - [Intro](#intro)
-      - [step 1](#step-1)
-  - [step 2](#step-2)
-  - [step 3](#step-3)
-  - [step 4](#step-4)
-  - [Appendix 1: Katacoda scenario
-    tutorials](#appendix-1-katacoda-scenario-tutorials)
-  - [Appendix 2: Katacoda guidelines](#appendix-2-katacoda-guidelines)
-  - [Appendix 3: Scenario Checklist](#appendix-3-scenario-checklist)
-  - [Scenario contents](#scenario-contents)
 
-## Setup
 
-This scenario is built using the following commands in the Terminal pane
-in RStudio.
+## Setup  
 
-``` bash
+This scenario is built using the following commands in the Terminal pane in RStudio. 
+
+```bash
 # create a new scenario
 ? Friendly url:  format-shape-data
 ? Scenario Title:  Format and shape your data in R with the tidyverse
@@ -32,59 +25,59 @@ in RStudio.
 ? Layout:  2x Terminal Split
 ```
 
-The following folder was created from these commands.
+The following folder was created from these commands. 
 
-    #> format-shape-data
-    #> ├── finish.md
-    #> ├── index.json
-    #> ├── intro.md
-    #> ├── step1.md
-    #> ├── step10.md
-    #> ├── step11.md
-    #> ├── step12.md
-    #> ├── step2.md
-    #> ├── step3.md
-    #> ├── step4.md
-    #> ├── step5.md
-    #> ├── step6.md
-    #> ├── step7.md
-    #> ├── step8.md
-    #> └── step9.md
 
-We can see all `steps`, the `intro`, and `finish` markdown files. There
-is also an `index.json` file for managing all the steps in the Katacoda
-environment.
+```
+#> format-shape-data
+#> ├── finish.md
+#> ├── index.json
+#> ├── intro.md
+#> ├── step1.md
+#> ├── step10.md
+#> ├── step11.md
+#> ├── step12.md
+#> ├── step2.md
+#> ├── step3.md
+#> ├── step4.md
+#> ├── step5.md
+#> ├── step6.md
+#> ├── step7.md
+#> ├── step8.md
+#> └── step9.md
+```
+
+We can see all `steps`, the `intro`, and `finish` markdown files. There is also an `index.json` file for managing all the steps in the Katacoda environment.
 
 ## Markdown syntax (Katacoda)
 
-Katacoda comes with it’s own flavor of Markdown, which you can learn
-more about
-[here.](https://katacoda.com/scenario-examples/scenarios/markdown-extensions).
-The main thing to know is that there are `execute` and `copy`
-extensions, which you can use in the markdown to indicate whether
-Katacoda should copy or run the code inside the R REPL.
+Katacoda comes with it's own flavor of Markdown, which you can learn more about [here.](https://katacoda.com/scenario-examples/scenarios/markdown-extensions). The main thing to know is that there are `execute` and `copy` extensions, which you can use in the markdown to indicate whether Katacoda should copy or run the code inside the R REPL.
+
 
 ## Learner personas
 
-The learner personas for this scenario are:
+The learner personas for this scenario are: 
 
-1.  Horatio is an executive at a tech company who wants to learn more
-    about
+1. Horatio is an executive at a tech company who wants to learn more about 
 
-2.  Judy is a product manager at a start-up…
+2. Judy is a product manager at a start-up...
 
-3.  Andrew is a graduate student in college…
+3. Andrew is a graduate student in college...
 
------
+***
 
 ### Intro
 
 The introduction for this scenario is stored in the following file:
 
-    #> format-shape-data
-    #> └── intro.md
 
-``` 
+```
+#> format-shape-data
+#> └── intro.md
+```
+
+
+~~~
 
 # Getting your data into the correct shape 
 
@@ -95,18 +88,21 @@ This scenario will introduce how to use R to format and shape (or *reformat* and
 ## Packages and libraries
 
 In this first exercise, we'll be using [`dplyr`](https://dplyr.tidyverse.org/), a package from the [`tidyverse`](https://www.tidyverse.org/).
+
+~~~
+
+### step 1 (install and load packages)
+
+The `step1` file starts the scenario off an intro to R packages (the `base::library()` function). The markdown for the `step1.md` file is below. 
+
+
+```
+#> format-shape-data
+#> └── step1.md
 ```
 
-### step 1
 
-The `step1` file starts the scenario off an intro to R packages (the
-`base::library()` function). The markdown for the `step1.md` file is
-below.
-
-    #> format-shape-data
-    #> └── step1.md
-
-```` 
+~~~
 
 # Getting started in R
 
@@ -147,13 +143,39 @@ For example, below, we'll use the `tidyverse_logo()` function from the `tidyvers
 ```
 tidyverse::tidyverse_logo()
 ```{{execute}}
-````
 
-## step 2
+~~~
 
-This step loads the data into R (using the `tibble` package).
+## step 2 (tribble)
 
-```` 
+
+
+```
+#> format-shape-data
+#> └── step2.md
+```
+
+
+This step loads the data into R (using the `tibble` package). 
+
+
+```r
+# datapasta::tribble_paste(fivethirtyeight::bob_ross %>%
+#   dplyr::select(title, bushes, clouds) %>% 
+#   utils::head(5))
+```
+
+
+```r
+SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
+                  "A WALK IN THE WOODS",      1L,      0L,
+                         "MT. MCKINLEY",      0L,      1L,
+                         "EBONY SUNSET",      0L,      0L,
+                          "WINTER MIST",      1L,      1L,
+                         "QUIET STREAM",      0L,      0L)
+```
+
+~~~
 
 # Creating data
 
@@ -211,176 +233,247 @@ To view the contents of `SmallBobRoss`, we can enter the name into the console, 
 # print data
 SmallBobRoss
 ```{{execute}}
-````
 
-## step 3
+~~~
+
+## step 3 (read_csv)
+
+
+```
+#> format-shape-data
+#> └── step3.md
+```
 
 Step 3 shows us how to import data into the R environment.
 
-    #> # A tibble: 5 x 3
-    #>   title               bushes clouds
-    #>   <chr>                <dbl>  <dbl>
-    #> 1 A WALK IN THE WOODS      1      0
-    #> 2 MT. MCKINLEY             0      1
-    #> 3 EBONY SUNSET             0      0
-    #> 4 WINTER MIST              1      1
-    #> 5 QUIET STREAM             0      0
 
-## step 4
+```r
+# fs::dir_ls("data")
+readr::write_csv(as.data.frame(SmallBobRoss), "data/SmallBobRoss.csv")
+```
 
-This step imports the full `bob_ross` dataset from the `fivethirtyeight`
-package. We will load the data into R using `fivethirtyeight::bob_ross`
 
-    #> Rows: 403
-    #> Columns: 71
-    #> $ episode            <chr> "S01E01", "S01E02", "S01E03", "S01E04", "S01E05"…
-    #> $ season             <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, …
-    #> $ episode_num        <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2,…
-    #> $ title              <chr> "A WALK IN THE WOODS", "MT. MCKINLEY", "EBONY SU…
-    #> $ apple_frame        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ aurora_borealis    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ barn               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ beach              <int> 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ boat               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ bridge             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ building           <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ bushes             <int> 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, …
-    #> $ cabin              <int> 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ cactus             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ circle_frame       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ cirrus             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, …
-    #> $ cliff              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ clouds             <int> 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, …
-    #> $ conifer            <int> 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, …
-    #> $ cumulus            <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, …
-    #> $ deciduous          <int> 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, …
-    #> $ diane_andre        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ dock               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ double_oval_frame  <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ farm               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ fence              <int> 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ fire               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ florida_frame      <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ flowers            <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ fog                <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ framed             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ grass              <int> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, …
-    #> $ guest              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ half_circle_frame  <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ half_oval_frame    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ hills              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ lake               <int> 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, …
-    #> $ lakes              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ lighthouse         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ mill               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ moon               <int> 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ mountain           <int> 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, …
-    #> $ mountains          <int> 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, …
-    #> $ night              <int> 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ ocean              <int> 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, …
-    #> $ oval_frame         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ palm_trees         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ path               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ person             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ portrait           <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ rectangle_3d_frame <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ rectangular_frame  <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ river              <int> 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ rocks              <int> 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ seashell_frame     <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ snow               <int> 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, …
-    #> $ snowy_mountain     <int> 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, …
-    #> $ split_frame        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ steve_ross         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ structure          <int> 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ sun                <int> 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, …
-    #> $ tomb_frame         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ tree               <int> 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, …
-    #> $ trees              <int> 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, …
-    #> $ triple_frame       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ waterfall          <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ waves              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, …
-    #> $ windmill           <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ window_frame       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ winter             <int> 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
-    #> $ wood_framed        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+```r
+readr::read_csv(file = "https://bit.ly/small-bob-ross")
+```
 
-    #> # A tibble: 27,001 x 6
-    #>    episode season episode_num title               object          present
-    #>    <chr>    <dbl>       <dbl> <chr>               <chr>             <int>
-    #>  1 S01E01       1           1 A WALK IN THE WOODS apple_frame           0
-    #>  2 S01E01       1           1 A WALK IN THE WOODS aurora_borealis       0
-    #>  3 S01E01       1           1 A WALK IN THE WOODS barn                  0
-    #>  4 S01E01       1           1 A WALK IN THE WOODS beach                 0
-    #>  5 S01E01       1           1 A WALK IN THE WOODS boat                  0
-    #>  6 S01E01       1           1 A WALK IN THE WOODS bridge                0
-    #>  7 S01E01       1           1 A WALK IN THE WOODS building              0
-    #>  8 S01E01       1           1 A WALK IN THE WOODS bushes                1
-    #>  9 S01E01       1           1 A WALK IN THE WOODS cabin                 0
-    #> 10 S01E01       1           1 A WALK IN THE WOODS cactus                0
-    #> # … with 26,991 more rows
+```
+#> # A tibble: 5 x 3
+#>   title               bushes clouds
+#>   <chr>                <dbl>  <dbl>
+#> 1 A WALK IN THE WOODS      1      0
+#> 2 MT. MCKINLEY             0      1
+#> 3 EBONY SUNSET             0      0
+#> 4 WINTER MIST              1      1
+#> 5 QUIET STREAM             0      0
+```
+
+~~~
+
+# Download data into R
+
+As we noted earlier, functions are like verbs in the R language, and data we've created is the object. Similar to English grammar, verbs (functions) do things to objects. We can build data objects in R using a variety of methods. Typically we will be loading data from an outside source into the R environment. 
+
+## Importing .csv files into R
+
+We can import data directly from a web URL like the one below. The bitly link takes us to a [comma-separated values file](https://en.wikipedia.org/wiki/Comma-separated_values) with the same data we loaded in the previous step.
+
+```
+SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
+```{{execute}}
+
+The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)).
+
+After these data are loaded into R, we get a message about how the data were formatted, 
+
+```
+Parsed with column specification:
+cols(
+  title = col_character(),
+  bushes = col_double(),
+  clouds = col_double()
+)
+```
+
+
+`col_character()` means these data are text, which makes sense because they are the titles for the episodes. The `col_double()` tells us the `bushes` and `clouds` variables were imported as double (a kind of numerical variable in R).
+
+~~~
+
+
+## step 4  (fivethirtyeight, glimpse)
+
+
+```
+#> format-shape-data
+#> └── step4.md
+```
+
+This step imports the full `bob_ross` dataset from the `fivethirtyeight` package. We load the data into R using `fivethirtyeight::bob_ross`.
+
+
+```r
+BobRoss <- fivethirtyeight::bob_ross
+BobRoss %>% glimpse(78)
+```
+
+```
+#> Rows: 403
+#> Columns: 71
+#> $ episode            <chr> "S01E01", "S01E02", "S01E03", "S01E04", "S01E05"…
+#> $ season             <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 2, 2, …
+#> $ episode_num        <dbl> 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 1, 2,…
+#> $ title              <chr> "A WALK IN THE WOODS", "MT. MCKINLEY", "EBONY SU…
+#> $ apple_frame        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ aurora_borealis    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ barn               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ beach              <int> 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
+#> $ boat               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ bridge             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ building           <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ bushes             <int> 1, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 0, …
+#> $ cabin              <int> 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ cactus             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ circle_frame       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ cirrus             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, …
+#> $ cliff              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ clouds             <int> 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, …
+#> $ conifer            <int> 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0, …
+#> $ cumulus            <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, …
+#> $ deciduous          <int> 1, 0, 0, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, …
+#> $ diane_andre        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ dock               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ double_oval_frame  <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ farm               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ fence              <int> 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, …
+#> $ fire               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ florida_frame      <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ flowers            <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ fog                <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ framed             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ grass              <int> 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, …
+#> $ guest              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ half_circle_frame  <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ half_oval_frame    <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ hills              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ lake               <int> 0, 0, 0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, …
+#> $ lakes              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ lighthouse         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ mill               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ moon               <int> 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ mountain           <int> 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 0, …
+#> $ mountains          <int> 0, 0, 1, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, …
+#> $ night              <int> 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ ocean              <int> 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 1, …
+#> $ oval_frame         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ palm_trees         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ path               <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ person             <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ portrait           <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ rectangle_3d_frame <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ rectangular_frame  <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ river              <int> 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ rocks              <int> 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ seashell_frame     <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ snow               <int> 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, …
+#> $ snowy_mountain     <int> 0, 1, 0, 1, 0, 1, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, …
+#> $ split_frame        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ steve_ross         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ structure          <int> 0, 0, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ sun                <int> 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, …
+#> $ tomb_frame         <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ tree               <int> 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, …
+#> $ trees              <int> 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, …
+#> $ triple_frame       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ waterfall          <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ waves              <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, …
+#> $ windmill           <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ window_frame       <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ winter             <int> 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+#> $ wood_framed        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
+```
+
+# step 5 (pivot_)
+
+
+```
+#> format-shape-data
+#> └── step5.md
+```
+
+
+```r
+fivethirtyeight::bob_ross %>%
+  tidyr::pivot_longer(data = ., 
+                      cols = c(apple_frame:wood_framed), 
+                      names_to = 'object', 
+                      values_to = 'present') %>% 
+  dplyr::glimpse(78)
+```
+
+```
+#> Rows: 27,001
+#> Columns: 6
+#> $ episode     <chr> "S01E01", "S01E01", "S01E01", "S01E01", "S01E01", "S01E…
+#> $ season      <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+#> $ episode_num <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+#> $ title       <chr> "A WALK IN THE WOODS", "A WALK IN THE WOODS", "A WALK I…
+#> $ object      <chr> "apple_frame", "aurora_borealis", "barn", "beach", "boa…
+#> $ present     <int> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0…
+```
+
+
+
 
 ## Appendix 1: Katacoda scenario tutorials
 
-The tutorial for building the scenario is
-[here](https://katacoda.com/scenario-examples/scenarios/create-scenario-101).
+The tutorial for building the scenario is [here](https://katacoda.com/scenario-examples/scenarios/create-scenario-101).
 
-I took notes on this tutorial and made them available in [this Google
-document](https://docs.google.com/document/d/e/2PACX-1vSf2w2onhH5t3IhuD4sYLoWqn46BLKMYFR7q3BHO8QTaRkVgXfhKvnl8T9uHrjmbVpTZVKCWrfxEl0R/pub).
+I took notes on this tutorial and made them available in [this Google document](https://docs.google.com/document/d/e/2PACX-1vSf2w2onhH5t3IhuD4sYLoWqn46BLKMYFR7q3BHO8QTaRkVgXfhKvnl8T9uHrjmbVpTZVKCWrfxEl0R/pub).
 
 ## Appendix 2: Katacoda guidelines
 
-There are multiple guidelines and resources for writing scenarios.
-O’Reilly has provided an *Authoring Guide* and *Formatting and Design
-Guide*.
+There are multiple guidelines and resources for writing scenarios. O'Reilly has provided an *Authoring Guide* and *Formatting and Design Guide*.
 
 The link for these files can be found here:
 
-  - [Katacoda Scenario Formatting and Design Guide for
-    Authors](https://docs.google.com/document/d/1l4lofG5kAu8JFzumZPCsJJE2muCYe6rHSHCQsMlijd8/edit)
++ [Katacoda Scenario Formatting and Design Guide for Authors](https://docs.google.com/document/d/1l4lofG5kAu8JFzumZPCsJJE2muCYe6rHSHCQsMlijd8/edit)
 
-  - [Katacoda Scenario Authoring
-    Guide](https://docs.google.com/document/d/14rudtruZQhRxvD3zcR3g75j5nuOgKGz4CYk8hdhaV-w/edit)
++ [Katacoda Scenario Authoring Guide](https://docs.google.com/document/d/14rudtruZQhRxvD3zcR3g75j5nuOgKGz4CYk8hdhaV-w/edit)
 
 ## Appendix 3: Scenario Checklist
 
 **Scenario Readiness Checklist:**
 
-When you think your scenario is ready for publication, we recommend you
-run through the checklist below to ensure it is ready to go. \[Reminder:
-We discuss these best practices in the Katacoda Formatting and Design
-Guide for Authors\]:
+When you think your scenario is ready for publication, we recommend you run through the checklist below to ensure it is ready to go. [Reminder: We discuss these best practices in the Katacoda Formatting and Design Guide for Authors]:
 
-Does the scenario start consistently and in a timely manner? More than 5
-minutes to start would be cause to reconsider your build decisions.
+Does the scenario start consistently and in a timely manner? More than 5 minutes to start would be cause to reconsider your build decisions.
 
-  - [ ] Are your intro and final pages present and are their respective
-    goals and lessons learned in agreement?
+- [ ] Are your intro and final pages present and are their respective goals and lessons learned in agreement?
 
-  - [ ] Have you tested your scenario lately?
+- [ ] Have you tested your scenario lately?
 
-  - [ ] Do you agree with the leveling (beginner, intermediate,
-    advanced) you indicated when you started the build?
+- [ ] Do you agree with the leveling (beginner, intermediate, advanced) you indicated when you started the build?
 
-  - [ ] Was learning time you entered correct, or should it be adjusted?
+- [ ] Was learning time you entered correct, or should it be adjusted?
 
-  - [ ] Are your versions of tools and other dependencies up to date?
+- [ ] Are your versions of tools and other dependencies up to date?
 
-  - [ ] Have you tried every instruction?
+- [ ] Have you tried every instruction?
 
-  - [ ] Have you written each step in the most concise manner possible?
+- [ ] Have you written each step in the most concise manner possible?
 
-  - [ ] Have you run your text through a spelling/grammar checker?
+- [ ] Have you run your text through a spelling/grammar checker?
 
-  - [ ] Are your credits to others given present and correct?
+- [ ] Are your credits to others given present and correct?
 
-  - [ ] Are your images legal and with credits?
+- [ ] Are your images legal and with credits?
 
-  - [ ] Are your hyperlinks all working?
+- [ ] Are your hyperlinks all working?
 
-  - [ ] Do the goals and lessons learned items match the steps in the
-    scenario?
+- [ ] Do the goals and lessons learned items match the steps in the scenario?
+
 
 ## Scenario contents
 
-This scenario covers…
+This scenario covers...

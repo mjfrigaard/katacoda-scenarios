@@ -1,10 +1,10 @@
 ---
 title: "Format and shape your data in R with the tidyverse"
 output: 
-  github_document: 
-    fig_height: 6
-    fig_width: 8
-    toc: yes
+  html_document: 
+    toc_depth: 6
+    highlight: textmate
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -26,7 +26,7 @@ if (!file.exists("figs")) {
   dir.create("figs")
 }
 knitr::opts_chunk$set(
-  echo = FALSE,
+  echo = TRUE,
   eval = TRUE,
   cache = FALSE,
   prompt = FALSE,
@@ -78,7 +78,7 @@ This scenario is built using the following commands in the Terminal pane in RStu
 
 The following folder was created from these commands. 
 
-```{r format-shape-data}
+```{r format-shape-data, echo=FALSE}
 fs::dir_tree("format-shape-data")
 ```
 
@@ -124,11 +124,11 @@ In this first exercise, we'll be using [`dplyr`](https://dplyr.tidyverse.org/), 
 
 ~~~
 
-### step 1
+### step 1 (install and load packages)
 
 The `step1` file starts the scenario off an intro to R packages (the `base::library()` function). The markdown for the `step1.md` file is below. 
 
-```{r step1}
+```{r step1, echo=FALSE}
 fs::dir_tree("format-shape-data", regex = "step1.md")
 ```
 
@@ -177,7 +177,13 @@ tidyverse::tidyverse_logo()
 
 ~~~
 
-## step 2
+## step 2 (tribble)
+
+
+```{r step2, echo=FALSE}
+fs::dir_tree("format-shape-data", regex = "step2.md")
+```
+
 
 This step loads the data into R (using the `tibble` package). 
 
@@ -257,7 +263,11 @@ SmallBobRoss
 
 ~~~
 
-## step 3
+## step 3 (read_csv)
+
+```{r step3, echo=FALSE}
+fs::dir_tree("format-shape-data", regex = "step3.md")
+```
 
 Step 3 shows us how to import data into the R environment.
 
@@ -303,7 +313,11 @@ cols(
 ~~~
 
 
-## step 4 
+## step 4  (fivethirtyeight, glimpse)
+
+```{r step4, echo=FALSE}
+fs::dir_tree("format-shape-data", regex = "step4.md")
+```
 
 This step imports the full `bob_ross` dataset from the `fivethirtyeight` package. We load the data into R using `fivethirtyeight::bob_ross`.
 
@@ -312,11 +326,16 @@ BobRoss <- fivethirtyeight::bob_ross
 BobRoss %>% glimpse(78)
 ```
 
+# step 5 (pivot_)
 
-```{r}
+```{r step5, echo=FALSE}
+fs::dir_tree("format-shape-data", regex = "step5.md")
+```
+
+```{r pivot_longer}
 fivethirtyeight::bob_ross %>%
   tidyr::pivot_longer(data = ., 
-                      cols = -c(episode, season, episode_num, title), 
+                      cols = c(apple_frame:wood_framed), 
                       names_to = 'object', 
                       values_to = 'present') %>% 
   dplyr::glimpse(78)

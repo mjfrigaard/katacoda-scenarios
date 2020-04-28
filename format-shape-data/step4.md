@@ -37,7 +37,7 @@ We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which sh
 
 ```
 BobRoss %>% glimpse(78)
-```{{cop}}
+```{{copy}}
 
 
-`dplyr::glimpse()` is a very handy function for examining the structure and shape of a dataset. 
+`dplyr::glimpse()` is a very handy function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. 
