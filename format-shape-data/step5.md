@@ -14,7 +14,15 @@ count(BobRoss, bushes)
 
 We want to create a dataset with two columns: one for keeping track of the object in the painting, and another corresponding to the number of times that particular object occurred. Data arrangements like this are typically called long or tidy, but the important thing to know is that each value is indexed in two places (in this case `object` and `present`).
 
-The `tidyr::pivot_longer()` function allows us to specify a data set (`BobRoss`), what columns we want indexed (the `c(apple_frame:wood_framed)` is shorthand for `apple_frame` through `wood_framed`), what we want the indexed names to be (`names_to = 'object'`), and what we want the indexed values to be (`values_to = 'present'`). Click on the check mark to run the code and see the result.
+The `tidyr::pivot_longer()` function takes the following arguments: 
+
+1. A data set (`BobRoss`), 
+2. The columns we want indexed (the `c(apple_frame:wood_framed)` is shorthand for `apple_frame` through `wood_framed`),  
+3. What we want the indexed names to be (`names_to = 'object'`),  
+4. What we want the indexed values to be (`values_to = 'present'`)  
+
+
+Click on the check mark to run the code and see the result.
 
 ```
 BobRossLong <- tidyr::pivot_longer(data = BobRoss, 
