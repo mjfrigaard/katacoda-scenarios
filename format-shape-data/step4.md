@@ -36,7 +36,7 @@ BobRoss <- fivethirtyeight::bob_ross
 We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (the variables are presented horizontally, which as much data as possible printed to the screen).
 
 ```
-BobRoss %>% glimpse(78)
+glimpse(BobRoss)
 ```{{copy}}
 
 
