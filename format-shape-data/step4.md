@@ -1,4 +1,4 @@
-## Two levels of data wrangling 
+# Two levels of data wrangling 
 
 We like to think of wrangling on two different levels. The first level deals with the data shape and structure. The second level of data wrangling refers with the format of the actual variables (which we will get to in the following steps). Questions we should be asking ourselves about data at this level include:
 
@@ -13,4 +13,12 @@ We like to think of wrangling on two different levels. The first level deals wit
 A common task for data manipulation is moving columns to rows, or rows to columns. We refer to this as data The `tidyr` package in R makes this easy with the `tidyr::pivot_` functions. We'll be importing and restructuring the Bob Ross dataset.
 
 
+We will load the data into R using `fivethirtyeight::bob_ross`
 
+```
+BobRoss <- fivethirtyeight::bob_ross
+BobRoss %>% glimpse(78)
+```{{execute}}
+
+
+`dplyr::glimpse()` is a very handy function for examining a dataset's structure and shape. 

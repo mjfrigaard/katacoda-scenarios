@@ -1,4 +1,4 @@
-## Download data into R
+# Download data into R
 
 As we noted earlier, functions are like verbs in the R language, and data we've created is the object. Similar to English grammar, verbs (functions) do things to objects. We can build data objects in R using a variety of methods. Typically we will be loading data from an outside source into the R environment. 
 
