@@ -172,6 +172,28 @@ Does the scenario start consistently and in a timely manner? More than 5 minutes
 - [ ] Do the goals and lessons learned items match the steps in the scenario?
 
 
+## Rename files in `draft/`
+
+```{r}
+draft_files <- fs::dir_ls("drafts")
+draft_files
+
+```
+
+
+```{r}
+draft_files <- fs::dir_ls("drafts")
+draft_files
+# rename files
+map_
+base::file.rename(from = sub(pattern = "_", ""))
+sapply(draft_files, FUN = function(eachPath){
+      file.rename(from = eachPath, to = sub(pattern = "_", replacement = "", eachPath))
+})
+# fs::dir_ls("drafts")
+```
+
+
 ## R Environments
 
 The Katacoda team recently rebuilt the R image, so I wanted to let you know that the latest-greatest R image you should be using in your Katacoda scenarios is `rlang:3.4`
