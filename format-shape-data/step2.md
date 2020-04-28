@@ -15,12 +15,12 @@ A description of these variables is below:
 The `tibble::tribble()` function takes column names with tilde in front of them (`~column`) and get separated by commas. `tibble::tribble()` then reads the data starting on the second line similar to the way the actual data are stored (see below).
 
 ```
-title,episode_num,bushes,clouds
-A WALK IN THE WOODS,1,1,0
-MT. MCKINLEY,2,0,1
-EBONY SUNSET,3,0,0
-WINTER MIST,4,1,1
-QUIET STREAM,5,0,0
+title,bushes,clouds
+A WALK IN THE WOODS,1,0
+MT. MCKINLEY,0,1
+EBONY SUNSET,0,0
+WINTER MIST,1,1
+QUIET STREAM,0,0
 ```
 
 The code below creates `SmallBobRoss` from the data above in the R environment. 
