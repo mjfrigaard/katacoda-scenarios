@@ -161,6 +161,30 @@ readr::read_csv(file = "https://bit.ly/small-bob-ross")
 ```
 
 
+## step 4 
+
+This step imports the full `bob_ross` dataset from the `fivethirtyeight` package. 
+
+```{r}
+
+```
+
+
+We will load the data into R using `fivethirtyeight::bob_ross`
+
+```{r BobRoss}
+BobRoss <- fivethirtyeight::bob_ross
+BobRoss %>% glimpse(78)
+```
+
+
+```{r}
+fivethirtyeight::bob_ross %>%
+  tidyr::pivot_longer(data = ., 
+                      cols = -c(episode, season, episode_num, title), 
+                      names_to = 'object', 
+                      values_to = 'present')
+```
 
 
 

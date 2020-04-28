@@ -1,66 +1,26 @@
 ## Download data into R
 
-As we noted earlier, functions are like verbs in the R language, and data we've created is the object. Similar to English grammar, verbs (functions) do things to objects. We can create data objects in R using through a variety of methods.
+As we noted earlier, functions are like verbs in the R language, and data we've created is the object. Similar to English grammar, verbs (functions) do things to objects. We can create data objects in R using through a variety of methods. Typically we will be loading data from an outside source into the R environment. 
 
-We can download data from a web url like the one below:
+## Importing .csv files into R
+
+We can import data directly from a web url like the one below. The bitly link takes us to a [comma-separated values file](https://en.wikipedia.org/wiki/Comma-separated_values) with the same data we loaded in the previous step.
 
 ```
 SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
 ```{{execute}}
 
+The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)).
 
-The `base::source()` command is used for running R code files and expressions (*remember we can always learn more about any R command using the question mark trick from the previous step*).
-
-
-```
-readr::read_csv()
-```
-
-We'll start by doing a very common task in data wrangling: changing the format of an existing variable. The primary `tidyverse` package for data manipulation is [`dplyr`](https://dplyr.tidyverse.org/).
-
-### Making a character variable numeric
-
-We're going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
-
-How `dplyr::mutate()` works:
+After these data are loaded into R, we get a message about how the data were formatted, 
 
 ```
-# a data set
-dplyr::mutate(.data = DataFrame,
-              # changed variable
-              `new variable name` =
-                  # function used to change variable
-                   some_function(
-                      # current variable name
-                      `old variable name`))
+Parsed with column specification:
+cols(
+  title = col_character(),
+  bushes = col_double(),
+  clouds = col_double()
+)
 ```
 
-As you can see from the code and comments above, first we enter the data set (`DataFrame`), then the name of the new variable we want to create (`new variable name`), the equals sign `=`, then the function we want to apply `some_function()` and the original variable we want to apply it to `old variable name`.
-
-So if we run the code below, we should find the `ht_m` variable changes from character (`<chr>`) to numeric (or double `<dbl>`).
-
-```
-# BpData data set
-dplyr::mutate(.data = BpData,
-              # # changed variable
-              ht_m =
-                  # function used to change variable
-                  base::as.numeric(
-                      # original variable name
-                      ht_m))
-```{{execute}}
-
-Now we can see the `ht_m` variable is a `<dbl>`. **It's always a good idea to check your data wrangling before assigning it back to the data frame.** Now that we see this variable is formatted the way we want it, we can assign it back to the `BpData` object.
-
-```
-# BpData data set
-BpData = dplyr::mutate(.data = BpData,
-              # # changed variable
-              ht_m =
-                  # function used to change variable
-                  base::as.numeric(
-                      # original variable name
-                      ht_m))
-```{{execute}}
-
-This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`.
+`col_character()` means these data are text, which makes sense because they are the titles for the episodes. The `col_double()` tells us the `bushes` and `clouds` variables were imported as double (a kind of numerical variable in R).
