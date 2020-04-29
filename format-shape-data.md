@@ -14,6 +14,7 @@ Format and shape your data in R with the tidyverse
   - [step 5 (pivot\_longer)](#step-5-pivot_longer)
   - [step6 (pivot\_wider)](#step6-pivot_wider)
   - [step 7 (separate)](#step-7-separate)
+  - [step 8 (unite and rm)](#step-8-unite-and-rm)
       - [Appendix 1: Katacoda scenario
         tutorials](#appendix-1-katacoda-scenario-tutorials)
       - [Appendix 2: Katacoda
@@ -329,7 +330,7 @@ dplyr::setdiff(x = BobRoss, y = BobRossWide)
 Create data set for this step.
 
 ``` r
-BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode, 
+BobRossStep7 <- tidyr::separate(data = BobRossLong, col = episode, 
                 into = c("season_text", "episode_text"), 
                 sep = "E", remove = FALSE) %>% 
   tidyr::unite(season_text, episode_text, col = "new_episode", sep = ", E") %>% 
@@ -337,13 +338,13 @@ BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode,
     episode_info = new_episode, 
     title:present)
 # export
-readr::write_csv(as.data.frame(BobRossEpisodes), "data/BobRossEpisodes.csv")
-rm(BobRossEpisodes)
+readr::write_csv(as.data.frame(BobRossStep7), "data/BobRossStep7.csv")
+rm(BobRossStep7)
 ```
 
 ``` r
-BobRossEpi <- readr::read_csv(file = "https://bit.ly/bob-ross-epi")
-glimpse(BobRossEpi)
+BobRossStep7 <- readr::read_csv(file = "https://bit.ly/bob-ross-step7")
+glimpse(BobRossStep7)
 ```
 
     #> Rows: 27,001
@@ -356,7 +357,7 @@ glimpse(BobRossEpi)
 separate `episode_info`
 
 ``` r
-tidyr::separate(data = BobRossEpi, 
+tidyr::separate(data = BobRossStep7, 
                 col = episode_info, 
                 into = c("season", "episode"))
 ```
@@ -374,6 +375,56 @@ tidyr::separate(data = BobRossEpi,
     #>  8 S01    E01     A WALK IN THE WOODS bushes                1
     #>  9 S01    E01     A WALK IN THE WOODS cabin                 0
     #> 10 S01    E01     A WALK IN THE WOODS cactus                0
+    #> # … with 26,991 more rows
+
+# step 8 (unite and rm)
+
+Here we unite two columns into a single column.
+
+``` r
+BobRossStep8 <- tidyr::separate(data = BobRossLong, col = episode, 
+                into = c("season_text", "episode_text"), 
+                sep = "E", remove = FALSE) %>% 
+  dplyr::select(season_text, episode_text, title:present)
+# export
+readr::write_csv(as.data.frame(x = BobRossStep8), "data/BobRossStep8.csv")
+```
+
+``` r
+BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+head(BobRossStep8)
+```
+
+    #> # A tibble: 6 x 5
+    #>   season_text episode_text title               object          present
+    #>   <chr>       <chr>        <chr>               <chr>             <dbl>
+    #> 1 S01         01           A WALK IN THE WOODS apple_frame           0
+    #> 2 S01         01           A WALK IN THE WOODS aurora_borealis       0
+    #> 3 S01         01           A WALK IN THE WOODS barn                  0
+    #> 4 S01         01           A WALK IN THE WOODS beach                 0
+    #> 5 S01         01           A WALK IN THE WOODS boat                  0
+    #> 6 S01         01           A WALK IN THE WOODS bridge                0
+
+Use `unite`.
+
+``` r
+unite(data = BobRossStep8, season_text, episode_text, col = 'episode_new', 
+      sep = "E")
+```
+
+    #> # A tibble: 27,001 x 4
+    #>    episode_new title               object          present
+    #>    <chr>       <chr>               <chr>             <dbl>
+    #>  1 S01E01      A WALK IN THE WOODS apple_frame           0
+    #>  2 S01E01      A WALK IN THE WOODS aurora_borealis       0
+    #>  3 S01E01      A WALK IN THE WOODS barn                  0
+    #>  4 S01E01      A WALK IN THE WOODS beach                 0
+    #>  5 S01E01      A WALK IN THE WOODS boat                  0
+    #>  6 S01E01      A WALK IN THE WOODS bridge                0
+    #>  7 S01E01      A WALK IN THE WOODS building              0
+    #>  8 S01E01      A WALK IN THE WOODS bushes                1
+    #>  9 S01E01      A WALK IN THE WOODS cabin                 0
+    #> 10 S01E01      A WALK IN THE WOODS cactus                0
     #> # … with 26,991 more rows
 
 ## Appendix 1: Katacoda scenario tutorials

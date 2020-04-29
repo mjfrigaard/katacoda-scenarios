@@ -237,11 +237,11 @@ tidyr::separate(data = BobRossStep7,
                 into = c("season", "episode"))
 ```
 
-# step 8 unite and rm
+# step 8 (unite and rm)
 
 Here we unite two columns into a single column.
 
-```{r BobRossStep8}
+```{r create-BobRossStep8}
 BobRossStep8 <- tidyr::separate(data = BobRossLong, col = episode, 
                 into = c("season_text", "episode_text"), 
                 sep = "E", remove = FALSE) %>% 
@@ -252,20 +252,14 @@ readr::write_csv(as.data.frame(x = BobRossStep8), "data/BobRossStep8.csv")
 
 ```{r BobRossStep8}
 BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
-glimpse(BobRossStep8)
+head(BobRossStep8)
 ```
+Use `unite`.
 
-
-```{r}
-%>% 
-  
-  unite(data = ., season_text, episode_text, 
-        col = 'episode_new', 
-        sep = "E", 
-        remove = FALSE)
+```{r check-unite}
+unite(data = BobRossStep8, season_text, episode_text, col = 'episode_new', 
+      sep = "E")
 ```
-
-
 
 
 ## Appendix 1: Katacoda scenario tutorials

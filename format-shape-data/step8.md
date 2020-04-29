@@ -1,46 +1,67 @@
-## Making a character variable numeric
+# Combining two columns 
 
-We're going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
+Just like with the two `pivot_` functions, there is an opposite version of `tidyr::separate()` called `tidyr::unite()`. The `unite()` function takes multiple columns and sticks them together into a single new column. 
 
-How `dplyr::mutate()` works:
+#### *First a little house cleaning...*
 
-```
-# a data set
-dplyr::mutate(.data = DataFrame,
-              # changed variable
-              `new variable name` =
-                  # function used to change variable
-                   some_function(
-                      # current variable name
-                      `old variable name`))
-```
-
-As you can see from the code and comments above, first we enter the data set (`DataFrame`), then the name of the new variable we want to create (`new variable name`), the equals sign `=`, then the function we want to apply `some_function()` and the original variable we want to apply it to `old variable name`.
-
-So if we run the code below, we should find the `ht_m` variable changes from character (`<chr>`) to numeric (or double `<dbl>`).
+We've accumulated quite a few datasets in our R environment, which can make things seem cluttered. You can check the objects in R using `ls()`. 
 
 ```
-# BpData data set
-dplyr::mutate(.data = BpData,
-              # # changed variable
-              ht_m =
-                  # function used to change variable
-                  base::as.numeric(
-                      # original variable name
-                      ht_m))
+ls()
 ```{{execute}}
 
-Now we can see the `ht_m` variable is a `<dbl>`. **It's always a good idea to check your data wrangling before assigning it back to the data frame.** Now that we see this variable is formatted the way we want it, we can assign it back to the `BpData` object.
+Yikes--so many Bob Ross's! We will remove the `BobRoss` and `BobRossStep7` datasets using `rm(BobRoss, BobRossStep7)`.
 
 ```
-# BpData data set
-BpData = dplyr::mutate(.data = BpData,
-              # # changed variable
-              ht_m =
-                  # function used to change variable
-                  base::as.numeric(
-                      # original variable name
-                      ht_m))
+rm(BobRoss, BobRossStep7)
 ```{{execute}}
 
-This produces no output. If you'd like to examine your work, you can wrap the entire thing in parenthesis `()`.
+Now check again with `ls()` just to make sure. Remove any additional datasets with `rm()`
+
+#### *...back to `unite()`*
+
+We'll load another alternative version of `BobRossLong` into R and view it with `head()` 
+
+```
+BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+head(BobRossStep8)
+```{{execute}}
+
+Now use `tidyr::unite()` with the following arguments:
+
+`data` = `BobRossStep8`
+
+the columns we want to unite (`season_text` and `episode_text`) 
+
+the new column name (`col = episode_new`) 
+
+And `sep =`, a regular expression pattern to place between the two columns we're uniting (in this case, it's `E`). 
+
+Fill in the code below to use `unite()`.
+
+```
+unite(data = BobRossStep8, season_text, episode_text, col = '___________', sep = "E")
+```{{copy}}
+
+If you've filled in the function correctly, you should see the following data set:
+
+```
+# A tibble: 27,001 x 4
+   episode_new title               object          present
+   <chr>       <chr>               <chr>             <dbl>
+ 1 S01E01      A WALK IN THE WOODS apple_frame           0
+ 2 S01E01      A WALK IN THE WOODS aurora_borealis       0
+ 3 S01E01      A WALK IN THE WOODS barn                  0
+ 4 S01E01      A WALK IN THE WOODS beach                 0
+ 5 S01E01      A WALK IN THE WOODS boat                  0
+ 6 S01E01      A WALK IN THE WOODS bridge                0
+ 7 S01E01      A WALK IN THE WOODS building              0
+ 8 S01E01      A WALK IN THE WOODS bushes                1
+ 9 S01E01      A WALK IN THE WOODS cabin                 0
+10 S01E01      A WALK IN THE WOODS cactus                0
+# … with 26,991 more rows
+```
+
+As we can see, `unite()` placed the `E` between `season_text` and `episode_text`
+
+ 
