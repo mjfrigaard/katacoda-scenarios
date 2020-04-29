@@ -20,16 +20,17 @@ We can see this by using the `utils::head()` function. This shows up the top six
 head(BobRoss)
 ```{{execute}}
 
-We could change the original data from having a different column for each painting object to a format that has only two columns for painting objects: the name of the object and whether or not is was present. 
-
+An image of this data arrangement is also provided below:
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/01-orig-bob-ross.png?raw=true)
 
-In order to do this, we will have to repeat the `season`, `episode`, `episode_num`, and `title` information down the columns for every object that was originally in a column.
+Can you think of another way to organize the same information? What if we changed the original data from having a column for each different painting object to a format with only two columns: the name of the painting `object`, and whether or not is was `present`. 
+
+The `object` columns would keep track of the *thing* in the painting (`apple_frame`, `aurora_borealis`, `barn`, etc.), and the `present` column would correspond to the *number of times* that particular thing occurred. In order to do this, we'd also have to repeat the `season`, `episode`, `episode_num`, and `title` information down the columns for every object that was originally in a column. The data would look like the image below:
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/02-long-bob-ross.png?raw=true)
 
-We want to create a dataset with two columns: one for keeping track of the object in the painting, and another corresponding to the number of times that particular object occurred. Data arrangements like this are typically called long or tidy, but the important thing to know is that each value is indexed in two places (in this case `object` and `present`).
+Data arrangements like this are typically called long or tidy, but the important thing to know is that each value is indexed in two places (in this case `object` and `present`).
 
 The `tidyr::pivot_longer()` function takes the following arguments: 
 

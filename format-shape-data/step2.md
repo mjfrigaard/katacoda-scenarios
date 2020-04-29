@@ -1,16 +1,14 @@
 # Creating data
 
-It's hard to learn any of R's capabilities without some data. One quick and easy way to get data into R is to create the data 'by hand.' We can build a data set with the [`tibble::tribble()`](https://tibble.tidyverse.org/reference/tribble.html) function. The tibble we'll create is a small sample from the [`bob_ross`](https://fivethirtyeight.com/features/a-statistical-analysis-of-the-work-of-bob-ross/) dataset from the `fivethirtyeight` package in R. Bob Ross was the host of [The Joy of Painting](https://en.wikipedia.org/wiki/The_Joy_of_Painting), a painting educational program from 1980 - 1994.
+It's hard to learn any of R's capabilities without a dataset. There are multiple ways to get datasets into the R environment, but won't be able to cover them all in this scenario. One quick and easy way to get data into R is to create the data 'by hand' using the `tibble::tribble()` function. Read more about this function [here on the tidyverse website](https://tibble.tidyverse.org/reference/tribble.html) function.
 
-A description of these variables is below:
+In this scenario, we will be using a dataset from the [`fivethirtyeight` package](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html) in R. This package has over 100 datasets from articles on the website `fivethirtyeight`. 
 
-+ `episode_num`: Episode number
+The dataset we will be using today comes from the article, ["A Statistical Analysis of the Work of Bob Ross."](https://fivethirtyeight.com/features/a-statistical-analysis-of-the-work-of-bob-ross/)
 
-+ `title`: Title of episode
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/00-538-bob-ross.png?raw=true)
 
-+ `bushes`: Present (`1`) or not (`0`)  
-
-+ `clouds`: Present (`1`) or not (`0`)
+Bob Ross was the host of [The Joy of Painting](https://en.wikipedia.org/wiki/The_Joy_of_Painting), a painting educational program from 1980 - 1994.
 
 
 These data are stored as a [comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values) file on Github (see below). 
@@ -24,11 +22,23 @@ WINTER MIST,1,1
 QUIET STREAM,0,0
 ```
 
-The `tibble::tribble()` function takes column names preceded by the tilde (i.e. `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored. 
+A description of these variables is below:
+
++ `episode_num`: Episode number
+
++ `title`: Title of episode
+
++ `bushes`: Present (`1`) or not (`0`)  
+
++ `clouds`: Present (`1`) or not (`0`)
+
+The `tibble::tribble()` function takes column names preceded by the tilde (i.e. `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored.
+
+The `tibble` we'll create is a small sample from the [`bob_ross`](https://fivethirtyeight-r.netlify.app/articles/fivethirtyeight.html) dataset.  
 
 ## Tibbles 
 
-The code below creates `SmallBobRoss` from the data above in the R environment. 
+The code below creates `SmallBobRoss` from the data above in the R environment. Click on the :arrow_right_hook:
 
 ```
 SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
