@@ -388,31 +388,40 @@ Check working environment
 # rm(datw)
 BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
 BobRossStep11 <- BobRossStep10 %>% select(-season)
+# export
+readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 ```
 
+
+
+```{r bob-ross-step11}
+rm(BobRossStep11)
+BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
+head(BobRossStep11)
+```
+
+
 ```{r}
-stringr::str_view_all(string = unique(BobRossLong$object), 
+stringr::str_view_all(string = unique(BobRossStep11$object), 
                       pattern = "_frame", 
                       match = TRUE)
 ```
 ```{r}
-dput(unique(BobRossLong$object))
+dput(unique(BobRossStep11$title))
 ```
 
 
 ```{r other-objects}
-BobRossLong %>% glimpse()
+count(BobRossStep11, episode)
 ```
 
 
 ```{r}
-BobRossLong %>% 
+BobRossStep11 %>% 
   dplyr::mutate(
-  object_categories = 
-    case_when(str_detect(string = object, pattern = cloud_objects) ~ "clouds",
-            str_detect(string = object, pattern = manmade_objects) ~ "man made",
-              str_detect(string = object, pattern = water_objects) ~ "water",
-              str_detect(string = object, pattern = frame_objects) ~ "framed"))
+    episode_category = case_when(
+            str_detect(string = title, pattern = "WOODS") ~ "Wood paintings",
+              str_detect(string = title, pattern = "MOUNTAINS") ~ "mountain paintings"))
 ```
 
 
