@@ -222,17 +222,15 @@ BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode,
                 sep = "E", remove = FALSE) %>% 
   tidyr::unite(season_text, episode_text, col = "new_episode", sep = ", E") %>% 
   dplyr::select(
-    episode = new_episode, 
+    episode_info = new_episode, 
     title:present)
 # export
 readr::write_csv(as.data.frame(BobRossEpisodes), "data/BobRossEpisodes.csv")
 rm(BobRossEpisodes)
 ```
 
-load these data 
-
 ```{r BobRossEpi}
-BobRossEpi <- readr::read_csv(file = "https://bit.ly/bob-ross-epi")
+BobRossEpi <- readr::read_csv(file = "https://bit.ly/bobross-episodes")
 glimpse(BobRossEpi)
 ```
 
@@ -241,8 +239,7 @@ separate `season` and `episode`.
 ```{r check-separate}
 tidyr::separate(data = BobRossEpi, 
                 col = episode, 
-                into = c("season", "episode"), 
-                sep = ", ")
+                into = c("season", "episode"))
 ```
 
 
