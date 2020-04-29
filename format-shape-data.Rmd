@@ -280,10 +280,27 @@ tibble::tribble(
                      values_from = count)
 ```
 
-```{r BobRossStep9}
-BobRossStep9 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+```{r export-BobRossStep9}
+BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+BobRossStep9 <- BobRossStep8 %>% 
+  dplyr::mutate(season_txt = stringr::str_remove_all(string = season_text, 
+                                                pattern = "S")) %>% 
+  dplyr::rename(episode_txt = episode_text)
 # export
 readr::write_csv(as.data.frame(x = BobRossStep9), "data/BobRossStep9.csv")
+```
+
+import data
+
+```{r import-BobRossStep9}
+BobRossStep9 <- readr::read_csv(file = "https://bit.ly/bob-ross-step9")
+BobRossStep9 %>% 
+  dplyr::mutate(episode_num = base::as.numeric(episode_text))
+```
+
+```{r}
+BobRossStep9 %>% 
+  dplyr::mutate(title = str_to_title(title))
 ```
 
 
