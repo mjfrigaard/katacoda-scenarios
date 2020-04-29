@@ -298,19 +298,34 @@ BobRossStep9
 readr::write_csv(as.data.frame(x = BobRossStep9), "data/BobRossStep9.csv")
 ```
 
-import data
+Import data
 
 ```{r import-BobRossStep9}
 BobRossStep9 <- readr::read_csv(file = "https://bit.ly/bob-ross-step9")
-BobRossStep9 %>% 
-  dplyr::mutate(episode_num = base::as.numeric(episode_text))
 ```
 
-```{r}
-BobRossStep9 %>% 
-  dplyr::mutate(title = str_to_title(title))
+Convert to numeric.
+
+```{r episode_num}
+dplyr::mutate(.data = BobRossStep9, episode_num = as.numeric(episode_txt))
 ```
 
+Convert `title` to `title`.
+
+```{r title}
+dplyr::mutate(.data = BobRossStep9, 
+              episode_num = base::as.numeric(episode_txt),
+              title = stringr::str_to_title(title))
+```
+
+```{r object}
+dplyr::mutate(.data = BobRossStep9, 
+              episode_num = base::as.numeric(episode_txt),
+              title = stringr::str_to_title(title),
+              object = stringr::str_replace_all(string = object, 
+                                       pattern = "_", 
+                                       replacement = " "))
+```
 
 
 ## Appendix 1: Katacoda scenario tutorials

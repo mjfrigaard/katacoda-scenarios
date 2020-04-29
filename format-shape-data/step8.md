@@ -7,12 +7,14 @@ Just like with the two `pivot_` functions, there is an opposite version of `tidy
 We've accumulated quite a few datasets in our R environment, which can make things seem cluttered. You can check the objects in R using `ls()`. 
 
 ```
+# click to execute code
 ls()
 ```{{execute}}
 
 Yikes--so many Bob Ross's! We will remove the `BobRoss` and `BobRossStep7` datasets using `rm(BobRoss, BobRossStep7)`.
 
 ```
+# click to execute code
 rm(BobRoss, BobRossStep7)
 ```{{execute}}
 
@@ -23,6 +25,7 @@ Now check again with `ls()` just to make sure. Remove any additional datasets wi
 We'll load another alternative version of `BobRossLong` into R and view it with `head()` 
 
 ```
+# click to execute code
 BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
 head(BobRossStep8)
 ```{{execute}}
@@ -40,6 +43,7 @@ Now use `tidyr::unite()` with the following arguments:
 Fill in the code below to use `unite()`.
 
 ```
+# click to copy code
 unite(data = BobRossStep8, season_text, episode_text, col = '___________', sep = "E")
 ```{{copy}}
 

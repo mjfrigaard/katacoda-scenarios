@@ -11,6 +11,7 @@ We will load an alternative version of `BobRossLong` into the R environment for 
 Please click on the *Run command* icon below to load `BobRossStep7` into R. 
 
 ```
+# click to execute code
 BobRossStep7 <- readr::read_csv(file = "https://bit.ly/bob-ross-step7")
 glimpse(BobRossStep7)
 ```{{execute}} 
@@ -26,6 +27,7 @@ We want to use `tidyr::separate()` to split the `episode_info` column into `seas
 Copy the code below and fill in the `into` section before pasting it back into the terminal and running it. 
 
 ```
+# click to copy code
 separate(data = BobRossStep7, col = episode_info, into = c("______", "_______"))
 ```{{copy}}
 

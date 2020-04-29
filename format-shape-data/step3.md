@@ -38,6 +38,7 @@ The `tibble` we create below is a small sample from the [`bob_ross`](https://fiv
 The code below creates `SmallBobRoss` from the data above in the R environment. Click on the *Run command* icon below.
 
 ```
+# click to execute code
 SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
                   "A WALK IN THE WOODS",      1L,      0L,
                          "MT. MCKINLEY",      0L,      1L,

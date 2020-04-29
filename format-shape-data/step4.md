@@ -7,6 +7,7 @@ The [`tidyverse readr`](https://readr.tidyverse.org/) package has functions for 
 The code below allows us to import data directly from a web URL like the one below. The bitly link takes us to a comma-separated values (.csv) file with the same data we loaded in the previous step.
 
 ```
+# click to execute code
 SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
 SmallBobRoss
 ```{{execute}}
@@ -31,6 +32,7 @@ cols(
 We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (`glimpse()` displays the variables horizontally, and prints as much data as possible to the screen.
 
 ```
+# click to copy code
 glimpse(SmallBobRoss)
 ```{{copy}}
 

@@ -18,6 +18,7 @@ A common task for data manipulation is moving columns to rows, or rows to column
 `glimpse()` is a convenient function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. 
 
 ```
+# click to execute code
 head(BobRoss)
 ```{{execute}}
 
@@ -28,18 +29,21 @@ We also want to know if there are duplicate rows in the `BobRoss` data, and we c
 *numer of rows?*
 
 ```
+# click to copy code
 base::nrow(BobRoss)
 ```{{copy}}
 
 *distinct rows (note this returns a tibble!)*
 
 ```
+# click to copy code
 dplyr::distinct(.data = BobRoss)
 ```{{copy}}
 
 *how about we check to see if they're identical?*
 
 ```
+# click to execute code
 identical(x = nrow(BobRoss), y = nrow(dplyr::distinct(BobRoss)))
 ```{{execute}}
 
@@ -84,6 +88,7 @@ The `tidyr::pivot_longer()` function takes the following arguments:
 Click on the checkmark to run the code and see the result.
 
 ```
+# click to execute code
 BobRossLong <- pivot_longer(data = BobRoss, 
                       cols = c(apple_frame:wood_framed), 
                       names_to = 'object', 

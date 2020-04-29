@@ -10,9 +10,7 @@ R is an object-oriented, functional programming scripting language for data mani
 
 ## Using R packages 
 
-We will be using the popular `dplyr` package for data manipulation. `dplyr` is part of the `tidyverse,` which is a suite of packages pioneered by RStudio's Chief Scientist [Hadley Wickham](http://hadley.nz/).  
-
-The `tidyverse` contains multiple packages. All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
+We will be using the popular `tidyr` and `dplyr` packages for data manipulation. These packages are both part of the `tidyverse,` which is a suite of tools pioneered by RStudio's Chief Scientist [Hadley Wickham](http://hadley.nz/). All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
 
 Install the `tidyverse` package (this requires an internet connection outside of Katacoda) by clicking on the 'copy' icon below and pasting the code into the Terminal window, then hitting <kbd>enter</kbd> or <kbd>return</kbd>. 
 
@@ -37,6 +35,18 @@ library(tidyverse)
 
 R is an object-oriented and functional programming language, which means objects and functions make up the majority of R's grammar and syntax. When we load data into R, these data get stored in a data object. To do things to any data object (manipulate, analyze, visualize, model, etc.), we'll need to use functions. We can write custom functions, or we can use one of the over 10,000 user-written packages available on [CRAN](https://cran.r-project.org/). 
 
+### Code style
+
+The code in this scenario follows the [`tidyverse` style guide]() as closely as possible. 
+
+> "*Each line of a comment should begin with the comment symbol and a single space: `#`*"
+
+```
+# comments aren't run in the terminal 
+```
+
+> "*In data analysis code, use comments to record important findings and analysis decisions. If you need comments to explain what your code is doing, consider rewriting your code to be clearer.*"
+
 ### Using R functions
 
 If we want to use a function from a package, the syntax for doing this is `package::function()` 
@@ -46,5 +56,6 @@ For example, below, we'll use the `tidyverse_logo()` function from the `tidyvers
 (Click on the *Run command* icon)
 
 ```
+# click to execute code
 tidyverse::tidyverse_logo()
 ```{{execute}}

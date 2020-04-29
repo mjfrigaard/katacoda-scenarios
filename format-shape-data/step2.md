@@ -15,6 +15,7 @@ We'll load the `BobRoss` dataset into R using `fivethirtyeight::bob_ross`.
 First, we have to install and load the package into the R environment.
 
 ```
+# click to execute code
 install.packages("fivethirtyeight")
 library(fivethirtyeight)
 ```{{execute}}
@@ -22,6 +23,7 @@ library(fivethirtyeight)
 Now we can assign the `bob_ross` data frame into the `BobRoss` object. 
 
 ```
+# click to execute code
 BobRoss <- fivethirtyeight::bob_ross
 ```{{execute}}
 
@@ -29,6 +31,7 @@ As we noted earlier, functions are like verbs in the R language, and the data we
 
 
 ```
+# click to execute code
 # print data
 BobRoss
 ```{{execute}}
