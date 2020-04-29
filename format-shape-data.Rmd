@@ -384,9 +384,37 @@ dplyr::count(BobRossStep10, episode01)
 Check working environment 
 
 ```{r}
-ls()
-rm(datw)
+# ls()
+# rm(datw)
+BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
+BobRossStep11 <- BobRossStep10 %>% select(-season)
 ```
+
+```{r}
+stringr::str_view_all(string = unique(BobRossLong$object), 
+                      pattern = "_frame", 
+                      match = TRUE)
+```
+```{r}
+dput(unique(BobRossLong$object))
+```
+
+
+```{r other-objects}
+BobRossLong %>% glimpse()
+```
+
+
+```{r}
+BobRossLong %>% 
+  dplyr::mutate(
+  object_categories = 
+    case_when(str_detect(string = object, pattern = cloud_objects) ~ "clouds",
+            str_detect(string = object, pattern = manmade_objects) ~ "man made",
+              str_detect(string = object, pattern = water_objects) ~ "water",
+              str_detect(string = object, pattern = frame_objects) ~ "framed"))
+```
+
 
 
 
