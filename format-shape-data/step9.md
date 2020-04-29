@@ -1,4 +1,14 @@
-# Making a character variable numeric
+# Level two of data wrangling
+
+We said we like to think of the first level of data wrangling as changes to the data structure itself (what the dimensions, columns and rows should be). The second level of data wrangling refers to *creating or calculating new variables based on existing columns and values*. 
+
+You might be wondering how these two are different, and the primary difference is that all the changes we made to the data were done using the position or location of the data. For example, consider the data arrangement below:
+
+
+
+
+
+
 
 We're going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
 

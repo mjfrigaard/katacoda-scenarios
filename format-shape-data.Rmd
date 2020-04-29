@@ -261,6 +261,26 @@ unite(data = BobRossStep8, season_text, episode_text, col = 'episode_new',
       sep = "E")
 ```
 
+# step 9 
+
+```{r}
+tibble::tribble(
+  ~category, ~april, ~may, ~june, 
+  "Zone A",       9,   14,     5,
+  "Zone B",      12,   16,    10,
+  "Zone C",      15,   18,    15) %>% 
+  # 
+  tidyr::pivot_longer(data = .,
+                      cols = -category, 
+                      names_to = "month", 
+                      values_to = "count") %>% 
+  # 
+  tidyr::pivot_wider(data = .,
+                     names_from = month, 
+                     values_from = count)
+```
+
+
 
 ## Appendix 1: Katacoda scenario tutorials
 
