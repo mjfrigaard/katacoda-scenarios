@@ -370,6 +370,16 @@ dplyr::mutate(.data = BobRossStep10,
                                     false = FALSE))
 ```
 
+# step 11
+
+Check working environment 
+
+```{r}
+ls()
+rm(datw)
+```
+
+
 
 
 ## Appendix 1: Katacoda scenario tutorials

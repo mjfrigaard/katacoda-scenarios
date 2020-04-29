@@ -22,12 +22,14 @@ Install the `tidyverse` package (this requires an internet connection outside of
 
 
 ```
+# click to copy code
 install.packages("tidyverse")
 ```{{copy}}
 
 Load the package with the `base::library()` function.
 
 ```
+# click to copy code
 library(tidyverse)
 ```{{copy}}
 
