@@ -34,9 +34,11 @@ A description of these variables is below:
 
 + `clouds`: Present (`1`) or not (`0`)
 
-The `tibble::tribble()` function takes column names preceded by the tilde (i.e. `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored.
+The `tibble::tribble()` function takes column names preceded by the tilde (i.e. `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). 
 
-The `tibble` we'll create is a small sample from the [`bob_ross`](https://fivethirtyeight-r.netlify.app/articles/fivethirtyeight.html) dataset.  
+Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored.
+
+The `tibble` we create below is a small sample from the [`bob_ross`](https://fivethirtyeight-r.netlify.app/articles/fivethirtyeight.html) dataset.  
 
 ## Tibbles 
 
@@ -67,12 +69,12 @@ To view the contents of `SmallBobRoss`, we can enter the name into the console, 
 SmallBobRoss
 ```{{execute}}
 
-We should pay attention to the information printed beneath each column name. 
+We should pay attention to the information printed with each `tibble`. 
 
 ```
 # A tibble: 5 x 3
   title               bushes clouds
-  <chr>                <dbl>  <dbl> -> this info!!
+  <chr>                <dbl>  <dbl>
 1 A WALK IN THE WOODS      1      0
 2 MT. MCKINLEY             0      1
 3 EBONY SUNSET             0      0
@@ -80,4 +82,6 @@ We should pay attention to the information printed beneath each column name.
 5 QUIET STREAM             0      0
 ```
 
-The `tibbles` print the dimensions of the dataset (`# A tibble: 5 x 3`), numerical indices for rows (far left), and display additional information about the data when it's too big to print on the screen.
+`tibbles` print the dimensions of the dataset (`# A tibble: 5 x 3`), numerical indices for rows (far left), and the type of variable in the dataset (`<chr>` variables have text information vs. `<dbl>` variables which contain numbers). 
+
+`tibble`'s will also display additional information about the data when it's too big to print on the screen.

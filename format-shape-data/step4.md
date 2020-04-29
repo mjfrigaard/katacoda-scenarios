@@ -29,14 +29,16 @@ BobRoss <- fivethirtyeight::bob_ross
 
 ### Viewing the dataset
 
-We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (`glimpse()` displays the variables horizontally, and prints as much data as possible to the screen).
+We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (`glimpse()` displays the variables horizontally, and prints as much data as possible to the screen.
 
 ```
 glimpse(BobRoss)
 ```{{copy}}
 
 
-`dplyr::glimpse()` is a convenient function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. We can also answer one of the questions above: 
+`glimpse()` is a convenient function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. 
+
+We can now answer two of the questions above: 
 
 1. Approximately how many rows (or observations) and columns (or variables) should we be seeing? 403 rows, 71 columns
 3. Does each measurement have a column (or variable)? *do they?*
