@@ -9,7 +9,47 @@ output:
 
 I will be creating three scenarios for using R in Katacoda. They are listed below:
 
-*Scenario 1: Format and shape your data in R with the tidyverse*
+## Scenario 1: Format and shape your data in R with the tidyverse
+
+### intro 
+
+This introduces the `tidyverse` and gives a little preview of what is to come. 
+
+### step 1
+
+Step 1 covers how to install and load packages in R. 
+
+### step 2
+
+This covers the Bob Ross dataset from 538, and using the tibble function to create a dataset in R. 
+
+### step 3
+
+Here we cover loading data into R from the `fivethirtyeight` package. 
+
+
+
+### step 4
+
+### step 5
+
+### step 6
+
+### step 7
+
+### step 8
+
+### step 9
+
+### step 10
+
+### step 11
+
+### step 12
+
+### finish
+
+***
 
 *Scenario 2: Build beautiful, customized graphs and charts in R with ggplot2*
 

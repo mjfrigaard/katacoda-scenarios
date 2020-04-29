@@ -1,4 +1,4 @@
-# Download data into R
+# Loading data into R
 
 As we noted earlier, functions are like verbs in the R language, and the data we've created is the object. Similar to English grammar, the verbs (functions) do things to the objects. We can build data objects in R using a variety of methods, but typically we'll be loading data from an outside source into the R environment. 
 
@@ -10,7 +10,10 @@ The code below allows us to import data directly from a web URL like the one bel
 SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
 ```{{execute}}
 
-The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)) into a data object `SmallBobRoss`. After these data are loaded into R, we get a message about how the data were formatted, 
+The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)) into a data object `SmallBobRoss`. The `readr` package has functions for loading multiple file types, including tab-separated values files and 
+
+
+After these data are loaded into R, we get a message about how the data were formatted, 
 
 ```
 Parsed with column specification:
