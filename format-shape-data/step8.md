@@ -62,4 +62,10 @@ If you've filled in the function correctly, you should see the following data se
 # … with 26,991 more rows
 ```
 
-As we can see, `unite()` placed the `E` between `season_text` and `episode_text`
+As we can see, `unite()` placed the `E` between `season_text` and `episode_text`. 
+
+Now we should feel more comfortable answering the last two questions related to this level of data wrangling:
+
+3. Does each measurement have a column (or variable)? *Yes, and if not I can pivot the data into another arrangement* 
+
+4. Are these variables each measuring exactly one thing? *Yes, and if not I can separate/unite columns to capture that one thing* 

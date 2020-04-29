@@ -28,7 +28,7 @@ We also want to know if there are duplicate rows in the `BobRoss` data, and we c
 *numer of rows?*
 
 ```
-base::nrow()BobRoss)
+base::nrow(BobRoss)
 ```{{copy}}
 
 *distinct rows (note this returns a tibble!)*
@@ -43,6 +43,8 @@ dplyr::distinct(.data = BobRoss)
 identical(x = nrow(BobRoss), y = nrow(dplyr::distinct(BobRoss)))
 ```{{execute}}
 
+If you're seeing `TRUE`, this means all the rows are unique!
+
 Now we can answer more of the questions above: 
 
 1. Approximately how many rows (or observations) and columns (or variables) should we be seeing? *403 rows, 71 columns*
@@ -56,15 +58,7 @@ As we can see in the Terminal, the `BobRoss` dataset is full of the variables na
 
 ## Moving columns to rows 
 
-The columns in `BobRoss` represent various objects in Bob Ross's paintings, and the values in the rows are whether or not the object was present or absent in a particular episode. 
-
-We can see this by using the `utils::head()` function, which shows us the top six rows in the dataset.
-
-```
-head(BobRoss)
-```{{execute}}
-
-An image of this data arrangement is below:
+The columns in `BobRoss` represent various objects in Bob Ross's paintings, and the values in the rows are whether or not the object was present or absent in a particular episode. An image of this data arrangement is below:
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/01-orig-bob-ross.png?raw=true)
 
