@@ -12,7 +12,7 @@ count(BobRoss, bushes)
 
 ### Moving columns to rows 
 
-The columns in BobRoss represent various objects in Bob Ross's paintings, and the values in the rows are whether or not the object was present or absent in a particular episode. 
+The columns in `BobRoss` represent various objects in Bob Ross's paintings, and the values in the rows are whether or not the object was present or absent in a particular episode. 
 
 We can see this by using the `utils::head()` function. This shows up the top six rows in the dataset.
 
@@ -20,8 +20,14 @@ We can see this by using the `utils::head()` function. This shows up the top six
 head(BobRoss)
 ```{{execute}}
 
+We could change the original data from having a different column for each painting object to a format that has only two columns for painting objects: the name of the object and whether or not is was present. 
 
-![](katacoda-scenarios/figs/orig-bob-ross.png)
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/01-orig-bob-ross.png?raw=true)
+
+In order to do this, we will have to repeat the season, episode, episode_num, and title information,
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/02-long-bob-ross?raw=true)
 
 We want to create a dataset with two columns: one for keeping track of the object in the painting, and another corresponding to the number of times that particular object occurred. Data arrangements like this are typically called long or tidy, but the important thing to know is that each value is indexed in two places (in this case `object` and `present`).
 
