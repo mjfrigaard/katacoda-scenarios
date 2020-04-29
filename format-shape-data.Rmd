@@ -327,6 +327,34 @@ dplyr::mutate(.data = BobRossStep9,
                                        replacement = " "))
 ```
 
+```{r assign-BobRossStep9}
+BobRossStep9 <- dplyr::mutate(.data = BobRossStep9, 
+              # first new variable 
+              episode_num = base::as.numeric(episode_txt),
+              # second variable change
+              title = stringr::str_to_title(title),
+              # third variable change
+              object = stringr::str_replace_all(string = object, 
+                                       pattern = "_", 
+                                       replacement = " "))
+```
+
+# step 10
+
+```{r remove, echo=FALSE, include=FALSE}
+rm(BobRossEpi, SmallBobRoss, BobRoss)
+ls()
+```
+
+```{r create-BobRossStep10}
+BobRossStep10 <- BobRossStep9 %>% 
+  dplyr::select(-episode_txt)
+head(BobRossStep10)
+# export
+readr::write_csv(as.data.frame(x = BobRossStep10), "data/BobRossStep10.csv")
+```
+
+
 
 ## Appendix 1: Katacoda scenario tutorials
 
