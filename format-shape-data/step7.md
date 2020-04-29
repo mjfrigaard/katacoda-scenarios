@@ -13,16 +13,16 @@ BobRossEpi <- readr::read_csv(file = "https://bit.ly/bobross-episodes")
 glimpse(BobRossEpi)
 ```{{execute}} 
 
-As we can see, `BobRossEpi` has an `episode` variable with both season and episode information separated by a comma and a space (`"S01, E01"` and `"S01, E01",`, etc.). We want to use `tidyr::separate()` to split this column into `season` and `episode` using the following arguments. 
+As we can see, `BobRossEpi` has an `episode_info` variable with both `season` and `episode` information separated by a comma and a space (`"S01, E01"` and `"S01, E01",`, etc.). We want to use `tidyr::separate()` to split the `episode_info` column into `season` and `episode` using the following arguments. 
 
 1. `data` = the name of the dataset (`BobRossEpi`)  
-2. `col` = the name of the column to separate (`episode`),  
+2. `col` = the name of the column to separate (`episode_info`),  
 3. `into` = the new columns for the separated information (combine these with `c("season", "episode")`) 
 
 Copy the code below and fill in the `into` section before pasting it back into the terminal and running it. 
 
 ```
-tidyr::separate(data = BobRossEpi, col = episode, into = c("______", "_______"))
+tidyr::separate(data = BobRossEpi, col = episode_info, into = c("______", "_______"))
 ```{{copy}}
 
 If you've completed this step correctly, you should see the following dataset: 
@@ -44,4 +44,4 @@ If you've completed this step correctly, you should see the following dataset:
 # … with 26,991 more rows
 ```
 
-As we can see, season and episode contain the same information as the `episode
+As we can see, `season` and `episode` contain the same information as the previous `episode_info` column.

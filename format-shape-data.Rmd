@@ -176,7 +176,7 @@ BobRoss <- fivethirtyeight::bob_ross
 glimpse(BobRoss)
 ```
 
-# step 5 (pivot_)
+# step 5 (pivot_longer)
 
 This section covers the `pivot_longer` function. 
 
@@ -189,7 +189,7 @@ BobRossLong <- tidyr::pivot_longer(data = BobRoss,
 head(BobRossLong)
 ```
 
-# step6
+# step6 (pivot_wider)
 
 This section covers the `pivot_wider()` function. 
 
@@ -206,15 +206,10 @@ Check with `setdiff`
 dplyr::setdiff(x = BobRoss, y = BobRossWide)
 ```
 
-# step 7 
+# step 7 (separate)
 
 
 Create data set for this step. 
-
-```{r}
-BobRossLong
-```
-
 
 ```{r BobRossEpisodes}
 BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode, 
@@ -230,15 +225,15 @@ rm(BobRossEpisodes)
 ```
 
 ```{r BobRossEpi}
-BobRossEpi <- readr::read_csv(file = "https://bit.ly/bobross-episodes")
+BobRossEpi <- readr::read_csv(file = "https://bit.ly/bob-ross-epi")
 glimpse(BobRossEpi)
 ```
 
-separate `season` and `episode`. 
+separate `episode_info` 
 
 ```{r check-separate}
 tidyr::separate(data = BobRossEpi, 
-                col = episode, 
+                col = episode_info, 
                 into = c("season", "episode"))
 ```
 

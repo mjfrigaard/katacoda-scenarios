@@ -11,8 +11,9 @@ Format and shape your data in R with the tidyverse
   - [step 2 (tribble)](#step-2-tribble)
   - [step 3 (read\_csv)](#step-3-read_csv)
   - [step 4 (fivethirtyeight, glimpse)](#step-4-fivethirtyeight-glimpse)
-  - [step 5 (pivot\_)](#step-5-pivot_)
-  - [step6](#step6)
+  - [step 5 (pivot\_longer)](#step-5-pivot_longer)
+  - [step6 (pivot\_wider)](#step6-pivot_wider)
+  - [step 7 (separate)](#step-7-separate)
       - [Appendix 1: Katacoda scenario
         tutorials](#appendix-1-katacoda-scenario-tutorials)
       - [Appendix 2: Katacoda
@@ -237,7 +238,7 @@ glimpse(BobRoss)
     #> $ winter             <int> 0, 1, 1, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
     #> $ wood_framed        <int> 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, …
 
-# step 5 (pivot\_)
+# step 5 (pivot\_longer)
 
 This section covers the `pivot_longer` function.
 
@@ -260,7 +261,7 @@ head(BobRossLong)
     #> 5 S01E01       1           1 A WALK IN THE WOODS boat                  0
     #> 6 S01E01       1           1 A WALK IN THE WOODS bridge                0
 
-# step6
+# step6 (pivot\_wider)
 
 This section covers the `pivot_wider()` function.
 
@@ -322,6 +323,58 @@ dplyr::setdiff(x = BobRoss, y = BobRossWide)
     #> #   tomb_frame <int>, tree <int>, trees <int>, triple_frame <int>,
     #> #   waterfall <int>, waves <int>, windmill <int>, window_frame <int>,
     #> #   winter <int>, wood_framed <int>
+
+# step 7 (separate)
+
+Create data set for this step.
+
+``` r
+BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode, 
+                into = c("season_text", "episode_text"), 
+                sep = "E", remove = FALSE) %>% 
+  tidyr::unite(season_text, episode_text, col = "new_episode", sep = ", E") %>% 
+  dplyr::select(
+    episode_info = new_episode, 
+    title:present)
+# export
+readr::write_csv(as.data.frame(BobRossEpisodes), "data/BobRossEpisodes.csv")
+rm(BobRossEpisodes)
+```
+
+``` r
+BobRossEpi <- readr::read_csv(file = "https://bit.ly/bob-ross-epi")
+glimpse(BobRossEpi)
+```
+
+    #> Rows: 27,001
+    #> Columns: 4
+    #> $ episode_info <chr> "S01, E01", "S01, E01", "S01, E01", "S01, E01", "S01, …
+    #> $ title        <chr> "A WALK IN THE WOODS", "A WALK IN THE WOODS", "A WALK …
+    #> $ object       <chr> "apple_frame", "aurora_borealis", "barn", "beach", "bo…
+    #> $ present      <dbl> 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, …
+
+separate `episode_info`
+
+``` r
+tidyr::separate(data = BobRossEpi, 
+                col = episode_info, 
+                into = c("season", "episode"))
+```
+
+    #> # A tibble: 27,001 x 5
+    #>    season episode title               object          present
+    #>    <chr>  <chr>   <chr>               <chr>             <dbl>
+    #>  1 S01    E01     A WALK IN THE WOODS apple_frame           0
+    #>  2 S01    E01     A WALK IN THE WOODS aurora_borealis       0
+    #>  3 S01    E01     A WALK IN THE WOODS barn                  0
+    #>  4 S01    E01     A WALK IN THE WOODS beach                 0
+    #>  5 S01    E01     A WALK IN THE WOODS boat                  0
+    #>  6 S01    E01     A WALK IN THE WOODS bridge                0
+    #>  7 S01    E01     A WALK IN THE WOODS building              0
+    #>  8 S01    E01     A WALK IN THE WOODS bushes                1
+    #>  9 S01    E01     A WALK IN THE WOODS cabin                 0
+    #> 10 S01    E01     A WALK IN THE WOODS cactus                0
+    #> # … with 26,991 more rows
 
 ## Appendix 1: Katacoda scenario tutorials
 
