@@ -7,7 +7,7 @@ Fill in the following portions of code.
 ```
 # click to copy code
 dplyr::mutate(.data = BobRossStep10, 
-            season_one = if_else(condition = ______ == _, 
+            season01 = if_else(condition = ______ == _, 
                                 true = ____,
                                     false = _____))
 ```{{copy}}
@@ -24,14 +24,23 @@ Assuming we know how many episodes are season 1, we can check the new variable u
 ```
 # click to execute code
 BobRossStep10 <- dplyr::mutate(.data = BobRossStep10, 
-               season_one = if_else(condition = season == 1, 
-                                    true = TRUE,
-                                    false = FALSE))
-dplyr::count(BobRossStep10, season_one)
+                            season01 = if_else(condition = season == 1, 
+                                               true = TRUE,
+                                               false = FALSE))
+dplyr::count(BobRossStep10, season01)
 ```{{execute}}
 
-`count` returns a tibble with a sum of each value in `season_one`. 
+`count` returns a tibble with a sum of each value in `season01`. 
 
+We can also use `if_else` in combination with `stringr::str_detect()` to find all `E01` instances in `episode`.
 
+```
+BobRossStep10 <- dplyr::mutate(.data = BobRossStep10, 
+                    episode01 = if_else(condition = str_detect(string = episode, 
+                                                               pattern = "E01"), 
+                                    true = TRUE,
+                                    false = FALSE))
+dplyr::count(BobRossStep10, episode01)
+```{{excute}}
 
-
+We can see the total number of first episodes. Again, this assumes we know the total number of first episodes and that they are all coded correctly.
