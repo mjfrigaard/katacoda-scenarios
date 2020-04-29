@@ -3,7 +3,7 @@
 
 As we can see in the Terminal, the `BobRoss` dataset is full of the variables named for the various objects in his paintings. From `apple_frame` down to `wood_framed`, the objects have what appears to be `0`s and `1`s for values. These are called indicators, or [*binary variables*](https://en.wikipedia.org/wiki/Binary_data#Binary_variables). 
 
-### Counting
+## Counting
 
 We can get an idea for how many `0`s and `1`s using `dplyr::count()`. We will count the number of `bushes` that show up in the Bob Ross paintings dataset below. 
 
@@ -11,7 +11,7 @@ We can get an idea for how many `0`s and `1`s using `dplyr::count()`. We will co
 count(BobRoss, bushes)
 ```{{copy}}
 
-### Moving columns to rows 
+## Moving columns to rows 
 
 The columns in `BobRoss` represent various objects in Bob Ross's paintings, and the values in the rows are whether or not the object was present or absent in a particular episode. 
 

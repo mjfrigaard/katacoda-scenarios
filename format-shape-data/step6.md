@@ -1,0 +1,36 @@
+# Pivoting part 2 (re-reorganizing values in a dataset) 
+
+Now that we have two datasets in the R environment, we can compare their structures with `glimpse()`
+
+```
+glimpse(BobRoss)
+```{{execute}}
+
+```
+glimpse(BobRossLong)
+```{{execute}}
+
+As we can see, the `BobRossLong` has a ton more rows, but far fewer columns. 
+
+But what if we want to keep the dataset in it's original 'wide' format? The `tidyr::pivot_wider()` is the complement to `tidyr::pivot_longer(), and it takes the following arguments: 
+
+1. A data set (`BobRossLong`), 
+2. Where the indexed names are stored (`names_from = object`),  
+3. What variable holds the indexed values  (`values_from = present`) 
+
+```
+BobRossWide <- tidyr::pivot_wider(data = BobRossLong, 
+                      names_from = object, 
+                      values_from = present)
+head(BobRossWide)
+```{{execute}}
+
+Does the `BobRossWide` dataset have the same information as the original `BobRoss` dataset? We can check with `dplyr::setdiff()` which will test for differences in the two tibbles: 
+
+```
+dplyr::setdiff(x = BobRoss, y = BobRossWide)
+```{{copy}}
+
+## Long or wide?
+
+We've just shown two formats with the same information in them. You might be wondering which is better, and the answer is *it depends.* R prefers datasets formatted as long, but there are other reasons you might want to store (or collect) data in the wide format. Fortunately, now you don't have to choose because you can easily change whatever arrangement the data are in!

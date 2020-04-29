@@ -2,6 +2,7 @@
 title: "Format and shape your data in R with the tidyverse"
 output: 
   github_document: 
+    toc: true
     toc_depth: 6
 ---
 
@@ -103,7 +104,7 @@ The learner personas for this scenario are:
 
 ***
 
-### Intro
+# Intro
 
 The introduction for this scenario is stored in the following file:
 
@@ -112,21 +113,7 @@ fs::dir_tree("format-shape-data", regex = "intro")
 ```
 
 
-~~~
-
-# Getting your data into the correct shape 
-
-We rarely collect data in a way that can be immediately analyzed or visualized. "Wrangling," "munging," or "cleaning" are the steps to prepare data for a table, graph, algorithm, or model. These terms might sound like they're referring to tedious, menial work, but data wrangling is such a common task that most data scientists [consider it up to 80% of their job](https://www.nytimes.com/2014/08/18/technology/for-big-data-scientists-hurdle-to-insights-is-janitor-work.html). 
-
-This scenario will introduce how to use R to format and shape (or *reformat* and *reshape*) your data. We will cover moving columns to rows (and vice versa), changing variables from one type (or class) to another, calculating and creating new columns from existing columns, and how to remove unneeded columns or rows from your data set.
-
-## Packages and libraries
-
-In this first exercise, we'll be using [`dplyr`](https://dplyr.tidyverse.org/), a package from the [`tidyverse`](https://www.tidyverse.org/).
-
-~~~
-
-### step 1 (install and load packages)
+# step 1 (install and load packages)
 
 The `step1` file starts the scenario off an intro to R packages (the `base::library()` function). The markdown for the `step1.md` file is below. 
 
@@ -134,52 +121,7 @@ The `step1` file starts the scenario off an intro to R packages (the `base::libr
 fs::dir_tree("format-shape-data", regex = "step1.md")
 ```
 
-
-~~~
-
-# Getting started in R
-
-Launch an R console by clicking here -> `R`{{execute}}
-
-You are looking at the R [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (read-eval-print-loop) katacoda has designed to run R in our browser. 
-
-## R: a rapid overview
-
-R is an object-oriented, functional programming scripting language for data manipulation, graphics, statistics, and machine learning. Most of these terms will only matter to computer scientists, but they're here if you'd like to look them up later. 
-
-## Using R packages 
-
-We will be using the popular `dplyr` package for data manipulation. `dplyr` is part of the `tidyverse,` which is a suite of packages pioneered by RStudio's Chief Scientist [Hadley Wickham](http://hadley.nz/).  
-
-The `tidyverse` contains multiple packages. All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
-
-Install the `tidyverse` package (this requires an internet connection outside of Katacoda).
-
-```
-install.packages("tidyverse")
-```
-
-Load the package with the `base::library()` function.
-
-```
-library(tidyverse)
-```
-
-R is an object-oriented and functional programming language, which means objects and functions make up the majority of R's grammar and syntax. When we load data into R, these data get stored in a data object. To do things to any data object (manipulate, analyze, visualize, model, etc.), we'll need to use functions. We can write custom functions, or we can use one of the over 10,000 user-written packages available on [CRAN](https://cran.r-project.org/). 
-
-### Using functions
-
-If we want to use a function from a package, the syntax for doing this is `package::function()` 
-
-For example, below, we'll use the `tidyverse_logo()` function from the `tidyverse` package to view the awesome logo. 
-
-```
-tidyverse::tidyverse_logo()
-```{{execute}}
-
-~~~
-
-## step 2 (tribble)
+# step 2 (tribble)
 
 
 ```{r step2, echo=FALSE}
@@ -204,68 +146,7 @@ SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
                          "QUIET STREAM",      0L,      0L)
 ```
 
-~~~
-
-# Creating data
-
-It's hard to learn any of R's capabilities without some data. One quick and easy way to get data into R is to create the data 'by hand.' We can build a data set with the [`tibble::tribble()`](https://tibble.tidyverse.org/reference/tribble.html) function. The tibble we'll create is a small sample from the [`bob_ross`](https://fivethirtyeight.com/features/a-statistical-analysis-of-the-work-of-bob-ross/) dataset from the `fivethirtyeight` package in R. Bob Ross was the host of [The Joy of Painting](https://en.wikipedia.org/wiki/The_Joy_of_Painting), a painting educational program from 1980 - 1994.
-
-A description of these variables is below:
-
-+ `episode_num`: Episode number
-
-+ `title`: Title of episode
-
-+ `bushes`: Present (`1`) or not (`0`)  
-
-+ `clouds`: Present (`1`) or not (`0`)
-
-
-These data are stored as a [comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values) file on Github (see below). 
-
-```
-title, bushes, clouds
-A WALK IN THE WOODS,1,0
-MT. MCKINLEY,0,1
-EBONY SUNSET,0,0
-WINTER MIST,1,1
-QUIET STREAM,0,0
-```
-
-The `tibble::tribble()` function takes column names preceded by the tilde (i.e. `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored. 
-
-## Tibbles 
-
-The code below creates `SmallBobRoss` from the data above in the R environment. 
-
-```
-SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
-                  "A WALK IN THE WOODS",      1L,      0L,
-                         "MT. MCKINLEY",      0L,      1L,
-                         "EBONY SUNSET",      0L,      0L,
-                          "WINTER MIST",      1L,      1L,
-                         "QUIET STREAM",      0L,      0L)
-```{{execute}}
-
-
-There are a few things to pay attention to in the code above: 
-
-1. The assignment operator `<-` is used to create the `SmallBobRoss` tibble, which is a data object   
-2. The `title`s in quotations (i.e. `"A WALK IN THE WOODS "`) creates a different kind of variable than the other numerical variables (like `episode_num` and `bushes`)  
-
-Tibbles are rectangular data objects. They have columns and rows for storing data, similar to a spreadsheet in Excel. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works.
-
-
-To view the contents of `SmallBobRoss`, we can enter the name into the console, and a preview of the data will print to the Terminal.
-
-```
-# print data
-SmallBobRoss
-```{{execute}}
-
-~~~
-
-## step 3 (read_csv)
+# step 3 (read_csv)
 
 ```{r step3, echo=FALSE}
 fs::dir_tree("format-shape-data", regex = "step3.md")
@@ -282,40 +163,7 @@ readr::write_csv(as.data.frame(SmallBobRoss), "data/SmallBobRoss.csv")
 readr::read_csv(file = "https://bit.ly/small-bob-ross")
 ```
 
-~~~
-
-# Download data into R
-
-As we noted earlier, functions are like verbs in the R language, and data we've created is the object. Similar to English grammar, verbs (functions) do things to objects. We can build data objects in R using a variety of methods. Typically we will be loading data from an outside source into the R environment. 
-
-## Importing .csv files into R
-
-We can import data directly from a web URL like the one below. The bitly link takes us to a [comma-separated values file](https://en.wikipedia.org/wiki/Comma-separated_values) with the same data we loaded in the previous step.
-
-```
-SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
-```{{execute}}
-
-The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)).
-
-After these data are loaded into R, we get a message about how the data were formatted, 
-
-```
-Parsed with column specification:
-cols(
-  title = col_character(),
-  bushes = col_double(),
-  clouds = col_double()
-)
-```
-
-
-`col_character()` means these data are text, which makes sense because they are the titles for the episodes. The `col_double()` tells us the `bushes` and `clouds` variables were imported as double (a kind of numerical variable in R).
-
-~~~
-
-
-## step 4  (fivethirtyeight, glimpse)
+# step 4  (fivethirtyeight, glimpse)
 
 ```{r step4, echo=FALSE}
 fs::dir_tree("format-shape-data", regex = "step4.md")
@@ -328,63 +176,9 @@ BobRoss <- fivethirtyeight::bob_ross
 glimpse(BobRoss)
 ```
 
-
-~~~
-
-# Two levels of data wrangling 
-
-We like to think of wrangling on two different levels. The first level deals with the data shape and structure. The second level of data wrangling refers with the format of the actual variables (which we will get to in the following steps). Questions we should be asking ourselves about data at this level include:
-
-1. Approximately how many observations (or rows) should we be seeing?  
-2. Are all the rows unique (i.e.will each case have a row)?    
-3. Does each variable have a column?   
-4. Are these variables each measuring exactly one thing?   
-3. Should I be expecting missing or incomplete data, and if so, why/how are they missing?   
-
-## Reshaping data
-
-A common task for data manipulation is moving columns to rows, or rows to columns. We refer to this as data The `tidyr` package in R makes this easy with the `tidyr::pivot_` functions. We'll be importing and restructuring the Bob Ross dataset.
-
-
-We will load the data into R using `fivethirtyeight::bob_ross`. First we have to install the package into the R environment, 
-
-```
-install.packages("fivethirtyeight")
-```{{execute}}
-
-Then we load the library. 
-
-```
-library(fivethirtyeight)
-```{{execute}}
-
-Now we can assign the `bob_ross` data frame into the `BobRoss` object. 
-
-```
-BobRoss <- fivethirtyeight::bob_ross
-```{{execute}}
-
-### View a dataset
-
-We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (the variables are presented horizontally, which as much data as possible printed to the screen).
-
-```
-glimpse(BobRoss)
-```{{copy}}
-
-
-`dplyr::glimpse()` is a very handy function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. 
-
-~~~
-
 # step 5 (pivot_)
 
-```{r step5, echo=FALSE}
-fs::dir_tree("format-shape-data", regex = "step5.md")
-head(BobRoss)
-```
-
-This section covers the `pivot` functions. 
+This section covers the `pivot_longer` function. 
 
 ```{r pivot_longer}
 BobRossLong <- tidyr::pivot_longer(data = BobRoss, 
@@ -395,47 +189,22 @@ BobRossLong <- tidyr::pivot_longer(data = BobRoss,
 head(BobRossLong)
 ```
 
-~~~
+# step6
 
-## Pivoting (reorganizing values in a dataset) 
+This section covers the `pivot_wider()` function. 
 
-As we can see in the Terminal, the `BobRoss` dataset is full of the variables named for the various objects in his paintings. From `apple_frame` all the way down to `wood_framed`, the objects are listed with what appears to be `0`s and `1`s for values. These are called indicators, or [*binary variables*](https://en.wikipedia.org/wiki/Binary_data#Binary_variables). 
-
-### Counting
-
-We can get an idea for how many `0`s and `1`s using `dplyr::count()`. We will count the number of `bushes` that show up in the Bob Ross paintings dataset below. 
-
+```{r pivot_wider}
+BobRossWide <- tidyr::pivot_wider(data = BobRossLong, 
+                      names_from = object, 
+                      values_from = present)
+head(BobRossWide)
 ```
-count(BobRoss, bushes)
-```{{copy}}
 
-### Moving columns to rows 
+Check with `setdiff`
 
-We want to create a dataset with two columns: one for keeping track of the object in the painting, and another corresponding to the number of times that particular object occurred. Data arrangements like this are typically called long or tidy, but the important thing to know is that each value is indexed in two places (in this case `object` and `present`).
-
-The `tidyr::pivot_longer()` function takes the following arguments: 
-
-1. A data set (`BobRoss`), 
-2. The columns we want indexed (the `c(apple_frame:wood_framed)` is shorthand for `apple_frame` through `wood_framed`),  
-3. What we want the indexed names to be (`names_to = 'object'`),  
-4. What we want the indexed values to be (`values_to = 'present'`)  
-
-
-Click on the check mark to run the code and see the result.
-
+```{r setdiff}
+dplyr::setdiff(x = BobRoss, y = BobRossWide)
 ```
-BobRossLong <- tidyr::pivot_longer(data = BobRoss, 
-                      cols = c(apple_frame:wood_framed), 
-                      names_to = 'object', 
-                      values_to = 'present')
-# view data 
-dplyr::glimpse(BobRossLong)
-```{{execute}}
-
-
-
-
-~~~
 
 
 ## Appendix 1: Katacoda scenario tutorials
