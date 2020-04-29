@@ -1,6 +1,6 @@
 # Getting started in R
 
-Launch an R console by clicking here -> `R`{{execute}}
+Launch an R console by clicking here -> `R`{{execute}} (Click on the *Run command* icon)
 
 You are looking at the R [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop) (read-eval-print-loop) katacoda has designed to run R in our browser. 
 
@@ -14,7 +14,7 @@ We will be using the popular `dplyr` package for data manipulation. `dplyr` is p
 
 The `tidyverse` contains multiple packages. All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
 
-Install the `tidyverse` package (this requires an internet connection outside of Katacoda) by clicking on the 'copy' icon below and pasting the code into the Terminal window. 
+Install the `tidyverse` package (this requires an internet connection outside of Katacoda) by clicking on the 'copy' icon below and pasting the code into the Terminal window, then hitting <kbd>enter</kbd> or <kbd>return</kbd>. 
 
 <kbd>Ctrl</kbd>+<kbd>V</kbd>
 
@@ -42,6 +42,8 @@ R is an object-oriented and functional programming language, which means objects
 If we want to use a function from a package, the syntax for doing this is `package::function()` 
 
 For example, below, we'll use the `tidyverse_logo()` function from the `tidyverse` package to view the awesome logo. 
+
+(Click on the *Run command* icon)
 
 ```
 tidyverse::tidyverse_logo()

@@ -1,10 +1,12 @@
 # Creating data
 
-It's hard to learn any of R's capabilities without a dataset. There are multiple ways to get datasets into the R environment, but won't be able to cover them all in this scenario. One quick and easy way to get data into R is to create the data 'by hand' using the `tibble::tribble()` function. Read more about this function [here on the tidyverse website](https://tibble.tidyverse.org/reference/tribble.html) function.
+It's hard to learn any of R's capabilities without a dataset. There are multiple ways to get datasets into the R environment, but we'll cover that in another scenario. 
 
-In this scenario, we will be using a dataset from the [`fivethirtyeight` package](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html) in R. This package has over 100 datasets from articles on the website `fivethirtyeight`. 
+Today we'll be using a dataset from the [`fivethirtyeight` package](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html) in R. This package has over 100 datasets from articles on the website [FiveThirtyEight](https://fivethirtyeight.com/).  
 
-The dataset we will be using today comes from the article, ["A Statistical Analysis of the Work of Bob Ross."](https://fivethirtyeight.com/features/a-statistical-analysis-of-the-work-of-bob-ross/)
+One quick and easy way to get data into R is to create the data 'by hand' using the `tibble::tribble()` function. Read more about this function [here on the tidyverse website](https://tibble.tidyverse.org/reference/tribble.html) function.
+
+The dataset we will be using today comes from the article ["A Statistical Analysis of the Work of Bob Ross."](https://fivethirtyeight.com/features/a-statistical-analysis-of-the-work-of-bob-ross/)
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/00-538-bob-ross.png?raw=true)
 
@@ -38,7 +40,7 @@ The `tibble` we'll create is a small sample from the [`bob_ross`](https://fiveth
 
 ## Tibbles 
 
-The code below creates `SmallBobRoss` from the data above in the R environment. Click on the :arrow_right_hook:
+The code below creates `SmallBobRoss` from the data above in the R environment. Click on the *Run command* icon below.
 
 ```
 SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
@@ -65,3 +67,17 @@ To view the contents of `SmallBobRoss`, we can enter the name into the console, 
 SmallBobRoss
 ```{{execute}}
 
+We should pay attention to the information printed beneath each column name. 
+
+```
+# A tibble: 5 x 3
+  title               bushes clouds
+  <chr>                <dbl>  <dbl> -> this info!!
+1 A WALK IN THE WOODS      1      0
+2 MT. MCKINLEY             0      1
+3 EBONY SUNSET             0      0
+4 WINTER MIST              1      1
+5 QUIET STREAM             0      0
+```
+
+The `tibbles` print the dimensions of the dataset (`# A tibble: 5 x 3`), numerical indices for rows (far left), and display additional information about the data when it's too big to print on the screen.

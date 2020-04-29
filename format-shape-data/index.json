@@ -1,8 +1,8 @@
 {
-  "title": "Format and shape your data in R with the tidyverse",
+  "title": "Format and shape your data with R in the tidyverse",
   "description": "Quickly wrangle your data with the tidyr and dplyr packages from the tidyverse",
   "difficulty": "Intermediate",
-  "time": "40",
+  "time": "30",
   "details": {
     "steps": [
       {
