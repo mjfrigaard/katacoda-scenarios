@@ -1,3 +1,37 @@
 # Create new variables based on a condition
 
-Many times we will want to create a new variable based on the values in another variable. 
+Many times we'll want to create a new variable based on the values in another variable. For example, assume we want to identify only those object that are in season 1. We can do this by creating a new variable called `season01`, and assigning the value of `TRUE` to all the objects that occured in season 1, and `FALSE` to every other object. 
+
+Fill in the following portions of code. 
+
+```
+# click to copy code
+dplyr::mutate(.data = BobRossStep10, 
+            season_one = if_else(condition = ______ == _, 
+                                true = ____,
+                                    false = _____))
+```{{copy}}
+
+We notice this creates a `<lgl>` variable, which can only have one of two values (`TRUE` and `FALSE`). Logical are great for binary variables because you can still perform mathematical operations on them.
+
+
+*Logical vectors are coerced to integer vectors in contexts where a numerical value is required, with `TRUE` being mapped to `1`, `FALSE` to `0`*
+
+## Counting to check our work
+
+Assuming we know how many episodes are season 1, we can check the new variable using `dplyr::count()`.
+
+```
+# click to execute code
+BobRossStep10 <- dplyr::mutate(.data = BobRossStep10, 
+               season_one = if_else(condition = season == 1, 
+                                    true = TRUE,
+                                    false = FALSE))
+dplyr::count(BobRossStep10, season_one)
+```{{execute}}
+
+`count` returns a tibble with a sum of each value in `season_one`. 
+
+
+
+

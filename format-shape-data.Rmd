@@ -361,11 +361,13 @@ BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
 head(BobRossStep10)
 ```
 
+
+
 ```{r season_one}
- dplyr::mutate(.data = BobRossLong, 
+dplyr::mutate(.data = BobRossStep10, 
                season_one = if_else(condition = season == 1, 
-                                    true = "season 1",
-                                    false = "not season 1"))
+                                    true = TRUE,
+                                    false = FALSE))
 ```
 
 
