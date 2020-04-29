@@ -347,11 +347,26 @@ ls()
 ```
 
 ```{r create-BobRossStep10}
-BobRossStep10 <- BobRossStep9 %>% 
-  dplyr::select(-episode_txt)
+BobRossStep10 <- BobRossStep7 %>% 
+  dplyr::mutate(episode = str_remove_all(string = episode_info, pattern = ", ")) %>% 
+  dplyr::select(-episode_info)
 head(BobRossStep10)
 # export
 readr::write_csv(as.data.frame(x = BobRossStep10), "data/BobRossStep10.csv")
+```
+
+Create a new variable base on conditions. 
+
+```{r import-BobRossStep10}
+BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
+head(BobRossStep10)
+```
+
+```{r}
+BobRossStep10 %>% 
+  dplyr::mutate(
+    
+  )
 ```
 
 
