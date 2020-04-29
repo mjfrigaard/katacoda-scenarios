@@ -25,13 +25,14 @@ An image of this data arrangement is below:
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/01-orig-bob-ross.png?raw=true)
 
-Can you think of another way to organize the same information? What if we changed the original data from having a column for each different painting object to a format with only two columns: the name of the painting `object`, and whether or not it was `present`. 
-
-The `object` columns would keep track of the *thing* in the painting (`apple_frame`, `aurora_borealis`, `barn`, etc.), and the `present` column would correspond to the *number of times* that particular thing occurred. To do this, we'd also have to repeat the `season`, `episode`, `episode_num`, and `title` information down the columns for every object that was originally in a column. The data would look like the image below:
+Can you think of another way to organize the same information? What if we changed the original data from having a column for each different painting object to a format with only two columns: the name of the painting `object`, and whether or not it was `present`. Take a look at the data format below: 
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/02-long-bob-ross.png?raw=true)
 
-Data arrangements like this are typically called long or tidy, but the vital thing to know is that each value has an index in two places (in this case `object` and `present`).
+- the `object` column keeps track of the *thing* in the painting (`apple_frame`, `aurora_borealis`, `barn`, etc.), 
+- the `present` column corresponds to the *number of times* that particular thing occurred,  
+- the `season`, `episode`, `episode_num`, and `title` information repeats down the rows for every object that was originally in a column  
+Data arrangements like this are typically called long or tidy, but the vital thing to know is that each value has an index in two places (in this case `object` and `present`). We can convert `BobRoss` into a long dataset using `tidyr::pivot_longer()`.
 
 The `tidyr::pivot_longer()` function takes the following arguments: 
 
