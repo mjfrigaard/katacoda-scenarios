@@ -25,9 +25,9 @@ We could change the original data from having a different column for each painti
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/01-orig-bob-ross.png?raw=true)
 
-In order to do this, we will have to repeat the season, episode, episode_num, and title information,
+In order to do this, we will have to repeat the `season`, `episode`, `episode_num`, and `title` information down the columns for every object that was originally in a column.
 
-![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/02-long-bob-ross?raw=true)
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/02-long-bob-ross.png?raw=true)
 
 We want to create a dataset with two columns: one for keeping track of the object in the painting, and another corresponding to the number of times that particular object occurred. Data arrangements like this are typically called long or tidy, but the important thing to know is that each value is indexed in two places (in this case `object` and `present`).
 
