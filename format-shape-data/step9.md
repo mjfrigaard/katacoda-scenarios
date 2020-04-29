@@ -4,13 +4,23 @@ We said we like to think of the first level of data wrangling as changes to the 
 
 You might be wondering how these two are different, and the primary difference is that all the changes we made to the data were done using the position or location of the data. For example, consider the data arrangement below:
 
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/03-original-data.png?raw=true)
+
+This data has three months spread across columns, and a `category` variable that serves as an index for the values. If we want these data in the long format, it would look like the image below:
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/04-pivot-longer.png?raw=true)
+
+The `tidyr::pivot_longer()` changes the position of the indices and values, but doesn't calculate or create any new information. We can just as easily move the data back into it's original arrangement (see below).
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/05-pivot-wider.png?raw=true)
+
+`unite` and `separate()` also change the position and contents of the information, but they do not calculate or create new variables. The primary package for data manipulation at the second level is `dplyr`, and we will explore it's functions in the next three steps. 
+
+## Create new variables
+
+We're going to use the `dplyr::mutate()` function to change the format of a charater variable (`<chr>`) to numeric (`<dbl>`).
 
 
-
-
-
-
-We're going to use the `dplyr::mutate()` function to change the format of the `ht_m` variable from character (`<chr>`) to numeric (`<dbl>`).
 
 How `dplyr::mutate()` works:
 

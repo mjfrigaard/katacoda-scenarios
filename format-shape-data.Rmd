@@ -280,6 +280,12 @@ tibble::tribble(
                      values_from = count)
 ```
 
+```{r BobRossStep9}
+BobRossStep9 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+# export
+readr::write_csv(as.data.frame(x = BobRossStep9), "data/BobRossStep9.csv")
+```
+
 
 
 ## Appendix 1: Katacoda scenario tutorials
