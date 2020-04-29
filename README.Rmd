@@ -21,11 +21,11 @@ Step 1 covers how to install and load packages in R (`install.packages()` and `l
 
 ### step 2
 
-This covers the Bob Ross dataset from 538, and using the `tibble::tribble()` function to create a dataset in R. 
+This covers the Bob Ross dataset from 538, and using the `BobRoss <- fivethirtyeight::bob_ross` function to create a dataset in R. 
 
 ### step 3
 
-Here we cover loading data into R from the `fivethirtyeight` package with `readr::read_csv()`.
+Here we cover loading data into R from the `fivethirtyeight` package with `tibble::tribble()`.
 
 ### step 4
 

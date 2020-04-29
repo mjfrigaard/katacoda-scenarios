@@ -63,5 +63,3 @@ If you've filled in the function correctly, you should see the following data se
 ```
 
 As we can see, `unite()` placed the `E` between `season_text` and `episode_text`
-
- 

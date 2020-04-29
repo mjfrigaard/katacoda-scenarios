@@ -1,29 +1,55 @@
-# Loading data into R
+# Tibbles and tribbles
 
-As we noted earlier, functions are like verbs in the R language, and the data we've created is the object. Similar to English grammar, the verbs (functions) do things to the objects. We can build data objects in R using a variety of methods, but typically we'll be loading data from an outside source into the R environment. 
+One quick and easy way to get data into R is to create the data 'by hand' using the `tibble::tribble()` function. Read more about this function [here on the tidyverse website](https://tibble.tidyverse.org/reference/tribble.html) function.
 
-The [`tidyverse readr`](https://readr.tidyverse.org/) package has functions for loading multiple rectangular file types, including [comma-separated value](https://en.wikipedia.org/wiki/Comma-separated_values), [tab-separated value](https://en.wikipedia.org/wiki/Tab-separated_values), and other [fixed width format files](https://www.softinterface.com/Convert-XLS/Features/Fixed-Width-Text-File-Definition.htm).
-
-## Importing .csv files into R
-
-The code below allows us to import data directly from a web URL like the one below. The bitly link takes us to a comma-separated values (.csv) file with the same data we loaded in the previous step.
+These data are stored as a [comma-separated values](https://en.wikipedia.org/wiki/Comma-separated_values) file on Github (see below). 
 
 ```
-SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
-SmallBobRoss
+title, bushes, clouds
+A WALK IN THE WOODS,1,0
+MT. MCKINLEY,0,1
+EBONY SUNSET,0,0
+WINTER MIST,1,1
+QUIET STREAM,0,0
+```
+
+A description of these variables is below:
+
++ `episode_num`: Episode number
+
++ `title`: Title of episode
+
++ `bushes`: Present (`1`) or not (`0`)  
+
++ `clouds`: Present (`1`) or not (`0`)
+
+## Creating tibbles 
+
+Tibbles are rectangular data objects. They have columns and rows for storing data, similar to a spreadsheet in Excel. Access the help file (enter `??tibble::tribble` in the R console) or read the documentation on the [tibble website](https://tibble.tidyverse.org/) to see how this function works.
+
+The `tibble::tribble()` function takes column names preceded by the tilde (i.e. `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). 
+
+Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored above.
+
+The `tibble` we create below is a small sample from the [`bob_ross`](https://fivethirtyeight-r.netlify.app/articles/fivethirtyeight.html) dataset.  
+
+
+
+The code below creates `SmallBobRoss` from the data above in the R environment. Click on the *Run command* icon below.
+
+```
+SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
+                  "A WALK IN THE WOODS",      1L,      0L,
+                         "MT. MCKINLEY",      0L,      1L,
+                         "EBONY SUNSET",      0L,      0L,
+                          "WINTER MIST",      1L,      1L,
+                         "QUIET STREAM",      0L,      0L)
 ```{{execute}}
 
-The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)) into a data object `SmallBobRoss`, then prints this object to the screen. 
 
-After these data are loaded into R, we get a message about how the data were formatted, 
+There are a few things to pay attention to in the code above: 
 
-```
-Parsed with column specification:
-cols(
-  title = col_character(),
-  bushes = col_double(),
-  clouds = col_double()
-)
-```
+1. The assignment operator `<-` is used to create the `SmallBobRoss` tibble, which is a data object   
+2. The `title`s in quotations (i.e. `"A WALK IN THE WOODS "`) creates a different kind of variable than the other numerical variables (like `episode_num` and `bushes`)  
 
-`col_character()` means these data are text, which makes sense because they are the titles for the episodes. The `col_double()` tells us the `bushes` and `clouds` variables were imported as double (a kind of numerical variable in R).
+
