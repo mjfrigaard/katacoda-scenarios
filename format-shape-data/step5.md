@@ -47,7 +47,7 @@ The `tidyr::pivot_longer()` function takes the following arguments:
 Click on the checkmark to run the code and see the result.
 
 ```
-BobRossLong <- tidyr::pivot_longer(data = BobRoss, 
+BobRossLong <- pivot_longer(data = BobRoss, 
                       cols = c(apple_frame:wood_framed), 
                       names_to = 'object', 
                       values_to = 'present')

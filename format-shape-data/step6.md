@@ -1,14 +1,18 @@
 # Pivoting part 2 (re-reorganizing values in a dataset) 
 
-Now that we have two datasets in the R environment, we can compare their structures with `glimpse()`
+Now that we have two datasets in the R environment, we can compare their structures with `dim()` (short for data `dim`ensions).
 
 ```
-glimpse(BobRoss)
+dim(BobRoss)
 ```{{execute}}
 
+*This is telling us there are `403` rows and `71` columns in `BobRoss`...*
+
 ```
-glimpse(BobRossLong)
+dim(BobRossLong)
 ```{{execute}}
+
+*...vs `27001` rows and `6` columns in `BobRoss`!*
 
 As we can see, the `BobRossLong` has a ton more rows, but far fewer columns. 
 
@@ -19,7 +23,7 @@ But what if we want to keep the dataset in it's original 'wide' format? The `tid
 3. What variable holds the indexed values  (`values_from = present`) 
 
 ```
-BobRossWide <- tidyr::pivot_wider(data = BobRossLong, 
+BobRossWide <- pivot_wider(data = BobRossLong, 
                       names_from = object, 
                       values_from = present)
 head(BobRossWide)
