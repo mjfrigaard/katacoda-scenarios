@@ -32,6 +32,8 @@ Can you think of another way to organize the same information? What if we change
 - the `object` column keeps track of the *thing* in the painting (`apple_frame`, `aurora_borealis`, `barn`, etc.), 
 - the `present` column corresponds to the *number of times* that particular thing occurred,  
 - the `season`, `episode`, `episode_num`, and `title` information repeats down the rows for every object that was originally in a column  
+
+
 Data arrangements like this are typically called long or tidy, but the vital thing to know is that each value has an index in two places (in this case `object` and `present`). We can convert `BobRoss` into a long dataset using `tidyr::pivot_longer()`.
 
 The `tidyr::pivot_longer()` function takes the following arguments: 
