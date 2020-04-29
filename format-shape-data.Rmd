@@ -285,7 +285,15 @@ BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
 BobRossStep9 <- BobRossStep8 %>% 
   dplyr::mutate(season_txt = stringr::str_remove_all(string = season_text, 
                                                 pattern = "S")) %>% 
-  dplyr::rename(episode_txt = episode_text)
+  dplyr::rename(episode_txt = episode_text) 
+
+BobRossStep9 <- BobRossStep9 %>% 
+  dplyr::select(episode_txt, 
+                season_txt,
+                title,
+                object,
+                present)
+BobRossStep9
 # export
 readr::write_csv(as.data.frame(x = BobRossStep9), "data/BobRossStep9.csv")
 ```
