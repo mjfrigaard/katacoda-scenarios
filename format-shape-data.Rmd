@@ -212,7 +212,7 @@ dplyr::setdiff(x = BobRoss, y = BobRossWide)
 Create data set for this step. 
 
 ```{r BobRossEpisodes}
-BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode, 
+BobRossStep7 <- tidyr::separate(data = BobRossLong, col = episode, 
                 into = c("season_text", "episode_text"), 
                 sep = "E", remove = FALSE) %>% 
   tidyr::unite(season_text, episode_text, col = "new_episode", sep = ", E") %>% 
@@ -220,19 +220,19 @@ BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode,
     episode_info = new_episode, 
     title:present)
 # export
-readr::write_csv(as.data.frame(BobRossEpisodes), "data/BobRossStep7.csv")
-rm(BobRossEpisodes)
+readr::write_csv(as.data.frame(BobRossStep7), "data/BobRossStep7.csv")
+rm(BobRossStep7)
 ```
 
-```{r BobRossEpi}
-BobRossEpi <- readr::read_csv(file = "https://bit.ly/bob-ross-epi")
-glimpse(BobRossEpi)
+```{r BobRossStep7}
+BobRossStep7 <- readr::read_csv(file = "https://bit.ly/bob-ross-step7")
+glimpse(BobRossStep7)
 ```
 
 separate `episode_info` 
 
 ```{r check-separate}
-tidyr::separate(data = BobRossEpi, 
+tidyr::separate(data = BobRossStep7, 
                 col = episode_info, 
                 into = c("season", "episode"))
 ```
@@ -241,14 +241,28 @@ tidyr::separate(data = BobRossEpi,
 
 Here we unite two columns into a single column.
 
-```{r}
-tidyr::separate(data = BobRossLong, col = episode, 
+```{r BobRossStep8}
+BobRossStep8 <- tidyr::separate(data = BobRossLong, col = episode, 
                 into = c("season_text", "episode_text"), 
                 sep = "E", remove = FALSE) %>% 
-  dplyr::select(season_text, episode_text)
+  dplyr::select(season_text, episode_text, title:present)
+# export
+readr::write_csv(as.data.frame(x = BobRossStep8), "data/BobRossStep8.csv")
+```
+
+```{r BobRossStep8}
+BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+glimpse(BobRossStep8)
+```
+
+
+```{r}
+%>% 
+  
   unite(data = ., season_text, episode_text, 
         col = 'episode_new', 
-        sep = "E", remove = FALSE)
+        sep = "E", 
+        remove = FALSE)
 ```
 
 
