@@ -2,14 +2,18 @@
 
 Many times we'll want to create a new variable based on the values in another variable. For example, assume we want to identify only those object that are in season 1. We can do this by creating a new variable called `season01`, and assigning the value of `TRUE` to all the objects that occured in season 1, and `FALSE` to every other object. 
 
-Fill in the following portions of code. 
+Let's import a dataset for this step. 
+
+```
+BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
+head(BobRossStep10)
+```{{execute}}
+
+Create `season01` by filling in the following portions of code. 
 
 ```
 # click to copy code
-dplyr::mutate(.data = BobRossStep10, 
-            season01 = if_else(condition = ______ == _, 
-                                true = ____,
-                                    false = _____))
+mutate(.data = BobRossStep10, season01 = if_else(condition = ______ == _, true = ____, false = _____))
 ```{{copy}}
 
 We notice this creates a `<lgl>` variable, which can only have one of two values (`TRUE` and `FALSE`). Logical are great for binary variables because you can still perform mathematical operations on them.
@@ -27,6 +31,7 @@ BobRossStep10 <- dplyr::mutate(.data = BobRossStep10,
                             season01 = if_else(condition = season == 1, 
                                                true = TRUE,
                                                false = FALSE))
+# count the new values
 dplyr::count(BobRossStep10, season01)
 ```{{execute}}
 
@@ -35,11 +40,13 @@ dplyr::count(BobRossStep10, season01)
 We can also use `if_else` in combination with `stringr::str_detect()` to find all `E01` instances in `episode`.
 
 ```
+# click to execute code
 BobRossStep10 <- dplyr::mutate(.data = BobRossStep10, 
                     episode01 = if_else(condition = str_detect(string = episode, 
                                                                pattern = "E01"), 
                                     true = TRUE,
                                     false = FALSE))
+# count the new values
 dplyr::count(BobRossStep10, episode01)
 ```{{excute}}
 

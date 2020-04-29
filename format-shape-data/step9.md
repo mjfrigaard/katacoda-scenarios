@@ -14,11 +14,13 @@ The `tidyr::pivot_longer()` changes the position of the indices and values, but 
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/05-pivot-wider.png?raw=true)
 
-`unite` and `separate()` also change the position and contents of the information, but they do not calculate or create new variables. The primary package for data manipulation at the second level is `dplyr`, and we will explore it's functions in the next three steps. 
+`unite` and `separate()` also change the position and contents of the information, but they do not calculate or create new values. 
 
-## Create new variables
+## The `dplyr` package
 
-We're going to use the `dplyr::mutate()` function to change the format of a charater variable (`<chr>`) to numeric (`<dbl>`).
+The primary package for data manipulation at the second level is `dplyr`, and we will explore it's functions in the next three steps. 
+
+### Creating new variables
 
 How `dplyr::mutate()` works:
 
@@ -42,7 +44,7 @@ BobRossStep9 <- readr::read_csv(file = "https://bit.ly/bob-ross-step9")
 
 ## Changing variable formats
 
-So if we run the code below, it should create `episode_num`, which is a numerical version `episode_txt` (converting `<chr>` to `<dbl>` to numeric).
+We're going to use the `dplyr::mutate()` function to change the format of a character variable (`<chr>`) to numeric (`<dbl>`). So if we run the code below, it should create `episode_num`, which is a numerical version `episode_txt` (converting `<chr>` to `<dbl>` to numeric).
 
 ```
 # click to execute code
