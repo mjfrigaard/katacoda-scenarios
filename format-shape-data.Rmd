@@ -121,7 +121,7 @@ The `step1` file starts the scenario off an intro to R packages (the `base::libr
 fs::dir_tree("format-shape-data", regex = "step1.md")
 ```
 
-# step 2 (tribble)
+# step 2 (fivethirtyeight)
 
 
 ```{r step2, echo=FALSE}
@@ -146,7 +146,7 @@ SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
                          "QUIET STREAM",      0L,      0L)
 ```
 
-# step 3 (read_csv)
+# step 3 (tribbles)
 
 ```{r step3, echo=FALSE}
 fs::dir_tree("format-shape-data", regex = "step3.md")
@@ -163,7 +163,7 @@ readr::write_csv(as.data.frame(SmallBobRoss), "data/SmallBobRoss.csv")
 readr::read_csv(file = "https://bit.ly/small-bob-ross")
 ```
 
-# step 4  (fivethirtyeight, glimpse)
+# step 4  (readr)
 
 ```{r step4, echo=FALSE}
 fs::dir_tree("format-shape-data", regex = "step4.md")

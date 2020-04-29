@@ -8,7 +8,6 @@ Questions we should be asking ourselves about data at this level include:
 2. Are all the rows unique (i.e.will each case have a row)?    
 3. Does each measurement have a column (or variable)?   
 4. Are these variables each measuring exactly one thing?   
-3. Should we expect missing or incomplete data, and if so, why/how are they missing?   
 
 ## Reshaping data
 
@@ -22,10 +21,34 @@ A common task for data manipulation is moving columns to rows, or rows to column
 head(BobRoss)
 ```{{execute}}
 
-We can now answer two of the questions above: 
+## Checking for duplicates
 
-1. Approximately how many rows (or observations) and columns (or variables) should we be seeing? 403 rows, 71 columns
-3. Does each measurement have a column (or variable)? *do they?*
+We also want to know if there are duplicate rows in the `BobRoss` data, and we can check this by using `dplyr::distinct()` and `base::nrow()` with `base::identical()`
+
+*numer of rows?*
+
+```
+base::nrow()BobRoss)
+```{{copy}}
+
+*distinct rows (note this returns a tibble!)*
+
+```
+dplyr::distinct(.data = BobRoss)
+```{{copy}}
+
+*how about we check to see if they're identical?*
+
+```
+identical(x = nrow(BobRoss), y = nrow(dplyr::distinct(BobRoss)))
+```{{execute}}
+
+Now we can answer more of the questions above: 
+
+1. Approximately how many rows (or observations) and columns (or variables) should we be seeing? *403 rows, 71 columns*
+2. Are all the rows unique (i.e.will each case have a row)? *Yes*
+3. Does each measurement have a column (or variable)? *...do they?*
+4. Are these variables each measuring exactly one thing?   *I think so?*
 
 ## Pivoting part 1 (reorganizing values in a dataset) 
 

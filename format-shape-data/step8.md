@@ -29,13 +29,13 @@ head(BobRossStep8)
 
 Now use `tidyr::unite()` with the following arguments:
 
-`data` = `BobRossStep8`
+1. `data` = `BobRossStep8`
 
-the columns we want to unite (`season_text` and `episode_text`) 
+2. the columns we want to unite (`season_text` and `episode_text`) 
 
-the new column name (`col = episode_new`) 
+3. the new column name (`col = episode_new`) 
 
-And `sep =`, a regular expression pattern to place between the two columns we're uniting (in this case, it's `E`). 
+4. And `sep =`, a regular expression pattern to place between the two columns we're uniting (in this case, it's `E`). 
 
 Fill in the code below to use `unite()`.
 
