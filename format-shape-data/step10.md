@@ -48,6 +48,6 @@ BobRossStep10 <- dplyr::mutate(.data = BobRossStep10,
                                     false = FALSE))
 # count the new values
 dplyr::count(BobRossStep10, episode01)
-```{{excute}}
+```{{execute}}
 
 We can see the total number of first episodes. Again, this assumes we know the total number of first episodes and that they are all coded correctly.

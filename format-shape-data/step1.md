@@ -12,7 +12,7 @@ R is an object-oriented, functional programming scripting language for data mani
 
 We will be using the popular `tidyr` and `dplyr` packages for data manipulation. These packages are both part of the `tidyverse,` which is a suite of tools pioneered by RStudio's Chief Scientist [Hadley Wickham](http://hadley.nz/). All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
 
-Install the `tidyverse` package (this requires an internet connection outside of Katacoda) by clicking on the 'copy' icon below and pasting the code into the Terminal window, then hitting <kbd>enter</kbd> or <kbd>return</kbd>. 
+Install the `tidyverse` package by clicking on the 'copy' icon below and pasting the code into the Terminal window, then hitting <kbd>enter</kbd> or <kbd>return</kbd>. 
 
 <kbd>Ctrl</kbd>+<kbd>V</kbd>
 
