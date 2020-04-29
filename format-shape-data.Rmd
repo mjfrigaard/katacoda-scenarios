@@ -220,7 +220,7 @@ BobRossEpisodes <- tidyr::separate(data = BobRossLong, col = episode,
     episode_info = new_episode, 
     title:present)
 # export
-readr::write_csv(as.data.frame(BobRossEpisodes), "data/BobRossEpisodes.csv")
+readr::write_csv(as.data.frame(BobRossEpisodes), "data/BobRossStep7.csv")
 rm(BobRossEpisodes)
 ```
 
@@ -236,6 +236,21 @@ tidyr::separate(data = BobRossEpi,
                 col = episode_info, 
                 into = c("season", "episode"))
 ```
+
+# step 8 unite and rm
+
+Here we unite two columns into a single column.
+
+```{r}
+tidyr::separate(data = BobRossLong, col = episode, 
+                into = c("season_text", "episode_text"), 
+                sep = "E", remove = FALSE) %>% 
+  dplyr::select(season_text, episode_text)
+  unite(data = ., season_text, episode_text, 
+        col = 'episode_new', 
+        sep = "E", remove = FALSE)
+```
+
 
 
 
