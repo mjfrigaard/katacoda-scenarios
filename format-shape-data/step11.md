@@ -1,7 +1,45 @@
 # Creating new variables based on multiple conditions
 
-The `if_else` function works well for single conditions, but sometimes we want to create a new variables based on the values in multiple columns (i.e. multiple conditions).
+The `dplyr::if_else` function works well for single conditions, but sometimes we want to create new variables based on the values in more than one column (i.e. multiple conditions).
 
-The function for doing this is `dplyr::case_when()`, and it takes the following arguments. 
+We can combine `dplyr::mutate()` wjth `dplyr::case_when()` to create new variables based on multiple conditions. These functions work together with the following arguments. 
 
+```
+# first we assign a new variable name
+dplyr::mutate(.data = DataSet, `new variable name`, 
+        # then we enter our conditions (condition 1)
+           case_when(left hand side condition 1 ~ right hand side replacement 1,
+                    # condition 2 
+                    left hand side condition 2 ~ right hand side replacement 2))
+```
 
+We learn more about how case_when works by accessing the R help files (`?dplyr::case_when`).
+
+> *The left hand side determines which values match this case. The right hand side provides the replacement value. The LHS must evaluate to a logical vector. The right hand side does not need to be logical, but all right hand sides must evaluate to the same type of vector.* 
+
+## Using `case_when`
+
+We will load a small example of `BobRoss` to experiment with [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html).
+
+```
+BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
+head(BobRossStep11)
+```{{execute}}
+
+We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create a `title_category` variable based on what the episode was titled. 
+
+```
+BobRossStep11 %>% 
+  dplyr::mutate(
+    title_category = case_when(
+      str_detect(string = title, pattern = "MOUNTAIN|MT") ~ "Mountains",
+      str_detect(string = title, pattern = "WINTER") ~ "Winter", 
+      str_detect(string = title, pattern = "SUNSET") ~ "Sunsets ",
+      str_detect(string = title, pattern = "RIVER") ~ "Rivers",
+      str_detect(string = title, pattern = "CABIN") ~ "Cabins",
+      str_detect(string = title, pattern = "WOODS") ~ "Woods",
+      str_detect(string = title, pattern = "LAKE") ~ "Lakes",
+      str_detect(string = title, pattern = "STREAM") ~ "Streams",
+      str_detect(string = title, pattern = "SNOW") ~ "Snow",
+      str_detect(string = title, pattern = "VALLEY") ~ "Valleys"))
+```{{execute}}

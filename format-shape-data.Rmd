@@ -383,15 +383,13 @@ dplyr::count(BobRossStep10, episode01)
 
 Check working environment 
 
-```{r}
+```{r create-BobRossStep11}
 # ls()
-# rm(datw)
-BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
-BobRossStep11 <- BobRossStep10 %>% select(-season)
+BobRossStep11 <- BobRossStep10 %>% select(season, episode, title, object, present)
+head(BobRossStep11)
 # export
 readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 ```
-
 
 
 ```{r bob-ross-step11}
@@ -400,28 +398,33 @@ BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 head(BobRossStep11)
 ```
 
+create `title_category`.
+
+```{r title_category}
+dplyr::mutate(.data = BobRossStep11, 
+              title_category = case_when(
+                str_detect(string = title, pattern = "MOUNTAIN|MT") ~ "Mountains",
+                str_detect(string = title, pattern = "WINTER") ~ "Winter", 
+                str_detect(string = title, pattern = "SUNSET") ~ "Sunsets ",
+                str_detect(string = title, pattern = "RIVER") ~ "Rivers",
+                str_detect(string = title, pattern = "CABIN") ~ "Cabins",
+                str_detect(string = title, pattern = "WOODS") ~ "Woods",
+                str_detect(string = title, pattern = "LAKE") ~ "Lakes",
+                str_detect(string = title, pattern = "STREAM") ~ "Streams",
+                str_detect(string = title, pattern = "SNOW") ~ "Snow",
+                str_detect(string = title, pattern = "VALLEY") ~ "Valleys"))
+```
+
+Create title/season 1 categories.
 
 ```{r}
-stringr::str_view_all(string = unique(BobRossStep11$object), 
-                      pattern = "_frame", 
-                      match = TRUE)
-```
-```{r}
-dput(unique(BobRossStep11$title))
-```
-
-
-```{r other-objects}
-count(BobRossStep11, episode)
-```
-
-
-```{r}
-BobRossStep11 %>% 
-  dplyr::mutate(
-    episode_category = case_when(
-            str_detect(string = title, pattern = "WOODS") ~ "Wood paintings",
-              str_detect(string = title, pattern = "MOUNTAINS") ~ "mountain paintings"))
+dplyr::mutate(.data = BobRossStep11, 
+              title_season_category = case_when(
+                # season 1 titles with mountains
+                season == 1 & str_detect(title, "MOUNTAINS|MT") ~ "S01 Mountains",
+                season == 1 & str_detect(title, "WOODS") ~ "S02 Woods", 
+                season == 1 & str_detect(title, "WINTER") ~ "S01 Winter",
+                season == 1 & str_detect(title, "SUNSET") ~ "S01 Sunset"))
 ```
 
 
