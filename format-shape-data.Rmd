@@ -263,7 +263,12 @@ unite(data = BobRossStep8, season_text, episode_text, col = 'episode_new',
 
 # step 9 
 
-```{r}
+```{r clean-9}
+rm(list = ls(pattern = "Step"))
+ls()
+```
+
+```{r pivots}
 tibble::tribble(
   ~category, ~april, ~may, ~june, 
   "Zone A",       9,   14,     5,
@@ -341,8 +346,8 @@ BobRossStep9 <- dplyr::mutate(.data = BobRossStep9,
 
 # step 10
 
-```{r remove, echo=FALSE, include=FALSE}
-rm(BobRossEpi, SmallBobRoss, BobRoss)
+```{r clean-10}
+rm(list = ls(pattern = "Step"))
 ls()
 ```
 
@@ -383,6 +388,12 @@ dplyr::count(BobRossStep10, episode01)
 
 Check working environment 
 
+```{r clean-11}
+rm(list = ls(pattern = "Step"))
+ls()
+```
+
+
 ```{r create-BobRossStep11}
 # ls()
 BobRossStep11 <- BobRossLong %>% 
@@ -415,38 +426,20 @@ dplyr::mutate(.data = BobRossStep11,
               season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
               season == 1 & str_detect(string = object, pattern = "river") ~ "water",
               season == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
-              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings"))
+              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings",
+              TRUE ~ "other"))
 ```
 
+# step 12 
 
-```{r}
-BobRossStep11 %>% 
-  dplyr::filter(str_detect(string = object, pattern = "mountain") | 
-                  str_detect(string = object, pattern = "bushes"))
+This uses the original `bob_ross` (reduced to season 4, episodes 4 - )
+
+```{r BobRossStep12}
+BobRossStep12 <- fivethirtyeight::bob_ross %>% 
+  dplyr::filter(season == 4 & episode_num >= 4)
+# export BobRossStep12
+readr::write_csv(as.data.frame(x = BobRossStep12), "data/BobRossStep12.csv")
 ```
-
-
-```{r object_category}
-dplyr::mutate(.data = BobRossStep11, 
-          object_category = case_when(
-              present == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
-              present == 1 & str_detect(string = object, pattern = "bushes") ~ "bushes",
-              present == 1 & str_detect(string = object, pattern = "tree") ~ "trees")) 
-```
-
-Create title/season 1 categories.
-
-```{r}
-dplyr::mutate(.data = BobRossStep11, 
-              title_season_category = case_when(
-                # season 1 titles with mountains
-                season == 1 & str_detect(title, "MOUNTAINS|MT") ~ "S01 Mountains",
-                season == 1 & str_detect(title, "WOODS") ~ "S02 Woods", 
-                season == 1 & str_detect(title, "WINTER") ~ "S01 Winter",
-                season == 1 & str_detect(title, "SUNSET") ~ "S01 Sunset"))
-```
-
-
 
 
 
@@ -498,7 +491,3 @@ Does the scenario start consistently and in a timely manner? More than 5 minutes
 
 - [ ] Do the goals and lessons learned items match the steps in the scenario?
 
-
-## Scenario contents
-
-This scenario covers...

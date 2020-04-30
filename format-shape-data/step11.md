@@ -55,3 +55,20 @@ dplyr::mutate(.data = BobRossStep11,
               season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings"))
 ```{{execute}}
 
+We can also include a 'catch-all' with a logical `TRUE` condition.
+
+```
+BobRossStep11 <- dplyr::mutate(.data = BobRossStep11, 
+          object_category = case_when(
+              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
+              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
+              season == 1 & str_detect(string = object, pattern = "river") ~ "water",
+              season == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
+              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings",
+              TRUE ~ "other"))
+head(BobRossStep11)
+```{{execute}}
+
