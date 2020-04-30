@@ -1,2 +1,3 @@
-episode,season,episode_num,title,cabin,circle_frame,clouds,conifer,cumulus,deciduous,framed,guest,lake,snow,structure,tree,trees,winter
-S04E04,4,4,WINTER SAWSCAPE,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+episode,season,episode_num,title,cabin,circle_frame,clouds,conifer,cumulus,deciduous,framed,guest,lake,snow,structure,tree,trees,winter,beach,cliff,ocean,rocks,waves
+S04E04,4,4,WINTER SAWSCAPE,1,1,1,1,1,1,1,1,1,1,1,1,1,1,NA,NA,NA,NA,NA
+S04E05,4,5,EVENING SEASCAPE,NA,NA,1,1,1,NA,NA,NA,NA,NA,NA,1,1,NA,1,1,1,1,1

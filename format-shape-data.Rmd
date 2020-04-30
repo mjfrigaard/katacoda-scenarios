@@ -436,17 +436,18 @@ This uses the original `bob_ross` (reduced to season 4, episodes 4 - )
 
 ```{r BobRossStep12}
 BobRossStep12 <- fivethirtyeight::bob_ross %>% 
-  dplyr::filter(season == 4 & episode_num >= 4) %>% 
+  dplyr::filter(episode_num >= 4 & episode_num <= 5 & season == 4) %>% 
   tidyr::pivot_longer(data = ., 
                       cols = c(apple_frame:wood_framed), 
                           names_to = "object",  
                             values_to = "present") %>% 
-  dplyr::filter(present == 1 & episode_num == 4) %>% 
+  dplyr::filter(present == 1) %>% 
   tidyr::pivot_wider(data = ., 
                      names_from = object, 
                      values_from = present)
 # export BobRossStep12
 readr::write_csv(as.data.frame(x = BobRossStep12), "data/BobRossStep12.csv")
+head(BobRossStep12)
 ```
 
 ```{r import-BobRossStep12}
