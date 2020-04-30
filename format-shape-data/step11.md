@@ -24,14 +24,30 @@ BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 head(BobRossStep11)
 ```{{execute}}
 
-We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create an `painting_category` variable based on what `object`s were in a particular episode's painting. We'll be using 
-
-
+We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create an `painting_category` variable based on what `object`s were in a particular episode's painting. We'll be using `stringr::str_detect()` again to find all the paintings of with `mountains`, `trees`, and `bushes`. 
 
 ```
 dplyr::mutate(.data = BobRossStep11, 
           object_category = case_when(
-              present == 1 & str_detect(string = object, pattern = "mountain") ~ "mountainy",
-              present == 1 & str_detect(string = object, pattern = "bush") ~ "bushey"))
+              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
+              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes"))
+```{{execute}}
+
+The great thing about `case_when()` is that we can keep adding more conditions. For example, we can add `water` and `buildings` to the same `object_category` variable. 
+
+```
+dplyr::mutate(.data = BobRossStep11, 
+          object_category = case_when(
+              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
+              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
+              season == 1 & str_detect(string = object, pattern = "river") ~ "water",
+              season == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
+              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings"))
 ```{{execute}}
 

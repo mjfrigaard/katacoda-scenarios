@@ -390,8 +390,8 @@ BobRossStep11 <- BobRossLong %>%
   dplyr::mutate(
     title = stringr::str_to_title(title),
     object = stringr::str_replace_all(object, "_", " ")) %>% 
-  # limit to present 1 and season 1
-  dplyr::filter(present == 1 & season == 1)
+  # limit to present 1 and season 1 & episode_num <= 3
+  dplyr::filter(present == 1 & season == 1 & episode_num <= 3)
 # export
 readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 ```
@@ -399,7 +399,6 @@ readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 Import new data.
 
 ```{r bob-ross-step11}
-rm(BobRossStep11)
 BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 glimpse(BobRossStep11)
 ```
