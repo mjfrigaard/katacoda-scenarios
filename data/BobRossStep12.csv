@@ -1,11 +1,11 @@
-episode,season,episode_num,title,apple_frame,aurora_borealis,barn,beach,boat,bridge,building,bushes,cabin,cactus,circle_frame,cirrus,cliff,clouds,conifer,cumulus,deciduous,diane_andre,dock,double_oval_frame,farm,fence,fire,florida_frame,flowers,fog,framed,grass,guest,half_circle_frame,half_oval_frame,hills,lake,lakes,lighthouse,mill,moon,mountain,mountains,night,ocean,oval_frame,palm_trees,path,person,portrait,rectangle_3d_frame,rectangular_frame,river,rocks,seashell_frame,snow,snowy_mountain,split_frame,steve_ross,structure,sun,tomb_frame,tree,trees,triple_frame,waterfall,waves,windmill,window_frame,winter,wood_framed
-S04E04,4,4,WINTER SAWSCAPE,0,0,0,0,0,0,0,0,1,0,1,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,1,1,0,0,0,0,0,1,0
-S04E05,4,5,EVENING SEASCAPE,0,0,0,1,0,0,0,0,0,0,0,0,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,1,0,0,0,0
-S04E06,4,6,WARM SUMMER DAY,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0
-S04E07,4,7,CABIN IN THE WOODS,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,1,0,0,1,1,0,0,0,0,0,0,0
-S04E08,4,8,WETLANDS,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0
-S04E09,4,9,COOL WATERS,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0
-S04E10,4,10,QUIET WOODS,0,0,0,0,0,0,0,1,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0
-S04E11,4,11,NORTHWEST MAJESTY,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,1,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,1,0,0,0,0,0,0,0
-S04E12,4,12,AUTUMN DAYS,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0
-S04E13,4,13,MOUNTAIN CHALLENGE,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,1,0,0,0,0,0,0,0,0
+episode,season,episode_num,title,cabin,circle_frame,clouds,conifer,cumulus,deciduous,framed,guest,lake,snow,structure,tree,trees,winter,beach,cliff,ocean,rocks,waves,bushes,grass,path,mountain,mountains,snowy_mountain,river,diane_andre,hills
+S04E04,4,4,WINTER SAWSCAPE,1,1,1,1,1,1,1,1,1,1,1,1,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA,NA
+S04E05,4,5,EVENING SEASCAPE,NA,NA,1,1,1,NA,NA,NA,NA,NA,NA,1,1,NA,1,1,1,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA
+S04E06,4,6,WARM SUMMER DAY,NA,NA,NA,NA,NA,1,NA,NA,1,NA,NA,1,1,NA,NA,NA,NA,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,NA
+S04E07,4,7,CABIN IN THE WOODS,1,NA,NA,NA,NA,1,NA,NA,NA,NA,1,1,1,NA,NA,NA,NA,NA,NA,NA,1,1,NA,NA,NA,NA,NA,NA
+S04E08,4,8,WETLANDS,NA,NA,NA,1,NA,1,NA,NA,1,NA,NA,1,1,NA,NA,NA,NA,NA,NA,NA,1,NA,NA,NA,NA,NA,NA,NA
+S04E09,4,9,COOL WATERS,NA,NA,1,1,NA,NA,NA,NA,1,NA,NA,1,1,NA,NA,NA,NA,NA,NA,1,NA,NA,1,1,1,NA,NA,NA
+S04E10,4,10,QUIET WOODS,NA,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,1,1,NA,NA,NA,NA,NA,NA,1,1,NA,NA,NA,NA,1,NA,NA
+S04E11,4,11,NORTHWEST MAJESTY,NA,NA,1,1,1,NA,NA,1,NA,NA,NA,1,1,NA,NA,NA,NA,NA,NA,NA,NA,NA,1,1,1,NA,1,NA
+S04E12,4,12,AUTUMN DAYS,NA,NA,NA,NA,NA,1,NA,NA,1,NA,NA,1,1,NA,NA,NA,NA,NA,NA,NA,1,NA,NA,NA,NA,NA,NA,1
+S04E13,4,13,MOUNTAIN CHALLENGE,NA,NA,NA,1,NA,NA,NA,NA,1,NA,NA,1,NA,NA,NA,NA,NA,NA,NA,NA,1,NA,1,NA,1,NA,NA,NA

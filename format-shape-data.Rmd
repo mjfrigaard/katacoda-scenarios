@@ -416,7 +416,7 @@ glimpse(BobRossStep11)
 
 create `object_category`.
 
-```{r}
+```{r add-true}
 dplyr::mutate(.data = BobRossStep11, 
           object_category = case_when(
               season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
@@ -436,10 +436,46 @@ This uses the original `bob_ross` (reduced to season 4, episodes 4 - )
 
 ```{r BobRossStep12}
 BobRossStep12 <- fivethirtyeight::bob_ross %>% 
-  dplyr::filter(season == 4 & episode_num >= 4)
+  dplyr::filter(season == 4 & episode_num >= 4) %>% 
+  tidyr::pivot_longer(data = ., 
+                      cols = c(apple_frame:wood_framed), 
+                          names_to = "object",  
+                            values_to = "present") %>% 
+  dplyr::filter(present == 1) %>% 
+  tidyr::pivot_wider(data = ., 
+                     names_from = object, 
+                     values_from = present)
 # export BobRossStep12
 readr::write_csv(as.data.frame(x = BobRossStep12), "data/BobRossStep12.csv")
 ```
+
+```{r import-BobRossStep12}
+BobRossStep12 <- readr::read_csv(file = "https://bit.ly/bob-ross-step12")
+head(BobRossStep12)
+```
+First create a long version 
+
+```{r -pivot_longer-12}
+BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12, 
+                      cols = -c(episode, season, episode_num, title), 
+                          names_to = "object",  
+                            values_to = "present")
+BobRossStep12
+```
+
+Now create categorical variable. 
+
+```{r}
+BobRossStep12 %>% count(object)
+```
+
+
+```{r}
+dplyr::mutate(.data = BobRossStep12, 
+              
+              )
+```
+
 
 
 
