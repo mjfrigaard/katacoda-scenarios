@@ -37,7 +37,7 @@ dplyr::count(BobRossStep10, season01)
 
 `count` returns a tibble with a sum of each value in `season01`. 
 
-We can also use `if_else` in combination with `stringr::str_detect()` to find all `E01` instances in `episode`.
+We can also use `if_else` in combination with [`stringr::str_detect()`](https://stringr.tidyverse.org/reference/str_detect.html) to find all `E01` instances in `episode`. The `str_detect()` is incredibly handy for finding patterns in text data because it returns a logical (`TRUE` or `FALSE`).
 
 ```
 # click to execute code

@@ -385,9 +385,7 @@ Check working environment
 
 ```{r create-BobRossStep11}
 # ls()
-BobRossStep11 <- BobRossStep10 %>% 
-  # reorganize columns
-  dplyr::select(season, episode, title, object, present) %>% 
+BobRossStep11 <- BobRossLong %>% 
   # fix titles and object
   dplyr::mutate(
     title = stringr::str_to_title(title),
@@ -403,25 +401,37 @@ Import new data.
 ```{r bob-ross-step11}
 rm(BobRossStep11)
 BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
-head(BobRossStep11)
+glimpse(BobRossStep11)
 ```
 
 create `title_category`.
 
-```{r title_category}
+```{r}
+unique(BobRossLong$object)
+BobRossLong
+```
+
+```{r}
 dplyr::mutate(.data = BobRossStep11, 
-              title_category = case_when(
-                str_detect(string = title, pattern = "Mountain|Mt.") ~ "Mountains",
-                str_detect(string = title, pattern = "Winter") ~ "Season", 
-                str_detect(string = title, pattern = "Sunset") ~ "Sunsets",
-                str_detect(string = title, pattern = "River") ~ "Body of Water",
-                str_detect(string = title, pattern = "Cabin") ~ "Cabins",
-                str_detect(string = title, pattern = "Woods") ~ "Woods",
-                str_detect(string = title, pattern = "Lake") ~ "Body of Water",
-                str_detect(string = title, pattern = "Stream") ~ "Body of Water",
-                str_detect(string = title, pattern = "Snow") ~ "Snow",
-                str_detect(string = title, pattern = "Valley") ~ "Valleys",
-                str_detect(string = title, pattern = "Seascape") ~ "Seascapes"))
+              season01_objects = case_when(season == 1 & present == 1 ~ "present in season 1",
+                                           season == 1 & present == 0 ~ "absent in season 1")) %>% 
+  dplyr::count(title, season01_objects)
+```
+
+
+```{r}
+BobRossStep11 %>% 
+  dplyr::filter(str_detect(string = object, pattern = "mountain") | 
+                  str_detect(string = object, pattern = "bushes"))
+```
+
+
+```{r object_category}
+dplyr::mutate(.data = BobRossStep11, 
+          object_category = case_when(
+              present == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
+              present == 1 & str_detect(string = object, pattern = "bushes") ~ "bushes",
+              present == 1 & str_detect(string = object, pattern = "tree") ~ "trees")) 
 ```
 
 Create title/season 1 categories.
