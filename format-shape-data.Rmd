@@ -390,8 +390,8 @@ BobRossStep11 <- BobRossLong %>%
   dplyr::mutate(
     title = stringr::str_to_title(title),
     object = stringr::str_replace_all(object, "_", " ")) %>% 
-  # limit to season 1
-  dplyr::filter(season == 1)
+  # limit to present 1
+  dplyr::filter(present == 1)
 # export
 readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 ```
@@ -404,18 +404,15 @@ BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 glimpse(BobRossStep11)
 ```
 
-create `title_category`.
-
-```{r}
-unique(BobRossLong$object)
-BobRossLong
-```
+create `object_category`.
 
 ```{r}
 dplyr::mutate(.data = BobRossStep11, 
-              season01_objects = case_when(season == 1 & present == 1 ~ "present in season 1",
-                                           season == 1 & present == 0 ~ "absent in season 1")) %>% 
-  dplyr::count(title, season01_objects)
+          object_category = case_when(
+              present == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
+              present == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
+              present == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
+              present == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings"))
 ```
 
 

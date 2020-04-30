@@ -24,14 +24,14 @@ BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 head(BobRossStep11)
 ```{{execute}}
 
-We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create a `title_category` variable based on what `object`s were in the episode in the title was . We'll be using 
+We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create an `painting_category` variable based on what `object`s were in a particular episode's painting. We'll be using 
 
 
 
 ```
 dplyr::mutate(.data = BobRossStep11, 
           object_category = case_when(
-              present == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
-              present == 1 & str_detect(string = object, pattern = "bushes") ~ "bushes"))
+              present == 1 & str_detect(string = object, pattern = "mountain") ~ "mountainy",
+              present == 1 & str_detect(string = object, pattern = "bush") ~ "bushey"))
 ```{{execute}}
 

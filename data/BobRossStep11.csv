@@ -1,872 +1,3222 @@
 episode,season,episode_num,title,object,present
-S01E01,1,1,A Walk In The Woods,apple frame,0
-S01E01,1,1,A Walk In The Woods,aurora borealis,0
-S01E01,1,1,A Walk In The Woods,barn,0
-S01E01,1,1,A Walk In The Woods,beach,0
-S01E01,1,1,A Walk In The Woods,boat,0
-S01E01,1,1,A Walk In The Woods,bridge,0
-S01E01,1,1,A Walk In The Woods,building,0
 S01E01,1,1,A Walk In The Woods,bushes,1
-S01E01,1,1,A Walk In The Woods,cabin,0
-S01E01,1,1,A Walk In The Woods,cactus,0
-S01E01,1,1,A Walk In The Woods,circle frame,0
-S01E01,1,1,A Walk In The Woods,cirrus,0
-S01E01,1,1,A Walk In The Woods,cliff,0
-S01E01,1,1,A Walk In The Woods,clouds,0
-S01E01,1,1,A Walk In The Woods,conifer,0
-S01E01,1,1,A Walk In The Woods,cumulus,0
 S01E01,1,1,A Walk In The Woods,deciduous,1
-S01E01,1,1,A Walk In The Woods,diane andre,0
-S01E01,1,1,A Walk In The Woods,dock,0
-S01E01,1,1,A Walk In The Woods,double oval frame,0
-S01E01,1,1,A Walk In The Woods,farm,0
-S01E01,1,1,A Walk In The Woods,fence,0
-S01E01,1,1,A Walk In The Woods,fire,0
-S01E01,1,1,A Walk In The Woods,florida frame,0
-S01E01,1,1,A Walk In The Woods,flowers,0
-S01E01,1,1,A Walk In The Woods,fog,0
-S01E01,1,1,A Walk In The Woods,framed,0
 S01E01,1,1,A Walk In The Woods,grass,1
-S01E01,1,1,A Walk In The Woods,guest,0
-S01E01,1,1,A Walk In The Woods,half circle frame,0
-S01E01,1,1,A Walk In The Woods,half oval frame,0
-S01E01,1,1,A Walk In The Woods,hills,0
-S01E01,1,1,A Walk In The Woods,lake,0
-S01E01,1,1,A Walk In The Woods,lakes,0
-S01E01,1,1,A Walk In The Woods,lighthouse,0
-S01E01,1,1,A Walk In The Woods,mill,0
-S01E01,1,1,A Walk In The Woods,moon,0
-S01E01,1,1,A Walk In The Woods,mountain,0
-S01E01,1,1,A Walk In The Woods,mountains,0
-S01E01,1,1,A Walk In The Woods,night,0
-S01E01,1,1,A Walk In The Woods,ocean,0
-S01E01,1,1,A Walk In The Woods,oval frame,0
-S01E01,1,1,A Walk In The Woods,palm trees,0
-S01E01,1,1,A Walk In The Woods,path,0
-S01E01,1,1,A Walk In The Woods,person,0
-S01E01,1,1,A Walk In The Woods,portrait,0
-S01E01,1,1,A Walk In The Woods,rectangle 3d frame,0
-S01E01,1,1,A Walk In The Woods,rectangular frame,0
 S01E01,1,1,A Walk In The Woods,river,1
-S01E01,1,1,A Walk In The Woods,rocks,0
-S01E01,1,1,A Walk In The Woods,seashell frame,0
-S01E01,1,1,A Walk In The Woods,snow,0
-S01E01,1,1,A Walk In The Woods,snowy mountain,0
-S01E01,1,1,A Walk In The Woods,split frame,0
-S01E01,1,1,A Walk In The Woods,steve ross,0
-S01E01,1,1,A Walk In The Woods,structure,0
-S01E01,1,1,A Walk In The Woods,sun,0
-S01E01,1,1,A Walk In The Woods,tomb frame,0
 S01E01,1,1,A Walk In The Woods,tree,1
 S01E01,1,1,A Walk In The Woods,trees,1
-S01E01,1,1,A Walk In The Woods,triple frame,0
-S01E01,1,1,A Walk In The Woods,waterfall,0
-S01E01,1,1,A Walk In The Woods,waves,0
-S01E01,1,1,A Walk In The Woods,windmill,0
-S01E01,1,1,A Walk In The Woods,window frame,0
-S01E01,1,1,A Walk In The Woods,winter,0
-S01E01,1,1,A Walk In The Woods,wood framed,0
-S01E02,1,2,Mt. Mckinley,apple frame,0
-S01E02,1,2,Mt. Mckinley,aurora borealis,0
-S01E02,1,2,Mt. Mckinley,barn,0
-S01E02,1,2,Mt. Mckinley,beach,0
-S01E02,1,2,Mt. Mckinley,boat,0
-S01E02,1,2,Mt. Mckinley,bridge,0
-S01E02,1,2,Mt. Mckinley,building,0
-S01E02,1,2,Mt. Mckinley,bushes,0
 S01E02,1,2,Mt. Mckinley,cabin,1
-S01E02,1,2,Mt. Mckinley,cactus,0
-S01E02,1,2,Mt. Mckinley,circle frame,0
-S01E02,1,2,Mt. Mckinley,cirrus,0
-S01E02,1,2,Mt. Mckinley,cliff,0
 S01E02,1,2,Mt. Mckinley,clouds,1
 S01E02,1,2,Mt. Mckinley,conifer,1
-S01E02,1,2,Mt. Mckinley,cumulus,0
-S01E02,1,2,Mt. Mckinley,deciduous,0
-S01E02,1,2,Mt. Mckinley,diane andre,0
-S01E02,1,2,Mt. Mckinley,dock,0
-S01E02,1,2,Mt. Mckinley,double oval frame,0
-S01E02,1,2,Mt. Mckinley,farm,0
-S01E02,1,2,Mt. Mckinley,fence,0
-S01E02,1,2,Mt. Mckinley,fire,0
-S01E02,1,2,Mt. Mckinley,florida frame,0
-S01E02,1,2,Mt. Mckinley,flowers,0
-S01E02,1,2,Mt. Mckinley,fog,0
-S01E02,1,2,Mt. Mckinley,framed,0
-S01E02,1,2,Mt. Mckinley,grass,0
-S01E02,1,2,Mt. Mckinley,guest,0
-S01E02,1,2,Mt. Mckinley,half circle frame,0
-S01E02,1,2,Mt. Mckinley,half oval frame,0
-S01E02,1,2,Mt. Mckinley,hills,0
-S01E02,1,2,Mt. Mckinley,lake,0
-S01E02,1,2,Mt. Mckinley,lakes,0
-S01E02,1,2,Mt. Mckinley,lighthouse,0
-S01E02,1,2,Mt. Mckinley,mill,0
-S01E02,1,2,Mt. Mckinley,moon,0
 S01E02,1,2,Mt. Mckinley,mountain,1
-S01E02,1,2,Mt. Mckinley,mountains,0
-S01E02,1,2,Mt. Mckinley,night,0
-S01E02,1,2,Mt. Mckinley,ocean,0
-S01E02,1,2,Mt. Mckinley,oval frame,0
-S01E02,1,2,Mt. Mckinley,palm trees,0
-S01E02,1,2,Mt. Mckinley,path,0
-S01E02,1,2,Mt. Mckinley,person,0
-S01E02,1,2,Mt. Mckinley,portrait,0
-S01E02,1,2,Mt. Mckinley,rectangle 3d frame,0
-S01E02,1,2,Mt. Mckinley,rectangular frame,0
-S01E02,1,2,Mt. Mckinley,river,0
-S01E02,1,2,Mt. Mckinley,rocks,0
-S01E02,1,2,Mt. Mckinley,seashell frame,0
 S01E02,1,2,Mt. Mckinley,snow,1
 S01E02,1,2,Mt. Mckinley,snowy mountain,1
-S01E02,1,2,Mt. Mckinley,split frame,0
-S01E02,1,2,Mt. Mckinley,steve ross,0
-S01E02,1,2,Mt. Mckinley,structure,0
-S01E02,1,2,Mt. Mckinley,sun,0
-S01E02,1,2,Mt. Mckinley,tomb frame,0
 S01E02,1,2,Mt. Mckinley,tree,1
 S01E02,1,2,Mt. Mckinley,trees,1
-S01E02,1,2,Mt. Mckinley,triple frame,0
-S01E02,1,2,Mt. Mckinley,waterfall,0
-S01E02,1,2,Mt. Mckinley,waves,0
-S01E02,1,2,Mt. Mckinley,windmill,0
-S01E02,1,2,Mt. Mckinley,window frame,0
 S01E02,1,2,Mt. Mckinley,winter,1
-S01E02,1,2,Mt. Mckinley,wood framed,0
-S01E03,1,3,Ebony Sunset,apple frame,0
-S01E03,1,3,Ebony Sunset,aurora borealis,0
-S01E03,1,3,Ebony Sunset,barn,0
-S01E03,1,3,Ebony Sunset,beach,0
-S01E03,1,3,Ebony Sunset,boat,0
-S01E03,1,3,Ebony Sunset,bridge,0
-S01E03,1,3,Ebony Sunset,building,0
-S01E03,1,3,Ebony Sunset,bushes,0
 S01E03,1,3,Ebony Sunset,cabin,1
-S01E03,1,3,Ebony Sunset,cactus,0
-S01E03,1,3,Ebony Sunset,circle frame,0
-S01E03,1,3,Ebony Sunset,cirrus,0
-S01E03,1,3,Ebony Sunset,cliff,0
-S01E03,1,3,Ebony Sunset,clouds,0
 S01E03,1,3,Ebony Sunset,conifer,1
-S01E03,1,3,Ebony Sunset,cumulus,0
-S01E03,1,3,Ebony Sunset,deciduous,0
-S01E03,1,3,Ebony Sunset,diane andre,0
-S01E03,1,3,Ebony Sunset,dock,0
-S01E03,1,3,Ebony Sunset,double oval frame,0
-S01E03,1,3,Ebony Sunset,farm,0
 S01E03,1,3,Ebony Sunset,fence,1
-S01E03,1,3,Ebony Sunset,fire,0
-S01E03,1,3,Ebony Sunset,florida frame,0
-S01E03,1,3,Ebony Sunset,flowers,0
-S01E03,1,3,Ebony Sunset,fog,0
-S01E03,1,3,Ebony Sunset,framed,0
-S01E03,1,3,Ebony Sunset,grass,0
-S01E03,1,3,Ebony Sunset,guest,0
-S01E03,1,3,Ebony Sunset,half circle frame,0
-S01E03,1,3,Ebony Sunset,half oval frame,0
-S01E03,1,3,Ebony Sunset,hills,0
-S01E03,1,3,Ebony Sunset,lake,0
-S01E03,1,3,Ebony Sunset,lakes,0
-S01E03,1,3,Ebony Sunset,lighthouse,0
-S01E03,1,3,Ebony Sunset,mill,0
-S01E03,1,3,Ebony Sunset,moon,0
 S01E03,1,3,Ebony Sunset,mountain,1
 S01E03,1,3,Ebony Sunset,mountains,1
-S01E03,1,3,Ebony Sunset,night,0
-S01E03,1,3,Ebony Sunset,ocean,0
-S01E03,1,3,Ebony Sunset,oval frame,0
-S01E03,1,3,Ebony Sunset,palm trees,0
-S01E03,1,3,Ebony Sunset,path,0
-S01E03,1,3,Ebony Sunset,person,0
-S01E03,1,3,Ebony Sunset,portrait,0
-S01E03,1,3,Ebony Sunset,rectangle 3d frame,0
-S01E03,1,3,Ebony Sunset,rectangular frame,0
-S01E03,1,3,Ebony Sunset,river,0
-S01E03,1,3,Ebony Sunset,rocks,0
-S01E03,1,3,Ebony Sunset,seashell frame,0
-S01E03,1,3,Ebony Sunset,snow,0
-S01E03,1,3,Ebony Sunset,snowy mountain,0
-S01E03,1,3,Ebony Sunset,split frame,0
-S01E03,1,3,Ebony Sunset,steve ross,0
 S01E03,1,3,Ebony Sunset,structure,1
 S01E03,1,3,Ebony Sunset,sun,1
-S01E03,1,3,Ebony Sunset,tomb frame,0
 S01E03,1,3,Ebony Sunset,tree,1
 S01E03,1,3,Ebony Sunset,trees,1
-S01E03,1,3,Ebony Sunset,triple frame,0
-S01E03,1,3,Ebony Sunset,waterfall,0
-S01E03,1,3,Ebony Sunset,waves,0
-S01E03,1,3,Ebony Sunset,windmill,0
-S01E03,1,3,Ebony Sunset,window frame,0
 S01E03,1,3,Ebony Sunset,winter,1
-S01E03,1,3,Ebony Sunset,wood framed,0
-S01E04,1,4,Winter Mist,apple frame,0
-S01E04,1,4,Winter Mist,aurora borealis,0
-S01E04,1,4,Winter Mist,barn,0
-S01E04,1,4,Winter Mist,beach,0
-S01E04,1,4,Winter Mist,boat,0
-S01E04,1,4,Winter Mist,bridge,0
-S01E04,1,4,Winter Mist,building,0
 S01E04,1,4,Winter Mist,bushes,1
-S01E04,1,4,Winter Mist,cabin,0
-S01E04,1,4,Winter Mist,cactus,0
-S01E04,1,4,Winter Mist,circle frame,0
-S01E04,1,4,Winter Mist,cirrus,0
-S01E04,1,4,Winter Mist,cliff,0
 S01E04,1,4,Winter Mist,clouds,1
 S01E04,1,4,Winter Mist,conifer,1
-S01E04,1,4,Winter Mist,cumulus,0
-S01E04,1,4,Winter Mist,deciduous,0
-S01E04,1,4,Winter Mist,diane andre,0
-S01E04,1,4,Winter Mist,dock,0
-S01E04,1,4,Winter Mist,double oval frame,0
-S01E04,1,4,Winter Mist,farm,0
-S01E04,1,4,Winter Mist,fence,0
-S01E04,1,4,Winter Mist,fire,0
-S01E04,1,4,Winter Mist,florida frame,0
-S01E04,1,4,Winter Mist,flowers,0
-S01E04,1,4,Winter Mist,fog,0
-S01E04,1,4,Winter Mist,framed,0
-S01E04,1,4,Winter Mist,grass,0
-S01E04,1,4,Winter Mist,guest,0
-S01E04,1,4,Winter Mist,half circle frame,0
-S01E04,1,4,Winter Mist,half oval frame,0
-S01E04,1,4,Winter Mist,hills,0
 S01E04,1,4,Winter Mist,lake,1
-S01E04,1,4,Winter Mist,lakes,0
-S01E04,1,4,Winter Mist,lighthouse,0
-S01E04,1,4,Winter Mist,mill,0
-S01E04,1,4,Winter Mist,moon,0
 S01E04,1,4,Winter Mist,mountain,1
-S01E04,1,4,Winter Mist,mountains,0
-S01E04,1,4,Winter Mist,night,0
-S01E04,1,4,Winter Mist,ocean,0
-S01E04,1,4,Winter Mist,oval frame,0
-S01E04,1,4,Winter Mist,palm trees,0
-S01E04,1,4,Winter Mist,path,0
-S01E04,1,4,Winter Mist,person,0
-S01E04,1,4,Winter Mist,portrait,0
-S01E04,1,4,Winter Mist,rectangle 3d frame,0
-S01E04,1,4,Winter Mist,rectangular frame,0
-S01E04,1,4,Winter Mist,river,0
-S01E04,1,4,Winter Mist,rocks,0
-S01E04,1,4,Winter Mist,seashell frame,0
-S01E04,1,4,Winter Mist,snow,0
 S01E04,1,4,Winter Mist,snowy mountain,1
-S01E04,1,4,Winter Mist,split frame,0
-S01E04,1,4,Winter Mist,steve ross,0
-S01E04,1,4,Winter Mist,structure,0
-S01E04,1,4,Winter Mist,sun,0
-S01E04,1,4,Winter Mist,tomb frame,0
 S01E04,1,4,Winter Mist,tree,1
 S01E04,1,4,Winter Mist,trees,1
-S01E04,1,4,Winter Mist,triple frame,0
-S01E04,1,4,Winter Mist,waterfall,0
-S01E04,1,4,Winter Mist,waves,0
-S01E04,1,4,Winter Mist,windmill,0
-S01E04,1,4,Winter Mist,window frame,0
-S01E04,1,4,Winter Mist,winter,0
-S01E04,1,4,Winter Mist,wood framed,0
-S01E05,1,5,Quiet Stream,apple frame,0
-S01E05,1,5,Quiet Stream,aurora borealis,0
-S01E05,1,5,Quiet Stream,barn,0
-S01E05,1,5,Quiet Stream,beach,0
-S01E05,1,5,Quiet Stream,boat,0
-S01E05,1,5,Quiet Stream,bridge,0
-S01E05,1,5,Quiet Stream,building,0
-S01E05,1,5,Quiet Stream,bushes,0
-S01E05,1,5,Quiet Stream,cabin,0
-S01E05,1,5,Quiet Stream,cactus,0
-S01E05,1,5,Quiet Stream,circle frame,0
-S01E05,1,5,Quiet Stream,cirrus,0
-S01E05,1,5,Quiet Stream,cliff,0
-S01E05,1,5,Quiet Stream,clouds,0
-S01E05,1,5,Quiet Stream,conifer,0
-S01E05,1,5,Quiet Stream,cumulus,0
 S01E05,1,5,Quiet Stream,deciduous,1
-S01E05,1,5,Quiet Stream,diane andre,0
-S01E05,1,5,Quiet Stream,dock,0
-S01E05,1,5,Quiet Stream,double oval frame,0
-S01E05,1,5,Quiet Stream,farm,0
-S01E05,1,5,Quiet Stream,fence,0
-S01E05,1,5,Quiet Stream,fire,0
-S01E05,1,5,Quiet Stream,florida frame,0
-S01E05,1,5,Quiet Stream,flowers,0
-S01E05,1,5,Quiet Stream,fog,0
-S01E05,1,5,Quiet Stream,framed,0
-S01E05,1,5,Quiet Stream,grass,0
-S01E05,1,5,Quiet Stream,guest,0
-S01E05,1,5,Quiet Stream,half circle frame,0
-S01E05,1,5,Quiet Stream,half oval frame,0
-S01E05,1,5,Quiet Stream,hills,0
-S01E05,1,5,Quiet Stream,lake,0
-S01E05,1,5,Quiet Stream,lakes,0
-S01E05,1,5,Quiet Stream,lighthouse,0
-S01E05,1,5,Quiet Stream,mill,0
-S01E05,1,5,Quiet Stream,moon,0
-S01E05,1,5,Quiet Stream,mountain,0
-S01E05,1,5,Quiet Stream,mountains,0
-S01E05,1,5,Quiet Stream,night,0
-S01E05,1,5,Quiet Stream,ocean,0
-S01E05,1,5,Quiet Stream,oval frame,0
-S01E05,1,5,Quiet Stream,palm trees,0
-S01E05,1,5,Quiet Stream,path,0
-S01E05,1,5,Quiet Stream,person,0
-S01E05,1,5,Quiet Stream,portrait,0
-S01E05,1,5,Quiet Stream,rectangle 3d frame,0
-S01E05,1,5,Quiet Stream,rectangular frame,0
 S01E05,1,5,Quiet Stream,river,1
 S01E05,1,5,Quiet Stream,rocks,1
-S01E05,1,5,Quiet Stream,seashell frame,0
-S01E05,1,5,Quiet Stream,snow,0
-S01E05,1,5,Quiet Stream,snowy mountain,0
-S01E05,1,5,Quiet Stream,split frame,0
-S01E05,1,5,Quiet Stream,steve ross,0
-S01E05,1,5,Quiet Stream,structure,0
-S01E05,1,5,Quiet Stream,sun,0
-S01E05,1,5,Quiet Stream,tomb frame,0
 S01E05,1,5,Quiet Stream,tree,1
 S01E05,1,5,Quiet Stream,trees,1
-S01E05,1,5,Quiet Stream,triple frame,0
-S01E05,1,5,Quiet Stream,waterfall,0
-S01E05,1,5,Quiet Stream,waves,0
-S01E05,1,5,Quiet Stream,windmill,0
-S01E05,1,5,Quiet Stream,window frame,0
-S01E05,1,5,Quiet Stream,winter,0
-S01E05,1,5,Quiet Stream,wood framed,0
-S01E06,1,6,Winter Moon,apple frame,0
-S01E06,1,6,Winter Moon,aurora borealis,0
-S01E06,1,6,Winter Moon,barn,0
-S01E06,1,6,Winter Moon,beach,0
-S01E06,1,6,Winter Moon,boat,0
-S01E06,1,6,Winter Moon,bridge,0
-S01E06,1,6,Winter Moon,building,0
-S01E06,1,6,Winter Moon,bushes,0
 S01E06,1,6,Winter Moon,cabin,1
-S01E06,1,6,Winter Moon,cactus,0
-S01E06,1,6,Winter Moon,circle frame,0
-S01E06,1,6,Winter Moon,cirrus,0
-S01E06,1,6,Winter Moon,cliff,0
-S01E06,1,6,Winter Moon,clouds,0
 S01E06,1,6,Winter Moon,conifer,1
-S01E06,1,6,Winter Moon,cumulus,0
-S01E06,1,6,Winter Moon,deciduous,0
-S01E06,1,6,Winter Moon,diane andre,0
-S01E06,1,6,Winter Moon,dock,0
-S01E06,1,6,Winter Moon,double oval frame,0
-S01E06,1,6,Winter Moon,farm,0
-S01E06,1,6,Winter Moon,fence,0
-S01E06,1,6,Winter Moon,fire,0
-S01E06,1,6,Winter Moon,florida frame,0
-S01E06,1,6,Winter Moon,flowers,0
-S01E06,1,6,Winter Moon,fog,0
-S01E06,1,6,Winter Moon,framed,0
-S01E06,1,6,Winter Moon,grass,0
-S01E06,1,6,Winter Moon,guest,0
-S01E06,1,6,Winter Moon,half circle frame,0
-S01E06,1,6,Winter Moon,half oval frame,0
-S01E06,1,6,Winter Moon,hills,0
 S01E06,1,6,Winter Moon,lake,1
-S01E06,1,6,Winter Moon,lakes,0
-S01E06,1,6,Winter Moon,lighthouse,0
-S01E06,1,6,Winter Moon,mill,0
 S01E06,1,6,Winter Moon,moon,1
 S01E06,1,6,Winter Moon,mountain,1
 S01E06,1,6,Winter Moon,mountains,1
 S01E06,1,6,Winter Moon,night,1
-S01E06,1,6,Winter Moon,ocean,0
-S01E06,1,6,Winter Moon,oval frame,0
-S01E06,1,6,Winter Moon,palm trees,0
-S01E06,1,6,Winter Moon,path,0
-S01E06,1,6,Winter Moon,person,0
-S01E06,1,6,Winter Moon,portrait,0
-S01E06,1,6,Winter Moon,rectangle 3d frame,0
-S01E06,1,6,Winter Moon,rectangular frame,0
-S01E06,1,6,Winter Moon,river,0
-S01E06,1,6,Winter Moon,rocks,0
-S01E06,1,6,Winter Moon,seashell frame,0
 S01E06,1,6,Winter Moon,snow,1
 S01E06,1,6,Winter Moon,snowy mountain,1
-S01E06,1,6,Winter Moon,split frame,0
-S01E06,1,6,Winter Moon,steve ross,0
 S01E06,1,6,Winter Moon,structure,1
-S01E06,1,6,Winter Moon,sun,0
-S01E06,1,6,Winter Moon,tomb frame,0
 S01E06,1,6,Winter Moon,tree,1
 S01E06,1,6,Winter Moon,trees,1
-S01E06,1,6,Winter Moon,triple frame,0
-S01E06,1,6,Winter Moon,waterfall,0
-S01E06,1,6,Winter Moon,waves,0
-S01E06,1,6,Winter Moon,windmill,0
-S01E06,1,6,Winter Moon,window frame,0
 S01E06,1,6,Winter Moon,winter,1
-S01E06,1,6,Winter Moon,wood framed,0
-S01E07,1,7,Autumn Mountains,apple frame,0
-S01E07,1,7,Autumn Mountains,aurora borealis,0
-S01E07,1,7,Autumn Mountains,barn,0
-S01E07,1,7,Autumn Mountains,beach,0
-S01E07,1,7,Autumn Mountains,boat,0
-S01E07,1,7,Autumn Mountains,bridge,0
-S01E07,1,7,Autumn Mountains,building,0
-S01E07,1,7,Autumn Mountains,bushes,0
-S01E07,1,7,Autumn Mountains,cabin,0
-S01E07,1,7,Autumn Mountains,cactus,0
-S01E07,1,7,Autumn Mountains,circle frame,0
-S01E07,1,7,Autumn Mountains,cirrus,0
-S01E07,1,7,Autumn Mountains,cliff,0
-S01E07,1,7,Autumn Mountains,clouds,0
-S01E07,1,7,Autumn Mountains,conifer,0
-S01E07,1,7,Autumn Mountains,cumulus,0
 S01E07,1,7,Autumn Mountains,deciduous,1
-S01E07,1,7,Autumn Mountains,diane andre,0
-S01E07,1,7,Autumn Mountains,dock,0
-S01E07,1,7,Autumn Mountains,double oval frame,0
-S01E07,1,7,Autumn Mountains,farm,0
-S01E07,1,7,Autumn Mountains,fence,0
-S01E07,1,7,Autumn Mountains,fire,0
-S01E07,1,7,Autumn Mountains,florida frame,0
-S01E07,1,7,Autumn Mountains,flowers,0
-S01E07,1,7,Autumn Mountains,fog,0
-S01E07,1,7,Autumn Mountains,framed,0
-S01E07,1,7,Autumn Mountains,grass,0
-S01E07,1,7,Autumn Mountains,guest,0
-S01E07,1,7,Autumn Mountains,half circle frame,0
-S01E07,1,7,Autumn Mountains,half oval frame,0
-S01E07,1,7,Autumn Mountains,hills,0
 S01E07,1,7,Autumn Mountains,lake,1
-S01E07,1,7,Autumn Mountains,lakes,0
-S01E07,1,7,Autumn Mountains,lighthouse,0
-S01E07,1,7,Autumn Mountains,mill,0
-S01E07,1,7,Autumn Mountains,moon,0
 S01E07,1,7,Autumn Mountains,mountain,1
 S01E07,1,7,Autumn Mountains,mountains,1
-S01E07,1,7,Autumn Mountains,night,0
-S01E07,1,7,Autumn Mountains,ocean,0
-S01E07,1,7,Autumn Mountains,oval frame,0
-S01E07,1,7,Autumn Mountains,palm trees,0
-S01E07,1,7,Autumn Mountains,path,0
-S01E07,1,7,Autumn Mountains,person,0
-S01E07,1,7,Autumn Mountains,portrait,0
-S01E07,1,7,Autumn Mountains,rectangle 3d frame,0
-S01E07,1,7,Autumn Mountains,rectangular frame,0
-S01E07,1,7,Autumn Mountains,river,0
-S01E07,1,7,Autumn Mountains,rocks,0
-S01E07,1,7,Autumn Mountains,seashell frame,0
-S01E07,1,7,Autumn Mountains,snow,0
 S01E07,1,7,Autumn Mountains,snowy mountain,1
-S01E07,1,7,Autumn Mountains,split frame,0
-S01E07,1,7,Autumn Mountains,steve ross,0
-S01E07,1,7,Autumn Mountains,structure,0
-S01E07,1,7,Autumn Mountains,sun,0
-S01E07,1,7,Autumn Mountains,tomb frame,0
 S01E07,1,7,Autumn Mountains,tree,1
 S01E07,1,7,Autumn Mountains,trees,1
-S01E07,1,7,Autumn Mountains,triple frame,0
-S01E07,1,7,Autumn Mountains,waterfall,0
-S01E07,1,7,Autumn Mountains,waves,0
-S01E07,1,7,Autumn Mountains,windmill,0
-S01E07,1,7,Autumn Mountains,window frame,0
-S01E07,1,7,Autumn Mountains,winter,0
-S01E07,1,7,Autumn Mountains,wood framed,0
-S01E08,1,8,Peaceful Valley,apple frame,0
-S01E08,1,8,Peaceful Valley,aurora borealis,0
-S01E08,1,8,Peaceful Valley,barn,0
-S01E08,1,8,Peaceful Valley,beach,0
-S01E08,1,8,Peaceful Valley,boat,0
-S01E08,1,8,Peaceful Valley,bridge,0
-S01E08,1,8,Peaceful Valley,building,0
 S01E08,1,8,Peaceful Valley,bushes,1
-S01E08,1,8,Peaceful Valley,cabin,0
-S01E08,1,8,Peaceful Valley,cactus,0
-S01E08,1,8,Peaceful Valley,circle frame,0
-S01E08,1,8,Peaceful Valley,cirrus,0
-S01E08,1,8,Peaceful Valley,cliff,0
-S01E08,1,8,Peaceful Valley,clouds,0
 S01E08,1,8,Peaceful Valley,conifer,1
-S01E08,1,8,Peaceful Valley,cumulus,0
-S01E08,1,8,Peaceful Valley,deciduous,0
-S01E08,1,8,Peaceful Valley,diane andre,0
-S01E08,1,8,Peaceful Valley,dock,0
-S01E08,1,8,Peaceful Valley,double oval frame,0
-S01E08,1,8,Peaceful Valley,farm,0
-S01E08,1,8,Peaceful Valley,fence,0
-S01E08,1,8,Peaceful Valley,fire,0
-S01E08,1,8,Peaceful Valley,florida frame,0
-S01E08,1,8,Peaceful Valley,flowers,0
-S01E08,1,8,Peaceful Valley,fog,0
-S01E08,1,8,Peaceful Valley,framed,0
-S01E08,1,8,Peaceful Valley,grass,0
-S01E08,1,8,Peaceful Valley,guest,0
-S01E08,1,8,Peaceful Valley,half circle frame,0
-S01E08,1,8,Peaceful Valley,half oval frame,0
-S01E08,1,8,Peaceful Valley,hills,0
 S01E08,1,8,Peaceful Valley,lake,1
-S01E08,1,8,Peaceful Valley,lakes,0
-S01E08,1,8,Peaceful Valley,lighthouse,0
-S01E08,1,8,Peaceful Valley,mill,0
-S01E08,1,8,Peaceful Valley,moon,0
 S01E08,1,8,Peaceful Valley,mountain,1
 S01E08,1,8,Peaceful Valley,mountains,1
-S01E08,1,8,Peaceful Valley,night,0
-S01E08,1,8,Peaceful Valley,ocean,0
-S01E08,1,8,Peaceful Valley,oval frame,0
-S01E08,1,8,Peaceful Valley,palm trees,0
-S01E08,1,8,Peaceful Valley,path,0
-S01E08,1,8,Peaceful Valley,person,0
-S01E08,1,8,Peaceful Valley,portrait,0
-S01E08,1,8,Peaceful Valley,rectangle 3d frame,0
-S01E08,1,8,Peaceful Valley,rectangular frame,0
-S01E08,1,8,Peaceful Valley,river,0
-S01E08,1,8,Peaceful Valley,rocks,0
-S01E08,1,8,Peaceful Valley,seashell frame,0
-S01E08,1,8,Peaceful Valley,snow,0
-S01E08,1,8,Peaceful Valley,snowy mountain,0
-S01E08,1,8,Peaceful Valley,split frame,0
-S01E08,1,8,Peaceful Valley,steve ross,0
-S01E08,1,8,Peaceful Valley,structure,0
-S01E08,1,8,Peaceful Valley,sun,0
-S01E08,1,8,Peaceful Valley,tomb frame,0
 S01E08,1,8,Peaceful Valley,tree,1
 S01E08,1,8,Peaceful Valley,trees,1
-S01E08,1,8,Peaceful Valley,triple frame,0
-S01E08,1,8,Peaceful Valley,waterfall,0
-S01E08,1,8,Peaceful Valley,waves,0
-S01E08,1,8,Peaceful Valley,windmill,0
-S01E08,1,8,Peaceful Valley,window frame,0
-S01E08,1,8,Peaceful Valley,winter,0
-S01E08,1,8,Peaceful Valley,wood framed,0
-S01E09,1,9,Seascape,apple frame,0
-S01E09,1,9,Seascape,aurora borealis,0
-S01E09,1,9,Seascape,barn,0
 S01E09,1,9,Seascape,beach,1
-S01E09,1,9,Seascape,boat,0
-S01E09,1,9,Seascape,bridge,0
-S01E09,1,9,Seascape,building,0
-S01E09,1,9,Seascape,bushes,0
-S01E09,1,9,Seascape,cabin,0
-S01E09,1,9,Seascape,cactus,0
-S01E09,1,9,Seascape,circle frame,0
-S01E09,1,9,Seascape,cirrus,0
-S01E09,1,9,Seascape,cliff,0
 S01E09,1,9,Seascape,clouds,1
-S01E09,1,9,Seascape,conifer,0
-S01E09,1,9,Seascape,cumulus,0
-S01E09,1,9,Seascape,deciduous,0
-S01E09,1,9,Seascape,diane andre,0
-S01E09,1,9,Seascape,dock,0
-S01E09,1,9,Seascape,double oval frame,0
-S01E09,1,9,Seascape,farm,0
 S01E09,1,9,Seascape,fence,1
-S01E09,1,9,Seascape,fire,0
-S01E09,1,9,Seascape,florida frame,0
-S01E09,1,9,Seascape,flowers,0
-S01E09,1,9,Seascape,fog,0
-S01E09,1,9,Seascape,framed,0
-S01E09,1,9,Seascape,grass,0
-S01E09,1,9,Seascape,guest,0
-S01E09,1,9,Seascape,half circle frame,0
-S01E09,1,9,Seascape,half oval frame,0
-S01E09,1,9,Seascape,hills,0
-S01E09,1,9,Seascape,lake,0
-S01E09,1,9,Seascape,lakes,0
-S01E09,1,9,Seascape,lighthouse,0
-S01E09,1,9,Seascape,mill,0
-S01E09,1,9,Seascape,moon,0
-S01E09,1,9,Seascape,mountain,0
-S01E09,1,9,Seascape,mountains,0
-S01E09,1,9,Seascape,night,0
 S01E09,1,9,Seascape,ocean,1
-S01E09,1,9,Seascape,oval frame,0
-S01E09,1,9,Seascape,palm trees,0
-S01E09,1,9,Seascape,path,0
-S01E09,1,9,Seascape,person,0
-S01E09,1,9,Seascape,portrait,0
-S01E09,1,9,Seascape,rectangle 3d frame,0
-S01E09,1,9,Seascape,rectangular frame,0
-S01E09,1,9,Seascape,river,0
-S01E09,1,9,Seascape,rocks,0
-S01E09,1,9,Seascape,seashell frame,0
-S01E09,1,9,Seascape,snow,0
-S01E09,1,9,Seascape,snowy mountain,0
-S01E09,1,9,Seascape,split frame,0
-S01E09,1,9,Seascape,steve ross,0
-S01E09,1,9,Seascape,structure,0
-S01E09,1,9,Seascape,sun,0
-S01E09,1,9,Seascape,tomb frame,0
-S01E09,1,9,Seascape,tree,0
-S01E09,1,9,Seascape,trees,0
-S01E09,1,9,Seascape,triple frame,0
-S01E09,1,9,Seascape,waterfall,0
-S01E09,1,9,Seascape,waves,0
-S01E09,1,9,Seascape,windmill,0
-S01E09,1,9,Seascape,window frame,0
-S01E09,1,9,Seascape,winter,0
-S01E09,1,9,Seascape,wood framed,0
-S01E10,1,10,Mountain Lake,apple frame,0
-S01E10,1,10,Mountain Lake,aurora borealis,0
-S01E10,1,10,Mountain Lake,barn,0
-S01E10,1,10,Mountain Lake,beach,0
-S01E10,1,10,Mountain Lake,boat,0
-S01E10,1,10,Mountain Lake,bridge,0
-S01E10,1,10,Mountain Lake,building,0
 S01E10,1,10,Mountain Lake,bushes,1
-S01E10,1,10,Mountain Lake,cabin,0
-S01E10,1,10,Mountain Lake,cactus,0
-S01E10,1,10,Mountain Lake,circle frame,0
-S01E10,1,10,Mountain Lake,cirrus,0
-S01E10,1,10,Mountain Lake,cliff,0
-S01E10,1,10,Mountain Lake,clouds,0
 S01E10,1,10,Mountain Lake,conifer,1
-S01E10,1,10,Mountain Lake,cumulus,0
 S01E10,1,10,Mountain Lake,deciduous,1
-S01E10,1,10,Mountain Lake,diane andre,0
-S01E10,1,10,Mountain Lake,dock,0
-S01E10,1,10,Mountain Lake,double oval frame,0
-S01E10,1,10,Mountain Lake,farm,0
-S01E10,1,10,Mountain Lake,fence,0
-S01E10,1,10,Mountain Lake,fire,0
-S01E10,1,10,Mountain Lake,florida frame,0
-S01E10,1,10,Mountain Lake,flowers,0
-S01E10,1,10,Mountain Lake,fog,0
-S01E10,1,10,Mountain Lake,framed,0
-S01E10,1,10,Mountain Lake,grass,0
-S01E10,1,10,Mountain Lake,guest,0
-S01E10,1,10,Mountain Lake,half circle frame,0
-S01E10,1,10,Mountain Lake,half oval frame,0
-S01E10,1,10,Mountain Lake,hills,0
 S01E10,1,10,Mountain Lake,lake,1
-S01E10,1,10,Mountain Lake,lakes,0
-S01E10,1,10,Mountain Lake,lighthouse,0
-S01E10,1,10,Mountain Lake,mill,0
-S01E10,1,10,Mountain Lake,moon,0
 S01E10,1,10,Mountain Lake,mountain,1
-S01E10,1,10,Mountain Lake,mountains,0
-S01E10,1,10,Mountain Lake,night,0
-S01E10,1,10,Mountain Lake,ocean,0
-S01E10,1,10,Mountain Lake,oval frame,0
-S01E10,1,10,Mountain Lake,palm trees,0
-S01E10,1,10,Mountain Lake,path,0
-S01E10,1,10,Mountain Lake,person,0
-S01E10,1,10,Mountain Lake,portrait,0
-S01E10,1,10,Mountain Lake,rectangle 3d frame,0
-S01E10,1,10,Mountain Lake,rectangular frame,0
-S01E10,1,10,Mountain Lake,river,0
-S01E10,1,10,Mountain Lake,rocks,0
-S01E10,1,10,Mountain Lake,seashell frame,0
-S01E10,1,10,Mountain Lake,snow,0
-S01E10,1,10,Mountain Lake,snowy mountain,0
-S01E10,1,10,Mountain Lake,split frame,0
-S01E10,1,10,Mountain Lake,steve ross,0
-S01E10,1,10,Mountain Lake,structure,0
-S01E10,1,10,Mountain Lake,sun,0
-S01E10,1,10,Mountain Lake,tomb frame,0
 S01E10,1,10,Mountain Lake,tree,1
 S01E10,1,10,Mountain Lake,trees,1
-S01E10,1,10,Mountain Lake,triple frame,0
-S01E10,1,10,Mountain Lake,waterfall,0
-S01E10,1,10,Mountain Lake,waves,0
-S01E10,1,10,Mountain Lake,windmill,0
-S01E10,1,10,Mountain Lake,window frame,0
-S01E10,1,10,Mountain Lake,winter,0
-S01E10,1,10,Mountain Lake,wood framed,0
-S01E11,1,11,Winter Glow,apple frame,0
-S01E11,1,11,Winter Glow,aurora borealis,0
-S01E11,1,11,Winter Glow,barn,0
-S01E11,1,11,Winter Glow,beach,0
-S01E11,1,11,Winter Glow,boat,0
-S01E11,1,11,Winter Glow,bridge,0
-S01E11,1,11,Winter Glow,building,0
-S01E11,1,11,Winter Glow,bushes,0
-S01E11,1,11,Winter Glow,cabin,0
-S01E11,1,11,Winter Glow,cactus,0
-S01E11,1,11,Winter Glow,circle frame,0
-S01E11,1,11,Winter Glow,cirrus,0
-S01E11,1,11,Winter Glow,cliff,0
-S01E11,1,11,Winter Glow,clouds,0
-S01E11,1,11,Winter Glow,conifer,0
-S01E11,1,11,Winter Glow,cumulus,0
 S01E11,1,11,Winter Glow,deciduous,1
-S01E11,1,11,Winter Glow,diane andre,0
-S01E11,1,11,Winter Glow,dock,0
-S01E11,1,11,Winter Glow,double oval frame,0
-S01E11,1,11,Winter Glow,farm,0
-S01E11,1,11,Winter Glow,fence,0
-S01E11,1,11,Winter Glow,fire,0
-S01E11,1,11,Winter Glow,florida frame,0
-S01E11,1,11,Winter Glow,flowers,0
-S01E11,1,11,Winter Glow,fog,0
-S01E11,1,11,Winter Glow,framed,0
-S01E11,1,11,Winter Glow,grass,0
-S01E11,1,11,Winter Glow,guest,0
-S01E11,1,11,Winter Glow,half circle frame,0
-S01E11,1,11,Winter Glow,half oval frame,0
-S01E11,1,11,Winter Glow,hills,0
 S01E11,1,11,Winter Glow,lake,1
-S01E11,1,11,Winter Glow,lakes,0
-S01E11,1,11,Winter Glow,lighthouse,0
-S01E11,1,11,Winter Glow,mill,0
-S01E11,1,11,Winter Glow,moon,0
-S01E11,1,11,Winter Glow,mountain,0
-S01E11,1,11,Winter Glow,mountains,0
-S01E11,1,11,Winter Glow,night,0
-S01E11,1,11,Winter Glow,ocean,0
-S01E11,1,11,Winter Glow,oval frame,0
-S01E11,1,11,Winter Glow,palm trees,0
-S01E11,1,11,Winter Glow,path,0
-S01E11,1,11,Winter Glow,person,0
-S01E11,1,11,Winter Glow,portrait,0
-S01E11,1,11,Winter Glow,rectangle 3d frame,0
-S01E11,1,11,Winter Glow,rectangular frame,0
-S01E11,1,11,Winter Glow,river,0
-S01E11,1,11,Winter Glow,rocks,0
-S01E11,1,11,Winter Glow,seashell frame,0
-S01E11,1,11,Winter Glow,snow,0
-S01E11,1,11,Winter Glow,snowy mountain,0
-S01E11,1,11,Winter Glow,split frame,0
-S01E11,1,11,Winter Glow,steve ross,0
-S01E11,1,11,Winter Glow,structure,0
-S01E11,1,11,Winter Glow,sun,0
-S01E11,1,11,Winter Glow,tomb frame,0
 S01E11,1,11,Winter Glow,tree,1
 S01E11,1,11,Winter Glow,trees,1
-S01E11,1,11,Winter Glow,triple frame,0
-S01E11,1,11,Winter Glow,waterfall,0
-S01E11,1,11,Winter Glow,waves,0
-S01E11,1,11,Winter Glow,windmill,0
-S01E11,1,11,Winter Glow,window frame,0
-S01E11,1,11,Winter Glow,winter,0
-S01E11,1,11,Winter Glow,wood framed,0
-S01E12,1,12,Snowfall,apple frame,0
-S01E12,1,12,Snowfall,aurora borealis,0
-S01E12,1,12,Snowfall,barn,0
-S01E12,1,12,Snowfall,beach,0
-S01E12,1,12,Snowfall,boat,0
-S01E12,1,12,Snowfall,bridge,0
-S01E12,1,12,Snowfall,building,0
-S01E12,1,12,Snowfall,bushes,0
-S01E12,1,12,Snowfall,cabin,0
-S01E12,1,12,Snowfall,cactus,0
-S01E12,1,12,Snowfall,circle frame,0
 S01E12,1,12,Snowfall,cirrus,1
-S01E12,1,12,Snowfall,cliff,0
 S01E12,1,12,Snowfall,clouds,1
 S01E12,1,12,Snowfall,conifer,1
-S01E12,1,12,Snowfall,cumulus,0
-S01E12,1,12,Snowfall,deciduous,0
-S01E12,1,12,Snowfall,diane andre,0
-S01E12,1,12,Snowfall,dock,0
-S01E12,1,12,Snowfall,double oval frame,0
-S01E12,1,12,Snowfall,farm,0
-S01E12,1,12,Snowfall,fence,0
-S01E12,1,12,Snowfall,fire,0
-S01E12,1,12,Snowfall,florida frame,0
-S01E12,1,12,Snowfall,flowers,0
-S01E12,1,12,Snowfall,fog,0
-S01E12,1,12,Snowfall,framed,0
-S01E12,1,12,Snowfall,grass,0
-S01E12,1,12,Snowfall,guest,0
-S01E12,1,12,Snowfall,half circle frame,0
-S01E12,1,12,Snowfall,half oval frame,0
-S01E12,1,12,Snowfall,hills,0
 S01E12,1,12,Snowfall,lake,1
-S01E12,1,12,Snowfall,lakes,0
-S01E12,1,12,Snowfall,lighthouse,0
-S01E12,1,12,Snowfall,mill,0
-S01E12,1,12,Snowfall,moon,0
 S01E12,1,12,Snowfall,mountain,1
 S01E12,1,12,Snowfall,mountains,1
-S01E12,1,12,Snowfall,night,0
-S01E12,1,12,Snowfall,ocean,0
-S01E12,1,12,Snowfall,oval frame,0
-S01E12,1,12,Snowfall,palm trees,0
-S01E12,1,12,Snowfall,path,0
-S01E12,1,12,Snowfall,person,0
-S01E12,1,12,Snowfall,portrait,0
-S01E12,1,12,Snowfall,rectangle 3d frame,0
-S01E12,1,12,Snowfall,rectangular frame,0
-S01E12,1,12,Snowfall,river,0
-S01E12,1,12,Snowfall,rocks,0
-S01E12,1,12,Snowfall,seashell frame,0
-S01E12,1,12,Snowfall,snow,0
 S01E12,1,12,Snowfall,snowy mountain,1
-S01E12,1,12,Snowfall,split frame,0
-S01E12,1,12,Snowfall,steve ross,0
-S01E12,1,12,Snowfall,structure,0
-S01E12,1,12,Snowfall,sun,0
-S01E12,1,12,Snowfall,tomb frame,0
 S01E12,1,12,Snowfall,tree,1
 S01E12,1,12,Snowfall,trees,1
-S01E12,1,12,Snowfall,triple frame,0
-S01E12,1,12,Snowfall,waterfall,0
-S01E12,1,12,Snowfall,waves,0
-S01E12,1,12,Snowfall,windmill,0
-S01E12,1,12,Snowfall,window frame,0
-S01E12,1,12,Snowfall,winter,0
-S01E12,1,12,Snowfall,wood framed,0
-S01E13,1,13,Final Reflections,apple frame,0
-S01E13,1,13,Final Reflections,aurora borealis,0
-S01E13,1,13,Final Reflections,barn,0
-S01E13,1,13,Final Reflections,beach,0
-S01E13,1,13,Final Reflections,boat,0
-S01E13,1,13,Final Reflections,bridge,0
-S01E13,1,13,Final Reflections,building,0
 S01E13,1,13,Final Reflections,bushes,1
-S01E13,1,13,Final Reflections,cabin,0
-S01E13,1,13,Final Reflections,cactus,0
-S01E13,1,13,Final Reflections,circle frame,0
-S01E13,1,13,Final Reflections,cirrus,0
-S01E13,1,13,Final Reflections,cliff,0
-S01E13,1,13,Final Reflections,clouds,0
 S01E13,1,13,Final Reflections,conifer,1
-S01E13,1,13,Final Reflections,cumulus,0
 S01E13,1,13,Final Reflections,deciduous,1
-S01E13,1,13,Final Reflections,diane andre,0
-S01E13,1,13,Final Reflections,dock,0
-S01E13,1,13,Final Reflections,double oval frame,0
-S01E13,1,13,Final Reflections,farm,0
-S01E13,1,13,Final Reflections,fence,0
-S01E13,1,13,Final Reflections,fire,0
-S01E13,1,13,Final Reflections,florida frame,0
-S01E13,1,13,Final Reflections,flowers,0
-S01E13,1,13,Final Reflections,fog,0
-S01E13,1,13,Final Reflections,framed,0
 S01E13,1,13,Final Reflections,grass,1
-S01E13,1,13,Final Reflections,guest,0
-S01E13,1,13,Final Reflections,half circle frame,0
-S01E13,1,13,Final Reflections,half oval frame,0
-S01E13,1,13,Final Reflections,hills,0
-S01E13,1,13,Final Reflections,lake,0
-S01E13,1,13,Final Reflections,lakes,0
-S01E13,1,13,Final Reflections,lighthouse,0
-S01E13,1,13,Final Reflections,mill,0
-S01E13,1,13,Final Reflections,moon,0
 S01E13,1,13,Final Reflections,mountain,1
-S01E13,1,13,Final Reflections,mountains,0
-S01E13,1,13,Final Reflections,night,0
-S01E13,1,13,Final Reflections,ocean,0
-S01E13,1,13,Final Reflections,oval frame,0
-S01E13,1,13,Final Reflections,palm trees,0
-S01E13,1,13,Final Reflections,path,0
-S01E13,1,13,Final Reflections,person,0
-S01E13,1,13,Final Reflections,portrait,0
-S01E13,1,13,Final Reflections,rectangle 3d frame,0
-S01E13,1,13,Final Reflections,rectangular frame,0
-S01E13,1,13,Final Reflections,river,0
-S01E13,1,13,Final Reflections,rocks,0
-S01E13,1,13,Final Reflections,seashell frame,0
-S01E13,1,13,Final Reflections,snow,0
 S01E13,1,13,Final Reflections,snowy mountain,1
-S01E13,1,13,Final Reflections,split frame,0
-S01E13,1,13,Final Reflections,steve ross,0
-S01E13,1,13,Final Reflections,structure,0
-S01E13,1,13,Final Reflections,sun,0
-S01E13,1,13,Final Reflections,tomb frame,0
 S01E13,1,13,Final Reflections,tree,1
 S01E13,1,13,Final Reflections,trees,1
-S01E13,1,13,Final Reflections,triple frame,0
-S01E13,1,13,Final Reflections,waterfall,0
-S01E13,1,13,Final Reflections,waves,0
-S01E13,1,13,Final Reflections,windmill,0
-S01E13,1,13,Final Reflections,window frame,0
-S01E13,1,13,Final Reflections,winter,0
-S01E13,1,13,Final Reflections,wood framed,0
+S02E01,2,1,Meadow Lake,bushes,1
+S02E01,2,1,Meadow Lake,conifer,1
+S02E01,2,1,Meadow Lake,cumulus,1
+S02E01,2,1,Meadow Lake,deciduous,1
+S02E01,2,1,Meadow Lake,grass,1
+S02E01,2,1,Meadow Lake,lake,1
+S02E01,2,1,Meadow Lake,mountain,1
+S02E01,2,1,Meadow Lake,snowy mountain,1
+S02E01,2,1,Meadow Lake,tree,1
+S02E01,2,1,Meadow Lake,trees,1
+S02E02,2,2,Winter Sun,conifer,1
+S02E02,2,2,Winter Sun,lake,1
+S02E02,2,2,Winter Sun,snow,1
+S02E02,2,2,Winter Sun,sun,1
+S02E02,2,2,Winter Sun,tree,1
+S02E02,2,2,Winter Sun,trees,1
+S02E03,2,3,Ebony Sea,clouds,1
+S02E03,2,3,Ebony Sea,cumulus,1
+S02E03,2,3,Ebony Sea,deciduous,1
+S02E03,2,3,Ebony Sea,ocean,1
+S02E03,2,3,Ebony Sea,sun,1
+S02E03,2,3,Ebony Sea,tree,1
+S02E03,2,3,Ebony Sea,trees,1
+S02E03,2,3,Ebony Sea,waves,1
+S02E04,2,4,Shades Of Grey,bushes,1
+S02E04,2,4,Shades Of Grey,cabin,1
+S02E04,2,4,Shades Of Grey,clouds,1
+S02E04,2,4,Shades Of Grey,conifer,1
+S02E04,2,4,Shades Of Grey,cumulus,1
+S02E04,2,4,Shades Of Grey,deciduous,1
+S02E04,2,4,Shades Of Grey,lake,1
+S02E04,2,4,Shades Of Grey,mountain,1
+S02E04,2,4,Shades Of Grey,mountains,1
+S02E04,2,4,Shades Of Grey,snow,1
+S02E04,2,4,Shades Of Grey,snowy mountain,1
+S02E04,2,4,Shades Of Grey,structure,1
+S02E04,2,4,Shades Of Grey,tree,1
+S02E04,2,4,Shades Of Grey,trees,1
+S02E05,2,5,Autumn Splendor,bushes,1
+S02E05,2,5,Autumn Splendor,deciduous,1
+S02E05,2,5,Autumn Splendor,grass,1
+S02E05,2,5,Autumn Splendor,lake,1
+S02E05,2,5,Autumn Splendor,tree,1
+S02E05,2,5,Autumn Splendor,trees,1
+S02E06,2,6,Black River,bushes,1
+S02E06,2,6,Black River,clouds,1
+S02E06,2,6,Black River,cumulus,1
+S02E06,2,6,Black River,deciduous,1
+S02E06,2,6,Black River,grass,1
+S02E06,2,6,Black River,river,1
+S02E06,2,6,Black River,tree,1
+S02E06,2,6,Black River,trees,1
+S02E07,2,7,Brown Mountain,clouds,1
+S02E07,2,7,Brown Mountain,conifer,1
+S02E07,2,7,Brown Mountain,cumulus,1
+S02E07,2,7,Brown Mountain,grass,1
+S02E07,2,7,Brown Mountain,lake,1
+S02E07,2,7,Brown Mountain,mountain,1
+S02E07,2,7,Brown Mountain,mountains,1
+S02E07,2,7,Brown Mountain,tree,1
+S02E07,2,7,Brown Mountain,trees,1
+S02E08,2,8,Reflections,bushes,1
+S02E08,2,8,Reflections,cirrus,1
+S02E08,2,8,Reflections,clouds,1
+S02E08,2,8,Reflections,conifer,1
+S02E08,2,8,Reflections,lake,1
+S02E08,2,8,Reflections,mountain,1
+S02E08,2,8,Reflections,snowy mountain,1
+S02E08,2,8,Reflections,tree,1
+S02E08,2,8,Reflections,trees,1
+S02E09,2,9,Black & White Seascape,cirrus,1
+S02E09,2,9,Black & White Seascape,cumulus,1
+S02E09,2,9,Black & White Seascape,deciduous,1
+S02E09,2,9,Black & White Seascape,ocean,1
+S02E09,2,9,Black & White Seascape,rocks,1
+S02E09,2,9,Black & White Seascape,sun,1
+S02E09,2,9,Black & White Seascape,tree,1
+S02E09,2,9,Black & White Seascape,trees,1
+S02E09,2,9,Black & White Seascape,waves,1
+S02E10,2,10,Lazy River,deciduous,1
+S02E10,2,10,Lazy River,grass,1
+S02E10,2,10,Lazy River,river,1
+S02E10,2,10,Lazy River,tree,1
+S02E10,2,10,Lazy River,trees,1
+S02E11,2,11,Black Waterfall,bushes,1
+S02E11,2,11,Black Waterfall,clouds,1
+S02E11,2,11,Black Waterfall,conifer,1
+S02E11,2,11,Black Waterfall,cumulus,1
+S02E11,2,11,Black Waterfall,deciduous,1
+S02E11,2,11,Black Waterfall,grass,1
+S02E11,2,11,Black Waterfall,river,1
+S02E11,2,11,Black Waterfall,rocks,1
+S02E11,2,11,Black Waterfall,tree,1
+S02E11,2,11,Black Waterfall,trees,1
+S02E11,2,11,Black Waterfall,waterfall,1
+S02E12,2,12,Mountain Waterfall,deciduous,1
+S02E12,2,12,Mountain Waterfall,grass,1
+S02E12,2,12,Mountain Waterfall,lake,1
+S02E12,2,12,Mountain Waterfall,mountain,1
+S02E12,2,12,Mountain Waterfall,mountains,1
+S02E12,2,12,Mountain Waterfall,snowy mountain,1
+S02E12,2,12,Mountain Waterfall,tree,1
+S02E12,2,12,Mountain Waterfall,trees,1
+S02E12,2,12,Mountain Waterfall,waterfall,1
+S02E13,2,13,Final Grace,bushes,1
+S02E13,2,13,Final Grace,clouds,1
+S02E13,2,13,Final Grace,conifer,1
+S02E13,2,13,Final Grace,cumulus,1
+S02E13,2,13,Final Grace,lake,1
+S02E13,2,13,Final Grace,mountain,1
+S02E13,2,13,Final Grace,mountains,1
+S02E13,2,13,Final Grace,snowy mountain,1
+S02E13,2,13,Final Grace,tree,1
+S02E13,2,13,Final Grace,trees,1
+S03E01,3,1,Mountain Retreat,bushes,1
+S03E01,3,1,Mountain Retreat,cabin,1
+S03E01,3,1,Mountain Retreat,conifer,1
+S03E01,3,1,Mountain Retreat,deciduous,1
+S03E01,3,1,Mountain Retreat,lake,1
+S03E01,3,1,Mountain Retreat,mountain,1
+S03E01,3,1,Mountain Retreat,mountains,1
+S03E01,3,1,Mountain Retreat,structure,1
+S03E01,3,1,Mountain Retreat,tree,1
+S03E01,3,1,Mountain Retreat,trees,1
+S03E02,3,2,Blue Moon,clouds,1
+S03E02,3,2,Blue Moon,cumulus,1
+S03E02,3,2,Blue Moon,moon,1
+S03E02,3,2,Blue Moon,night,1
+S03E02,3,2,Blue Moon,ocean,1
+S03E02,3,2,Blue Moon,palm trees,1
+S03E02,3,2,Blue Moon,tree,1
+S03E02,3,2,Blue Moon,trees,1
+S03E02,3,2,Blue Moon,waves,1
+S03E03,3,3,Bubbling Stream,deciduous,1
+S03E03,3,3,Bubbling Stream,grass,1
+S03E03,3,3,Bubbling Stream,river,1
+S03E03,3,3,Bubbling Stream,rocks,1
+S03E03,3,3,Bubbling Stream,tree,1
+S03E03,3,3,Bubbling Stream,trees,1
+S03E04,3,4,Winter Night,cabin,1
+S03E04,3,4,Winter Night,conifer,1
+S03E04,3,4,Winter Night,snow,1
+S03E04,3,4,Winter Night,structure,1
+S03E04,3,4,Winter Night,tree,1
+S03E04,3,4,Winter Night,trees,1
+S03E04,3,4,Winter Night,winter,1
+S03E05,3,5,Distant Hills,cirrus,1
+S03E05,3,5,Distant Hills,clouds,1
+S03E05,3,5,Distant Hills,conifer,1
+S03E05,3,5,Distant Hills,deciduous,1
+S03E05,3,5,Distant Hills,hills,1
+S03E05,3,5,Distant Hills,lake,1
+S03E05,3,5,Distant Hills,mountain,1
+S03E05,3,5,Distant Hills,mountains,1
+S03E05,3,5,Distant Hills,tree,1
+S03E05,3,5,Distant Hills,trees,1
+S03E06,3,6,Covered Bridge,bridge,1
+S03E06,3,6,Covered Bridge,deciduous,1
+S03E06,3,6,Covered Bridge,path,1
+S03E06,3,6,Covered Bridge,structure,1
+S03E06,3,6,Covered Bridge,tree,1
+S03E06,3,6,Covered Bridge,trees,1
+S03E07,3,7,Quiet Inlet,deciduous,1
+S03E07,3,7,Quiet Inlet,lake,1
+S03E07,3,7,Quiet Inlet,mountain,1
+S03E07,3,7,Quiet Inlet,mountains,1
+S03E07,3,7,Quiet Inlet,tree,1
+S03E07,3,7,Quiet Inlet,trees,1
+S03E08,3,8,Night Light,cliff,1
+S03E08,3,8,Night Light,clouds,1
+S03E08,3,8,Night Light,cumulus,1
+S03E08,3,8,Night Light,lighthouse,1
+S03E08,3,8,Night Light,night,1
+S03E08,3,8,Night Light,ocean,1
+S03E08,3,8,Night Light,structure,1
+S03E08,3,8,Night Light,waves,1
+S03E09,3,9,The Old Mill,bushes,1
+S03E09,3,9,The Old Mill,cabin,1
+S03E09,3,9,The Old Mill,clouds,1
+S03E09,3,9,The Old Mill,cumulus,1
+S03E09,3,9,The Old Mill,deciduous,1
+S03E09,3,9,The Old Mill,mill,1
+S03E09,3,9,The Old Mill,river,1
+S03E09,3,9,The Old Mill,structure,1
+S03E09,3,9,The Old Mill,tree,1
+S03E09,3,9,The Old Mill,trees,1
+S03E10,3,10,Campfire,bushes,1
+S03E10,3,10,Campfire,deciduous,1
+S03E10,3,10,Campfire,fire,1
+S03E10,3,10,Campfire,lake,1
+S03E10,3,10,Campfire,person,1
+S03E10,3,10,Campfire,tree,1
+S03E10,3,10,Campfire,trees,1
+S03E11,3,11,Rustic Barn,barn,1
+S03E11,3,11,Rustic Barn,deciduous,1
+S03E11,3,11,Rustic Barn,fence,1
+S03E11,3,11,Rustic Barn,lake,1
+S03E11,3,11,Rustic Barn,structure,1
+S03E11,3,11,Rustic Barn,tree,1
+S03E11,3,11,Rustic Barn,trees,1
+S03E12,3,12,Hidden Lake,bushes,1
+S03E12,3,12,Hidden Lake,conifer,1
+S03E12,3,12,Hidden Lake,deciduous,1
+S03E12,3,12,Hidden Lake,lake,1
+S03E12,3,12,Hidden Lake,mountain,1
+S03E12,3,12,Hidden Lake,mountains,1
+S03E12,3,12,Hidden Lake,tree,1
+S03E12,3,12,Hidden Lake,trees,1
+S03E13,3,13,Peaceful Waters,clouds,1
+S03E13,3,13,Peaceful Waters,conifer,1
+S03E13,3,13,Peaceful Waters,cumulus,1
+S03E13,3,13,Peaceful Waters,deciduous,1
+S03E13,3,13,Peaceful Waters,guest,1
+S03E13,3,13,Peaceful Waters,lake,1
+S03E13,3,13,Peaceful Waters,mountain,1
+S03E13,3,13,Peaceful Waters,snowy mountain,1
+S03E13,3,13,Peaceful Waters,steve ross,1
+S03E13,3,13,Peaceful Waters,tree,1
+S03E13,3,13,Peaceful Waters,trees,1
+S04E01,4,1,Purple Splendor,cabin,1
+S04E01,4,1,Purple Splendor,conifer,1
+S04E01,4,1,Purple Splendor,lake,1
+S04E01,4,1,Purple Splendor,snow,1
+S04E01,4,1,Purple Splendor,structure,1
+S04E01,4,1,Purple Splendor,tree,1
+S04E01,4,1,Purple Splendor,trees,1
+S04E01,4,1,Purple Splendor,winter,1
+S04E02,4,2,Tranquil Valley,bushes,1
+S04E02,4,2,Tranquil Valley,clouds,1
+S04E02,4,2,Tranquil Valley,cumulus,1
+S04E02,4,2,Tranquil Valley,deciduous,1
+S04E02,4,2,Tranquil Valley,grass,1
+S04E02,4,2,Tranquil Valley,lake,1
+S04E02,4,2,Tranquil Valley,mountain,1
+S04E02,4,2,Tranquil Valley,mountains,1
+S04E02,4,2,Tranquil Valley,tree,1
+S04E02,4,2,Tranquil Valley,trees,1
+S04E03,4,3,Majestic Mountains,bushes,1
+S04E03,4,3,Majestic Mountains,conifer,1
+S04E03,4,3,Majestic Mountains,grass,1
+S04E03,4,3,Majestic Mountains,mountain,1
+S04E03,4,3,Majestic Mountains,mountains,1
+S04E03,4,3,Majestic Mountains,snowy mountain,1
+S04E03,4,3,Majestic Mountains,tree,1
+S04E03,4,3,Majestic Mountains,trees,1
+S04E04,4,4,Winter Sawscape,cabin,1
+S04E04,4,4,Winter Sawscape,circle frame,1
+S04E04,4,4,Winter Sawscape,clouds,1
+S04E04,4,4,Winter Sawscape,conifer,1
+S04E04,4,4,Winter Sawscape,cumulus,1
+S04E04,4,4,Winter Sawscape,deciduous,1
+S04E04,4,4,Winter Sawscape,framed,1
+S04E04,4,4,Winter Sawscape,guest,1
+S04E04,4,4,Winter Sawscape,lake,1
+S04E04,4,4,Winter Sawscape,snow,1
+S04E04,4,4,Winter Sawscape,structure,1
+S04E04,4,4,Winter Sawscape,tree,1
+S04E04,4,4,Winter Sawscape,trees,1
+S04E04,4,4,Winter Sawscape,winter,1
+S04E05,4,5,Evening Seascape,beach,1
+S04E05,4,5,Evening Seascape,cliff,1
+S04E05,4,5,Evening Seascape,clouds,1
+S04E05,4,5,Evening Seascape,conifer,1
+S04E05,4,5,Evening Seascape,cumulus,1
+S04E05,4,5,Evening Seascape,ocean,1
+S04E05,4,5,Evening Seascape,rocks,1
+S04E05,4,5,Evening Seascape,tree,1
+S04E05,4,5,Evening Seascape,trees,1
+S04E05,4,5,Evening Seascape,waves,1
+S04E06,4,6,Warm Summer Day,bushes,1
+S04E06,4,6,Warm Summer Day,deciduous,1
+S04E06,4,6,Warm Summer Day,lake,1
+S04E06,4,6,Warm Summer Day,tree,1
+S04E06,4,6,Warm Summer Day,trees,1
+S04E07,4,7,Cabin In The Woods,cabin,1
+S04E07,4,7,Cabin In The Woods,deciduous,1
+S04E07,4,7,Cabin In The Woods,grass,1
+S04E07,4,7,Cabin In The Woods,path,1
+S04E07,4,7,Cabin In The Woods,structure,1
+S04E07,4,7,Cabin In The Woods,tree,1
+S04E07,4,7,Cabin In The Woods,trees,1
+S04E08,4,8,Wetlands,conifer,1
+S04E08,4,8,Wetlands,deciduous,1
+S04E08,4,8,Wetlands,grass,1
+S04E08,4,8,Wetlands,lake,1
+S04E08,4,8,Wetlands,tree,1
+S04E08,4,8,Wetlands,trees,1
+S04E09,4,9,Cool Waters,bushes,1
+S04E09,4,9,Cool Waters,clouds,1
+S04E09,4,9,Cool Waters,conifer,1
+S04E09,4,9,Cool Waters,lake,1
+S04E09,4,9,Cool Waters,mountain,1
+S04E09,4,9,Cool Waters,mountains,1
+S04E09,4,9,Cool Waters,snowy mountain,1
+S04E09,4,9,Cool Waters,tree,1
+S04E09,4,9,Cool Waters,trees,1
+S04E10,4,10,Quiet Woods,bushes,1
+S04E10,4,10,Quiet Woods,conifer,1
+S04E10,4,10,Quiet Woods,grass,1
+S04E10,4,10,Quiet Woods,river,1
+S04E10,4,10,Quiet Woods,tree,1
+S04E10,4,10,Quiet Woods,trees,1
+S04E11,4,11,Northwest Majesty,clouds,1
+S04E11,4,11,Northwest Majesty,conifer,1
+S04E11,4,11,Northwest Majesty,cumulus,1
+S04E11,4,11,Northwest Majesty,diane andre,1
+S04E11,4,11,Northwest Majesty,guest,1
+S04E11,4,11,Northwest Majesty,mountain,1
+S04E11,4,11,Northwest Majesty,mountains,1
+S04E11,4,11,Northwest Majesty,snowy mountain,1
+S04E11,4,11,Northwest Majesty,tree,1
+S04E11,4,11,Northwest Majesty,trees,1
+S04E12,4,12,Autumn Days,deciduous,1
+S04E12,4,12,Autumn Days,grass,1
+S04E12,4,12,Autumn Days,hills,1
+S04E12,4,12,Autumn Days,lake,1
+S04E12,4,12,Autumn Days,tree,1
+S04E12,4,12,Autumn Days,trees,1
+S04E13,4,13,Mountain Challenge,conifer,1
+S04E13,4,13,Mountain Challenge,grass,1
+S04E13,4,13,Mountain Challenge,lake,1
+S04E13,4,13,Mountain Challenge,mountain,1
+S04E13,4,13,Mountain Challenge,snowy mountain,1
+S04E13,4,13,Mountain Challenge,tree,1
+S05E01,5,1,Mountain Waterfall,bushes,1
+S05E01,5,1,Mountain Waterfall,clouds,1
+S05E01,5,1,Mountain Waterfall,conifer,1
+S05E01,5,1,Mountain Waterfall,cumulus,1
+S05E01,5,1,Mountain Waterfall,lake,1
+S05E01,5,1,Mountain Waterfall,mountain,1
+S05E01,5,1,Mountain Waterfall,mountains,1
+S05E01,5,1,Mountain Waterfall,snowy mountain,1
+S05E01,5,1,Mountain Waterfall,tree,1
+S05E01,5,1,Mountain Waterfall,trees,1
+S05E01,5,1,Mountain Waterfall,waterfall,1
+S05E02,5,2,Twilight Meadow,clouds,1
+S05E02,5,2,Twilight Meadow,cumulus,1
+S05E02,5,2,Twilight Meadow,deciduous,1
+S05E02,5,2,Twilight Meadow,grass,1
+S05E02,5,2,Twilight Meadow,lake,1
+S05E02,5,2,Twilight Meadow,tree,1
+S05E02,5,2,Twilight Meadow,trees,1
+S05E03,5,3,Mountain Blossoms,conifer,1
+S05E03,5,3,Mountain Blossoms,flowers,1
+S05E03,5,3,Mountain Blossoms,guest,1
+S05E03,5,3,Mountain Blossoms,mountain,1
+S05E03,5,3,Mountain Blossoms,mountains,1
+S05E03,5,3,Mountain Blossoms,snow,1
+S05E03,5,3,Mountain Blossoms,snowy mountain,1
+S05E03,5,3,Mountain Blossoms,tree,1
+S05E03,5,3,Mountain Blossoms,trees,1
+S05E04,5,4,Winter Stillness,conifer,1
+S05E04,5,4,Winter Stillness,deciduous,1
+S05E04,5,4,Winter Stillness,lake,1
+S05E04,5,4,Winter Stillness,snow,1
+S05E04,5,4,Winter Stillness,tree,1
+S05E04,5,4,Winter Stillness,trees,1
+S05E04,5,4,Winter Stillness,winter,1
+S05E05,5,5,Quiet Pond,deciduous,1
+S05E05,5,5,Quiet Pond,grass,1
+S05E05,5,5,Quiet Pond,lake,1
+S05E05,5,5,Quiet Pond,tree,1
+S05E05,5,5,Quiet Pond,trees,1
+S05E06,5,6,Ocean Sunrise,clouds,1
+S05E06,5,6,Ocean Sunrise,grass,1
+S05E06,5,6,Ocean Sunrise,guest,1
+S05E06,5,6,Ocean Sunrise,ocean,1
+S05E06,5,6,Ocean Sunrise,sun,1
+S05E07,5,7,Bubbling Brook,deciduous,1
+S05E07,5,7,Bubbling Brook,grass,1
+S05E07,5,7,Bubbling Brook,river,1
+S05E07,5,7,Bubbling Brook,rocks,1
+S05E07,5,7,Bubbling Brook,tree,1
+S05E07,5,7,Bubbling Brook,trees,1
+S05E08,5,8,Arizona Splendor,deciduous,1
+S05E08,5,8,Arizona Splendor,grass,1
+S05E08,5,8,Arizona Splendor,mountain,1
+S05E08,5,8,Arizona Splendor,mountains,1
+S05E08,5,8,Arizona Splendor,river,1
+S05E08,5,8,Arizona Splendor,tree,1
+S05E08,5,8,Arizona Splendor,trees,1
+S05E09,5,9,Anatomy Of A Wave,guest,1
+S05E09,5,9,Anatomy Of A Wave,ocean,1
+S05E09,5,9,Anatomy Of A Wave,waves,1
+S05E10,5,10,The Windmill,barn,1
+S05E10,5,10,The Windmill,clouds,1
+S05E10,5,10,The Windmill,deciduous,1
+S05E10,5,10,The Windmill,path,1
+S05E10,5,10,The Windmill,structure,1
+S05E10,5,10,The Windmill,tree,1
+S05E10,5,10,The Windmill,windmill,1
+S05E11,5,11,Autumn Glory,bushes,1
+S05E11,5,11,Autumn Glory,clouds,1
+S05E11,5,11,Autumn Glory,cumulus,1
+S05E11,5,11,Autumn Glory,deciduous,1
+S05E11,5,11,Autumn Glory,grass,1
+S05E11,5,11,Autumn Glory,lake,1
+S05E11,5,11,Autumn Glory,mountain,1
+S05E11,5,11,Autumn Glory,rocks,1
+S05E11,5,11,Autumn Glory,snowy mountain,1
+S05E11,5,11,Autumn Glory,tree,1
+S05E11,5,11,Autumn Glory,trees,1
+S05E12,5,12,Indian Girl,guest,1
+S05E12,5,12,Indian Girl,portrait,1
+S05E13,5,13,Meadow Stream,barn,1
+S05E13,5,13,Meadow Stream,clouds,1
+S05E13,5,13,Meadow Stream,deciduous,1
+S05E13,5,13,Meadow Stream,grass,1
+S05E13,5,13,Meadow Stream,river,1
+S05E13,5,13,Meadow Stream,rocks,1
+S05E13,5,13,Meadow Stream,structure,1
+S05E13,5,13,Meadow Stream,tree,1
+S05E13,5,13,Meadow Stream,trees,1
+S06E01,6,1,Blue River,bushes,1
+S06E01,6,1,Blue River,conifer,1
+S06E01,6,1,Blue River,deciduous,1
+S06E01,6,1,Blue River,grass,1
+S06E01,6,1,Blue River,hills,1
+S06E01,6,1,Blue River,river,1
+S06E01,6,1,Blue River,tree,1
+S06E01,6,1,Blue River,trees,1
+S06E02,6,2,Nature's Edge,bushes,1
+S06E02,6,2,Nature's Edge,cabin,1
+S06E02,6,2,Nature's Edge,clouds,1
+S06E02,6,2,Nature's Edge,deciduous,1
+S06E02,6,2,Nature's Edge,fog,1
+S06E02,6,2,Nature's Edge,grass,1
+S06E02,6,2,Nature's Edge,lake,1
+S06E02,6,2,Nature's Edge,structure,1
+S06E02,6,2,Nature's Edge,tree,1
+S06E02,6,2,Nature's Edge,trees,1
+S06E03,6,3,Morning Mist,clouds,1
+S06E03,6,3,Morning Mist,conifer,1
+S06E03,6,3,Morning Mist,fog,1
+S06E03,6,3,Morning Mist,lake,1
+S06E03,6,3,Morning Mist,mountain,1
+S06E03,6,3,Morning Mist,snowy mountain,1
+S06E03,6,3,Morning Mist,tree,1
+S06E03,6,3,Morning Mist,trees,1
+S06E04,6,4,Whispering Stream,deciduous,1
+S06E04,6,4,Whispering Stream,grass,1
+S06E04,6,4,Whispering Stream,river,1
+S06E04,6,4,Whispering Stream,rocks,1
+S06E04,6,4,Whispering Stream,tree,1
+S06E04,6,4,Whispering Stream,trees,1
+S06E05,6,5,Secluded Forest,bushes,1
+S06E05,6,5,Secluded Forest,deciduous,1
+S06E05,6,5,Secluded Forest,river,1
+S06E05,6,5,Secluded Forest,tree,1
+S06E05,6,5,Secluded Forest,trees,1
+S06E06,6,6,Snow Trail,clouds,1
+S06E06,6,6,Snow Trail,conifer,1
+S06E06,6,6,Snow Trail,cumulus,1
+S06E06,6,6,Snow Trail,grass,1
+S06E06,6,6,Snow Trail,snow,1
+S06E06,6,6,Snow Trail,tree,1
+S06E06,6,6,Snow Trail,trees,1
+S06E07,6,7,Arctic Beauty,cirrus,1
+S06E07,6,7,Arctic Beauty,clouds,1
+S06E07,6,7,Arctic Beauty,conifer,1
+S06E07,6,7,Arctic Beauty,grass,1
+S06E07,6,7,Arctic Beauty,mountain,1
+S06E07,6,7,Arctic Beauty,mountains,1
+S06E07,6,7,Arctic Beauty,river,1
+S06E07,6,7,Arctic Beauty,snowy mountain,1
+S06E07,6,7,Arctic Beauty,tree,1
+S06E07,6,7,Arctic Beauty,trees,1
+S06E07,6,7,Arctic Beauty,waterfall,1
+S06E08,6,8,Horizons West,bushes,1
+S06E08,6,8,Horizons West,conifer,1
+S06E08,6,8,Horizons West,lake,1
+S06E08,6,8,Horizons West,mountain,1
+S06E08,6,8,Horizons West,snowy mountain,1
+S06E08,6,8,Horizons West,tree,1
+S06E08,6,8,Horizons West,trees,1
+S06E09,6,9,High Chateau,bushes,1
+S06E09,6,9,High Chateau,cabin,1
+S06E09,6,9,High Chateau,clouds,1
+S06E09,6,9,High Chateau,conifer,1
+S06E09,6,9,High Chateau,cumulus,1
+S06E09,6,9,High Chateau,grass,1
+S06E09,6,9,High Chateau,rocks,1
+S06E09,6,9,High Chateau,tree,1
+S06E09,6,9,High Chateau,trees,1
+S06E10,6,10,Country Life,barn,1
+S06E10,6,10,Country Life,cirrus,1
+S06E10,6,10,Country Life,clouds,1
+S06E10,6,10,Country Life,fence,1
+S06E10,6,10,Country Life,grass,1
+S06E11,6,11,Western Expanse,cirrus,1
+S06E11,6,11,Western Expanse,clouds,1
+S06E11,6,11,Western Expanse,deciduous,1
+S06E11,6,11,Western Expanse,mountain,1
+S06E11,6,11,Western Expanse,mountains,1
+S06E11,6,11,Western Expanse,river,1
+S06E11,6,11,Western Expanse,tree,1
+S06E12,6,12,Marshlands,bushes,1
+S06E12,6,12,Marshlands,clouds,1
+S06E12,6,12,Marshlands,deciduous,1
+S06E12,6,12,Marshlands,lake,1
+S06E12,6,12,Marshlands,tree,1
+S06E12,6,12,Marshlands,trees,1
+S06E13,6,13,Blaze Of Color,clouds,1
+S06E13,6,13,Blaze Of Color,conifer,1
+S06E13,6,13,Blaze Of Color,deciduous,1
+S06E13,6,13,Blaze Of Color,grass,1
+S06E13,6,13,Blaze Of Color,hills,1
+S06E13,6,13,Blaze Of Color,river,1
+S06E13,6,13,Blaze Of Color,tree,1
+S06E13,6,13,Blaze Of Color,trees,1
+S07E01,7,1,Winter Cabin,cabin,1
+S07E01,7,1,Winter Cabin,clouds,1
+S07E01,7,1,Winter Cabin,deciduous,1
+S07E01,7,1,Winter Cabin,snow,1
+S07E01,7,1,Winter Cabin,structure,1
+S07E01,7,1,Winter Cabin,tree,1
+S07E01,7,1,Winter Cabin,winter,1
+S07E02,7,2,Secluded Lake,clouds,1
+S07E02,7,2,Secluded Lake,deciduous,1
+S07E02,7,2,Secluded Lake,grass,1
+S07E02,7,2,Secluded Lake,lake,1
+S07E02,7,2,Secluded Lake,rocks,1
+S07E02,7,2,Secluded Lake,tree,1
+S07E02,7,2,Secluded Lake,trees,1
+S07E03,7,3,Evergreens At Sunset,cirrus,1
+S07E03,7,3,Evergreens At Sunset,clouds,1
+S07E03,7,3,Evergreens At Sunset,conifer,1
+S07E03,7,3,Evergreens At Sunset,deciduous,1
+S07E03,7,3,Evergreens At Sunset,river,1
+S07E03,7,3,Evergreens At Sunset,sun,1
+S07E03,7,3,Evergreens At Sunset,tree,1
+S07E03,7,3,Evergreens At Sunset,trees,1
+S07E04,7,4,Mountain Cabin,cabin,1
+S07E04,7,4,Mountain Cabin,clouds,1
+S07E04,7,4,Mountain Cabin,conifer,1
+S07E04,7,4,Mountain Cabin,cumulus,1
+S07E04,7,4,Mountain Cabin,deciduous,1
+S07E04,7,4,Mountain Cabin,mountain,1
+S07E04,7,4,Mountain Cabin,mountains,1
+S07E04,7,4,Mountain Cabin,river,1
+S07E04,7,4,Mountain Cabin,snowy mountain,1
+S07E04,7,4,Mountain Cabin,structure,1
+S07E04,7,4,Mountain Cabin,tree,1
+S07E04,7,4,Mountain Cabin,trees,1
+S07E05,7,5,Portrait Of Sally,guest,1
+S07E05,7,5,Portrait Of Sally,portrait,1
+S07E06,7,6,Misty Waterfall,bushes,1
+S07E06,7,6,Misty Waterfall,clouds,1
+S07E06,7,6,Misty Waterfall,cumulus,1
+S07E06,7,6,Misty Waterfall,deciduous,1
+S07E06,7,6,Misty Waterfall,lake,1
+S07E06,7,6,Misty Waterfall,river,1
+S07E06,7,6,Misty Waterfall,tree,1
+S07E06,7,6,Misty Waterfall,trees,1
+S07E06,7,6,Misty Waterfall,waterfall,1
+S07E07,7,7,Barn At Sunset,barn,1
+S07E07,7,7,Barn At Sunset,clouds,1
+S07E07,7,7,Barn At Sunset,cumulus,1
+S07E07,7,7,Barn At Sunset,deciduous,1
+S07E07,7,7,Barn At Sunset,path,1
+S07E07,7,7,Barn At Sunset,snow,1
+S07E07,7,7,Barn At Sunset,structure,1
+S07E07,7,7,Barn At Sunset,tree,1
+S07E07,7,7,Barn At Sunset,trees,1
+S07E08,7,8,Mountain Splendor,bushes,1
+S07E08,7,8,Mountain Splendor,deciduous,1
+S07E08,7,8,Mountain Splendor,mountain,1
+S07E08,7,8,Mountain Splendor,river,1
+S07E08,7,8,Mountain Splendor,snowy mountain,1
+S07E08,7,8,Mountain Splendor,tree,1
+S07E08,7,8,Mountain Splendor,trees,1
+S07E09,7,9,Lake By Mountain,bushes,1
+S07E09,7,9,Lake By Mountain,clouds,1
+S07E09,7,9,Lake By Mountain,cumulus,1
+S07E09,7,9,Lake By Mountain,deciduous,1
+S07E09,7,9,Lake By Mountain,guest,1
+S07E09,7,9,Lake By Mountain,lake,1
+S07E09,7,9,Lake By Mountain,mountain,1
+S07E09,7,9,Lake By Mountain,snowy mountain,1
+S07E09,7,9,Lake By Mountain,steve ross,1
+S07E09,7,9,Lake By Mountain,tree,1
+S07E09,7,9,Lake By Mountain,trees,1
+S07E10,7,10,Mountain Glory,clouds,1
+S07E10,7,10,Mountain Glory,conifer,1
+S07E10,7,10,Mountain Glory,grass,1
+S07E10,7,10,Mountain Glory,mountain,1
+S07E10,7,10,Mountain Glory,mountains,1
+S07E10,7,10,Mountain Glory,snowy mountain,1
+S07E10,7,10,Mountain Glory,tree,1
+S07E10,7,10,Mountain Glory,trees,1
+S07E11,7,11,Grey Winter,bushes,1
+S07E11,7,11,Grey Winter,clouds,1
+S07E11,7,11,Grey Winter,lake,1
+S07E11,7,11,Grey Winter,snow,1
+S07E11,7,11,Grey Winter,tree,1
+S07E11,7,11,Grey Winter,trees,1
+S07E11,7,11,Grey Winter,winter,1
+S07E12,7,12,Dock Scene,boat,1
+S07E12,7,12,Dock Scene,clouds,1
+S07E12,7,12,Dock Scene,cumulus,1
+S07E12,7,12,Dock Scene,deciduous,1
+S07E12,7,12,Dock Scene,dock,1
+S07E12,7,12,Dock Scene,lake,1
+S07E12,7,12,Dock Scene,structure,1
+S07E12,7,12,Dock Scene,tree,1
+S07E13,7,13,Dark Waterfall,bushes,1
+S07E13,7,13,Dark Waterfall,deciduous,1
+S07E13,7,13,Dark Waterfall,river,1
+S07E13,7,13,Dark Waterfall,tree,1
+S07E13,7,13,Dark Waterfall,trees,1
+S07E13,7,13,Dark Waterfall,waterfall,1
+S08E01,8,1,Misty Rolling Hills,conifer,1
+S08E01,8,1,Misty Rolling Hills,fog,1
+S08E01,8,1,Misty Rolling Hills,grass,1
+S08E01,8,1,Misty Rolling Hills,mountain,1
+S08E01,8,1,Misty Rolling Hills,mountains,1
+S08E01,8,1,Misty Rolling Hills,tree,1
+S08E01,8,1,Misty Rolling Hills,trees,1
+S08E02,8,2,Lakeside Cabin,bushes,1
+S08E02,8,2,Lakeside Cabin,cabin,1
+S08E02,8,2,Lakeside Cabin,circle frame,1
+S08E02,8,2,Lakeside Cabin,clouds,1
+S08E02,8,2,Lakeside Cabin,deciduous,1
+S08E02,8,2,Lakeside Cabin,framed,1
+S08E02,8,2,Lakeside Cabin,grass,1
+S08E02,8,2,Lakeside Cabin,lake,1
+S08E02,8,2,Lakeside Cabin,structure,1
+S08E02,8,2,Lakeside Cabin,tree,1
+S08E02,8,2,Lakeside Cabin,trees,1
+S08E03,8,3,Warm Winter Day,cabin,1
+S08E03,8,3,Warm Winter Day,deciduous,1
+S08E03,8,3,Warm Winter Day,grass,1
+S08E03,8,3,Warm Winter Day,snow,1
+S08E03,8,3,Warm Winter Day,structure,1
+S08E03,8,3,Warm Winter Day,sun,1
+S08E03,8,3,Warm Winter Day,tree,1
+S08E03,8,3,Warm Winter Day,trees,1
+S08E03,8,3,Warm Winter Day,winter,1
+S08E04,8,4,Waterside Way,bushes,1
+S08E04,8,4,Waterside Way,deciduous,1
+S08E04,8,4,Waterside Way,grass,1
+S08E04,8,4,Waterside Way,lake,1
+S08E04,8,4,Waterside Way,path,1
+S08E04,8,4,Waterside Way,rocks,1
+S08E04,8,4,Waterside Way,tree,1
+S08E04,8,4,Waterside Way,trees,1
+S08E05,8,5,Hunter's Haven,cabin,1
+S08E05,8,5,Hunter's Haven,cirrus,1
+S08E05,8,5,Hunter's Haven,clouds,1
+S08E05,8,5,Hunter's Haven,conifer,1
+S08E05,8,5,Hunter's Haven,deciduous,1
+S08E05,8,5,Hunter's Haven,path,1
+S08E05,8,5,Hunter's Haven,river,1
+S08E05,8,5,Hunter's Haven,rocks,1
+S08E05,8,5,Hunter's Haven,structure,1
+S08E05,8,5,Hunter's Haven,tree,1
+S08E05,8,5,Hunter's Haven,trees,1
+S08E06,8,6,Bubbling Mountain Brook,bushes,1
+S08E06,8,6,Bubbling Mountain Brook,clouds,1
+S08E06,8,6,Bubbling Mountain Brook,conifer,1
+S08E06,8,6,Bubbling Mountain Brook,grass,1
+S08E06,8,6,Bubbling Mountain Brook,mountain,1
+S08E06,8,6,Bubbling Mountain Brook,mountains,1
+S08E06,8,6,Bubbling Mountain Brook,river,1
+S08E06,8,6,Bubbling Mountain Brook,tree,1
+S08E06,8,6,Bubbling Mountain Brook,trees,1
+S08E07,8,7,Winter Hideaway,cabin,1
+S08E07,8,7,Winter Hideaway,conifer,1
+S08E07,8,7,Winter Hideaway,deciduous,1
+S08E07,8,7,Winter Hideaway,fence,1
+S08E07,8,7,Winter Hideaway,snow,1
+S08E07,8,7,Winter Hideaway,structure,1
+S08E07,8,7,Winter Hideaway,tree,1
+S08E07,8,7,Winter Hideaway,trees,1
+S08E07,8,7,Winter Hideaway,winter,1
+S08E08,8,8,Foot Of The Mountain,conifer,1
+S08E08,8,8,Foot Of The Mountain,deciduous,1
+S08E08,8,8,Foot Of The Mountain,grass,1
+S08E08,8,8,Foot Of The Mountain,mountain,1
+S08E08,8,8,Foot Of The Mountain,mountains,1
+S08E08,8,8,Foot Of The Mountain,river,1
+S08E08,8,8,Foot Of The Mountain,snowy mountain,1
+S08E08,8,8,Foot Of The Mountain,tree,1
+S08E08,8,8,Foot Of The Mountain,trees,1
+S08E09,8,9,Majestic Pine,bushes,1
+S08E09,8,9,Majestic Pine,clouds,1
+S08E09,8,9,Majestic Pine,conifer,1
+S08E09,8,9,Majestic Pine,framed,1
+S08E09,8,9,Majestic Pine,rectangular frame,1
+S08E09,8,9,Majestic Pine,tree,1
+S08E09,8,9,Majestic Pine,trees,1
+S08E10,8,10,Cactus At Sunset,cactus,1
+S08E10,8,10,Cactus At Sunset,clouds,1
+S08E10,8,10,Cactus At Sunset,path,1
+S08E10,8,10,Cactus At Sunset,rocks,1
+S08E11,8,11,Mountain Range,clouds,1
+S08E11,8,11,Mountain Range,conifer,1
+S08E11,8,11,Mountain Range,cumulus,1
+S08E11,8,11,Mountain Range,deciduous,1
+S08E11,8,11,Mountain Range,guest,1
+S08E11,8,11,Mountain Range,lake,1
+S08E11,8,11,Mountain Range,mountain,1
+S08E11,8,11,Mountain Range,mountains,1
+S08E11,8,11,Mountain Range,snowy mountain,1
+S08E11,8,11,Mountain Range,steve ross,1
+S08E11,8,11,Mountain Range,tree,1
+S08E11,8,11,Mountain Range,trees,1
+S08E12,8,12,Lonely Retreat,cabin,1
+S08E12,8,12,Lonely Retreat,clouds,1
+S08E12,8,12,Lonely Retreat,conifer,1
+S08E12,8,12,Lonely Retreat,snow,1
+S08E12,8,12,Lonely Retreat,structure,1
+S08E12,8,12,Lonely Retreat,tree,1
+S08E12,8,12,Lonely Retreat,winter,1
+S08E13,8,13,Northern Lights,aurora borealis,1
+S08E13,8,13,Northern Lights,cabin,1
+S08E13,8,13,Northern Lights,conifer,1
+S08E13,8,13,Northern Lights,deciduous,1
+S08E13,8,13,Northern Lights,lake,1
+S08E13,8,13,Northern Lights,mountain,1
+S08E13,8,13,Northern Lights,night,1
+S08E13,8,13,Northern Lights,snow,1
+S08E13,8,13,Northern Lights,snowy mountain,1
+S08E13,8,13,Northern Lights,structure,1
+S08E13,8,13,Northern Lights,tree,1
+S08E13,8,13,Northern Lights,trees,1
+S08E13,8,13,Northern Lights,winter,1
+S09E01,9,1,Winter Evergreens,cirrus,1
+S09E01,9,1,Winter Evergreens,clouds,1
+S09E01,9,1,Winter Evergreens,conifer,1
+S09E01,9,1,Winter Evergreens,mountain,1
+S09E01,9,1,Winter Evergreens,mountains,1
+S09E01,9,1,Winter Evergreens,snow,1
+S09E01,9,1,Winter Evergreens,snowy mountain,1
+S09E01,9,1,Winter Evergreens,sun,1
+S09E01,9,1,Winter Evergreens,tree,1
+S09E01,9,1,Winter Evergreens,trees,1
+S09E01,9,1,Winter Evergreens,winter,1
+S09E02,9,2,Surf's Up,beach,1
+S09E02,9,2,Surf's Up,cliff,1
+S09E02,9,2,Surf's Up,clouds,1
+S09E02,9,2,Surf's Up,cumulus,1
+S09E02,9,2,Surf's Up,ocean,1
+S09E02,9,2,Surf's Up,rocks,1
+S09E02,9,2,Surf's Up,waves,1
+S09E03,9,3,Red Sunset,bushes,1
+S09E03,9,3,Red Sunset,clouds,1
+S09E03,9,3,Red Sunset,conifer,1
+S09E03,9,3,Red Sunset,lake,1
+S09E03,9,3,Red Sunset,tree,1
+S09E03,9,3,Red Sunset,trees,1
+S09E04,9,4,Meadow Road,bushes,1
+S09E04,9,4,Meadow Road,clouds,1
+S09E04,9,4,Meadow Road,conifer,1
+S09E04,9,4,Meadow Road,cumulus,1
+S09E04,9,4,Meadow Road,deciduous,1
+S09E04,9,4,Meadow Road,grass,1
+S09E04,9,4,Meadow Road,mountain,1
+S09E04,9,4,Meadow Road,mountains,1
+S09E04,9,4,Meadow Road,path,1
+S09E04,9,4,Meadow Road,snowy mountain,1
+S09E04,9,4,Meadow Road,tree,1
+S09E04,9,4,Meadow Road,trees,1
+S09E05,9,5,Winter Oval,bushes,1
+S09E05,9,5,Winter Oval,cabin,1
+S09E05,9,5,Winter Oval,conifer,1
+S09E05,9,5,Winter Oval,fog,1
+S09E05,9,5,Winter Oval,framed,1
+S09E05,9,5,Winter Oval,mountain,1
+S09E05,9,5,Winter Oval,oval frame,1
+S09E05,9,5,Winter Oval,river,1
+S09E05,9,5,Winter Oval,snowy mountain,1
+S09E05,9,5,Winter Oval,structure,1
+S09E05,9,5,Winter Oval,tree,1
+S09E05,9,5,Winter Oval,trees,1
+S09E06,9,6,Secluded Beach,beach,1
+S09E06,9,6,Secluded Beach,clouds,1
+S09E06,9,6,Secluded Beach,cumulus,1
+S09E06,9,6,Secluded Beach,ocean,1
+S09E06,9,6,Secluded Beach,rocks,1
+S09E06,9,6,Secluded Beach,waves,1
+S09E07,9,7,Forest Hills,bushes,1
+S09E07,9,7,Forest Hills,conifer,1
+S09E07,9,7,Forest Hills,deciduous,1
+S09E07,9,7,Forest Hills,mountain,1
+S09E07,9,7,Forest Hills,mountains,1
+S09E07,9,7,Forest Hills,river,1
+S09E07,9,7,Forest Hills,rocks,1
+S09E07,9,7,Forest Hills,snowy mountain,1
+S09E07,9,7,Forest Hills,tree,1
+S09E07,9,7,Forest Hills,trees,1
+S09E08,9,8,Little House By-The-Road,cabin,1
+S09E08,9,8,Little House By-The-Road,deciduous,1
+S09E08,9,8,Little House By-The-Road,fence,1
+S09E08,9,8,Little House By-The-Road,mountain,1
+S09E08,9,8,Little House By-The-Road,path,1
+S09E08,9,8,Little House By-The-Road,structure,1
+S09E08,9,8,Little House By-The-Road,tree,1
+S09E08,9,8,Little House By-The-Road,trees,1
+S09E09,9,9,Mountain Path,bushes,1
+S09E09,9,9,Mountain Path,clouds,1
+S09E09,9,9,Mountain Path,mountain,1
+S09E09,9,9,Mountain Path,river,1
+S09E09,9,9,Mountain Path,snowy mountain,1
+S09E09,9,9,Mountain Path,tree,1
+S09E09,9,9,Mountain Path,trees,1
+S09E11,9,11,Nature's Paradise,bushes,1
+S09E11,9,11,Nature's Paradise,clouds,1
+S09E11,9,11,Nature's Paradise,cumulus,1
+S09E11,9,11,Nature's Paradise,deciduous,1
+S09E11,9,11,Nature's Paradise,grass,1
+S09E11,9,11,Nature's Paradise,mountain,1
+S09E11,9,11,Nature's Paradise,mountains,1
+S09E11,9,11,Nature's Paradise,river,1
+S09E11,9,11,Nature's Paradise,tree,1
+S09E11,9,11,Nature's Paradise,trees,1
+S09E12,9,12,Mountain-By-The-Sea,beach,1
+S09E12,9,12,Mountain-By-The-Sea,bushes,1
+S09E12,9,12,Mountain-By-The-Sea,clouds,1
+S09E12,9,12,Mountain-By-The-Sea,cumulus,1
+S09E12,9,12,Mountain-By-The-Sea,deciduous,1
+S09E12,9,12,Mountain-By-The-Sea,mountain,1
+S09E12,9,12,Mountain-By-The-Sea,ocean,1
+S09E12,9,12,Mountain-By-The-Sea,snowy mountain,1
+S09E12,9,12,Mountain-By-The-Sea,tree,1
+S09E12,9,12,Mountain-By-The-Sea,waves,1
+S09E13,9,13,Mountain Hide-Away,cirrus,1
+S09E13,9,13,Mountain Hide-Away,clouds,1
+S09E13,9,13,Mountain Hide-Away,conifer,1
+S09E13,9,13,Mountain Hide-Away,deciduous,1
+S09E13,9,13,Mountain Hide-Away,grass,1
+S09E13,9,13,Mountain Hide-Away,mountain,1
+S09E13,9,13,Mountain Hide-Away,mountains,1
+S09E13,9,13,Mountain Hide-Away,river,1
+S09E13,9,13,Mountain Hide-Away,snowy mountain,1
+S09E13,9,13,Mountain Hide-Away,tree,1
+S09E13,9,13,Mountain Hide-Away,trees,1
+S10E01,10,1,Towering Peaks,bushes,1
+S10E01,10,1,Towering Peaks,clouds,1
+S10E01,10,1,Towering Peaks,conifer,1
+S10E01,10,1,Towering Peaks,cumulus,1
+S10E01,10,1,Towering Peaks,deciduous,1
+S10E01,10,1,Towering Peaks,hills,1
+S10E01,10,1,Towering Peaks,lake,1
+S10E01,10,1,Towering Peaks,mountain,1
+S10E01,10,1,Towering Peaks,snowy mountain,1
+S10E01,10,1,Towering Peaks,tree,1
+S10E01,10,1,Towering Peaks,trees,1
+S10E02,10,2,Cabin At Sunset,cabin,1
+S10E02,10,2,Cabin At Sunset,clouds,1
+S10E02,10,2,Cabin At Sunset,conifer,1
+S10E02,10,2,Cabin At Sunset,fence,1
+S10E02,10,2,Cabin At Sunset,grass,1
+S10E02,10,2,Cabin At Sunset,structure,1
+S10E02,10,2,Cabin At Sunset,tree,1
+S10E02,10,2,Cabin At Sunset,trees,1
+S10E03,10,3,Twin Falls,clouds,1
+S10E03,10,3,Twin Falls,conifer,1
+S10E03,10,3,Twin Falls,deciduous,1
+S10E03,10,3,Twin Falls,grass,1
+S10E03,10,3,Twin Falls,hills,1
+S10E03,10,3,Twin Falls,river,1
+S10E03,10,3,Twin Falls,rocks,1
+S10E03,10,3,Twin Falls,tree,1
+S10E03,10,3,Twin Falls,trees,1
+S10E03,10,3,Twin Falls,waterfall,1
+S10E04,10,4,Secluded Bridge,bridge,1
+S10E04,10,4,Secluded Bridge,deciduous,1
+S10E04,10,4,Secluded Bridge,river,1
+S10E04,10,4,Secluded Bridge,rocks,1
+S10E04,10,4,Secluded Bridge,structure,1
+S10E04,10,4,Secluded Bridge,tree,1
+S10E04,10,4,Secluded Bridge,trees,1
+S10E05,10,5,Ocean Breeze,clouds,1
+S10E05,10,5,Ocean Breeze,cumulus,1
+S10E05,10,5,Ocean Breeze,ocean,1
+S10E05,10,5,Ocean Breeze,rocks,1
+S10E05,10,5,Ocean Breeze,waves,1
+S10E06,10,6,Autumn Woods,bushes,1
+S10E06,10,6,Autumn Woods,clouds,1
+S10E06,10,6,Autumn Woods,conifer,1
+S10E06,10,6,Autumn Woods,cumulus,1
+S10E06,10,6,Autumn Woods,deciduous,1
+S10E06,10,6,Autumn Woods,lake,1
+S10E06,10,6,Autumn Woods,mountain,1
+S10E06,10,6,Autumn Woods,mountains,1
+S10E06,10,6,Autumn Woods,snowy mountain,1
+S10E06,10,6,Autumn Woods,tree,1
+S10E06,10,6,Autumn Woods,trees,1
+S10E07,10,7,Winter Solitude,bushes,1
+S10E07,10,7,Winter Solitude,deciduous,1
+S10E07,10,7,Winter Solitude,snow,1
+S10E07,10,7,Winter Solitude,tree,1
+S10E07,10,7,Winter Solitude,trees,1
+S10E07,10,7,Winter Solitude,winter,1
+S10E08,10,8,Golden Sunset,deciduous,1
+S10E08,10,8,Golden Sunset,lake,1
+S10E08,10,8,Golden Sunset,snow,1
+S10E08,10,8,Golden Sunset,sun,1
+S10E08,10,8,Golden Sunset,tree,1
+S10E08,10,8,Golden Sunset,trees,1
+S10E09,10,9,Mountain Oval,bushes,1
+S10E09,10,9,Mountain Oval,cirrus,1
+S10E09,10,9,Mountain Oval,clouds,1
+S10E09,10,9,Mountain Oval,conifer,1
+S10E09,10,9,Mountain Oval,deciduous,1
+S10E09,10,9,Mountain Oval,framed,1
+S10E09,10,9,Mountain Oval,guest,1
+S10E09,10,9,Mountain Oval,lake,1
+S10E09,10,9,Mountain Oval,mountain,1
+S10E09,10,9,Mountain Oval,mountains,1
+S10E09,10,9,Mountain Oval,oval frame,1
+S10E09,10,9,Mountain Oval,snowy mountain,1
+S10E09,10,9,Mountain Oval,steve ross,1
+S10E09,10,9,Mountain Oval,tree,1
+S10E09,10,9,Mountain Oval,trees,1
+S10E10,10,10,Ocean Sunset,beach,1
+S10E10,10,10,Ocean Sunset,clouds,1
+S10E10,10,10,Ocean Sunset,ocean,1
+S10E10,10,10,Ocean Sunset,rocks,1
+S10E10,10,10,Ocean Sunset,waves,1
+S10E11,10,11,Triple View,cabin,1
+S10E11,10,11,Triple View,conifer,1
+S10E11,10,11,Triple View,deciduous,1
+S10E11,10,11,Triple View,framed,1
+S10E11,10,11,Triple View,grass,1
+S10E11,10,11,Triple View,mountain,1
+S10E11,10,11,Triple View,mountains,1
+S10E11,10,11,Triple View,path,1
+S10E11,10,11,Triple View,snowy mountain,1
+S10E11,10,11,Triple View,structure,1
+S10E11,10,11,Triple View,tree,1
+S10E11,10,11,Triple View,trees,1
+S10E11,10,11,Triple View,triple frame,1
+S10E12,10,12,Winter Frost,clouds,1
+S10E12,10,12,Winter Frost,conifer,1
+S10E12,10,12,Winter Frost,deciduous,1
+S10E12,10,12,Winter Frost,mountain,1
+S10E12,10,12,Winter Frost,mountains,1
+S10E12,10,12,Winter Frost,snow,1
+S10E12,10,12,Winter Frost,snowy mountain,1
+S10E12,10,12,Winter Frost,sun,1
+S10E12,10,12,Winter Frost,tree,1
+S10E12,10,12,Winter Frost,trees,1
+S10E12,10,12,Winter Frost,winter,1
+S10E13,10,13,Lakeside Cabin,cabin,1
+S10E13,10,13,Lakeside Cabin,clouds,1
+S10E13,10,13,Lakeside Cabin,cumulus,1
+S10E13,10,13,Lakeside Cabin,deciduous,1
+S10E13,10,13,Lakeside Cabin,grass,1
+S10E13,10,13,Lakeside Cabin,lake,1
+S10E13,10,13,Lakeside Cabin,path,1
+S10E13,10,13,Lakeside Cabin,rocks,1
+S10E13,10,13,Lakeside Cabin,structure,1
+S10E13,10,13,Lakeside Cabin,tree,1
+S10E13,10,13,Lakeside Cabin,trees,1
+S11E01,11,1,Mountain Stream,conifer,1
+S11E01,11,1,Mountain Stream,grass,1
+S11E01,11,1,Mountain Stream,mountain,1
+S11E01,11,1,Mountain Stream,river,1
+S11E01,11,1,Mountain Stream,snowy mountain,1
+S11E01,11,1,Mountain Stream,tree,1
+S11E01,11,1,Mountain Stream,trees,1
+S11E02,11,2,Country Cabin,bushes,1
+S11E02,11,2,Country Cabin,cabin,1
+S11E02,11,2,Country Cabin,clouds,1
+S11E02,11,2,Country Cabin,conifer,1
+S11E02,11,2,Country Cabin,deciduous,1
+S11E02,11,2,Country Cabin,snow,1
+S11E02,11,2,Country Cabin,structure,1
+S11E02,11,2,Country Cabin,tree,1
+S11E02,11,2,Country Cabin,trees,1
+S11E02,11,2,Country Cabin,winter,1
+S11E03,11,3,Daisy Delight,conifer,1
+S11E03,11,3,Daisy Delight,fence,1
+S11E03,11,3,Daisy Delight,flowers,1
+S11E03,11,3,Daisy Delight,tree,1
+S11E03,11,3,Daisy Delight,trees,1
+S11E04,11,4,Hidden Stream,bushes,1
+S11E04,11,4,Hidden Stream,clouds,1
+S11E04,11,4,Hidden Stream,deciduous,1
+S11E04,11,4,Hidden Stream,river,1
+S11E04,11,4,Hidden Stream,tree,1
+S11E04,11,4,Hidden Stream,trees,1
+S11E04,11,4,Hidden Stream,waterfall,1
+S11E05,11,5,Towering Glacier,clouds,1
+S11E05,11,5,Towering Glacier,conifer,1
+S11E05,11,5,Towering Glacier,cumulus,1
+S11E05,11,5,Towering Glacier,grass,1
+S11E05,11,5,Towering Glacier,mountain,1
+S11E05,11,5,Towering Glacier,river,1
+S11E05,11,5,Towering Glacier,rocks,1
+S11E05,11,5,Towering Glacier,snowy mountain,1
+S11E05,11,5,Towering Glacier,tree,1
+S11E05,11,5,Towering Glacier,trees,1
+S11E05,11,5,Towering Glacier,waterfall,1
+S11E06,11,6,Oval Barn,barn,1
+S11E06,11,6,Oval Barn,bushes,1
+S11E06,11,6,Oval Barn,clouds,1
+S11E06,11,6,Oval Barn,cumulus,1
+S11E06,11,6,Oval Barn,deciduous,1
+S11E06,11,6,Oval Barn,framed,1
+S11E06,11,6,Oval Barn,oval frame,1
+S11E06,11,6,Oval Barn,snow,1
+S11E06,11,6,Oval Barn,structure,1
+S11E06,11,6,Oval Barn,tree,1
+S11E06,11,6,Oval Barn,trees,1
+S11E06,11,6,Oval Barn,winter,1
+S11E07,11,7,Lakeside Path,bushes,1
+S11E07,11,7,Lakeside Path,clouds,1
+S11E07,11,7,Lakeside Path,conifer,1
+S11E07,11,7,Lakeside Path,cumulus,1
+S11E07,11,7,Lakeside Path,deciduous,1
+S11E07,11,7,Lakeside Path,grass,1
+S11E07,11,7,Lakeside Path,lake,1
+S11E07,11,7,Lakeside Path,path,1
+S11E07,11,7,Lakeside Path,rocks,1
+S11E07,11,7,Lakeside Path,tree,1
+S11E07,11,7,Lakeside Path,trees,1
+S11E08,11,8,Sunset Oval,bushes,1
+S11E08,11,8,Sunset Oval,clouds,1
+S11E08,11,8,Sunset Oval,conifer,1
+S11E08,11,8,Sunset Oval,cumulus,1
+S11E08,11,8,Sunset Oval,deciduous,1
+S11E08,11,8,Sunset Oval,framed,1
+S11E08,11,8,Sunset Oval,lake,1
+S11E08,11,8,Sunset Oval,mountain,1
+S11E08,11,8,Sunset Oval,oval frame,1
+S11E08,11,8,Sunset Oval,snowy mountain,1
+S11E08,11,8,Sunset Oval,tree,1
+S11E08,11,8,Sunset Oval,trees,1
+S11E09,11,9,Winter Barn,barn,1
+S11E09,11,9,Winter Barn,cirrus,1
+S11E09,11,9,Winter Barn,clouds,1
+S11E09,11,9,Winter Barn,deciduous,1
+S11E09,11,9,Winter Barn,snow,1
+S11E09,11,9,Winter Barn,structure,1
+S11E09,11,9,Winter Barn,tree,1
+S11E09,11,9,Winter Barn,trees,1
+S11E09,11,9,Winter Barn,winter,1
+S11E10,11,10,Sunset Over The Waves,beach,1
+S11E10,11,10,Sunset Over The Waves,clouds,1
+S11E10,11,10,Sunset Over The Waves,ocean,1
+S11E10,11,10,Sunset Over The Waves,rocks,1
+S11E10,11,10,Sunset Over The Waves,sun,1
+S11E10,11,10,Sunset Over The Waves,waves,1
+S11E11,11,11,Golden Glow,clouds,1
+S11E11,11,11,Golden Glow,conifer,1
+S11E11,11,11,Golden Glow,lake,1
+S11E11,11,11,Golden Glow,snow,1
+S11E11,11,11,Golden Glow,tree,1
+S11E11,11,11,Golden Glow,trees,1
+S11E11,11,11,Golden Glow,waterfall,1
+S11E12,11,12,Roadside Barn,barn,1
+S11E12,11,12,Roadside Barn,clouds,1
+S11E12,11,12,Roadside Barn,cumulus,1
+S11E12,11,12,Roadside Barn,deciduous,1
+S11E12,11,12,Roadside Barn,fence,1
+S11E12,11,12,Roadside Barn,lake,1
+S11E12,11,12,Roadside Barn,path,1
+S11E12,11,12,Roadside Barn,structure,1
+S11E12,11,12,Roadside Barn,tree,1
+S11E12,11,12,Roadside Barn,trees,1
+S11E13,11,13,Happy Accident,bushes,1
+S11E13,11,13,Happy Accident,deciduous,1
+S11E13,11,13,Happy Accident,grass,1
+S11E13,11,13,Happy Accident,river,1
+S11E13,11,13,Happy Accident,rocks,1
+S11E13,11,13,Happy Accident,tree,1
+S11E13,11,13,Happy Accident,trees,1
+S12E01,12,1,Golden Knoll,cabin,1
+S12E01,12,1,Golden Knoll,deciduous,1
+S12E01,12,1,Golden Knoll,fog,1
+S12E01,12,1,Golden Knoll,grass,1
+S12E01,12,1,Golden Knoll,structure,1
+S12E01,12,1,Golden Knoll,sun,1
+S12E01,12,1,Golden Knoll,tree,1
+S12E02,12,2,Mountain Reflections,bushes,1
+S12E02,12,2,Mountain Reflections,clouds,1
+S12E02,12,2,Mountain Reflections,conifer,1
+S12E02,12,2,Mountain Reflections,cumulus,1
+S12E02,12,2,Mountain Reflections,mountain,1
+S12E02,12,2,Mountain Reflections,mountains,1
+S12E02,12,2,Mountain Reflections,river,1
+S12E02,12,2,Mountain Reflections,rocks,1
+S12E02,12,2,Mountain Reflections,snowy mountain,1
+S12E02,12,2,Mountain Reflections,tree,1
+S12E02,12,2,Mountain Reflections,trees,1
+S12E03,12,3,Secluded Mountain,clouds,1
+S12E03,12,3,Secluded Mountain,conifer,1
+S12E03,12,3,Secluded Mountain,cumulus,1
+S12E03,12,3,Secluded Mountain,deciduous,1
+S12E03,12,3,Secluded Mountain,grass,1
+S12E03,12,3,Secluded Mountain,lake,1
+S12E03,12,3,Secluded Mountain,mountain,1
+S12E03,12,3,Secluded Mountain,rocks,1
+S12E03,12,3,Secluded Mountain,tree,1
+S12E03,12,3,Secluded Mountain,trees,1
+S12E04,12,4,Bright Autumn Trees,bushes,1
+S12E04,12,4,Bright Autumn Trees,deciduous,1
+S12E04,12,4,Bright Autumn Trees,path,1
+S12E04,12,4,Bright Autumn Trees,river,1
+S12E04,12,4,Bright Autumn Trees,tree,1
+S12E04,12,4,Bright Autumn Trees,trees,1
+S12E05,12,5,Black Seascape,beach,1
+S12E05,12,5,Black Seascape,clouds,1
+S12E05,12,5,Black Seascape,cumulus,1
+S12E05,12,5,Black Seascape,night,1
+S12E05,12,5,Black Seascape,ocean,1
+S12E05,12,5,Black Seascape,rocks,1
+S12E05,12,5,Black Seascape,waves,1
+S12E06,12,6,Steep Mountains,bushes,1
+S12E06,12,6,Steep Mountains,cabin,1
+S12E06,12,6,Steep Mountains,cirrus,1
+S12E06,12,6,Steep Mountains,clouds,1
+S12E06,12,6,Steep Mountains,conifer,1
+S12E06,12,6,Steep Mountains,deciduous,1
+S12E06,12,6,Steep Mountains,grass,1
+S12E06,12,6,Steep Mountains,lake,1
+S12E06,12,6,Steep Mountains,mountain,1
+S12E06,12,6,Steep Mountains,mountains,1
+S12E06,12,6,Steep Mountains,structure,1
+S12E06,12,6,Steep Mountains,tree,1
+S12E06,12,6,Steep Mountains,trees,1
+S12E07,12,7,Quiet Mountain River,bushes,1
+S12E07,12,7,Quiet Mountain River,clouds,1
+S12E07,12,7,Quiet Mountain River,conifer,1
+S12E07,12,7,Quiet Mountain River,cumulus,1
+S12E07,12,7,Quiet Mountain River,deciduous,1
+S12E07,12,7,Quiet Mountain River,grass,1
+S12E07,12,7,Quiet Mountain River,mountain,1
+S12E07,12,7,Quiet Mountain River,river,1
+S12E07,12,7,Quiet Mountain River,snowy mountain,1
+S12E07,12,7,Quiet Mountain River,tree,1
+S12E07,12,7,Quiet Mountain River,trees,1
+S12E08,12,8,Evening Waterfall,conifer,1
+S12E08,12,8,Evening Waterfall,grass,1
+S12E08,12,8,Evening Waterfall,river,1
+S12E08,12,8,Evening Waterfall,tree,1
+S12E08,12,8,Evening Waterfall,trees,1
+S12E08,12,8,Evening Waterfall,waterfall,1
+S12E09,12,9,Tropical Seascape,beach,1
+S12E09,12,9,Tropical Seascape,cirrus,1
+S12E09,12,9,Tropical Seascape,clouds,1
+S12E09,12,9,Tropical Seascape,ocean,1
+S12E09,12,9,Tropical Seascape,palm trees,1
+S12E09,12,9,Tropical Seascape,waves,1
+S12E10,12,10,Mountain At Sunset,bushes,1
+S12E10,12,10,Mountain At Sunset,clouds,1
+S12E10,12,10,Mountain At Sunset,conifer,1
+S12E10,12,10,Mountain At Sunset,deciduous,1
+S12E10,12,10,Mountain At Sunset,grass,1
+S12E10,12,10,Mountain At Sunset,mountain,1
+S12E10,12,10,Mountain At Sunset,river,1
+S12E10,12,10,Mountain At Sunset,snowy mountain,1
+S12E10,12,10,Mountain At Sunset,tree,1
+S12E10,12,10,Mountain At Sunset,trees,1
+S12E11,12,11,Soft Mountain Glow,bushes,1
+S12E11,12,11,Soft Mountain Glow,conifer,1
+S12E11,12,11,Soft Mountain Glow,grass,1
+S12E11,12,11,Soft Mountain Glow,mountain,1
+S12E11,12,11,Soft Mountain Glow,river,1
+S12E11,12,11,Soft Mountain Glow,snowy mountain,1
+S12E11,12,11,Soft Mountain Glow,tree,1
+S12E11,12,11,Soft Mountain Glow,trees,1
+S12E12,12,12,Mountain In An Oval,bushes,1
+S12E12,12,12,Mountain In An Oval,clouds,1
+S12E12,12,12,Mountain In An Oval,conifer,1
+S12E12,12,12,Mountain In An Oval,cumulus,1
+S12E12,12,12,Mountain In An Oval,deciduous,1
+S12E12,12,12,Mountain In An Oval,framed,1
+S12E12,12,12,Mountain In An Oval,grass,1
+S12E12,12,12,Mountain In An Oval,mountain,1
+S12E12,12,12,Mountain In An Oval,mountains,1
+S12E12,12,12,Mountain In An Oval,oval frame,1
+S12E12,12,12,Mountain In An Oval,river,1
+S12E12,12,12,Mountain In An Oval,sun,1
+S12E12,12,12,Mountain In An Oval,tree,1
+S12E12,12,12,Mountain In An Oval,trees,1
+S12E13,12,13,Winter Mountain,conifer,1
+S12E13,12,13,Winter Mountain,mountain,1
+S12E13,12,13,Winter Mountain,mountains,1
+S12E13,12,13,Winter Mountain,river,1
+S12E13,12,13,Winter Mountain,snow,1
+S12E13,12,13,Winter Mountain,snowy mountain,1
+S12E13,12,13,Winter Mountain,tree,1
+S12E13,12,13,Winter Mountain,trees,1
+S12E13,12,13,Winter Mountain,winter,1
+S13E01,13,1,Rolling Hills,bushes,1
+S13E01,13,1,Rolling Hills,deciduous,1
+S13E01,13,1,Rolling Hills,grass,1
+S13E01,13,1,Rolling Hills,hills,1
+S13E01,13,1,Rolling Hills,lake,1
+S13E01,13,1,Rolling Hills,tree,1
+S13E01,13,1,Rolling Hills,trees,1
+S13E02,13,2,Frozen Solitude,bushes,1
+S13E02,13,2,Frozen Solitude,cabin,1
+S13E02,13,2,Frozen Solitude,clouds,1
+S13E02,13,2,Frozen Solitude,conifer,1
+S13E02,13,2,Frozen Solitude,lake,1
+S13E02,13,2,Frozen Solitude,mountain,1
+S13E02,13,2,Frozen Solitude,mountains,1
+S13E02,13,2,Frozen Solitude,snow,1
+S13E02,13,2,Frozen Solitude,snowy mountain,1
+S13E02,13,2,Frozen Solitude,structure,1
+S13E02,13,2,Frozen Solitude,tree,1
+S13E02,13,2,Frozen Solitude,trees,1
+S13E02,13,2,Frozen Solitude,winter,1
+S13E03,13,3,Meadow Brook,cirrus,1
+S13E03,13,3,Meadow Brook,clouds,1
+S13E03,13,3,Meadow Brook,deciduous,1
+S13E03,13,3,Meadow Brook,framed,1
+S13E03,13,3,Meadow Brook,grass,1
+S13E03,13,3,Meadow Brook,mountain,1
+S13E03,13,3,Meadow Brook,oval frame,1
+S13E03,13,3,Meadow Brook,river,1
+S13E03,13,3,Meadow Brook,tree,1
+S13E03,13,3,Meadow Brook,trees,1
+S13E04,13,4,Evening At Sunset,bushes,1
+S13E04,13,4,Evening At Sunset,cabin,1
+S13E04,13,4,Evening At Sunset,cirrus,1
+S13E04,13,4,Evening At Sunset,clouds,1
+S13E04,13,4,Evening At Sunset,conifer,1
+S13E04,13,4,Evening At Sunset,deciduous,1
+S13E04,13,4,Evening At Sunset,river,1
+S13E04,13,4,Evening At Sunset,rocks,1
+S13E04,13,4,Evening At Sunset,structure,1
+S13E04,13,4,Evening At Sunset,tree,1
+S13E04,13,4,Evening At Sunset,trees,1
+S13E05,13,5,Mountain View,clouds,1
+S13E05,13,5,Mountain View,deciduous,1
+S13E05,13,5,Mountain View,grass,1
+S13E05,13,5,Mountain View,mountain,1
+S13E05,13,5,Mountain View,mountains,1
+S13E05,13,5,Mountain View,river,1
+S13E05,13,5,Mountain View,rocks,1
+S13E05,13,5,Mountain View,tree,1
+S13E05,13,5,Mountain View,trees,1
+S13E06,13,6,Hidden Creek,deciduous,1
+S13E06,13,6,Hidden Creek,grass,1
+S13E06,13,6,Hidden Creek,river,1
+S13E06,13,6,Hidden Creek,tree,1
+S13E06,13,6,Hidden Creek,trees,1
+S13E07,13,7,Peaceful Haven,clouds,1
+S13E07,13,7,Peaceful Haven,conifer,1
+S13E07,13,7,Peaceful Haven,cumulus,1
+S13E07,13,7,Peaceful Haven,path,1
+S13E07,13,7,Peaceful Haven,river,1
+S13E07,13,7,Peaceful Haven,tree,1
+S13E07,13,7,Peaceful Haven,trees,1
+S13E08,13,8,Mountain Exhibition,clouds,1
+S13E08,13,8,Mountain Exhibition,conifer,1
+S13E08,13,8,Mountain Exhibition,cumulus,1
+S13E08,13,8,Mountain Exhibition,grass,1
+S13E08,13,8,Mountain Exhibition,mountain,1
+S13E08,13,8,Mountain Exhibition,mountains,1
+S13E08,13,8,Mountain Exhibition,river,1
+S13E08,13,8,Mountain Exhibition,snowy mountain,1
+S13E08,13,8,Mountain Exhibition,tree,1
+S13E08,13,8,Mountain Exhibition,trees,1
+S13E09,13,9,Emerald Waters,bushes,1
+S13E09,13,9,Emerald Waters,deciduous,1
+S13E09,13,9,Emerald Waters,lake,1
+S13E09,13,9,Emerald Waters,tree,1
+S13E09,13,9,Emerald Waters,trees,1
+S13E10,13,10,Mountain Summit,bushes,1
+S13E10,13,10,Mountain Summit,clouds,1
+S13E10,13,10,Mountain Summit,conifer,1
+S13E10,13,10,Mountain Summit,cumulus,1
+S13E10,13,10,Mountain Summit,deciduous,1
+S13E10,13,10,Mountain Summit,mountain,1
+S13E10,13,10,Mountain Summit,river,1
+S13E10,13,10,Mountain Summit,snowy mountain,1
+S13E10,13,10,Mountain Summit,tree,1
+S13E10,13,10,Mountain Summit,trees,1
+S13E11,13,11,Cabin Hideaway,cabin,1
+S13E11,13,11,Cabin Hideaway,conifer,1
+S13E11,13,11,Cabin Hideaway,deciduous,1
+S13E11,13,11,Cabin Hideaway,lake,1
+S13E11,13,11,Cabin Hideaway,mountain,1
+S13E11,13,11,Cabin Hideaway,mountains,1
+S13E11,13,11,Cabin Hideaway,snow,1
+S13E11,13,11,Cabin Hideaway,structure,1
+S13E11,13,11,Cabin Hideaway,tree,1
+S13E11,13,11,Cabin Hideaway,trees,1
+S13E11,13,11,Cabin Hideaway,winter,1
+S13E12,13,12,Oval Essence,clouds,1
+S13E12,13,12,Oval Essence,conifer,1
+S13E12,13,12,Oval Essence,framed,1
+S13E12,13,12,Oval Essence,night,1
+S13E12,13,12,Oval Essence,ocean,1
+S13E12,13,12,Oval Essence,oval frame,1
+S13E12,13,12,Oval Essence,rocks,1
+S13E12,13,12,Oval Essence,tree,1
+S13E12,13,12,Oval Essence,trees,1
+S13E12,13,12,Oval Essence,waves,1
+S13E13,13,13,Lost Lake,conifer,1
+S13E13,13,13,Lost Lake,grass,1
+S13E13,13,13,Lost Lake,lake,1
+S13E13,13,13,Lost Lake,mountain,1
+S13E13,13,13,Lost Lake,mountains,1
+S13E13,13,13,Lost Lake,path,1
+S13E13,13,13,Lost Lake,snowy mountain,1
+S13E13,13,13,Lost Lake,tree,1
+S13E13,13,13,Lost Lake,trees,1
+S14E01,14,1,Distant Mountains,bushes,1
+S14E01,14,1,Distant Mountains,clouds,1
+S14E01,14,1,Distant Mountains,conifer,1
+S14E01,14,1,Distant Mountains,cumulus,1
+S14E01,14,1,Distant Mountains,lake,1
+S14E01,14,1,Distant Mountains,mountain,1
+S14E01,14,1,Distant Mountains,mountains,1
+S14E01,14,1,Distant Mountains,path,1
+S14E01,14,1,Distant Mountains,snowy mountain,1
+S14E01,14,1,Distant Mountains,tree,1
+S14E01,14,1,Distant Mountains,trees,1
+S14E02,14,2,Meadow Brook Surprise,conifer,1
+S14E02,14,2,Meadow Brook Surprise,grass,1
+S14E02,14,2,Meadow Brook Surprise,river,1
+S14E02,14,2,Meadow Brook Surprise,tree,1
+S14E02,14,2,Meadow Brook Surprise,trees,1
+S14E03,14,3,Mountain Moonlight Oval,conifer,1
+S14E03,14,3,Mountain Moonlight Oval,deciduous,1
+S14E03,14,3,Mountain Moonlight Oval,framed,1
+S14E03,14,3,Mountain Moonlight Oval,grass,1
+S14E03,14,3,Mountain Moonlight Oval,mountain,1
+S14E03,14,3,Mountain Moonlight Oval,mountains,1
+S14E03,14,3,Mountain Moonlight Oval,night,1
+S14E03,14,3,Mountain Moonlight Oval,oval frame,1
+S14E03,14,3,Mountain Moonlight Oval,tree,1
+S14E03,14,3,Mountain Moonlight Oval,trees,1
+S14E04,14,4,Snowy Solitude,cirrus,1
+S14E04,14,4,Snowy Solitude,clouds,1
+S14E04,14,4,Snowy Solitude,deciduous,1
+S14E04,14,4,Snowy Solitude,fence,1
+S14E04,14,4,Snowy Solitude,snow,1
+S14E04,14,4,Snowy Solitude,tree,1
+S14E04,14,4,Snowy Solitude,trees,1
+S14E04,14,4,Snowy Solitude,winter,1
+S14E05,14,5,Mountain River,bushes,1
+S14E05,14,5,Mountain River,clouds,1
+S14E05,14,5,Mountain River,conifer,1
+S14E05,14,5,Mountain River,cumulus,1
+S14E05,14,5,Mountain River,fog,1
+S14E05,14,5,Mountain River,framed,1
+S14E05,14,5,Mountain River,mountain,1
+S14E05,14,5,Mountain River,mountains,1
+S14E05,14,5,Mountain River,river,1
+S14E05,14,5,Mountain River,rocks,1
+S14E05,14,5,Mountain River,tomb frame,1
+S14E05,14,5,Mountain River,tree,1
+S14E05,14,5,Mountain River,trees,1
+S14E06,14,6,Graceful Mountains,cirrus,1
+S14E06,14,6,Graceful Mountains,clouds,1
+S14E06,14,6,Graceful Mountains,conifer,1
+S14E06,14,6,Graceful Mountains,deciduous,1
+S14E06,14,6,Graceful Mountains,mountain,1
+S14E06,14,6,Graceful Mountains,mountains,1
+S14E06,14,6,Graceful Mountains,river,1
+S14E06,14,6,Graceful Mountains,snowy mountain,1
+S14E06,14,6,Graceful Mountains,tree,1
+S14E06,14,6,Graceful Mountains,trees,1
+S14E07,14,7,Windy Waves,beach,1
+S14E07,14,7,Windy Waves,clouds,1
+S14E07,14,7,Windy Waves,cumulus,1
+S14E07,14,7,Windy Waves,grass,1
+S14E07,14,7,Windy Waves,ocean,1
+S14E07,14,7,Windy Waves,palm trees,1
+S14E07,14,7,Windy Waves,waves,1
+S14E08,14,8,On A Clear Day,conifer,1
+S14E08,14,8,On A Clear Day,mountain,1
+S14E08,14,8,On A Clear Day,river,1
+S14E08,14,8,On A Clear Day,snow,1
+S14E08,14,8,On A Clear Day,snowy mountain,1
+S14E08,14,8,On A Clear Day,sun,1
+S14E08,14,8,On A Clear Day,tree,1
+S14E08,14,8,On A Clear Day,trees,1
+S14E08,14,8,On A Clear Day,winter,1
+S14E09,14,9,Riverside Escape Oval,clouds,1
+S14E09,14,9,Riverside Escape Oval,cumulus,1
+S14E09,14,9,Riverside Escape Oval,deciduous,1
+S14E09,14,9,Riverside Escape Oval,framed,1
+S14E09,14,9,Riverside Escape Oval,oval frame,1
+S14E09,14,9,Riverside Escape Oval,path,1
+S14E09,14,9,Riverside Escape Oval,river,1
+S14E09,14,9,Riverside Escape Oval,tree,1
+S14E09,14,9,Riverside Escape Oval,trees,1
+S14E10,14,10,Surprising Falls,cirrus,1
+S14E10,14,10,Surprising Falls,clouds,1
+S14E10,14,10,Surprising Falls,deciduous,1
+S14E10,14,10,Surprising Falls,guest,1
+S14E10,14,10,Surprising Falls,lake,1
+S14E10,14,10,Surprising Falls,mountain,1
+S14E10,14,10,Surprising Falls,mountains,1
+S14E10,14,10,Surprising Falls,snowy mountain,1
+S14E10,14,10,Surprising Falls,steve ross,1
+S14E10,14,10,Surprising Falls,tree,1
+S14E10,14,10,Surprising Falls,waterfall,1
+S14E11,14,11,Shadow Pond,deciduous,1
+S14E11,14,11,Shadow Pond,grass,1
+S14E11,14,11,Shadow Pond,lake,1
+S14E11,14,11,Shadow Pond,tree,1
+S14E11,14,11,Shadow Pond,trees,1
+S14E12,14,12,Misty Forest Oval,clouds,1
+S14E12,14,12,Misty Forest Oval,deciduous,1
+S14E12,14,12,Misty Forest Oval,fog,1
+S14E12,14,12,Misty Forest Oval,framed,1
+S14E12,14,12,Misty Forest Oval,grass,1
+S14E12,14,12,Misty Forest Oval,oval frame,1
+S14E12,14,12,Misty Forest Oval,tree,1
+S14E12,14,12,Misty Forest Oval,trees,1
+S14E13,14,13,Natural Wonder,clouds,1
+S14E13,14,13,Natural Wonder,conifer,1
+S14E13,14,13,Natural Wonder,cumulus,1
+S14E13,14,13,Natural Wonder,deciduous,1
+S14E13,14,13,Natural Wonder,grass,1
+S14E13,14,13,Natural Wonder,lake,1
+S14E13,14,13,Natural Wonder,mountain,1
+S14E13,14,13,Natural Wonder,snowy mountain,1
+S14E13,14,13,Natural Wonder,tree,1
+S14E13,14,13,Natural Wonder,trees,1
+S15E01,15,1,Splendor Of Winter,bushes,1
+S15E01,15,1,Splendor Of Winter,cirrus,1
+S15E01,15,1,Splendor Of Winter,clouds,1
+S15E01,15,1,Splendor Of Winter,conifer,1
+S15E01,15,1,Splendor Of Winter,deciduous,1
+S15E01,15,1,Splendor Of Winter,snow,1
+S15E01,15,1,Splendor Of Winter,sun,1
+S15E01,15,1,Splendor Of Winter,tree,1
+S15E01,15,1,Splendor Of Winter,trees,1
+S15E01,15,1,Splendor Of Winter,winter,1
+S15E02,15,2,Colors Of Nature,clouds,1
+S15E02,15,2,Colors Of Nature,cumulus,1
+S15E02,15,2,Colors Of Nature,deciduous,1
+S15E02,15,2,Colors Of Nature,grass,1
+S15E02,15,2,Colors Of Nature,river,1
+S15E02,15,2,Colors Of Nature,tree,1
+S15E02,15,2,Colors Of Nature,trees,1
+S15E03,15,3,Grandpa's Barn,barn,1
+S15E03,15,3,Grandpa's Barn,deciduous,1
+S15E03,15,3,Grandpa's Barn,fence,1
+S15E03,15,3,Grandpa's Barn,grass,1
+S15E03,15,3,Grandpa's Barn,path,1
+S15E03,15,3,Grandpa's Barn,structure,1
+S15E03,15,3,Grandpa's Barn,tree,1
+S15E03,15,3,Grandpa's Barn,trees,1
+S15E05,15,5,Hidden Winter Moon Oval,cabin,1
+S15E05,15,5,Hidden Winter Moon Oval,cirrus,1
+S15E05,15,5,Hidden Winter Moon Oval,clouds,1
+S15E05,15,5,Hidden Winter Moon Oval,conifer,1
+S15E05,15,5,Hidden Winter Moon Oval,framed,1
+S15E05,15,5,Hidden Winter Moon Oval,lake,1
+S15E05,15,5,Hidden Winter Moon Oval,mountain,1
+S15E05,15,5,Hidden Winter Moon Oval,mountains,1
+S15E05,15,5,Hidden Winter Moon Oval,oval frame,1
+S15E05,15,5,Hidden Winter Moon Oval,snowy mountain,1
+S15E05,15,5,Hidden Winter Moon Oval,structure,1
+S15E05,15,5,Hidden Winter Moon Oval,tree,1
+S15E05,15,5,Hidden Winter Moon Oval,trees,1
+S15E05,15,5,Hidden Winter Moon Oval,winter,1
+S15E06,15,6,Waves Of Wonder,beach,1
+S15E06,15,6,Waves Of Wonder,clouds,1
+S15E06,15,6,Waves Of Wonder,cumulus,1
+S15E06,15,6,Waves Of Wonder,ocean,1
+S15E06,15,6,Waves Of Wonder,rocks,1
+S15E06,15,6,Waves Of Wonder,waves,1
+S15E07,15,7,Cabin By The Pond,cabin,1
+S15E07,15,7,Cabin By The Pond,clouds,1
+S15E07,15,7,Cabin By The Pond,conifer,1
+S15E07,15,7,Cabin By The Pond,deciduous,1
+S15E07,15,7,Cabin By The Pond,grass,1
+S15E07,15,7,Cabin By The Pond,lake,1
+S15E07,15,7,Cabin By The Pond,structure,1
+S15E07,15,7,Cabin By The Pond,tree,1
+S15E07,15,7,Cabin By The Pond,trees,1
+S15E08,15,8,Fall Stream,clouds,1
+S15E08,15,8,Fall Stream,cumulus,1
+S15E08,15,8,Fall Stream,deciduous,1
+S15E08,15,8,Fall Stream,grass,1
+S15E08,15,8,Fall Stream,mountain,1
+S15E08,15,8,Fall Stream,mountains,1
+S15E08,15,8,Fall Stream,river,1
+S15E08,15,8,Fall Stream,rocks,1
+S15E08,15,8,Fall Stream,tree,1
+S15E08,15,8,Fall Stream,trees,1
+S15E09,15,9,Christmas Eve Snow,cabin,1
+S15E09,15,9,Christmas Eve Snow,clouds,1
+S15E09,15,9,Christmas Eve Snow,conifer,1
+S15E09,15,9,Christmas Eve Snow,cumulus,1
+S15E09,15,9,Christmas Eve Snow,mountain,1
+S15E09,15,9,Christmas Eve Snow,mountains,1
+S15E09,15,9,Christmas Eve Snow,snow,1
+S15E09,15,9,Christmas Eve Snow,snowy mountain,1
+S15E09,15,9,Christmas Eve Snow,structure,1
+S15E09,15,9,Christmas Eve Snow,tree,1
+S15E09,15,9,Christmas Eve Snow,trees,1
+S15E09,15,9,Christmas Eve Snow,winter,1
+S15E10,15,10,Forest Dawn Oval,bushes,1
+S15E10,15,10,Forest Dawn Oval,deciduous,1
+S15E10,15,10,Forest Dawn Oval,framed,1
+S15E10,15,10,Forest Dawn Oval,grass,1
+S15E10,15,10,Forest Dawn Oval,oval frame,1
+S15E10,15,10,Forest Dawn Oval,path,1
+S15E10,15,10,Forest Dawn Oval,tree,1
+S15E10,15,10,Forest Dawn Oval,trees,1
+S15E11,15,11,Pathway To Autumn,cabin,1
+S15E11,15,11,Pathway To Autumn,deciduous,1
+S15E11,15,11,Pathway To Autumn,grass,1
+S15E11,15,11,Pathway To Autumn,path,1
+S15E11,15,11,Pathway To Autumn,structure,1
+S15E11,15,11,Pathway To Autumn,tree,1
+S15E11,15,11,Pathway To Autumn,trees,1
+S15E12,15,12,Deep Forest Lake,deciduous,1
+S15E12,15,12,Deep Forest Lake,lake,1
+S15E12,15,12,Deep Forest Lake,rocks,1
+S15E12,15,12,Deep Forest Lake,tree,1
+S15E12,15,12,Deep Forest Lake,trees,1
+S15E13,15,13,Peaks Of Majesty,cirrus,1
+S15E13,15,13,Peaks Of Majesty,clouds,1
+S15E13,15,13,Peaks Of Majesty,conifer,1
+S15E13,15,13,Peaks Of Majesty,grass,1
+S15E13,15,13,Peaks Of Majesty,lake,1
+S15E13,15,13,Peaks Of Majesty,mountain,1
+S15E13,15,13,Peaks Of Majesty,mountains,1
+S15E13,15,13,Peaks Of Majesty,tree,1
+S15E13,15,13,Peaks Of Majesty,trees,1
+S16E01,16,1,Two Seasons,clouds,1
+S16E01,16,1,Two Seasons,conifer,1
+S16E01,16,1,Two Seasons,cumulus,1
+S16E01,16,1,Two Seasons,deciduous,1
+S16E01,16,1,Two Seasons,fog,1
+S16E01,16,1,Two Seasons,lake,1
+S16E01,16,1,Two Seasons,mountain,1
+S16E01,16,1,Two Seasons,snowy mountain,1
+S16E01,16,1,Two Seasons,tree,1
+S16E01,16,1,Two Seasons,trees,1
+S16E02,16,2,Nestled Cabin,cabin,1
+S16E02,16,2,Nestled Cabin,deciduous,1
+S16E02,16,2,Nestled Cabin,grass,1
+S16E02,16,2,Nestled Cabin,path,1
+S16E02,16,2,Nestled Cabin,structure,1
+S16E02,16,2,Nestled Cabin,tree,1
+S16E02,16,2,Nestled Cabin,trees,1
+S16E03,16,3,Wintertime Discovery,cabin,1
+S16E03,16,3,Wintertime Discovery,clouds,1
+S16E03,16,3,Wintertime Discovery,conifer,1
+S16E03,16,3,Wintertime Discovery,deciduous,1
+S16E03,16,3,Wintertime Discovery,snow,1
+S16E03,16,3,Wintertime Discovery,structure,1
+S16E03,16,3,Wintertime Discovery,tree,1
+S16E03,16,3,Wintertime Discovery,trees,1
+S16E03,16,3,Wintertime Discovery,winter,1
+S16E04,16,4,Mountain Mirage,bushes,1
+S16E04,16,4,Mountain Mirage,clouds,1
+S16E04,16,4,Mountain Mirage,conifer,1
+S16E04,16,4,Mountain Mirage,cumulus,1
+S16E04,16,4,Mountain Mirage,fog,1
+S16E04,16,4,Mountain Mirage,snow,1
+S16E04,16,4,Mountain Mirage,tree,1
+S16E04,16,4,Mountain Mirage,trees,1
+S16E04,16,4,Mountain Mirage,winter,1
+S16E05,16,5,Double Oval Fantasy,bushes,1
+S16E05,16,5,Double Oval Fantasy,clouds,1
+S16E05,16,5,Double Oval Fantasy,conifer,1
+S16E05,16,5,Double Oval Fantasy,cumulus,1
+S16E05,16,5,Double Oval Fantasy,double oval frame,1
+S16E05,16,5,Double Oval Fantasy,framed,1
+S16E05,16,5,Double Oval Fantasy,lake,1
+S16E05,16,5,Double Oval Fantasy,mountain,1
+S16E05,16,5,Double Oval Fantasy,mountains,1
+S16E05,16,5,Double Oval Fantasy,snowy mountain,1
+S16E05,16,5,Double Oval Fantasy,tree,1
+S16E05,16,5,Double Oval Fantasy,trees,1
+S16E06,16,6,Contemplative Lady,guest,1
+S16E06,16,6,Contemplative Lady,portrait,1
+S16E07,16,7,Deep Woods,conifer,1
+S16E07,16,7,Deep Woods,river,1
+S16E07,16,7,Deep Woods,rocks,1
+S16E07,16,7,Deep Woods,tree,1
+S16E07,16,7,Deep Woods,trees,1
+S16E07,16,7,Deep Woods,waterfall,1
+S16E08,16,8,High Tide,beach,1
+S16E08,16,8,High Tide,clouds,1
+S16E08,16,8,High Tide,ocean,1
+S16E08,16,8,High Tide,palm trees,1
+S16E08,16,8,High Tide,waves,1
+S16E09,16,9,Barn In Snow Oval,barn,1
+S16E09,16,9,Barn In Snow Oval,conifer,1
+S16E09,16,9,Barn In Snow Oval,fence,1
+S16E09,16,9,Barn In Snow Oval,framed,1
+S16E09,16,9,Barn In Snow Oval,oval frame,1
+S16E09,16,9,Barn In Snow Oval,snow,1
+S16E09,16,9,Barn In Snow Oval,structure,1
+S16E09,16,9,Barn In Snow Oval,tree,1
+S16E09,16,9,Barn In Snow Oval,trees,1
+S16E09,16,9,Barn In Snow Oval,winter,1
+S16E10,16,10,That Time Of Year,clouds,1
+S16E10,16,10,That Time Of Year,deciduous,1
+S16E10,16,10,That Time Of Year,guest,1
+S16E10,16,10,That Time Of Year,hills,1
+S16E10,16,10,That Time Of Year,lake,1
+S16E10,16,10,That Time Of Year,steve ross,1
+S16E10,16,10,That Time Of Year,tree,1
+S16E10,16,10,That Time Of Year,trees,1
+S16E11,16,11,Waterfall Wonder,bushes,1
+S16E11,16,11,Waterfall Wonder,deciduous,1
+S16E11,16,11,Waterfall Wonder,river,1
+S16E11,16,11,Waterfall Wonder,rocks,1
+S16E11,16,11,Waterfall Wonder,tree,1
+S16E11,16,11,Waterfall Wonder,trees,1
+S16E11,16,11,Waterfall Wonder,waterfall,1
+S16E12,16,12,Mighty Mountain Lake,clouds,1
+S16E12,16,12,Mighty Mountain Lake,cumulus,1
+S16E12,16,12,Mighty Mountain Lake,flowers,1
+S16E12,16,12,Mighty Mountain Lake,grass,1
+S16E12,16,12,Mighty Mountain Lake,lake,1
+S16E12,16,12,Mighty Mountain Lake,mountain,1
+S16E12,16,12,Mighty Mountain Lake,snowy mountain,1
+S16E13,16,13,Wooded Stream Oval,deciduous,1
+S16E13,16,13,Wooded Stream Oval,framed,1
+S16E13,16,13,Wooded Stream Oval,oval frame,1
+S16E13,16,13,Wooded Stream Oval,river,1
+S16E13,16,13,Wooded Stream Oval,rocks,1
+S16E13,16,13,Wooded Stream Oval,tree,1
+S16E13,16,13,Wooded Stream Oval,trees,1
+S17E01,17,1,Golden Mist Oval,conifer,1
+S17E01,17,1,Golden Mist Oval,fog,1
+S17E01,17,1,Golden Mist Oval,framed,1
+S17E01,17,1,Golden Mist Oval,oval frame,1
+S17E01,17,1,Golden Mist Oval,river,1
+S17E01,17,1,Golden Mist Oval,tree,1
+S17E01,17,1,Golden Mist Oval,trees,1
+S17E02,17,2,The Old Home Place,cabin,1
+S17E02,17,2,The Old Home Place,deciduous,1
+S17E02,17,2,The Old Home Place,fence,1
+S17E02,17,2,The Old Home Place,grass,1
+S17E02,17,2,The Old Home Place,path,1
+S17E02,17,2,The Old Home Place,structure,1
+S17E02,17,2,The Old Home Place,tree,1
+S17E03,17,3,Soothing Vista,deciduous,1
+S17E03,17,3,Soothing Vista,grass,1
+S17E03,17,3,Soothing Vista,lake,1
+S17E03,17,3,Soothing Vista,mountain,1
+S17E03,17,3,Soothing Vista,mountains,1
+S17E03,17,3,Soothing Vista,tree,1
+S17E03,17,3,Soothing Vista,trees,1
+S17E04,17,4,Stormy Seas,beach,1
+S17E04,17,4,Stormy Seas,clouds,1
+S17E04,17,4,Stormy Seas,cumulus,1
+S17E04,17,4,Stormy Seas,ocean,1
+S17E04,17,4,Stormy Seas,rocks,1
+S17E04,17,4,Stormy Seas,sun,1
+S17E04,17,4,Stormy Seas,waves,1
+S17E05,17,5,Country Time,cabin,1
+S17E05,17,5,Country Time,deciduous,1
+S17E05,17,5,Country Time,flowers,1
+S17E05,17,5,Country Time,framed,1
+S17E05,17,5,Country Time,lake,1
+S17E05,17,5,Country Time,oval frame,1
+S17E05,17,5,Country Time,structure,1
+S17E05,17,5,Country Time,tree,1
+S17E06,17,6,A Mild Winter's Day,clouds,1
+S17E06,17,6,A Mild Winter's Day,conifer,1
+S17E06,17,6,A Mild Winter's Day,deciduous,1
+S17E06,17,6,A Mild Winter's Day,river,1
+S17E06,17,6,A Mild Winter's Day,snow,1
+S17E06,17,6,A Mild Winter's Day,tree,1
+S17E06,17,6,A Mild Winter's Day,trees,1
+S17E06,17,6,A Mild Winter's Day,winter,1
+S17E07,17,7,Spectacular Waterfall,conifer,1
+S17E07,17,7,Spectacular Waterfall,mountain,1
+S17E07,17,7,Spectacular Waterfall,mountains,1
+S17E07,17,7,Spectacular Waterfall,river,1
+S17E07,17,7,Spectacular Waterfall,rocks,1
+S17E07,17,7,Spectacular Waterfall,tree,1
+S17E07,17,7,Spectacular Waterfall,trees,1
+S17E07,17,7,Spectacular Waterfall,waterfall,1
+S17E08,17,8,View From The Park,apple frame,1
+S17E08,17,8,View From The Park,bridge,1
+S17E08,17,8,View From The Park,building,1
+S17E08,17,8,View From The Park,deciduous,1
+S17E08,17,8,View From The Park,framed,1
+S17E08,17,8,View From The Park,lake,1
+S17E08,17,8,View From The Park,structure,1
+S17E08,17,8,View From The Park,tree,1
+S17E08,17,8,View From The Park,trees,1
+S17E09,17,9,Lake View,conifer,1
+S17E09,17,9,Lake View,deciduous,1
+S17E09,17,9,Lake View,flowers,1
+S17E09,17,9,Lake View,grass,1
+S17E09,17,9,Lake View,guest,1
+S17E09,17,9,Lake View,hills,1
+S17E09,17,9,Lake View,lake,1
+S17E09,17,9,Lake View,steve ross,1
+S17E09,17,9,Lake View,tree,1
+S17E09,17,9,Lake View,trees,1
+S17E10,17,10,Old Country Mill,deciduous,1
+S17E10,17,10,Old Country Mill,mill,1
+S17E10,17,10,Old Country Mill,river,1
+S17E10,17,10,Old Country Mill,rocks,1
+S17E10,17,10,Old Country Mill,structure,1
+S17E10,17,10,Old Country Mill,tree,1
+S17E10,17,10,Old Country Mill,waterfall,1
+S17E11,17,11,Morning Walk,deciduous,1
+S17E11,17,11,Morning Walk,fog,1
+S17E11,17,11,Morning Walk,path,1
+S17E11,17,11,Morning Walk,tree,1
+S17E11,17,11,Morning Walk,trees,1
+S17E12,17,12,Nature's Splendor,conifer,1
+S17E12,17,12,Nature's Splendor,grass,1
+S17E12,17,12,Nature's Splendor,mountain,1
+S17E12,17,12,Nature's Splendor,river,1
+S17E12,17,12,Nature's Splendor,snowy mountain,1
+S17E12,17,12,Nature's Splendor,tree,1
+S17E12,17,12,Nature's Splendor,trees,1
+S17E13,17,13,Mountain Beauty,cumulus,1
+S17E13,17,13,Mountain Beauty,flowers,1
+S17E13,17,13,Mountain Beauty,grass,1
+S17E13,17,13,Mountain Beauty,guest,1
+S17E13,17,13,Mountain Beauty,hills,1
+S17E13,17,13,Mountain Beauty,lake,1
+S17E13,17,13,Mountain Beauty,mountain,1
+S17E13,17,13,Mountain Beauty,snowy mountain,1
+S17E13,17,13,Mountain Beauty,tree,1
+S17E13,17,13,Mountain Beauty,trees,1
+S18E01,18,1,Half-Oval Vignette,bushes,1
+S18E01,18,1,Half-Oval Vignette,clouds,1
+S18E01,18,1,Half-Oval Vignette,conifer,1
+S18E01,18,1,Half-Oval Vignette,cumulus,1
+S18E01,18,1,Half-Oval Vignette,framed,1
+S18E01,18,1,Half-Oval Vignette,half oval frame,1
+S18E01,18,1,Half-Oval Vignette,lake,1
+S18E01,18,1,Half-Oval Vignette,mountain,1
+S18E01,18,1,Half-Oval Vignette,mountains,1
+S18E01,18,1,Half-Oval Vignette,tree,1
+S18E01,18,1,Half-Oval Vignette,trees,1
+S18E02,18,2,Absolutely Autumn,bushes,1
+S18E02,18,2,Absolutely Autumn,clouds,1
+S18E02,18,2,Absolutely Autumn,cumulus,1
+S18E02,18,2,Absolutely Autumn,deciduous,1
+S18E02,18,2,Absolutely Autumn,grass,1
+S18E02,18,2,Absolutely Autumn,river,1
+S18E02,18,2,Absolutely Autumn,tree,1
+S18E02,18,2,Absolutely Autumn,trees,1
+S18E03,18,3,Mountain Seclusion,cabin,1
+S18E03,18,3,Mountain Seclusion,clouds,1
+S18E03,18,3,Mountain Seclusion,conifer,1
+S18E03,18,3,Mountain Seclusion,mountain,1
+S18E03,18,3,Mountain Seclusion,mountains,1
+S18E03,18,3,Mountain Seclusion,river,1
+S18E03,18,3,Mountain Seclusion,snow,1
+S18E03,18,3,Mountain Seclusion,structure,1
+S18E03,18,3,Mountain Seclusion,tree,1
+S18E03,18,3,Mountain Seclusion,trees,1
+S18E03,18,3,Mountain Seclusion,winter,1
+S18E04,18,4,Crimson Oval,deciduous,1
+S18E04,18,4,Crimson Oval,grass,1
+S18E04,18,4,Crimson Oval,river,1
+S18E04,18,4,Crimson Oval,tree,1
+S18E04,18,4,Crimson Oval,trees,1
+S18E04,18,4,Crimson Oval,waterfall,1
+S18E05,18,5,Autumn Exhibition,deciduous,1
+S18E05,18,5,Autumn Exhibition,grass,1
+S18E05,18,5,Autumn Exhibition,lake,1
+S18E05,18,5,Autumn Exhibition,tree,1
+S18E05,18,5,Autumn Exhibition,trees,1
+S18E06,18,6,Majestic Peaks,bushes,1
+S18E06,18,6,Majestic Peaks,conifer,1
+S18E06,18,6,Majestic Peaks,lake,1
+S18E06,18,6,Majestic Peaks,mountain,1
+S18E06,18,6,Majestic Peaks,mountains,1
+S18E06,18,6,Majestic Peaks,snowy mountain,1
+S18E06,18,6,Majestic Peaks,tree,1
+S18E06,18,6,Majestic Peaks,trees,1
+S18E07,18,7,Golden Morning Mist,deciduous,1
+S18E07,18,7,Golden Morning Mist,fog,1
+S18E07,18,7,Golden Morning Mist,grass,1
+S18E07,18,7,Golden Morning Mist,river,1
+S18E07,18,7,Golden Morning Mist,tree,1
+S18E07,18,7,Golden Morning Mist,trees,1
+S18E08,18,8,Winter Lace,clouds,1
+S18E08,18,8,Winter Lace,cumulus,1
+S18E08,18,8,Winter Lace,deciduous,1
+S18E08,18,8,Winter Lace,framed,1
+S18E08,18,8,Winter Lace,half circle frame,1
+S18E08,18,8,Winter Lace,lake,1
+S18E08,18,8,Winter Lace,snow,1
+S18E08,18,8,Winter Lace,tree,1
+S18E08,18,8,Winter Lace,trees,1
+S18E08,18,8,Winter Lace,winter,1
+S18E09,18,9,Seascape Fantasy,beach,1
+S18E09,18,9,Seascape Fantasy,cirrus,1
+S18E09,18,9,Seascape Fantasy,clouds,1
+S18E09,18,9,Seascape Fantasy,ocean,1
+S18E09,18,9,Seascape Fantasy,waves,1
+S18E10,18,10,Double Oval Stream,bushes,1
+S18E10,18,10,Double Oval Stream,deciduous,1
+S18E10,18,10,Double Oval Stream,framed,1
+S18E10,18,10,Double Oval Stream,river,1
+S18E10,18,10,Double Oval Stream,tree,1
+S18E10,18,10,Double Oval Stream,trees,1
+S18E11,18,11,Enchanted Forest,deciduous,1
+S18E11,18,11,Enchanted Forest,path,1
+S18E11,18,11,Enchanted Forest,tree,1
+S18E11,18,11,Enchanted Forest,trees,1
+S18E12,18,12,Southwest Serenity,cactus,1
+S18E12,18,12,Southwest Serenity,cirrus,1
+S18E12,18,12,Southwest Serenity,clouds,1
+S18E12,18,12,Southwest Serenity,mountain,1
+S18E12,18,12,Southwest Serenity,mountains,1
+S18E12,18,12,Southwest Serenity,path,1
+S18E13,18,13,Rippling Waters,deciduous,1
+S18E13,18,13,Rippling Waters,river,1
+S18E13,18,13,Rippling Waters,rocks,1
+S18E13,18,13,Rippling Waters,sun,1
+S18E13,18,13,Rippling Waters,tree,1
+S18E13,18,13,Rippling Waters,trees,1
+S18E13,18,13,Rippling Waters,waterfall,1
+S19E01,19,1,Snowfall Magic,deciduous,1
+S19E01,19,1,Snowfall Magic,river,1
+S19E01,19,1,Snowfall Magic,snow,1
+S19E01,19,1,Snowfall Magic,tree,1
+S19E01,19,1,Snowfall Magic,trees,1
+S19E01,19,1,Snowfall Magic,winter,1
+S19E02,19,2,Quiet Mountain Lake,clouds,1
+S19E02,19,2,Quiet Mountain Lake,cumulus,1
+S19E02,19,2,Quiet Mountain Lake,deciduous,1
+S19E02,19,2,Quiet Mountain Lake,grass,1
+S19E02,19,2,Quiet Mountain Lake,lake,1
+S19E02,19,2,Quiet Mountain Lake,mountain,1
+S19E02,19,2,Quiet Mountain Lake,tree,1
+S19E02,19,2,Quiet Mountain Lake,trees,1
+S19E03,19,3,Final Embers Of Sunlight,deciduous,1
+S19E03,19,3,Final Embers Of Sunlight,framed,1
+S19E03,19,3,Final Embers Of Sunlight,oval frame,1
+S19E03,19,3,Final Embers Of Sunlight,river,1
+S19E03,19,3,Final Embers Of Sunlight,sun,1
+S19E03,19,3,Final Embers Of Sunlight,tree,1
+S19E03,19,3,Final Embers Of Sunlight,trees,1
+S19E04,19,4,Snowy Morn,cabin,1
+S19E04,19,4,Snowy Morn,conifer,1
+S19E04,19,4,Snowy Morn,snow,1
+S19E04,19,4,Snowy Morn,structure,1
+S19E04,19,4,Snowy Morn,tree,1
+S19E04,19,4,Snowy Morn,trees,1
+S19E04,19,4,Snowy Morn,winter,1
+S19E05,19,5,Camper's Haven,bushes,1
+S19E05,19,5,Camper's Haven,conifer,1
+S19E05,19,5,Camper's Haven,grass,1
+S19E05,19,5,Camper's Haven,lake,1
+S19E05,19,5,Camper's Haven,mountain,1
+S19E05,19,5,Camper's Haven,mountains,1
+S19E05,19,5,Camper's Haven,tree,1
+S19E05,19,5,Camper's Haven,trees,1
+S19E06,19,6,Waterfall In The Woods,deciduous,1
+S19E06,19,6,Waterfall In The Woods,grass,1
+S19E06,19,6,Waterfall In The Woods,river,1
+S19E06,19,6,Waterfall In The Woods,rocks,1
+S19E06,19,6,Waterfall In The Woods,tree,1
+S19E06,19,6,Waterfall In The Woods,trees,1
+S19E06,19,6,Waterfall In The Woods,waterfall,1
+S19E07,19,7,Covered Bridge Oval,bridge,1
+S19E07,19,7,Covered Bridge Oval,conifer,1
+S19E07,19,7,Covered Bridge Oval,fence,1
+S19E07,19,7,Covered Bridge Oval,framed,1
+S19E07,19,7,Covered Bridge Oval,oval frame,1
+S19E07,19,7,Covered Bridge Oval,river,1
+S19E07,19,7,Covered Bridge Oval,snow,1
+S19E07,19,7,Covered Bridge Oval,structure,1
+S19E07,19,7,Covered Bridge Oval,tree,1
+S19E07,19,7,Covered Bridge Oval,trees,1
+S19E07,19,7,Covered Bridge Oval,winter,1
+S19E08,19,8,Scenic Seclusion,bushes,1
+S19E08,19,8,Scenic Seclusion,conifer,1
+S19E08,19,8,Scenic Seclusion,deciduous,1
+S19E08,19,8,Scenic Seclusion,grass,1
+S19E08,19,8,Scenic Seclusion,mountain,1
+S19E08,19,8,Scenic Seclusion,river,1
+S19E08,19,8,Scenic Seclusion,tree,1
+S19E08,19,8,Scenic Seclusion,trees,1
+S19E08,19,8,Scenic Seclusion,waterfall,1
+S19E09,19,9,Ebb Tide,beach,1
+S19E09,19,9,Ebb Tide,clouds,1
+S19E09,19,9,Ebb Tide,cumulus,1
+S19E09,19,9,Ebb Tide,ocean,1
+S19E09,19,9,Ebb Tide,rocks,1
+S19E09,19,9,Ebb Tide,sun,1
+S19E09,19,9,Ebb Tide,waves,1
+S19E10,19,10,After The Rain,deciduous,1
+S19E10,19,10,After The Rain,path,1
+S19E10,19,10,After The Rain,tree,1
+S19E10,19,10,After The Rain,trees,1
+S19E11,19,11,Winter's Elegance,clouds,1
+S19E11,19,11,Winter's Elegance,cumulus,1
+S19E11,19,11,Winter's Elegance,deciduous,1
+S19E11,19,11,Winter's Elegance,lake,1
+S19E11,19,11,Winter's Elegance,rocks,1
+S19E11,19,11,Winter's Elegance,snow,1
+S19E11,19,11,Winter's Elegance,tree,1
+S19E11,19,11,Winter's Elegance,trees,1
+S19E11,19,11,Winter's Elegance,winter,1
+S19E12,19,12,Evening's Peace,barn,1
+S19E12,19,12,Evening's Peace,conifer,1
+S19E12,19,12,Evening's Peace,deciduous,1
+S19E12,19,12,Evening's Peace,fence,1
+S19E12,19,12,Evening's Peace,moon,1
+S19E12,19,12,Evening's Peace,night,1
+S19E12,19,12,Evening's Peace,snow,1
+S19E12,19,12,Evening's Peace,structure,1
+S19E12,19,12,Evening's Peace,tree,1
+S19E12,19,12,Evening's Peace,trees,1
+S19E12,19,12,Evening's Peace,winter,1
+S19E13,19,13,Valley Of Tranquility,bushes,1
+S19E13,19,13,Valley Of Tranquility,clouds,1
+S19E13,19,13,Valley Of Tranquility,conifer,1
+S19E13,19,13,Valley Of Tranquility,cumulus,1
+S19E13,19,13,Valley Of Tranquility,grass,1
+S19E13,19,13,Valley Of Tranquility,mountain,1
+S19E13,19,13,Valley Of Tranquility,mountains,1
+S19E13,19,13,Valley Of Tranquility,river,1
+S19E13,19,13,Valley Of Tranquility,snowy mountain,1
+S19E13,19,13,Valley Of Tranquility,tree,1
+S19E13,19,13,Valley Of Tranquility,trees,1
+S19E13,19,13,Valley Of Tranquility,waterfall,1
+S20E01,20,1,Mystic Mountain,clouds,1
+S20E01,20,1,Mystic Mountain,conifer,1
+S20E01,20,1,Mystic Mountain,cumulus,1
+S20E01,20,1,Mystic Mountain,deciduous,1
+S20E01,20,1,Mystic Mountain,lake,1
+S20E01,20,1,Mystic Mountain,mountain,1
+S20E01,20,1,Mystic Mountain,snowy mountain,1
+S20E01,20,1,Mystic Mountain,tree,1
+S20E01,20,1,Mystic Mountain,trees,1
+S20E02,20,2,New Day's Dawn,barn,1
+S20E02,20,2,New Day's Dawn,conifer,1
+S20E02,20,2,New Day's Dawn,fence,1
+S20E02,20,2,New Day's Dawn,grass,1
+S20E02,20,2,New Day's Dawn,path,1
+S20E02,20,2,New Day's Dawn,structure,1
+S20E02,20,2,New Day's Dawn,sun,1
+S20E02,20,2,New Day's Dawn,tree,1
+S20E02,20,2,New Day's Dawn,trees,1
+S20E03,20,3,Pastel Winter,conifer,1
+S20E03,20,3,Pastel Winter,deciduous,1
+S20E03,20,3,Pastel Winter,mountain,1
+S20E03,20,3,Pastel Winter,mountains,1
+S20E03,20,3,Pastel Winter,snow,1
+S20E03,20,3,Pastel Winter,snowy mountain,1
+S20E03,20,3,Pastel Winter,tree,1
+S20E03,20,3,Pastel Winter,trees,1
+S20E03,20,3,Pastel Winter,winter,1
+S20E04,20,4,Hazy Day,deciduous,1
+S20E04,20,4,Hazy Day,fog,1
+S20E04,20,4,Hazy Day,framed,1
+S20E04,20,4,Hazy Day,oval frame,1
+S20E04,20,4,Hazy Day,river,1
+S20E04,20,4,Hazy Day,rocks,1
+S20E04,20,4,Hazy Day,tree,1
+S20E04,20,4,Hazy Day,trees,1
+S20E05,20,5,Divine Elegance,clouds,1
+S20E05,20,5,Divine Elegance,conifer,1
+S20E05,20,5,Divine Elegance,cumulus,1
+S20E05,20,5,Divine Elegance,lake,1
+S20E05,20,5,Divine Elegance,mountain,1
+S20E05,20,5,Divine Elegance,mountains,1
+S20E05,20,5,Divine Elegance,rocks,1
+S20E05,20,5,Divine Elegance,snowy mountain,1
+S20E05,20,5,Divine Elegance,tree,1
+S20E05,20,5,Divine Elegance,trees,1
+S20E06,20,6,Cliffside,beach,1
+S20E06,20,6,Cliffside,cliff,1
+S20E06,20,6,Cliffside,clouds,1
+S20E06,20,6,Cliffside,ocean,1
+S20E06,20,6,Cliffside,rocks,1
+S20E06,20,6,Cliffside,waves,1
+S20E07,20,7,Autumn Fantasy,cirrus,1
+S20E07,20,7,Autumn Fantasy,clouds,1
+S20E07,20,7,Autumn Fantasy,conifer,1
+S20E07,20,7,Autumn Fantasy,mountain,1
+S20E07,20,7,Autumn Fantasy,mountains,1
+S20E07,20,7,Autumn Fantasy,river,1
+S20E07,20,7,Autumn Fantasy,snowy mountain,1
+S20E07,20,7,Autumn Fantasy,tree,1
+S20E07,20,7,Autumn Fantasy,trees,1
+S20E08,20,8,The Old Oak Tree,deciduous,1
+S20E08,20,8,The Old Oak Tree,grass,1
+S20E08,20,8,The Old Oak Tree,river,1
+S20E08,20,8,The Old Oak Tree,tree,1
+S20E09,20,9,Winter's Paradise,clouds,1
+S20E09,20,9,Winter's Paradise,conifer,1
+S20E09,20,9,Winter's Paradise,cumulus,1
+S20E09,20,9,Winter's Paradise,mountain,1
+S20E09,20,9,Winter's Paradise,river,1
+S20E09,20,9,Winter's Paradise,snow,1
+S20E09,20,9,Winter's Paradise,snowy mountain,1
+S20E09,20,9,Winter's Paradise,tree,1
+S20E09,20,9,Winter's Paradise,trees,1
+S20E09,20,9,Winter's Paradise,winter,1
+S20E10,20,10,Days Gone By,bridge,1
+S20E10,20,10,Days Gone By,bushes,1
+S20E10,20,10,Days Gone By,cabin,1
+S20E10,20,10,Days Gone By,conifer,1
+S20E10,20,10,Days Gone By,deciduous,1
+S20E10,20,10,Days Gone By,path,1
+S20E10,20,10,Days Gone By,structure,1
+S20E10,20,10,Days Gone By,tree,1
+S20E10,20,10,Days Gone By,trees,1
+S20E11,20,11,Change Of Seasons,deciduous,1
+S20E11,20,11,Change Of Seasons,mountain,1
+S20E11,20,11,Change Of Seasons,mountains,1
+S20E11,20,11,Change Of Seasons,river,1
+S20E11,20,11,Change Of Seasons,snowy mountain,1
+S20E11,20,11,Change Of Seasons,tree,1
+S20E11,20,11,Change Of Seasons,trees,1
+S20E12,20,12,Hidden Delight,cabin,1
+S20E12,20,12,Hidden Delight,conifer,1
+S20E12,20,12,Hidden Delight,deciduous,1
+S20E12,20,12,Hidden Delight,path,1
+S20E12,20,12,Hidden Delight,river,1
+S20E12,20,12,Hidden Delight,sun,1
+S20E12,20,12,Hidden Delight,tree,1
+S20E12,20,12,Hidden Delight,trees,1
+S20E13,20,13,Double Take,bushes,1
+S20E13,20,13,Double Take,conifer,1
+S20E13,20,13,Double Take,fog,1
+S20E13,20,13,Double Take,lake,1
+S20E13,20,13,Double Take,mountain,1
+S20E13,20,13,Double Take,mountains,1
+S20E13,20,13,Double Take,snow,1
+S20E13,20,13,Double Take,snowy mountain,1
+S20E13,20,13,Double Take,tree,1
+S20E13,20,13,Double Take,trees,1
+S20E13,20,13,Double Take,winter,1
+S21E01,21,1,Valley View,conifer,1
+S21E01,21,1,Valley View,lake,1
+S21E01,21,1,Valley View,mountain,1
+S21E01,21,1,Valley View,mountains,1
+S21E01,21,1,Valley View,snowy mountain,1
+S21E01,21,1,Valley View,tree,1
+S21E01,21,1,Valley View,trees,1
+S21E02,21,2,Tranquil Dawn,conifer,1
+S21E02,21,2,Tranquil Dawn,deciduous,1
+S21E02,21,2,Tranquil Dawn,fog,1
+S21E02,21,2,Tranquil Dawn,river,1
+S21E02,21,2,Tranquil Dawn,sun,1
+S21E02,21,2,Tranquil Dawn,tree,1
+S21E02,21,2,Tranquil Dawn,trees,1
+S21E03,21,3,Royal Majesty,clouds,1
+S21E03,21,3,Royal Majesty,conifer,1
+S21E03,21,3,Royal Majesty,mountain,1
+S21E03,21,3,Royal Majesty,mountains,1
+S21E03,21,3,Royal Majesty,river,1
+S21E03,21,3,Royal Majesty,rocks,1
+S21E03,21,3,Royal Majesty,snowy mountain,1
+S21E03,21,3,Royal Majesty,tree,1
+S21E03,21,3,Royal Majesty,trees,1
+S21E03,21,3,Royal Majesty,waterfall,1
+S21E04,21,4,Serenity,deciduous,1
+S21E04,21,4,Serenity,flowers,1
+S21E04,21,4,Serenity,river,1
+S21E04,21,4,Serenity,tree,1
+S21E04,21,4,Serenity,trees,1
+S21E04,21,4,Serenity,waterfall,1
+S21E05,21,5,Cabin At Trail's End,cabin,1
+S21E05,21,5,Cabin At Trail's End,deciduous,1
+S21E05,21,5,Cabin At Trail's End,framed,1
+S21E05,21,5,Cabin At Trail's End,oval frame,1
+S21E05,21,5,Cabin At Trail's End,path,1
+S21E05,21,5,Cabin At Trail's End,structure,1
+S21E05,21,5,Cabin At Trail's End,tree,1
+S21E05,21,5,Cabin At Trail's End,trees,1
+S21E06,21,6,Mountain Rhapsody,conifer,1
+S21E06,21,6,Mountain Rhapsody,lake,1
+S21E06,21,6,Mountain Rhapsody,mountain,1
+S21E06,21,6,Mountain Rhapsody,snow,1
+S21E06,21,6,Mountain Rhapsody,snowy mountain,1
+S21E06,21,6,Mountain Rhapsody,tree,1
+S21E06,21,6,Mountain Rhapsody,trees,1
+S21E06,21,6,Mountain Rhapsody,winter,1
+S21E07,21,7,Wilderness Cabin,cabin,1
+S21E07,21,7,Wilderness Cabin,conifer,1
+S21E07,21,7,Wilderness Cabin,lake,1
+S21E07,21,7,Wilderness Cabin,rocks,1
+S21E07,21,7,Wilderness Cabin,structure,1
+S21E07,21,7,Wilderness Cabin,tree,1
+S21E07,21,7,Wilderness Cabin,trees,1
+S21E08,21,8,By The Sea,beach,1
+S21E08,21,8,By The Sea,cliff,1
+S21E08,21,8,By The Sea,clouds,1
+S21E08,21,8,By The Sea,cumulus,1
+S21E08,21,8,By The Sea,deciduous,1
+S21E08,21,8,By The Sea,ocean,1
+S21E08,21,8,By The Sea,rocks,1
+S21E08,21,8,By The Sea,sun,1
+S21E08,21,8,By The Sea,tree,1
+S21E08,21,8,By The Sea,waves,1
+S21E09,21,9,Indian Summer,bushes,1
+S21E09,21,9,Indian Summer,conifer,1
+S21E09,21,9,Indian Summer,tree,1
+S21E09,21,9,Indian Summer,trees,1
+S21E10,21,10,Blue Winter,clouds,1
+S21E10,21,10,Blue Winter,conifer,1
+S21E10,21,10,Blue Winter,cumulus,1
+S21E10,21,10,Blue Winter,mountain,1
+S21E10,21,10,Blue Winter,mountains,1
+S21E10,21,10,Blue Winter,river,1
+S21E10,21,10,Blue Winter,snow,1
+S21E10,21,10,Blue Winter,snowy mountain,1
+S21E10,21,10,Blue Winter,tree,1
+S21E10,21,10,Blue Winter,trees,1
+S21E10,21,10,Blue Winter,winter,1
+S21E11,21,11,Desert Glow,cactus,1
+S21E11,21,11,Desert Glow,clouds,1
+S21E11,21,11,Desert Glow,framed,1
+S21E11,21,11,Desert Glow,mountain,1
+S21E11,21,11,Desert Glow,oval frame,1
+S21E11,21,11,Desert Glow,path,1
+S21E12,21,12,Lone Mountain,conifer,1
+S21E12,21,12,Lone Mountain,grass,1
+S21E12,21,12,Lone Mountain,lake,1
+S21E12,21,12,Lone Mountain,mountain,1
+S21E12,21,12,Lone Mountain,snowy mountain,1
+S21E12,21,12,Lone Mountain,tree,1
+S21E12,21,12,Lone Mountain,trees,1
+S21E13,21,13,Florida's Glory,beach,1
+S21E13,21,13,Florida's Glory,florida frame,1
+S21E13,21,13,Florida's Glory,ocean,1
+S21E13,21,13,Florida's Glory,palm trees,1
+S21E13,21,13,Florida's Glory,waves,1
+S22E01,22,1,Autumn Images,bushes,1
+S22E01,22,1,Autumn Images,clouds,1
+S22E01,22,1,Autumn Images,cumulus,1
+S22E01,22,1,Autumn Images,deciduous,1
+S22E01,22,1,Autumn Images,flowers,1
+S22E01,22,1,Autumn Images,river,1
+S22E01,22,1,Autumn Images,tree,1
+S22E01,22,1,Autumn Images,trees,1
+S22E02,22,2,Hint Of Springtime,bushes,1
+S22E02,22,2,Hint Of Springtime,conifer,1
+S22E02,22,2,Hint Of Springtime,mountain,1
+S22E02,22,2,Hint Of Springtime,mountains,1
+S22E02,22,2,Hint Of Springtime,river,1
+S22E02,22,2,Hint Of Springtime,snowy mountain,1
+S22E02,22,2,Hint Of Springtime,tree,1
+S22E02,22,2,Hint Of Springtime,trees,1
+S22E02,22,2,Hint Of Springtime,waterfall,1
+S22E03,22,3,Around The Bend,conifer,1
+S22E03,22,3,Around The Bend,flowers,1
+S22E03,22,3,Around The Bend,river,1
+S22E03,22,3,Around The Bend,rocks,1
+S22E03,22,3,Around The Bend,tree,1
+S22E03,22,3,Around The Bend,trees,1
+S22E04,22,4,Countryside Oval,clouds,1
+S22E04,22,4,Countryside Oval,deciduous,1
+S22E04,22,4,Countryside Oval,framed,1
+S22E04,22,4,Countryside Oval,grass,1
+S22E04,22,4,Countryside Oval,hills,1
+S22E04,22,4,Countryside Oval,oval frame,1
+S22E04,22,4,Countryside Oval,river,1
+S22E04,22,4,Countryside Oval,tree,1
+S22E04,22,4,Countryside Oval,trees,1
+S22E05,22,5,Russet Winter,barn,1
+S22E05,22,5,Russet Winter,deciduous,1
+S22E05,22,5,Russet Winter,snow,1
+S22E05,22,5,Russet Winter,structure,1
+S22E05,22,5,Russet Winter,tree,1
+S22E05,22,5,Russet Winter,winter,1
+S22E06,22,6,Purple Haze,bushes,1
+S22E06,22,6,Purple Haze,deciduous,1
+S22E06,22,6,Purple Haze,grass,1
+S22E06,22,6,Purple Haze,river,1
+S22E06,22,6,Purple Haze,tree,1
+S22E06,22,6,Purple Haze,trees,1
+S22E06,22,6,Purple Haze,waterfall,1
+S22E07,22,7,Dimensions,conifer,1
+S22E07,22,7,Dimensions,framed,1
+S22E07,22,7,Dimensions,mountain,1
+S22E07,22,7,Dimensions,mountains,1
+S22E07,22,7,Dimensions,rectangle 3d frame,1
+S22E07,22,7,Dimensions,river,1
+S22E07,22,7,Dimensions,snowy mountain,1
+S22E07,22,7,Dimensions,tree,1
+S22E07,22,7,Dimensions,trees,1
+S22E08,22,8,Deep Wilderness Home,cabin,1
+S22E08,22,8,Deep Wilderness Home,cliff,1
+S22E08,22,8,Deep Wilderness Home,deciduous,1
+S22E08,22,8,Deep Wilderness Home,grass,1
+S22E08,22,8,Deep Wilderness Home,river,1
+S22E08,22,8,Deep Wilderness Home,tree,1
+S22E08,22,8,Deep Wilderness Home,trees,1
+S22E08,22,8,Deep Wilderness Home,waterfall,1
+S22E09,22,9,Haven In The Valley,cabin,1
+S22E09,22,9,Haven In The Valley,conifer,1
+S22E09,22,9,Haven In The Valley,framed,1
+S22E09,22,9,Haven In The Valley,lake,1
+S22E09,22,9,Haven In The Valley,mountain,1
+S22E09,22,9,Haven In The Valley,mountains,1
+S22E09,22,9,Haven In The Valley,oval frame,1
+S22E09,22,9,Haven In The Valley,path,1
+S22E09,22,9,Haven In The Valley,snowy mountain,1
+S22E09,22,9,Haven In The Valley,structure,1
+S22E09,22,9,Haven In The Valley,tree,1
+S22E09,22,9,Haven In The Valley,trees,1
+S22E10,22,10,Wintertime Blues,clouds,1
+S22E10,22,10,Wintertime Blues,conifer,1
+S22E10,22,10,Wintertime Blues,cumulus,1
+S22E10,22,10,Wintertime Blues,mountain,1
+S22E10,22,10,Wintertime Blues,mountains,1
+S22E10,22,10,Wintertime Blues,snow,1
+S22E10,22,10,Wintertime Blues,tree,1
+S22E10,22,10,Wintertime Blues,trees,1
+S22E10,22,10,Wintertime Blues,winter,1
+S22E11,22,11,Pastel Seascape,beach,1
+S22E11,22,11,Pastel Seascape,clouds,1
+S22E11,22,11,Pastel Seascape,framed,1
+S22E11,22,11,Pastel Seascape,ocean,1
+S22E11,22,11,Pastel Seascape,oval frame,1
+S22E11,22,11,Pastel Seascape,sun,1
+S22E11,22,11,Pastel Seascape,waves,1
+S22E12,22,12,Country Creek,conifer,1
+S22E12,22,12,Country Creek,river,1
+S22E12,22,12,Country Creek,rocks,1
+S22E12,22,12,Country Creek,tree,1
+S22E12,22,12,Country Creek,trees,1
+S22E13,22,13,Silent Forest,conifer,1
+S22E13,22,13,Silent Forest,grass,1
+S22E13,22,13,Silent Forest,river,1
+S22E13,22,13,Silent Forest,tree,1
+S22E13,22,13,Silent Forest,trees,1
+S23E01,23,1,Frosty Winter Morn,cabin,1
+S23E01,23,1,Frosty Winter Morn,conifer,1
+S23E01,23,1,Frosty Winter Morn,deciduous,1
+S23E01,23,1,Frosty Winter Morn,fence,1
+S23E01,23,1,Frosty Winter Morn,hills,1
+S23E01,23,1,Frosty Winter Morn,snow,1
+S23E01,23,1,Frosty Winter Morn,tree,1
+S23E01,23,1,Frosty Winter Morn,trees,1
+S23E01,23,1,Frosty Winter Morn,winter,1
+S23E02,23,2,Forest Edge,bushes,1
+S23E02,23,2,Forest Edge,deciduous,1
+S23E02,23,2,Forest Edge,grass,1
+S23E02,23,2,Forest Edge,path,1
+S23E02,23,2,Forest Edge,tree,1
+S23E02,23,2,Forest Edge,trees,1
+S23E03,23,3,Mountain Ridge Lake,clouds,1
+S23E03,23,3,Mountain Ridge Lake,conifer,1
+S23E03,23,3,Mountain Ridge Lake,cumulus,1
+S23E03,23,3,Mountain Ridge Lake,grass,1
+S23E03,23,3,Mountain Ridge Lake,lake,1
+S23E03,23,3,Mountain Ridge Lake,mountain,1
+S23E03,23,3,Mountain Ridge Lake,mountains,1
+S23E03,23,3,Mountain Ridge Lake,tree,1
+S23E04,23,4,Reflections Of Gold,clouds,1
+S23E04,23,4,Reflections Of Gold,deciduous,1
+S23E04,23,4,Reflections Of Gold,framed,1
+S23E04,23,4,Reflections Of Gold,oval frame,1
+S23E04,23,4,Reflections Of Gold,river,1
+S23E04,23,4,Reflections Of Gold,snow,1
+S23E04,23,4,Reflections Of Gold,sun,1
+S23E04,23,4,Reflections Of Gold,tree,1
+S23E04,23,4,Reflections Of Gold,trees,1
+S23E05,23,5,Quiet Cove,bushes,1
+S23E05,23,5,Quiet Cove,conifer,1
+S23E05,23,5,Quiet Cove,deciduous,1
+S23E05,23,5,Quiet Cove,hills,1
+S23E05,23,5,Quiet Cove,lake,1
+S23E05,23,5,Quiet Cove,rocks,1
+S23E05,23,5,Quiet Cove,tree,1
+S23E05,23,5,Quiet Cove,trees,1
+S23E06,23,6,River's Peace,deciduous,1
+S23E06,23,6,River's Peace,grass,1
+S23E06,23,6,River's Peace,river,1
+S23E06,23,6,River's Peace,tree,1
+S23E06,23,6,River's Peace,trees,1
+S23E06,23,6,River's Peace,waterfall,1
+S23E07,23,7,At Dawn's Light,bushes,1
+S23E07,23,7,At Dawn's Light,conifer,1
+S23E07,23,7,At Dawn's Light,deciduous,1
+S23E07,23,7,At Dawn's Light,lake,1
+S23E07,23,7,At Dawn's Light,path,1
+S23E07,23,7,At Dawn's Light,tree,1
+S23E07,23,7,At Dawn's Light,trees,1
+S23E08,23,8,Valley Waterfall,conifer,1
+S23E08,23,8,Valley Waterfall,grass,1
+S23E08,23,8,Valley Waterfall,mountain,1
+S23E08,23,8,Valley Waterfall,river,1
+S23E08,23,8,Valley Waterfall,rocks,1
+S23E08,23,8,Valley Waterfall,snowy mountain,1
+S23E08,23,8,Valley Waterfall,tree,1
+S23E08,23,8,Valley Waterfall,waterfall,1
+S23E09,23,9,Toward Day's End,bushes,1
+S23E09,23,9,Toward Day's End,cabin,1
+S23E09,23,9,Toward Day's End,deciduous,1
+S23E09,23,9,Toward Day's End,framed,1
+S23E09,23,9,Toward Day's End,grass,1
+S23E09,23,9,Toward Day's End,oval frame,1
+S23E09,23,9,Toward Day's End,river,1
+S23E09,23,9,Toward Day's End,structure,1
+S23E09,23,9,Toward Day's End,tree,1
+S23E09,23,9,Toward Day's End,trees,1
+S23E10,23,10,Falls In The Glen,conifer,1
+S23E10,23,10,Falls In The Glen,deciduous,1
+S23E10,23,10,Falls In The Glen,grass,1
+S23E10,23,10,Falls In The Glen,mountain,1
+S23E10,23,10,Falls In The Glen,river,1
+S23E10,23,10,Falls In The Glen,tree,1
+S23E10,23,10,Falls In The Glen,trees,1
+S23E10,23,10,Falls In The Glen,waterfall,1
+S23E11,23,11,Frozen Beauty In Vignette,cabin,1
+S23E11,23,11,Frozen Beauty In Vignette,conifer,1
+S23E11,23,11,Frozen Beauty In Vignette,deciduous,1
+S23E11,23,11,Frozen Beauty In Vignette,lake,1
+S23E11,23,11,Frozen Beauty In Vignette,snow,1
+S23E11,23,11,Frozen Beauty In Vignette,structure,1
+S23E11,23,11,Frozen Beauty In Vignette,tree,1
+S23E11,23,11,Frozen Beauty In Vignette,trees,1
+S23E11,23,11,Frozen Beauty In Vignette,winter,1
+S23E12,23,12,Crimson Tide,beach,1
+S23E12,23,12,Crimson Tide,cliff,1
+S23E12,23,12,Crimson Tide,clouds,1
+S23E12,23,12,Crimson Tide,ocean,1
+S23E12,23,12,Crimson Tide,rocks,1
+S23E12,23,12,Crimson Tide,sun,1
+S23E12,23,12,Crimson Tide,waves,1
+S23E13,23,13,Winter Bliss,bushes,1
+S23E13,23,13,Winter Bliss,deciduous,1
+S23E13,23,13,Winter Bliss,framed,1
+S23E13,23,13,Winter Bliss,lake,1
+S23E13,23,13,Winter Bliss,mountain,1
+S23E13,23,13,Winter Bliss,mountains,1
+S23E13,23,13,Winter Bliss,oval frame,1
+S23E13,23,13,Winter Bliss,snow,1
+S23E13,23,13,Winter Bliss,snowy mountain,1
+S23E13,23,13,Winter Bliss,tree,1
+S23E13,23,13,Winter Bliss,winter,1
+S24E01,24,1,Gray Mountain,bushes,1
+S24E01,24,1,Gray Mountain,conifer,1
+S24E01,24,1,Gray Mountain,mountain,1
+S24E01,24,1,Gray Mountain,river,1
+S24E01,24,1,Gray Mountain,snowy mountain,1
+S24E01,24,1,Gray Mountain,tree,1
+S24E01,24,1,Gray Mountain,trees,1
+S24E02,24,2,Wayside Pond,deciduous,1
+S24E02,24,2,Wayside Pond,lake,1
+S24E02,24,2,Wayside Pond,tree,1
+S24E02,24,2,Wayside Pond,trees,1
+S24E03,24,3,Teton Winter,cabin,1
+S24E03,24,3,Teton Winter,deciduous,1
+S24E03,24,3,Teton Winter,mountain,1
+S24E03,24,3,Teton Winter,snow,1
+S24E03,24,3,Teton Winter,snowy mountain,1
+S24E03,24,3,Teton Winter,structure,1
+S24E03,24,3,Teton Winter,tree,1
+S24E03,24,3,Teton Winter,trees,1
+S24E03,24,3,Teton Winter,winter,1
+S24E04,24,4,Little Home In The Meadow,cabin,1
+S24E04,24,4,Little Home In The Meadow,conifer,1
+S24E04,24,4,Little Home In The Meadow,deciduous,1
+S24E04,24,4,Little Home In The Meadow,framed,1
+S24E04,24,4,Little Home In The Meadow,grass,1
+S24E04,24,4,Little Home In The Meadow,oval frame,1
+S24E04,24,4,Little Home In The Meadow,structure,1
+S24E04,24,4,Little Home In The Meadow,tree,1
+S24E04,24,4,Little Home In The Meadow,trees,1
+S24E05,24,5,A Pretty Autumn Day,clouds,1
+S24E05,24,5,A Pretty Autumn Day,conifer,1
+S24E05,24,5,A Pretty Autumn Day,deciduous,1
+S24E05,24,5,A Pretty Autumn Day,grass,1
+S24E05,24,5,A Pretty Autumn Day,mountain,1
+S24E05,24,5,A Pretty Autumn Day,river,1
+S24E05,24,5,A Pretty Autumn Day,rocks,1
+S24E05,24,5,A Pretty Autumn Day,snowy mountain,1
+S24E05,24,5,A Pretty Autumn Day,tree,1
+S24E05,24,5,A Pretty Autumn Day,trees,1
+S24E06,24,6,Mirrored Images,clouds,1
+S24E06,24,6,Mirrored Images,conifer,1
+S24E06,24,6,Mirrored Images,lake,1
+S24E06,24,6,Mirrored Images,mountain,1
+S24E06,24,6,Mirrored Images,mountains,1
+S24E06,24,6,Mirrored Images,rocks,1
+S24E06,24,6,Mirrored Images,tree,1
+S24E06,24,6,Mirrored Images,trees,1
+S24E07,24,7,Back Country,bushes,1
+S24E07,24,7,Back Country,deciduous,1
+S24E07,24,7,Back Country,path,1
+S24E07,24,7,Back Country,tree,1
+S24E07,24,7,Back Country,trees,1
+S24E08,24,8,Graceful Waterfall,cliff,1
+S24E08,24,8,Graceful Waterfall,deciduous,1
+S24E08,24,8,Graceful Waterfall,river,1
+S24E08,24,8,Graceful Waterfall,rocks,1
+S24E08,24,8,Graceful Waterfall,tree,1
+S24E08,24,8,Graceful Waterfall,trees,1
+S24E08,24,8,Graceful Waterfall,waterfall,1
+S24E09,24,9,Icy Lake,conifer,1
+S24E09,24,9,Icy Lake,deciduous,1
+S24E09,24,9,Icy Lake,framed,1
+S24E09,24,9,Icy Lake,guest,1
+S24E09,24,9,Icy Lake,lake,1
+S24E09,24,9,Icy Lake,oval frame,1
+S24E09,24,9,Icy Lake,snow,1
+S24E09,24,9,Icy Lake,steve ross,1
+S24E09,24,9,Icy Lake,tree,1
+S24E09,24,9,Icy Lake,trees,1
+S24E09,24,9,Icy Lake,winter,1
+S24E10,24,10,Rowboat On The Beach,beach,1
+S24E10,24,10,Rowboat On The Beach,boat,1
+S24E10,24,10,Rowboat On The Beach,clouds,1
+S24E10,24,10,Rowboat On The Beach,framed,1
+S24E10,24,10,Rowboat On The Beach,grass,1
+S24E10,24,10,Rowboat On The Beach,hills,1
+S24E10,24,10,Rowboat On The Beach,ocean,1
+S24E10,24,10,Rowboat On The Beach,oval frame,1
+S24E10,24,10,Rowboat On The Beach,sun,1
+S24E10,24,10,Rowboat On The Beach,waves,1
+S24E11,24,11,Portrait Of Winter,bushes,1
+S24E11,24,11,Portrait Of Winter,conifer,1
+S24E11,24,11,Portrait Of Winter,lake,1
+S24E11,24,11,Portrait Of Winter,mountain,1
+S24E11,24,11,Portrait Of Winter,mountains,1
+S24E11,24,11,Portrait Of Winter,snow,1
+S24E11,24,11,Portrait Of Winter,snowy mountain,1
+S24E11,24,11,Portrait Of Winter,tree,1
+S24E11,24,11,Portrait Of Winter,trees,1
+S24E11,24,11,Portrait Of Winter,winter,1
+S24E12,24,12,The Footbridge,bridge,1
+S24E12,24,12,The Footbridge,conifer,1
+S24E12,24,12,The Footbridge,deciduous,1
+S24E12,24,12,The Footbridge,grass,1
+S24E12,24,12,The Footbridge,river,1
+S24E12,24,12,The Footbridge,rocks,1
+S24E12,24,12,The Footbridge,structure,1
+S24E12,24,12,The Footbridge,tree,1
+S24E12,24,12,The Footbridge,trees,1
+S24E13,24,13,Snowbound Cabin,cabin,1
+S24E13,24,13,Snowbound Cabin,clouds,1
+S24E13,24,13,Snowbound Cabin,conifer,1
+S24E13,24,13,Snowbound Cabin,deciduous,1
+S24E13,24,13,Snowbound Cabin,fence,1
+S24E13,24,13,Snowbound Cabin,snow,1
+S24E13,24,13,Snowbound Cabin,tree,1
+S24E13,24,13,Snowbound Cabin,trees,1
+S24E13,24,13,Snowbound Cabin,winter,1
+S25E01,25,1,Hide-A-Way Cove,bushes,1
+S25E01,25,1,Hide-A-Way Cove,conifer,1
+S25E01,25,1,Hide-A-Way Cove,lake,1
+S25E01,25,1,Hide-A-Way Cove,mountain,1
+S25E01,25,1,Hide-A-Way Cove,snowy mountain,1
+S25E01,25,1,Hide-A-Way Cove,tree,1
+S25E01,25,1,Hide-A-Way Cove,trees,1
+S25E02,25,2,Enchanted Falls Oval,deciduous,1
+S25E02,25,2,Enchanted Falls Oval,framed,1
+S25E02,25,2,Enchanted Falls Oval,oval frame,1
+S25E02,25,2,Enchanted Falls Oval,river,1
+S25E02,25,2,Enchanted Falls Oval,tree,1
+S25E02,25,2,Enchanted Falls Oval,trees,1
+S25E02,25,2,Enchanted Falls Oval,waterfall,1
+S25E03,25,3,Not Quite Spring,conifer,1
+S25E03,25,3,Not Quite Spring,lake,1
+S25E03,25,3,Not Quite Spring,mountain,1
+S25E03,25,3,Not Quite Spring,snow,1
+S25E03,25,3,Not Quite Spring,snowy mountain,1
+S25E03,25,3,Not Quite Spring,tree,1
+S25E03,25,3,Not Quite Spring,trees,1
+S25E03,25,3,Not Quite Spring,winter,1
+S25E04,25,4,Splashes Of Autumn,deciduous,1
+S25E04,25,4,Splashes Of Autumn,lake,1
+S25E04,25,4,Splashes Of Autumn,river,1
+S25E04,25,4,Splashes Of Autumn,tree,1
+S25E04,25,4,Splashes Of Autumn,trees,1
+S25E04,25,4,Splashes Of Autumn,waterfall,1
+S25E05,25,5,Summer In The Mountain,bushes,1
+S25E05,25,5,Summer In The Mountain,clouds,1
+S25E05,25,5,Summer In The Mountain,conifer,1
+S25E05,25,5,Summer In The Mountain,guest,1
+S25E05,25,5,Summer In The Mountain,lake,1
+S25E05,25,5,Summer In The Mountain,mountain,1
+S25E05,25,5,Summer In The Mountain,mountains,1
+S25E05,25,5,Summer In The Mountain,snowy mountain,1
+S25E05,25,5,Summer In The Mountain,steve ross,1
+S25E05,25,5,Summer In The Mountain,tree,1
+S25E05,25,5,Summer In The Mountain,trees,1
+S25E06,25,6,Oriental Falls,bushes,1
+S25E06,25,6,Oriental Falls,conifer,1
+S25E06,25,6,Oriental Falls,fog,1
+S25E06,25,6,Oriental Falls,rocks,1
+S25E06,25,6,Oriental Falls,tree,1
+S25E06,25,6,Oriental Falls,trees,1
+S25E06,25,6,Oriental Falls,waterfall,1
+S25E07,25,7,Autumn Palette,deciduous,1
+S25E07,25,7,Autumn Palette,fence,1
+S25E07,25,7,Autumn Palette,lake,1
+S25E07,25,7,Autumn Palette,tree,1
+S25E07,25,7,Autumn Palette,trees,1
+S25E08,25,8,Cypress Swamp,deciduous,1
+S25E08,25,8,Cypress Swamp,lake,1
+S25E08,25,8,Cypress Swamp,tree,1
+S25E09,25,9,Downstream View,clouds,1
+S25E09,25,9,Downstream View,conifer,1
+S25E09,25,9,Downstream View,cumulus,1
+S25E09,25,9,Downstream View,deciduous,1
+S25E09,25,9,Downstream View,grass,1
+S25E09,25,9,Downstream View,river,1
+S25E09,25,9,Downstream View,rocks,1
+S25E09,25,9,Downstream View,tree,1
+S25E09,25,9,Downstream View,trees,1
+S25E10,25,10,Just Before The Storm,clouds,1
+S25E10,25,10,Just Before The Storm,framed,1
+S25E10,25,10,Just Before The Storm,ocean,1
+S25E10,25,10,Just Before The Storm,oval frame,1
+S25E10,25,10,Just Before The Storm,palm trees,1
+S25E10,25,10,Just Before The Storm,waves,1
+S25E11,25,11,Fisherman's Paradise,cabin,1
+S25E11,25,11,Fisherman's Paradise,conifer,1
+S25E11,25,11,Fisherman's Paradise,lake,1
+S25E11,25,11,Fisherman's Paradise,structure,1
+S25E11,25,11,Fisherman's Paradise,sun,1
+S25E11,25,11,Fisherman's Paradise,tree,1
+S25E11,25,11,Fisherman's Paradise,trees,1
+S25E12,25,12,Desert Hues,cactus,1
+S25E12,25,12,Desert Hues,cirrus,1
+S25E12,25,12,Desert Hues,clouds,1
+S25E12,25,12,Desert Hues,mountain,1
+S25E12,25,12,Desert Hues,path,1
+S25E13,25,13,The Property Line,bushes,1
+S25E13,25,13,The Property Line,deciduous,1
+S25E13,25,13,The Property Line,fence,1
+S25E13,25,13,The Property Line,snow,1
+S25E13,25,13,The Property Line,tree,1
+S25E13,25,13,The Property Line,winter,1
+S26E01,26,1,In The Stillness Of Morning,bushes,1
+S26E01,26,1,In The Stillness Of Morning,conifer,1
+S26E01,26,1,In The Stillness Of Morning,fog,1
+S26E01,26,1,In The Stillness Of Morning,grass,1
+S26E01,26,1,In The Stillness Of Morning,river,1
+S26E01,26,1,In The Stillness Of Morning,tree,1
+S26E01,26,1,In The Stillness Of Morning,trees,1
+S26E02,26,2,Delightful Meadow Home,cabin,1
+S26E02,26,2,Delightful Meadow Home,deciduous,1
+S26E02,26,2,Delightful Meadow Home,fence,1
+S26E02,26,2,Delightful Meadow Home,grass,1
+S26E02,26,2,Delightful Meadow Home,path,1
+S26E02,26,2,Delightful Meadow Home,structure,1
+S26E02,26,2,Delightful Meadow Home,tree,1
+S26E02,26,2,Delightful Meadow Home,trees,1
+S26E03,26,3,First Snow,clouds,1
+S26E03,26,3,First Snow,conifer,1
+S26E03,26,3,First Snow,grass,1
+S26E03,26,3,First Snow,mountain,1
+S26E03,26,3,First Snow,snow,1
+S26E03,26,3,First Snow,snowy mountain,1
+S26E03,26,3,First Snow,tree,1
+S26E03,26,3,First Snow,trees,1
+S26E03,26,3,First Snow,winter,1
+S26E04,26,4,Lake In The Valley,bushes,1
+S26E04,26,4,Lake In The Valley,deciduous,1
+S26E04,26,4,Lake In The Valley,grass,1
+S26E04,26,4,Lake In The Valley,lake,1
+S26E04,26,4,Lake In The Valley,mountain,1
+S26E04,26,4,Lake In The Valley,path,1
+S26E04,26,4,Lake In The Valley,snowy mountain,1
+S26E04,26,4,Lake In The Valley,sun,1
+S26E04,26,4,Lake In The Valley,tree,1
+S26E04,26,4,Lake In The Valley,trees,1
+S26E05,26,5,Trace Of Spring,bushes,1
+S26E05,26,5,Trace Of Spring,conifer,1
+S26E05,26,5,Trace Of Spring,deciduous,1
+S26E05,26,5,Trace Of Spring,flowers,1
+S26E05,26,5,Trace Of Spring,grass,1
+S26E05,26,5,Trace Of Spring,river,1
+S26E05,26,5,Trace Of Spring,tree,1
+S26E05,26,5,Trace Of Spring,trees,1
+S26E06,26,6,Arctic Winter Day,cabin,1
+S26E06,26,6,Arctic Winter Day,clouds,1
+S26E06,26,6,Arctic Winter Day,conifer,1
+S26E06,26,6,Arctic Winter Day,lake,1
+S26E06,26,6,Arctic Winter Day,mountain,1
+S26E06,26,6,Arctic Winter Day,mountains,1
+S26E06,26,6,Arctic Winter Day,snow,1
+S26E06,26,6,Arctic Winter Day,snowy mountain,1
+S26E06,26,6,Arctic Winter Day,structure,1
+S26E06,26,6,Arctic Winter Day,tree,1
+S26E06,26,6,Arctic Winter Day,trees,1
+S26E06,26,6,Arctic Winter Day,winter,1
+S26E07,26,7,Snow Birch,deciduous,1
+S26E07,26,7,Snow Birch,lake,1
+S26E07,26,7,Snow Birch,snow,1
+S26E07,26,7,Snow Birch,tree,1
+S26E07,26,7,Snow Birch,trees,1
+S26E07,26,7,Snow Birch,winter,1
+S26E08,26,8,Early Autumn,conifer,1
+S26E08,26,8,Early Autumn,deciduous,1
+S26E08,26,8,Early Autumn,framed,1
+S26E08,26,8,Early Autumn,grass,1
+S26E08,26,8,Early Autumn,lake,1
+S26E08,26,8,Early Autumn,mountain,1
+S26E08,26,8,Early Autumn,oval frame,1
+S26E08,26,8,Early Autumn,tree,1
+S26E08,26,8,Early Autumn,trees,1
+S26E09,26,9,Tranquil Wooded Stream,deciduous,1
+S26E09,26,9,Tranquil Wooded Stream,river,1
+S26E09,26,9,Tranquil Wooded Stream,rocks,1
+S26E09,26,9,Tranquil Wooded Stream,tree,1
+S26E09,26,9,Tranquil Wooded Stream,trees,1
+S26E11,26,11,Storm's A Comin',beach,1
+S26E11,26,11,Storm's A Comin',clouds,1
+S26E11,26,11,Storm's A Comin',cumulus,1
+S26E11,26,11,Storm's A Comin',hills,1
+S26E11,26,11,Storm's A Comin',ocean,1
+S26E11,26,11,Storm's A Comin',rocks,1
+S26E11,26,11,Storm's A Comin',waves,1
+S26E12,26,12,Sunset Aglow,clouds,1
+S26E12,26,12,Sunset Aglow,conifer,1
+S26E12,26,12,Sunset Aglow,lake,1
+S26E12,26,12,Sunset Aglow,mountain,1
+S26E12,26,12,Sunset Aglow,tree,1
+S26E12,26,12,Sunset Aglow,trees,1
+S26E13,26,13,Evening At The Falls,conifer,1
+S26E13,26,13,Evening At The Falls,night,1
+S26E13,26,13,Evening At The Falls,river,1
+S26E13,26,13,Evening At The Falls,tree,1
+S26E13,26,13,Evening At The Falls,trees,1
+S26E13,26,13,Evening At The Falls,waterfall,1
+S27E01,27,1,Twilight Beauty,conifer,1
+S27E01,27,1,Twilight Beauty,deciduous,1
+S27E01,27,1,Twilight Beauty,fog,1
+S27E01,27,1,Twilight Beauty,framed,1
+S27E01,27,1,Twilight Beauty,lake,1
+S27E01,27,1,Twilight Beauty,oval frame,1
+S27E01,27,1,Twilight Beauty,sun,1
+S27E01,27,1,Twilight Beauty,tree,1
+S27E01,27,1,Twilight Beauty,trees,1
+S27E02,27,2,Angler's Haven,conifer,1
+S27E02,27,2,Angler's Haven,lake,1
+S27E02,27,2,Angler's Haven,mountain,1
+S27E02,27,2,Angler's Haven,mountains,1
+S27E02,27,2,Angler's Haven,rocks,1
+S27E02,27,2,Angler's Haven,snowy mountain,1
+S27E02,27,2,Angler's Haven,tree,1
+S27E02,27,2,Angler's Haven,trees,1
+S27E03,27,3,Rustic Winter Woods,deciduous,1
+S27E03,27,3,Rustic Winter Woods,snow,1
+S27E03,27,3,Rustic Winter Woods,sun,1
+S27E03,27,3,Rustic Winter Woods,tree,1
+S27E03,27,3,Rustic Winter Woods,trees,1
+S27E03,27,3,Rustic Winter Woods,winter,1
+S27E04,27,4,Wilderness Falls,bushes,1
+S27E04,27,4,Wilderness Falls,clouds,1
+S27E04,27,4,Wilderness Falls,conifer,1
+S27E04,27,4,Wilderness Falls,grass,1
+S27E04,27,4,Wilderness Falls,mountain,1
+S27E04,27,4,Wilderness Falls,mountains,1
+S27E04,27,4,Wilderness Falls,river,1
+S27E04,27,4,Wilderness Falls,rocks,1
+S27E04,27,4,Wilderness Falls,tree,1
+S27E04,27,4,Wilderness Falls,trees,1
+S27E04,27,4,Wilderness Falls,waterfall,1
+S27E05,27,5,Winter At The Farm,conifer,1
+S27E05,27,5,Winter At The Farm,farm,1
+S27E05,27,5,Winter At The Farm,fence,1
+S27E05,27,5,Winter At The Farm,snow,1
+S27E05,27,5,Winter At The Farm,structure,1
+S27E05,27,5,Winter At The Farm,tree,1
+S27E05,27,5,Winter At The Farm,trees,1
+S27E05,27,5,Winter At The Farm,winter,1
+S27E06,27,6,Daisies At Dawn,cabin,1
+S27E06,27,6,Daisies At Dawn,conifer,1
+S27E06,27,6,Daisies At Dawn,deciduous,1
+S27E06,27,6,Daisies At Dawn,flowers,1
+S27E06,27,6,Daisies At Dawn,framed,1
+S27E06,27,6,Daisies At Dawn,lake,1
+S27E06,27,6,Daisies At Dawn,oval frame,1
+S27E06,27,6,Daisies At Dawn,structure,1
+S27E06,27,6,Daisies At Dawn,tree,1
+S27E06,27,6,Daisies At Dawn,trees,1
+S27E07,27,7,Spectacular View,cabin,1
+S27E07,27,7,Spectacular View,clouds,1
+S27E07,27,7,Spectacular View,conifer,1
+S27E07,27,7,Spectacular View,cumulus,1
+S27E07,27,7,Spectacular View,mountain,1
+S27E07,27,7,Spectacular View,mountains,1
+S27E07,27,7,Spectacular View,path,1
+S27E07,27,7,Spectacular View,structure,1
+S27E07,27,7,Spectacular View,tree,1
+S27E07,27,7,Spectacular View,trees,1
+S27E08,27,8,Daybreak,cabin,1
+S27E08,27,8,Daybreak,conifer,1
+S27E08,27,8,Daybreak,deciduous,1
+S27E08,27,8,Daybreak,fence,1
+S27E08,27,8,Daybreak,fog,1
+S27E08,27,8,Daybreak,snow,1
+S27E08,27,8,Daybreak,structure,1
+S27E08,27,8,Daybreak,tree,1
+S27E08,27,8,Daybreak,trees,1
+S27E08,27,8,Daybreak,winter,1
+S27E09,27,9,Island Paradise,beach,1
+S27E09,27,9,Island Paradise,clouds,1
+S27E09,27,9,Island Paradise,framed,1
+S27E09,27,9,Island Paradise,hills,1
+S27E09,27,9,Island Paradise,ocean,1
+S27E09,27,9,Island Paradise,oval frame,1
+S27E09,27,9,Island Paradise,palm trees,1
+S27E09,27,9,Island Paradise,rocks,1
+S27E09,27,9,Island Paradise,waves,1
+S27E10,27,10,Sunlight In The Shadows,bushes,1
+S27E10,27,10,Sunlight In The Shadows,deciduous,1
+S27E10,27,10,Sunlight In The Shadows,grass,1
+S27E10,27,10,Sunlight In The Shadows,guest,1
+S27E10,27,10,Sunlight In The Shadows,river,1
+S27E10,27,10,Sunlight In The Shadows,sun,1
+S27E10,27,10,Sunlight In The Shadows,tree,1
+S27E10,27,10,Sunlight In The Shadows,trees,1
+S27E11,27,11,Splendor Of A Snowy White,cabin,1
+S27E11,27,11,Splendor Of A Snowy White,conifer,1
+S27E11,27,11,Splendor Of A Snowy White,deciduous,1
+S27E11,27,11,Splendor Of A Snowy White,mountain,1
+S27E11,27,11,Splendor Of A Snowy White,snow,1
+S27E11,27,11,Splendor Of A Snowy White,snowy mountain,1
+S27E11,27,11,Splendor Of A Snowy White,structure,1
+S27E11,27,11,Splendor Of A Snowy White,tree,1
+S27E11,27,11,Splendor Of A Snowy White,trees,1
+S27E11,27,11,Splendor Of A Snowy White,winter,1
+S27E12,27,12,Forest River,deciduous,1
+S27E12,27,12,Forest River,grass,1
+S27E12,27,12,Forest River,river,1
+S27E12,27,12,Forest River,sun,1
+S27E12,27,12,Forest River,tree,1
+S27E12,27,12,Forest River,trees,1
+S27E13,27,13,Golden Glow Of Morning,conifer,1
+S27E13,27,13,Golden Glow Of Morning,fog,1
+S27E13,27,13,Golden Glow Of Morning,lake,1
+S27E13,27,13,Golden Glow Of Morning,rocks,1
+S27E13,27,13,Golden Glow Of Morning,sun,1
+S27E13,27,13,Golden Glow Of Morning,tree,1
+S27E13,27,13,Golden Glow Of Morning,trees,1
+S28E01,28,1,Fisherman's Trail,bushes,1
+S28E01,28,1,Fisherman's Trail,conifer,1
+S28E01,28,1,Fisherman's Trail,lake,1
+S28E01,28,1,Fisherman's Trail,mountain,1
+S28E01,28,1,Fisherman's Trail,mountains,1
+S28E01,28,1,Fisherman's Trail,path,1
+S28E01,28,1,Fisherman's Trail,snowy mountain,1
+S28E01,28,1,Fisherman's Trail,tree,1
+S28E01,28,1,Fisherman's Trail,trees,1
+S28E02,28,2,To A Warm Winter,barn,1
+S28E02,28,2,To A Warm Winter,conifer,1
+S28E02,28,2,To A Warm Winter,deciduous,1
+S28E02,28,2,To A Warm Winter,hills,1
+S28E02,28,2,To A Warm Winter,snow,1
+S28E02,28,2,To A Warm Winter,structure,1
+S28E02,28,2,To A Warm Winter,sun,1
+S28E02,28,2,To A Warm Winter,tree,1
+S28E02,28,2,To A Warm Winter,trees,1
+S28E02,28,2,To A Warm Winter,winter,1
+S28E03,28,3,Under Pastel Skies,clouds,1
+S28E03,28,3,Under Pastel Skies,conifer,1
+S28E03,28,3,Under Pastel Skies,mountain,1
+S28E03,28,3,Under Pastel Skies,snowy mountain,1
+S28E03,28,3,Under Pastel Skies,tree,1
+S28E03,28,3,Under Pastel Skies,trees,1
+S28E04,28,4,Golden Rays Of Sunlight,bushes,1
+S28E04,28,4,Golden Rays Of Sunlight,deciduous,1
+S28E04,28,4,Golden Rays Of Sunlight,sun,1
+S28E04,28,4,Golden Rays Of Sunlight,tree,1
+S28E04,28,4,Golden Rays Of Sunlight,trees,1
+S28E05,28,5,Magic Of Fall,deciduous,1
+S28E05,28,5,Magic Of Fall,fence,1
+S28E05,28,5,Magic Of Fall,grass,1
+S28E05,28,5,Magic Of Fall,tree,1
+S28E06,28,6,Glacier Lake,conifer,1
+S28E06,28,6,Glacier Lake,grass,1
+S28E06,28,6,Glacier Lake,lake,1
+S28E06,28,6,Glacier Lake,mountain,1
+S28E06,28,6,Glacier Lake,rocks,1
+S28E06,28,6,Glacier Lake,snowy mountain,1
+S28E06,28,6,Glacier Lake,tree,1
+S28E06,28,6,Glacier Lake,trees,1
+S28E07,28,7,The Old Weathered Barn,barn,1
+S28E07,28,7,The Old Weathered Barn,deciduous,1
+S28E07,28,7,The Old Weathered Barn,grass,1
+S28E07,28,7,The Old Weathered Barn,path,1
+S28E07,28,7,The Old Weathered Barn,tree,1
+S28E07,28,7,The Old Weathered Barn,trees,1
+S28E08,28,8,Deep Forest Falls,bushes,1
+S28E08,28,8,Deep Forest Falls,deciduous,1
+S28E08,28,8,Deep Forest Falls,river,1
+S28E08,28,8,Deep Forest Falls,tree,1
+S28E08,28,8,Deep Forest Falls,trees,1
+S28E08,28,8,Deep Forest Falls,waterfall,1
+S28E09,28,9,Winter's Grace,conifer,1
+S28E09,28,9,Winter's Grace,fog,1
+S28E09,28,9,Winter's Grace,mountain,1
+S28E09,28,9,Winter's Grace,mountains,1
+S28E09,28,9,Winter's Grace,snow,1
+S28E09,28,9,Winter's Grace,tree,1
+S28E09,28,9,Winter's Grace,trees,1
+S28E09,28,9,Winter's Grace,winter,1
+S28E10,28,10,Splendor Of Autumn,deciduous,1
+S28E10,28,10,Splendor Of Autumn,fog,1
+S28E10,28,10,Splendor Of Autumn,grass,1
+S28E10,28,10,Splendor Of Autumn,lake,1
+S28E10,28,10,Splendor Of Autumn,sun,1
+S28E10,28,10,Splendor Of Autumn,tree,1
+S28E10,28,10,Splendor Of Autumn,trees,1
+S28E11,28,11,Tranquil Seas,beach,1
+S28E11,28,11,Tranquil Seas,clouds,1
+S28E11,28,11,Tranquil Seas,cumulus,1
+S28E11,28,11,Tranquil Seas,ocean,1
+S28E11,28,11,Tranquil Seas,sun,1
+S28E11,28,11,Tranquil Seas,waves,1
+S28E12,28,12,Mountain Serenity,bushes,1
+S28E12,28,12,Mountain Serenity,conifer,1
+S28E12,28,12,Mountain Serenity,grass,1
+S28E12,28,12,Mountain Serenity,lake,1
+S28E12,28,12,Mountain Serenity,mountain,1
+S28E12,28,12,Mountain Serenity,snowy mountain,1
+S28E12,28,12,Mountain Serenity,tree,1
+S28E12,28,12,Mountain Serenity,trees,1
+S28E13,28,13,Home Before Nightfall,cabin,1
+S28E13,28,13,Home Before Nightfall,clouds,1
+S28E13,28,13,Home Before Nightfall,deciduous,1
+S28E13,28,13,Home Before Nightfall,grass,1
+S28E13,28,13,Home Before Nightfall,night,1
+S28E13,28,13,Home Before Nightfall,structure,1
+S28E13,28,13,Home Before Nightfall,tree,1
+S28E13,28,13,Home Before Nightfall,trees,1
+S29E01,29,1,Island In The Wilderness,bushes,1
+S29E01,29,1,Island In The Wilderness,conifer,1
+S29E01,29,1,Island In The Wilderness,lake,1
+S29E01,29,1,Island In The Wilderness,tree,1
+S29E01,29,1,Island In The Wilderness,trees,1
+S29E02,29,2,Autumn Oval,bushes,1
+S29E02,29,2,Autumn Oval,conifer,1
+S29E02,29,2,Autumn Oval,framed,1
+S29E02,29,2,Autumn Oval,lake,1
+S29E02,29,2,Autumn Oval,mountains,1
+S29E02,29,2,Autumn Oval,oval frame,1
+S29E02,29,2,Autumn Oval,tree,1
+S29E02,29,2,Autumn Oval,trees,1
+S29E03,29,3,Seasonal Progression,bushes,1
+S29E03,29,3,Seasonal Progression,conifer,1
+S29E03,29,3,Seasonal Progression,framed,1
+S29E03,29,3,Seasonal Progression,grass,1
+S29E03,29,3,Seasonal Progression,lake,1
+S29E03,29,3,Seasonal Progression,mountain,1
+S29E03,29,3,Seasonal Progression,mountains,1
+S29E03,29,3,Seasonal Progression,snow,1
+S29E03,29,3,Seasonal Progression,snowy mountain,1
+S29E03,29,3,Seasonal Progression,split frame,1
+S29E03,29,3,Seasonal Progression,tree,1
+S29E03,29,3,Seasonal Progression,trees,1
+S29E03,29,3,Seasonal Progression,winter,1
+S29E04,29,4,Light At The Summit,deciduous,1
+S29E04,29,4,Light At The Summit,grass,1
+S29E04,29,4,Light At The Summit,mountain,1
+S29E04,29,4,Light At The Summit,mountains,1
+S29E04,29,4,Light At The Summit,path,1
+S29E04,29,4,Light At The Summit,sun,1
+S29E04,29,4,Light At The Summit,tree,1
+S29E04,29,4,Light At The Summit,trees,1
+S29E05,29,5,Countryside Barn,barn,1
+S29E05,29,5,Countryside Barn,deciduous,1
+S29E05,29,5,Countryside Barn,grass,1
+S29E05,29,5,Countryside Barn,path,1
+S29E05,29,5,Countryside Barn,structure,1
+S29E05,29,5,Countryside Barn,tree,1
+S29E06,29,6,Mountain Lake Falls,clouds,1
+S29E06,29,6,Mountain Lake Falls,conifer,1
+S29E06,29,6,Mountain Lake Falls,cumulus,1
+S29E06,29,6,Mountain Lake Falls,lake,1
+S29E06,29,6,Mountain Lake Falls,mountain,1
+S29E06,29,6,Mountain Lake Falls,mountains,1
+S29E06,29,6,Mountain Lake Falls,river,1
+S29E06,29,6,Mountain Lake Falls,snowy mountain,1
+S29E06,29,6,Mountain Lake Falls,tree,1
+S29E06,29,6,Mountain Lake Falls,trees,1
+S29E06,29,6,Mountain Lake Falls,waterfall,1
+S29E07,29,7,Cypress Creek,deciduous,1
+S29E07,29,7,Cypress Creek,grass,1
+S29E07,29,7,Cypress Creek,river,1
+S29E07,29,7,Cypress Creek,tree,1
+S29E07,29,7,Cypress Creek,trees,1
+S29E08,29,8,Trapper's Cabin,bushes,1
+S29E08,29,8,Trapper's Cabin,cabin,1
+S29E08,29,8,Trapper's Cabin,conifer,1
+S29E08,29,8,Trapper's Cabin,deciduous,1
+S29E08,29,8,Trapper's Cabin,lake,1
+S29E08,29,8,Trapper's Cabin,mountain,1
+S29E08,29,8,Trapper's Cabin,mountains,1
+S29E08,29,8,Trapper's Cabin,structure,1
+S29E08,29,8,Trapper's Cabin,tree,1
+S29E08,29,8,Trapper's Cabin,trees,1
+S29E09,29,9,Storm On The Horizon,beach,1
+S29E09,29,9,Storm On The Horizon,clouds,1
+S29E09,29,9,Storm On The Horizon,grass,1
+S29E09,29,9,Storm On The Horizon,ocean,1
+S29E09,29,9,Storm On The Horizon,palm trees,1
+S29E09,29,9,Storm On The Horizon,rocks,1
+S29E09,29,9,Storm On The Horizon,waves,1
+S29E10,29,10,Pot 'O Posies,flowers,1
+S29E10,29,10,Pot 'O Posies,guest,1
+S29E11,29,11,Perfect Winter's Day,bushes,1
+S29E11,29,11,Perfect Winter's Day,cabin,1
+S29E11,29,11,Perfect Winter's Day,clouds,1
+S29E11,29,11,Perfect Winter's Day,conifer,1
+S29E11,29,11,Perfect Winter's Day,mountain,1
+S29E11,29,11,Perfect Winter's Day,snow,1
+S29E11,29,11,Perfect Winter's Day,snowy mountain,1
+S29E11,29,11,Perfect Winter's Day,structure,1
+S29E11,29,11,Perfect Winter's Day,tree,1
+S29E11,29,11,Perfect Winter's Day,trees,1
+S29E11,29,11,Perfect Winter's Day,winter,1
+S29E12,29,12,Aurora's Dance,aurora borealis,1
+S29E12,29,12,Aurora's Dance,cabin,1
+S29E12,29,12,Aurora's Dance,conifer,1
+S29E12,29,12,Aurora's Dance,lake,1
+S29E12,29,12,Aurora's Dance,night,1
+S29E12,29,12,Aurora's Dance,snow,1
+S29E12,29,12,Aurora's Dance,tree,1
+S29E12,29,12,Aurora's Dance,trees,1
+S29E12,29,12,Aurora's Dance,winter,1
+S29E13,29,13,The Woodman's Retreat,bushes,1
+S29E13,29,13,The Woodman's Retreat,conifer,1
+S29E13,29,13,The Woodman's Retreat,lake,1
+S29E13,29,13,The Woodman's Retreat,mountain,1
+S29E13,29,13,The Woodman's Retreat,mountains,1
+S29E13,29,13,The Woodman's Retreat,snowy mountain,1
+S29E13,29,13,The Woodman's Retreat,tree,1
+S29E13,29,13,The Woodman's Retreat,trees,1
+S30E01,30,1,Babbling Brook,bushes,1
+S30E01,30,1,Babbling Brook,deciduous,1
+S30E01,30,1,Babbling Brook,grass,1
+S30E01,30,1,Babbling Brook,river,1
+S30E01,30,1,Babbling Brook,tree,1
+S30E01,30,1,Babbling Brook,waterfall,1
+S30E02,30,2,Woodgrain View,deciduous,1
+S30E02,30,2,Woodgrain View,framed,1
+S30E02,30,2,Woodgrain View,grass,1
+S30E02,30,2,Woodgrain View,lake,1
+S30E02,30,2,Woodgrain View,mountain,1
+S30E02,30,2,Woodgrain View,snowy mountain,1
+S30E02,30,2,Woodgrain View,tree,1
+S30E02,30,2,Woodgrain View,wood framed,1
+S30E03,30,3,Winter's Peace,cabin,1
+S30E03,30,3,Winter's Peace,clouds,1
+S30E03,30,3,Winter's Peace,conifer,1
+S30E03,30,3,Winter's Peace,lake,1
+S30E03,30,3,Winter's Peace,structure,1
+S30E03,30,3,Winter's Peace,tree,1
+S30E03,30,3,Winter's Peace,trees,1
+S30E04,30,4,Wilderness Trail,bushes,1
+S30E04,30,4,Wilderness Trail,deciduous,1
+S30E04,30,4,Wilderness Trail,path,1
+S30E04,30,4,Wilderness Trail,tree,1
+S30E04,30,4,Wilderness Trail,trees,1
+S30E05,30,5,Copper Winter,conifer,1
+S30E05,30,5,Copper Winter,deciduous,1
+S30E05,30,5,Copper Winter,lake,1
+S30E05,30,5,Copper Winter,tree,1
+S30E05,30,5,Copper Winter,trees,1
+S30E06,30,6,Misty Foothills,clouds,1
+S30E06,30,6,Misty Foothills,conifer,1
+S30E06,30,6,Misty Foothills,cumulus,1
+S30E06,30,6,Misty Foothills,hills,1
+S30E06,30,6,Misty Foothills,lake,1
+S30E06,30,6,Misty Foothills,mountain,1
+S30E06,30,6,Misty Foothills,tree,1
+S30E06,30,6,Misty Foothills,trees,1
+S30E07,30,7,Through The Window,conifer,1
+S30E07,30,7,Through The Window,deciduous,1
+S30E07,30,7,Through The Window,framed,1
+S30E07,30,7,Through The Window,snow,1
+S30E07,30,7,Through The Window,tree,1
+S30E07,30,7,Through The Window,trees,1
+S30E07,30,7,Through The Window,window frame,1
+S30E07,30,7,Through The Window,winter,1
+S30E08,30,8,Home In The Valley,cabin,1
+S30E08,30,8,Home In The Valley,clouds,1
+S30E08,30,8,Home In The Valley,conifer,1
+S30E08,30,8,Home In The Valley,cumulus,1
+S30E08,30,8,Home In The Valley,grass,1
+S30E08,30,8,Home In The Valley,lake,1
+S30E08,30,8,Home In The Valley,structure,1
+S30E08,30,8,Home In The Valley,tree,1
+S30E08,30,8,Home In The Valley,trees,1
+S30E09,30,9,Mountains Of Grace,cirrus,1
+S30E09,30,9,Mountains Of Grace,clouds,1
+S30E09,30,9,Mountains Of Grace,conifer,1
+S30E09,30,9,Mountains Of Grace,deciduous,1
+S30E09,30,9,Mountains Of Grace,guest,1
+S30E09,30,9,Mountains Of Grace,mountain,1
+S30E09,30,9,Mountains Of Grace,mountains,1
+S30E09,30,9,Mountains Of Grace,river,1
+S30E09,30,9,Mountains Of Grace,snowy mountain,1
+S30E09,30,9,Mountains Of Grace,steve ross,1
+S30E09,30,9,Mountains Of Grace,tree,1
+S30E09,30,9,Mountains Of Grace,trees,1
+S30E10,30,10,Seaside Harmony,beach,1
+S30E10,30,10,Seaside Harmony,clouds,1
+S30E10,30,10,Seaside Harmony,ocean,1
+S30E10,30,10,Seaside Harmony,rocks,1
+S30E10,30,10,Seaside Harmony,waves,1
+S30E11,30,11,Cold Spring Day,bushes,1
+S30E11,30,11,Cold Spring Day,conifer,1
+S30E11,30,11,Cold Spring Day,lake,1
+S30E11,30,11,Cold Spring Day,mountain,1
+S30E11,30,11,Cold Spring Day,mountains,1
+S30E11,30,11,Cold Spring Day,snowy mountain,1
+S30E11,30,11,Cold Spring Day,tree,1
+S30E11,30,11,Cold Spring Day,trees,1
+S30E12,30,12,Evening's Glow,cabin,1
+S30E12,30,12,Evening's Glow,conifer,1
+S30E12,30,12,Evening's Glow,deciduous,1
+S30E12,30,12,Evening's Glow,grass,1
+S30E12,30,12,Evening's Glow,path,1
+S30E12,30,12,Evening's Glow,sun,1
+S30E12,30,12,Evening's Glow,tree,1
+S30E12,30,12,Evening's Glow,trees,1
+S30E13,30,13,Blue Ridge Falls,bushes,1
+S30E13,30,13,Blue Ridge Falls,conifer,1
+S30E13,30,13,Blue Ridge Falls,mountain,1
+S30E13,30,13,Blue Ridge Falls,river,1
+S30E13,30,13,Blue Ridge Falls,rocks,1
+S30E13,30,13,Blue Ridge Falls,tree,1
+S30E13,30,13,Blue Ridge Falls,trees,1
+S30E13,30,13,Blue Ridge Falls,waterfall,1
+S31E01,31,1,Reflections Of Calm,conifer,1
+S31E01,31,1,Reflections Of Calm,lake,1
+S31E01,31,1,Reflections Of Calm,mountain,1
+S31E01,31,1,Reflections Of Calm,mountains,1
+S31E01,31,1,Reflections Of Calm,tree,1
+S31E01,31,1,Reflections Of Calm,trees,1
+S31E02,31,2,Before The Snowfall,bushes,1
+S31E02,31,2,Before The Snowfall,cabin,1
+S31E02,31,2,Before The Snowfall,clouds,1
+S31E02,31,2,Before The Snowfall,conifer,1
+S31E02,31,2,Before The Snowfall,river,1
+S31E02,31,2,Before The Snowfall,structure,1
+S31E02,31,2,Before The Snowfall,tree,1
+S31E02,31,2,Before The Snowfall,trees,1
+S31E03,31,3,Winding Stream,clouds,1
+S31E03,31,3,Winding Stream,conifer,1
+S31E03,31,3,Winding Stream,grass,1
+S31E03,31,3,Winding Stream,river,1
+S31E03,31,3,Winding Stream,rocks,1
+S31E03,31,3,Winding Stream,tree,1
+S31E03,31,3,Winding Stream,trees,1
+S31E04,31,4,Tranquility Cove,deciduous,1
+S31E04,31,4,Tranquility Cove,grass,1
+S31E04,31,4,Tranquility Cove,lake,1
+S31E04,31,4,Tranquility Cove,rocks,1
+S31E04,31,4,Tranquility Cove,tree,1
+S31E04,31,4,Tranquility Cove,trees,1
+S31E05,31,5,Cabin In The Hollow,cabin,1
+S31E05,31,5,Cabin In The Hollow,conifer,1
+S31E05,31,5,Cabin In The Hollow,framed,1
+S31E05,31,5,Cabin In The Hollow,oval frame,1
+S31E05,31,5,Cabin In The Hollow,river,1
+S31E05,31,5,Cabin In The Hollow,snow,1
+S31E05,31,5,Cabin In The Hollow,tree,1
+S31E05,31,5,Cabin In The Hollow,trees,1
+S31E05,31,5,Cabin In The Hollow,winter,1
+S31E06,31,6,View From Clear Creek,bushes,1
+S31E06,31,6,View From Clear Creek,conifer,1
+S31E06,31,6,View From Clear Creek,grass,1
+S31E06,31,6,View From Clear Creek,mountain,1
+S31E06,31,6,View From Clear Creek,mountains,1
+S31E06,31,6,View From Clear Creek,river,1
+S31E06,31,6,View From Clear Creek,tree,1
+S31E06,31,6,View From Clear Creek,trees,1
+S31E07,31,7,Bridge To Autumn,bridge,1
+S31E07,31,7,Bridge To Autumn,deciduous,1
+S31E07,31,7,Bridge To Autumn,lake,1
+S31E07,31,7,Bridge To Autumn,path,1
+S31E07,31,7,Bridge To Autumn,structure,1
+S31E07,31,7,Bridge To Autumn,tree,1
+S31E07,31,7,Bridge To Autumn,trees,1
+S31E08,31,8,Trail's End,clouds,1
+S31E08,31,8,Trail's End,deciduous,1
+S31E08,31,8,Trail's End,path,1
+S31E08,31,8,Trail's End,tree,1
+S31E08,31,8,Trail's End,trees,1
+S31E09,31,9,Evergreen Valley,conifer,1
+S31E09,31,9,Evergreen Valley,grass,1
+S31E09,31,9,Evergreen Valley,mountain,1
+S31E09,31,9,Evergreen Valley,mountains,1
+S31E09,31,9,Evergreen Valley,rocks,1
+S31E09,31,9,Evergreen Valley,snowy mountain,1
+S31E09,31,9,Evergreen Valley,tree,1
+S31E09,31,9,Evergreen Valley,trees,1
+S31E10,31,10,Balmy Beach,beach,1
+S31E10,31,10,Balmy Beach,framed,1
+S31E10,31,10,Balmy Beach,ocean,1
+S31E10,31,10,Balmy Beach,palm trees,1
+S31E10,31,10,Balmy Beach,rocks,1
+S31E10,31,10,Balmy Beach,seashell frame,1
+S31E10,31,10,Balmy Beach,waves,1
+S31E11,31,11,Lake At The Ridge,clouds,1
+S31E11,31,11,Lake At The Ridge,conifer,1
+S31E11,31,11,Lake At The Ridge,deciduous,1
+S31E11,31,11,Lake At The Ridge,grass,1
+S31E11,31,11,Lake At The Ridge,guest,1
+S31E11,31,11,Lake At The Ridge,lake,1
+S31E11,31,11,Lake At The Ridge,mountain,1
+S31E11,31,11,Lake At The Ridge,mountains,1
+S31E11,31,11,Lake At The Ridge,snowy mountain,1
+S31E11,31,11,Lake At The Ridge,steve ross,1
+S31E11,31,11,Lake At The Ridge,tree,1
+S31E11,31,11,Lake At The Ridge,trees,1
+S31E12,31,12,In The Midst Of Winter,barn,1
+S31E12,31,12,In The Midst Of Winter,conifer,1
+S31E12,31,12,In The Midst Of Winter,deciduous,1
+S31E12,31,12,In The Midst Of Winter,fog,1
+S31E12,31,12,In The Midst Of Winter,path,1
+S31E12,31,12,In The Midst Of Winter,snow,1
+S31E12,31,12,In The Midst Of Winter,structure,1
+S31E12,31,12,In The Midst Of Winter,tree,1
+S31E12,31,12,In The Midst Of Winter,trees,1
+S31E12,31,12,In The Midst Of Winter,winter,1
+S31E13,31,13,Wilderness Day,deciduous,1
+S31E13,31,13,Wilderness Day,grass,1
+S31E13,31,13,Wilderness Day,mountain,1
+S31E13,31,13,Wilderness Day,tree,1
+S31E13,31,13,Wilderness Day,trees,1
