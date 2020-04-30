@@ -441,7 +441,7 @@ BobRossStep12 <- fivethirtyeight::bob_ross %>%
                       cols = c(apple_frame:wood_framed), 
                           names_to = "object",  
                             values_to = "present") %>% 
-  dplyr::filter(present == 1) %>% 
+  dplyr::filter(present == 1 & episode_num == 4) %>% 
   tidyr::pivot_wider(data = ., 
                      names_from = object, 
                      values_from = present)
@@ -463,10 +463,21 @@ BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12,
 BobRossStep12
 ```
 
-Now create categorical variable. 
+Now create categorical variable for `frames` and `guests` in `BobRossStep12`. 
 
 ```{r}
-BobRossStep12 %>% count(object)
+dplyr::mutate(.data = BobRossStep12, 
+              frames_and_guests = case_when(
+                  present == 1 & str_detect(object, "frame") ~ "frames",
+                  present == 1 & str_detect(object, "tree|deciduous|conifer") ~ "trees",
+                  present == 1 & str_detect(object, "cloud|cumulus") ~ "clouds",
+                  present == 1 & str_detect(object, "lake|ocean|beach") ~ "clouds")) %>% 
+  dplyr::arrange(desc(present))
+```
+
+
+```{r}
+dplyr::distinct(.data = BobRossStep12, object)
 ```
 
 
