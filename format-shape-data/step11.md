@@ -1,6 +1,10 @@
 # Creating new variables based on multiple conditions
 
-The `dplyr::if_else` function works well with `dplyr::mutate()` for creating new variables based on a single condition, but sometimes we want to create new variables based on the values in more than one column (i.e. multiple conditions). In this case, we can combine `dplyr::mutate()` wjth `dplyr::case_when()` to create new variables based on multiple conditions. These functions work together with the following arguments. 
+The `dplyr::if_else()` function works well with `dplyr::mutate()` for creating new variables based on a single condition, but sometimes we want to create new variables based on the values in more than one column (i.e. multiple conditions). 
+
+In this case, we can combine `dplyr::mutate()` wjth `dplyr::case_when()` to create new variables based on multiple conditions. These functions work together with the following arguments. 
+
+### Using `dplyr::case_when()` with `dplyr::mutate()`
 
 ```
 # first we assign a new variable name
@@ -11,13 +15,13 @@ dplyr::mutate(.data = DataSet, `new variable name`,
                     left hand side condition 2 ~ right hand side replacement 2))
 ```
 
-We learn more about how `case_when` works by accessing the R help files (`?dplyr::case_when`).
+We can learn more about how `dplyr::case_when` works by accessing the R help files (`?dplyr::case_when`).
 
 > *The left hand side determines which values match this case. The right hand side provides the replacement value. The LHS must evaluate to a logical vector. The right hand side does not need to be logical, but all right hand sides must evaluate to the same type of vector.* 
 
-## Using `case_when`
+### Creating categorical variables
 
-We will load a small example of `BobRoss` to experiment with [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html).
+We will load a small example of `BobRoss` to experiment with [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html). This dataset only has the first three episodes of season 1.
 
 ```
 BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
