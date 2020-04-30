@@ -8,11 +8,13 @@ In this case, we can combine `dplyr::mutate()` wjth `dplyr::case_when()` to crea
 
 ```
 # first we assign a new variable name
-dplyr::mutate(.data = DataSet, `new variable name`, 
-        # then we enter our conditions (condition 1)
-           case_when(left hand side condition 1 ~ right hand side replacement 1,
-                    # condition 2 
-                    left hand side condition 2 ~ right hand side replacement 2))
+dplyr::mutate(.data = DataSet, 
+                `new variable name`, 
+           case_when(
+             # then we enter our conditions (condition 1)
+             left hand side condition 1 ~ right hand side result 1,
+             # condition 2 
+             left hand side condition 2 ~ right hand side result 2))
 ```
 
 We can learn more about how `dplyr::case_when` works by accessing the R help files (`?dplyr::case_when`).

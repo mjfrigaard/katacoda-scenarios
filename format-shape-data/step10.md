@@ -42,10 +42,11 @@ We can also use `if_else` in combination with [`stringr::str_detect()`](https://
 ```
 # click to execute code
 BobRossStep10 <- dplyr::mutate(.data = BobRossStep10, 
-                    episode01 = if_else(condition = str_detect(string = episode, 
-                                                               pattern = "E01"), 
-                                    true = TRUE,
-                                    false = FALSE))
+                   episode01 = if_else(condition = str_detect(
+                                                    string = episode, 
+                                                     pattern = "E01"), 
+                                                        true = TRUE,
+                                                        false = FALSE))
 # count the new values
 dplyr::count(BobRossStep10, episode01)
 ```{{execute}}
