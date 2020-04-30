@@ -385,12 +385,16 @@ Check working environment
 
 ```{r create-BobRossStep11}
 # ls()
-BobRossStep11 <- BobRossStep10 %>% select(season, episode, title, object, present)
-head(BobRossStep11)
+BobRossStep11 <- BobRossStep10 %>% 
+  dplyr::select(season, episode, title, object, present) %>% 
+  dplyr::mutate(
+    title = stringr::str_to_title(title),
+    object = stringr::str_replace_all(object, "_", " "))
 # export
 readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 ```
 
+Import new data.
 
 ```{r bob-ross-step11}
 rm(BobRossStep11)
