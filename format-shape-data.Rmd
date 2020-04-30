@@ -1,5 +1,5 @@
 ---
-title: "Format and shape your data in R with the tidyverse"
+title: "Format and reshape your data in R with the tidyverse"
 output: 
   github_document: 
     toc: true
@@ -467,35 +467,35 @@ BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12,
                       cols = -c(episode, season, episode_num, title), 
                           names_to = "object",  
                             values_to = "present")
+BobRossStep12
 ```
 
 Now create categorical variable for `frames` and `guests` in `BobRossStep12`. 
 
-```{r}
-dplyr::mutate(.data = BobRossStep12, 
-              frames_and_guests = case_when(
-                  present == 1 & str_detect(object, "frame") ~ "frames",
-                  present == 1 & str_detect(object, "tree|deciduous|conifer") ~ "trees",
-                  present == 1 & str_detect(object, "cloud|cumulus") ~ "clouds",
-                  present == 1 & str_detect(object, "lake|ocean|beach") ~ "clouds"
-                  
-                  )) %>% 
-  dplyr::arrange(desc(present))
+```{r painting_cats}
+BobRossStep12 <- dplyr::mutate(.data = BobRossStep12, 
+              painting_cats = case_when(
+                  present == 1 & str_detect(object, "cabin") ~ "Cabins",
+                  present == 1 & str_detect(object, "frame") ~ "Frames",
+                  present == 1 & str_detect(object, "tree|deciduous") ~ "Trees",
+                  present == 1 & str_detect(object, "cloud|cumulus") ~ "Clouds",
+                  TRUE ~ NA_character_)) 
+BobRossStep12
+```
+
+```{r count-painting_cats}
+dplyr::count(BobRossStep12, painting_cats)
+```
+
+```{r painting_cats-object}
+dplyr::count(BobRossStep12, object, painting_cats)
 ```
 
 
-```{r}
-dplyr::distinct(.data = BobRossStep12, object)
+```{r BobRossCounts-pivot_wider}
+BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, object)
+pivot_wider(data = BobRossCounts, names_from = painting_cats, values_from = n)
 ```
-
-
-```{r}
-dplyr::mutate(.data = BobRossStep12, 
-              
-              )
-```
-
-
 
 
 ## Appendix 1: Katacoda scenario tutorials

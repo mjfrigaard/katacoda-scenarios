@@ -17,13 +17,84 @@ Use `utils::head()`, `dplyr::glimpse()`, or `utils::str()` to view the contents 
 
 ### Create long (tidy) dataset
 
-First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started (assign the names to `'object'` and assign the values to `'present'`.
+First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started, 
+
++ the `cols` argument should be `-c(episode, season, episode_num, title)` (this means negate these four columns)  
+
++ assign `names_to` to `"object"` and `values_to` to `"present"`).
+
++ when you're confident you have it correct, assign these changes to `BobRossStep12`.
 
 ```
-BobRossStep12 <- pivot_longer(data = BobRossStep12, cols = c(apple_frame:wood_framed), names_to = "_______",  values_to = "_______")
+BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12, cols = -c(episode, season, episode_num, title), names_to = "_______",  values_to = "________")
 ```{{copy}}
 
-Now that we have a long dataset, let's create a new variable that creates three categories for the paintings. 
+Now that we have a long dataset, we can create a new variable (`painting_cats`) for the following categories.
+
++ Label any mention of cabin as `Cabins` (*there should only be one*)
+
++ Capture all framed paintings under the label `Frames` (*a single pattern of `frame` should do the trick*)
+
++ Create a category for all the `Trees` (*there are different types of trees here, so we can combine multiple arguments by placing a pipe (|) between them*)
+
++ Label all the clouds as `Clouds` (*same as above, but with different types of clouds*)
+
++ All other missing values should be labelled `NA` with `NA_character_` (*here we will use `TRUE` as the condition, and the `NA` type as the result*)
+
+```
+dplyr::mutate(.data = BobRossStep12, 
+        painting_cats = case_when(
+                present == 1 & str_detect(object, "______") ~ "Cabins",
+                  present == 1 & str_detect(object, "______") ~ "Frames", 
+                    present == 1 & str_detect(object, "____|_________") ~ "Trees",
+                        present == 1 & str_detect(object, "_____|_______") ~ "Clouds", 
+                            TRUE ~ __________)) 
+```{{copy}}
+
+**Did you get it?** 
+
+You can run the code below to check 
+
+```
+BobRossStep12 <- dplyr::mutate(.data = BobRossStep12, 
+              painting_cats = case_when(
+                  present == 1 & str_detect(object, "cabin") ~ "Cabins",
+                  present == 1 & str_detect(object, "frame") ~ "Frames",
+                  present == 1 & str_detect(object, "tree|deciduous") ~ "Trees",
+                  present == 1 & str_detect(object, "cloud|cumulus") ~ "Clouds",
+                  TRUE ~ NA_character_)) 
+BobRossStep12
+```{{execute}}
+
+
+Now we want to check our work by creating a cross tabulation between `object` and `painting_cats`. We can do this with `dplyr::count()`, which tallys up all the values in a column. Copy the code below to see the new values in `painting_cats`.
+
+```
+# the n column is the tally of the values
+dplyr::count(BobRossStep12, painting_cats)
+```{{copy}}
+
+If we want to count two variables, we simply separate them with a comma (see below). 
+
+```
+# the n is the tally, but for both variables
+dplyr::count(BobRossStep12, object, painting_cats)
+```{{copy}}
+
+As you can see, this is returning a `tibble`. We know how to reshape `tibbles` with the `pivot_` functions now, so let's restructure the output to view the values of `painting_cats` across columns. 
+
+```
+# create counts dataset of object and painting_cats
+BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, ______)
+```{{copy}}
+
+Assign the names from our new `painting_cats` variable and values from n
+
+```
+# reshape this to wide and use n as the values
+pivot_wider(data = BobRossCounts, names_from = painting_cats, values_from = _)
+```{{copy}}
+
 
 
 

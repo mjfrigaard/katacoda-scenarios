@@ -8,19 +8,22 @@ Format and shape your data in R with the tidyverse
   - [Intro](#intro)
   - [step 1 (install and load
     packages)](#step-1-install-and-load-packages)
-  - [step 2 (tribble)](#step-2-tribble)
-  - [step 3 (read\_csv)](#step-3-read_csv)
-  - [step 4 (fivethirtyeight, glimpse)](#step-4-fivethirtyeight-glimpse)
+  - [step 2 (fivethirtyeight)](#step-2-fivethirtyeight)
+  - [step 3 (tribbles)](#step-3-tribbles)
+  - [step 4 (readr)](#step-4-readr)
   - [step 5 (pivot\_longer)](#step-5-pivot_longer)
   - [step6 (pivot\_wider)](#step6-pivot_wider)
   - [step 7 (separate)](#step-7-separate)
   - [step 8 (unite and rm)](#step-8-unite-and-rm)
+  - [step 9](#step-9)
+  - [step 10](#step-10)
+  - [step 11](#step-11)
+  - [step 12](#step-12)
       - [Appendix 1: Katacoda scenario
         tutorials](#appendix-1-katacoda-scenario-tutorials)
       - [Appendix 2: Katacoda
         guidelines](#appendix-2-katacoda-guidelines)
       - [Appendix 3: Scenario Checklist](#appendix-3-scenario-checklist)
-      - [Scenario contents](#scenario-contents)
 
 # Access the scenario
 
@@ -105,7 +108,7 @@ below.
     #> format-shape-data
     #> └── step1.md
 
-# step 2 (tribble)
+# step 2 (fivethirtyeight)
 
     #> format-shape-data
     #> └── step2.md
@@ -127,7 +130,7 @@ SmallBobRoss  <- tibble::tribble(~title, ~bushes, ~clouds,
                          "QUIET STREAM",      0L,      0L)
 ```
 
-# step 3 (read\_csv)
+# step 3 (tribbles)
 
     #> format-shape-data
     #> └── step3.md
@@ -152,7 +155,7 @@ readr::read_csv(file = "https://bit.ly/small-bob-ross")
     #> 4 WINTER MIST              1      1
     #> 5 QUIET STREAM             0      0
 
-# step 4 (fivethirtyeight, glimpse)
+# step 4 (readr)
 
     #> format-shape-data
     #> └── step4.md
@@ -427,6 +430,481 @@ unite(data = BobRossStep8, season_text, episode_text, col = 'episode_new',
     #> 10 S01E01      A WALK IN THE WOODS cactus                0
     #> # … with 26,991 more rows
 
+# step 9
+
+``` r
+rm(list = ls(pattern = "Step"))
+ls()
+```
+
+    #> [1] "BobRoss"      "BobRossLong"  "BobRossWide"  "SmallBobRoss"
+
+``` r
+tibble::tribble(
+  ~category, ~april, ~may, ~june, 
+  "Zone A",       9,   14,     5,
+  "Zone B",      12,   16,    10,
+  "Zone C",      15,   18,    15) %>% 
+  # 
+  tidyr::pivot_longer(data = .,
+                      cols = -category, 
+                      names_to = "month", 
+                      values_to = "count") %>% 
+  # 
+  tidyr::pivot_wider(data = .,
+                     names_from = month, 
+                     values_from = count)
+```
+
+    #> # A tibble: 3 x 4
+    #>   category april   may  june
+    #>   <chr>    <dbl> <dbl> <dbl>
+    #> 1 Zone A       9    14     5
+    #> 2 Zone B      12    16    10
+    #> 3 Zone C      15    18    15
+
+``` r
+BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+BobRossStep9 <- BobRossStep8 %>% 
+  dplyr::mutate(season_txt = stringr::str_remove_all(string = season_text, 
+                                                pattern = "S")) %>% 
+  dplyr::rename(episode_txt = episode_text) 
+
+BobRossStep9 <- BobRossStep9 %>% 
+  dplyr::select(episode_txt, 
+                season_txt,
+                title,
+                object,
+                present)
+BobRossStep9
+```
+
+    #> # A tibble: 27,001 x 5
+    #>    episode_txt season_txt title               object          present
+    #>    <chr>       <chr>      <chr>               <chr>             <dbl>
+    #>  1 01          01         A WALK IN THE WOODS apple_frame           0
+    #>  2 01          01         A WALK IN THE WOODS aurora_borealis       0
+    #>  3 01          01         A WALK IN THE WOODS barn                  0
+    #>  4 01          01         A WALK IN THE WOODS beach                 0
+    #>  5 01          01         A WALK IN THE WOODS boat                  0
+    #>  6 01          01         A WALK IN THE WOODS bridge                0
+    #>  7 01          01         A WALK IN THE WOODS building              0
+    #>  8 01          01         A WALK IN THE WOODS bushes                1
+    #>  9 01          01         A WALK IN THE WOODS cabin                 0
+    #> 10 01          01         A WALK IN THE WOODS cactus                0
+    #> # … with 26,991 more rows
+
+``` r
+# export
+readr::write_csv(as.data.frame(x = BobRossStep9), "data/BobRossStep9.csv")
+```
+
+Import data
+
+``` r
+BobRossStep9 <- readr::read_csv(file = "https://bit.ly/bob-ross-step9")
+```
+
+Convert to numeric.
+
+``` r
+dplyr::mutate(.data = BobRossStep9, episode_num = as.numeric(episode_txt))
+```
+
+    #> # A tibble: 27,001 x 6
+    #>    episode_txt season_txt title              object        present episode_num
+    #>    <chr>       <chr>      <chr>              <chr>           <dbl>       <dbl>
+    #>  1 01          01         A WALK IN THE WOO… apple_frame         0           1
+    #>  2 01          01         A WALK IN THE WOO… aurora_borea…       0           1
+    #>  3 01          01         A WALK IN THE WOO… barn                0           1
+    #>  4 01          01         A WALK IN THE WOO… beach               0           1
+    #>  5 01          01         A WALK IN THE WOO… boat                0           1
+    #>  6 01          01         A WALK IN THE WOO… bridge              0           1
+    #>  7 01          01         A WALK IN THE WOO… building            0           1
+    #>  8 01          01         A WALK IN THE WOO… bushes              1           1
+    #>  9 01          01         A WALK IN THE WOO… cabin               0           1
+    #> 10 01          01         A WALK IN THE WOO… cactus              0           1
+    #> # … with 26,991 more rows
+
+Convert `title` to `title`.
+
+``` r
+dplyr::mutate(.data = BobRossStep9, 
+              episode_num = base::as.numeric(episode_txt),
+              title = stringr::str_to_title(title))
+```
+
+    #> # A tibble: 27,001 x 6
+    #>    episode_txt season_txt title              object        present episode_num
+    #>    <chr>       <chr>      <chr>              <chr>           <dbl>       <dbl>
+    #>  1 01          01         A Walk In The Woo… apple_frame         0           1
+    #>  2 01          01         A Walk In The Woo… aurora_borea…       0           1
+    #>  3 01          01         A Walk In The Woo… barn                0           1
+    #>  4 01          01         A Walk In The Woo… beach               0           1
+    #>  5 01          01         A Walk In The Woo… boat                0           1
+    #>  6 01          01         A Walk In The Woo… bridge              0           1
+    #>  7 01          01         A Walk In The Woo… building            0           1
+    #>  8 01          01         A Walk In The Woo… bushes              1           1
+    #>  9 01          01         A Walk In The Woo… cabin               0           1
+    #> 10 01          01         A Walk In The Woo… cactus              0           1
+    #> # … with 26,991 more rows
+
+``` r
+dplyr::mutate(.data = BobRossStep9, 
+              episode_num = base::as.numeric(episode_txt),
+              title = stringr::str_to_title(title),
+              object = stringr::str_replace_all(string = object, 
+                                       pattern = "_", 
+                                       replacement = " "))
+```
+
+    #> # A tibble: 27,001 x 6
+    #>    episode_txt season_txt title              object        present episode_num
+    #>    <chr>       <chr>      <chr>              <chr>           <dbl>       <dbl>
+    #>  1 01          01         A Walk In The Woo… apple frame         0           1
+    #>  2 01          01         A Walk In The Woo… aurora borea…       0           1
+    #>  3 01          01         A Walk In The Woo… barn                0           1
+    #>  4 01          01         A Walk In The Woo… beach               0           1
+    #>  5 01          01         A Walk In The Woo… boat                0           1
+    #>  6 01          01         A Walk In The Woo… bridge              0           1
+    #>  7 01          01         A Walk In The Woo… building            0           1
+    #>  8 01          01         A Walk In The Woo… bushes              1           1
+    #>  9 01          01         A Walk In The Woo… cabin               0           1
+    #> 10 01          01         A Walk In The Woo… cactus              0           1
+    #> # … with 26,991 more rows
+
+``` r
+BobRossStep9 <- dplyr::mutate(.data = BobRossStep9, 
+              # first new variable 
+              episode_num = base::as.numeric(episode_txt),
+              # second variable change
+              title = stringr::str_to_title(title),
+              # third variable change
+              object = stringr::str_replace_all(string = object, 
+                                       pattern = "_", 
+                                       replacement = " "))
+```
+
+# step 10
+
+``` r
+rm(list = ls(pattern = "Step"))
+ls()
+```
+
+    #> [1] "BobRoss"      "BobRossLong"  "BobRossWide"  "SmallBobRoss"
+
+``` r
+BobRossStep10 <- BobRossLong %>% 
+  dplyr::select(-episode_num)
+head(BobRossStep10)
+```
+
+    #> # A tibble: 6 x 5
+    #>   episode season title               object          present
+    #>   <chr>    <dbl> <chr>               <chr>             <int>
+    #> 1 S01E01       1 A WALK IN THE WOODS apple_frame           0
+    #> 2 S01E01       1 A WALK IN THE WOODS aurora_borealis       0
+    #> 3 S01E01       1 A WALK IN THE WOODS barn                  0
+    #> 4 S01E01       1 A WALK IN THE WOODS beach                 0
+    #> 5 S01E01       1 A WALK IN THE WOODS boat                  0
+    #> 6 S01E01       1 A WALK IN THE WOODS bridge                0
+
+``` r
+# export
+readr::write_csv(as.data.frame(x = BobRossStep10), "data/BobRossStep10.csv")
+```
+
+Create a new variable base on conditions.
+
+``` r
+BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
+head(BobRossStep10)
+```
+
+    #> # A tibble: 6 x 5
+    #>   episode season title               object          present
+    #>   <chr>    <dbl> <chr>               <chr>             <dbl>
+    #> 1 S01E01       1 A WALK IN THE WOODS apple_frame           0
+    #> 2 S01E01       1 A WALK IN THE WOODS aurora_borealis       0
+    #> 3 S01E01       1 A WALK IN THE WOODS barn                  0
+    #> 4 S01E01       1 A WALK IN THE WOODS beach                 0
+    #> 5 S01E01       1 A WALK IN THE WOODS boat                  0
+    #> 6 S01E01       1 A WALK IN THE WOODS bridge                0
+
+``` r
+BobRossStep10 <- dplyr::mutate(.data = BobRossStep10, 
+                            season01 = if_else(condition = season == 1, 
+                                               true = TRUE,
+                                               false = FALSE))
+dplyr::count(BobRossStep10, season01)
+```
+
+    #> # A tibble: 2 x 2
+    #>   season01     n
+    #>   <lgl>    <int>
+    #> 1 FALSE    26130
+    #> 2 TRUE       871
+
+``` r
+BobRossStep10 <- dplyr::mutate(.data = BobRossStep10, 
+                    episode01 = if_else(condition = str_detect(string = episode, 
+                                                               pattern = "E01"), 
+                                    true = TRUE,
+                                    false = FALSE))
+dplyr::count(BobRossStep10, episode01)
+```
+
+    #> # A tibble: 2 x 2
+    #>   episode01     n
+    #>   <lgl>     <int>
+    #> 1 FALSE     24924
+    #> 2 TRUE       2077
+
+# step 11
+
+Check working environment
+
+``` r
+rm(list = ls(pattern = "Step"))
+ls()
+```
+
+    #> [1] "BobRoss"      "BobRossLong"  "BobRossWide"  "SmallBobRoss"
+
+``` r
+# ls()
+BobRossStep11 <- BobRossLong %>% 
+  # fix titles and object
+  dplyr::mutate(
+    title = stringr::str_to_title(title),
+    object = stringr::str_replace_all(object, "_", " ")) %>% 
+  # limit to present 1 and season 1 & episode_num <= 3
+  dplyr::filter(present == 1 & season == 1 & episode_num <= 3)
+# export
+readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
+```
+
+Import new data.
+
+``` r
+BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
+glimpse(BobRossStep11)
+```
+
+    #> Rows: 25
+    #> Columns: 6
+    #> $ episode     <chr> "S01E01", "S01E01", "S01E01", "S01E01", "S01E01", "S01E…
+    #> $ season      <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+    #> $ episode_num <dbl> 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3…
+    #> $ title       <chr> "A Walk In The Woods", "A Walk In The Woods", "A Walk I…
+    #> $ object      <chr> "bushes", "deciduous", "grass", "river", "tree", "trees…
+    #> $ present     <dbl> 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1…
+
+create `object_category`.
+
+``` r
+dplyr::mutate(.data = BobRossStep11, 
+          object_category = case_when(
+              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
+              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
+              season == 1 & str_detect(string = object, pattern = "river") ~ "water",
+              season == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
+              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings",
+              TRUE ~ "other"))
+```
+
+    #> # A tibble: 25 x 7
+    #>    episode season episode_num title         object     present object_category
+    #>    <chr>    <dbl>       <dbl> <chr>         <chr>        <dbl> <chr>          
+    #>  1 S01E01       1           1 A Walk In Th… bushes           1 bushes         
+    #>  2 S01E01       1           1 A Walk In Th… deciduous        1 trees          
+    #>  3 S01E01       1           1 A Walk In Th… grass            1 other          
+    #>  4 S01E01       1           1 A Walk In Th… river            1 water          
+    #>  5 S01E01       1           1 A Walk In Th… tree             1 trees          
+    #>  6 S01E01       1           1 A Walk In Th… trees            1 trees          
+    #>  7 S01E02       1           2 Mt. Mckinley  cabin            1 buildings      
+    #>  8 S01E02       1           2 Mt. Mckinley  clouds           1 other          
+    #>  9 S01E02       1           2 Mt. Mckinley  conifer          1 trees          
+    #> 10 S01E02       1           2 Mt. Mckinley  mountain         1 mountains      
+    #> 11 S01E02       1           2 Mt. Mckinley  snow             1 other          
+    #> 12 S01E02       1           2 Mt. Mckinley  snowy mou…       1 mountains      
+    #> 13 S01E02       1           2 Mt. Mckinley  tree             1 trees          
+    #> 14 S01E02       1           2 Mt. Mckinley  trees            1 trees          
+    #> 15 S01E02       1           2 Mt. Mckinley  winter           1 other          
+    #> 16 S01E03       1           3 Ebony Sunset  cabin            1 buildings      
+    #> 17 S01E03       1           3 Ebony Sunset  conifer          1 trees          
+    #> 18 S01E03       1           3 Ebony Sunset  fence            1 other          
+    #> 19 S01E03       1           3 Ebony Sunset  mountain         1 mountains      
+    #> 20 S01E03       1           3 Ebony Sunset  mountains        1 mountains      
+    #> 21 S01E03       1           3 Ebony Sunset  structure        1 other          
+    #> 22 S01E03       1           3 Ebony Sunset  sun              1 other          
+    #> 23 S01E03       1           3 Ebony Sunset  tree             1 trees          
+    #> 24 S01E03       1           3 Ebony Sunset  trees            1 trees          
+    #> 25 S01E03       1           3 Ebony Sunset  winter           1 other
+
+# step 12
+
+This uses the original `bob_ross` (reduced to season 4, episodes 4 - )
+
+``` r
+BobRossStep12 <- fivethirtyeight::bob_ross %>% 
+  dplyr::filter(episode_num >= 4 & episode_num <= 5 & season == 4) %>% 
+  tidyr::pivot_longer(data = ., 
+                      cols = c(apple_frame:wood_framed), 
+                          names_to = "object",  
+                            values_to = "present") %>% 
+  dplyr::filter(present == 1) %>% 
+  # limit to only a subset of objects
+  dplyr::filter(object %in% c("cabin", "clouds", 
+                              "cumulus", "framed", 
+                              "circle_frame", "deciduous", 
+                              "tree", "trees")) %>% 
+  # pivot wider again
+  tidyr::pivot_wider(data = ., 
+                     names_from = object, 
+                     values_from = present)
+# export BobRossStep12
+readr::write_csv(as.data.frame(x = BobRossStep12), "data/BobRossStep12.csv")
+head(BobRossStep12)
+```
+
+    #> # A tibble: 2 x 12
+    #>   episode season episode_num title cabin circle_frame clouds cumulus deciduous
+    #>   <chr>    <dbl>       <dbl> <chr> <int>        <int>  <int>   <int>     <int>
+    #> 1 S04E04       4           4 WINT…     1            1      1       1         1
+    #> 2 S04E05       4           5 EVEN…    NA           NA      1       1        NA
+    #> # … with 3 more variables: framed <int>, tree <int>, trees <int>
+
+``` r
+BobRossStep12 <- readr::read_csv(file = "https://bit.ly/bob-ross-step12")
+head(BobRossStep12)
+```
+
+    #> # A tibble: 2 x 12
+    #>   episode season episode_num title cabin circle_frame clouds cumulus deciduous
+    #>   <chr>    <dbl>       <dbl> <chr> <dbl>        <dbl>  <dbl>   <dbl>     <dbl>
+    #> 1 S04E04       4           4 WINT…     1            1      1       1         1
+    #> 2 S04E05       4           5 EVEN…    NA           NA      1       1        NA
+    #> # … with 3 more variables: framed <dbl>, tree <dbl>, trees <dbl>
+
+First create a long version
+
+``` r
+BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12, 
+                      cols = -c(episode, season, episode_num, title), 
+                          names_to = "object",  
+                            values_to = "present")
+BobRossStep12
+```
+
+    #> # A tibble: 16 x 6
+    #>    episode season episode_num title            object       present
+    #>    <chr>    <dbl>       <dbl> <chr>            <chr>          <dbl>
+    #>  1 S04E04       4           4 WINTER SAWSCAPE  cabin              1
+    #>  2 S04E04       4           4 WINTER SAWSCAPE  circle_frame       1
+    #>  3 S04E04       4           4 WINTER SAWSCAPE  clouds             1
+    #>  4 S04E04       4           4 WINTER SAWSCAPE  cumulus            1
+    #>  5 S04E04       4           4 WINTER SAWSCAPE  deciduous          1
+    #>  6 S04E04       4           4 WINTER SAWSCAPE  framed             1
+    #>  7 S04E04       4           4 WINTER SAWSCAPE  tree               1
+    #>  8 S04E04       4           4 WINTER SAWSCAPE  trees              1
+    #>  9 S04E05       4           5 EVENING SEASCAPE cabin             NA
+    #> 10 S04E05       4           5 EVENING SEASCAPE circle_frame      NA
+    #> 11 S04E05       4           5 EVENING SEASCAPE clouds             1
+    #> 12 S04E05       4           5 EVENING SEASCAPE cumulus            1
+    #> 13 S04E05       4           5 EVENING SEASCAPE deciduous         NA
+    #> 14 S04E05       4           5 EVENING SEASCAPE framed            NA
+    #> 15 S04E05       4           5 EVENING SEASCAPE tree               1
+    #> 16 S04E05       4           5 EVENING SEASCAPE trees              1
+
+Now create categorical variable for `frames` and `guests` in
+`BobRossStep12`.
+
+``` r
+BobRossStep12 <- dplyr::mutate(.data = BobRossStep12, 
+              painting_cats = case_when(
+                  present == 1 & str_detect(object, "cabin") ~ "Cabins",
+                  present == 1 & str_detect(object, "frame") ~ "Frames",
+                  present == 1 & str_detect(object, "tree|deciduous") ~ "Trees",
+                  present == 1 & str_detect(object, "cloud|cumulus") ~ "Clouds",
+                  TRUE ~ NA_character_)) 
+BobRossStep12
+```
+
+    #> # A tibble: 16 x 7
+    #>    episode season episode_num title           object     present painting_cats
+    #>    <chr>    <dbl>       <dbl> <chr>           <chr>        <dbl> <chr>        
+    #>  1 S04E04       4           4 WINTER SAWSCAPE cabin            1 Cabins       
+    #>  2 S04E04       4           4 WINTER SAWSCAPE circle_fr…       1 Frames       
+    #>  3 S04E04       4           4 WINTER SAWSCAPE clouds           1 Clouds       
+    #>  4 S04E04       4           4 WINTER SAWSCAPE cumulus          1 Clouds       
+    #>  5 S04E04       4           4 WINTER SAWSCAPE deciduous        1 Trees        
+    #>  6 S04E04       4           4 WINTER SAWSCAPE framed           1 Frames       
+    #>  7 S04E04       4           4 WINTER SAWSCAPE tree             1 Trees        
+    #>  8 S04E04       4           4 WINTER SAWSCAPE trees            1 Trees        
+    #>  9 S04E05       4           5 EVENING SEASCA… cabin           NA <NA>         
+    #> 10 S04E05       4           5 EVENING SEASCA… circle_fr…      NA <NA>         
+    #> 11 S04E05       4           5 EVENING SEASCA… clouds           1 Clouds       
+    #> 12 S04E05       4           5 EVENING SEASCA… cumulus          1 Clouds       
+    #> 13 S04E05       4           5 EVENING SEASCA… deciduous       NA <NA>         
+    #> 14 S04E05       4           5 EVENING SEASCA… framed          NA <NA>         
+    #> 15 S04E05       4           5 EVENING SEASCA… tree             1 Trees        
+    #> 16 S04E05       4           5 EVENING SEASCA… trees            1 Trees
+
+``` r
+dplyr::count(BobRossStep12, painting_cats)
+```
+
+    #> # A tibble: 5 x 2
+    #>   painting_cats     n
+    #>   <chr>         <int>
+    #> 1 Cabins            1
+    #> 2 Clouds            4
+    #> 3 Frames            2
+    #> 4 Trees             5
+    #> 5 <NA>              4
+
+``` r
+dplyr::count(BobRossStep12, object, painting_cats)
+```
+
+    #> # A tibble: 12 x 3
+    #>    object       painting_cats     n
+    #>    <chr>        <chr>         <int>
+    #>  1 cabin        Cabins            1
+    #>  2 cabin        <NA>              1
+    #>  3 circle_frame Frames            1
+    #>  4 circle_frame <NA>              1
+    #>  5 clouds       Clouds            2
+    #>  6 cumulus      Clouds            2
+    #>  7 deciduous    Trees             1
+    #>  8 deciduous    <NA>              1
+    #>  9 framed       Frames            1
+    #> 10 framed       <NA>              1
+    #> 11 tree         Trees             2
+    #> 12 trees        Trees             2
+
+``` r
+BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, object)
+pivot_wider(data = BobRossCounts, names_from = painting_cats, values_from = n)
+```
+
+    #> # A tibble: 8 x 6
+    #>   object       Cabins Clouds Frames Trees  `NA`
+    #>   <chr>         <int>  <int>  <int> <int> <int>
+    #> 1 cabin             1     NA     NA    NA     1
+    #> 2 clouds           NA      2     NA    NA    NA
+    #> 3 cumulus          NA      2     NA    NA    NA
+    #> 4 circle_frame     NA     NA      1    NA     1
+    #> 5 framed           NA     NA      1    NA     1
+    #> 6 deciduous        NA     NA     NA     1     1
+    #> 7 tree             NA     NA     NA     2    NA
+    #> 8 trees            NA     NA     NA     2    NA
+
 ## Appendix 1: Katacoda scenario tutorials
 
 The tutorial for building the scenario is
@@ -487,7 +965,3 @@ minutes to start would be cause to reconsider your build decisions.
 
   - [ ] Do the goals and lessons learned items match the steps in the
     scenario?
-
-## Scenario contents
-
-This scenario covers…
