@@ -386,10 +386,14 @@ Check working environment
 ```{r create-BobRossStep11}
 # ls()
 BobRossStep11 <- BobRossStep10 %>% 
+  # reorganize columns
   dplyr::select(season, episode, title, object, present) %>% 
+  # fix titles and object
   dplyr::mutate(
     title = stringr::str_to_title(title),
-    object = stringr::str_replace_all(object, "_", " "))
+    object = stringr::str_replace_all(object, "_", " ")) %>% 
+  # limit to season 1
+  dplyr::filter(season == 1)
 # export
 readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 ```
@@ -407,16 +411,17 @@ create `title_category`.
 ```{r title_category}
 dplyr::mutate(.data = BobRossStep11, 
               title_category = case_when(
-                str_detect(string = title, pattern = "MOUNTAIN|MT") ~ "Mountains",
-                str_detect(string = title, pattern = "WINTER") ~ "Winter", 
-                str_detect(string = title, pattern = "SUNSET") ~ "Sunsets ",
-                str_detect(string = title, pattern = "RIVER") ~ "Rivers",
-                str_detect(string = title, pattern = "CABIN") ~ "Cabins",
-                str_detect(string = title, pattern = "WOODS") ~ "Woods",
-                str_detect(string = title, pattern = "LAKE") ~ "Lakes",
-                str_detect(string = title, pattern = "STREAM") ~ "Streams",
-                str_detect(string = title, pattern = "SNOW") ~ "Snow",
-                str_detect(string = title, pattern = "VALLEY") ~ "Valleys"))
+                str_detect(string = title, pattern = "Mountain|Mt.") ~ "Mountains",
+                str_detect(string = title, pattern = "Winter") ~ "Season", 
+                str_detect(string = title, pattern = "Sunset") ~ "Sunsets",
+                str_detect(string = title, pattern = "River") ~ "Body of Water",
+                str_detect(string = title, pattern = "Cabin") ~ "Cabins",
+                str_detect(string = title, pattern = "Woods") ~ "Woods",
+                str_detect(string = title, pattern = "Lake") ~ "Body of Water",
+                str_detect(string = title, pattern = "Stream") ~ "Body of Water",
+                str_detect(string = title, pattern = "Snow") ~ "Snow",
+                str_detect(string = title, pattern = "Valley") ~ "Valleys",
+                str_detect(string = title, pattern = "Seascape") ~ "Seascapes"))
 ```
 
 Create title/season 1 categories.
