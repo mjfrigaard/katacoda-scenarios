@@ -390,8 +390,8 @@ BobRossStep11 <- BobRossLong %>%
   dplyr::mutate(
     title = stringr::str_to_title(title),
     object = stringr::str_replace_all(object, "_", " ")) %>% 
-  # limit to present 1
-  dplyr::filter(present == 1)
+  # limit to present 1 and season 1
+  dplyr::filter(present == 1 & season == 1)
 # export
 readr::write_csv(as.data.frame(x = BobRossStep11), "data/BobRossStep11.csv")
 ```
@@ -409,10 +409,14 @@ create `object_category`.
 ```{r}
 dplyr::mutate(.data = BobRossStep11, 
           object_category = case_when(
-              present == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
-              present == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
-              present == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
-              present == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings"))
+              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
+              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
+              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
+              season == 1 & str_detect(string = object, pattern = "river") ~ "water",
+              season == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
+              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings"))
 ```
 
 
