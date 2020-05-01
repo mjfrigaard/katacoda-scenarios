@@ -1,4 +1,4 @@
-Format and shape your data in R with the tidyverse
+Format and reshape your data in R with the tidyverse
 ================
 
   - [Access the scenario](#access-the-scenario)
@@ -98,6 +98,8 @@ The introduction for this scenario is stored in the following file:
 
     #> format-shape-data
     #> └── intro.md
+
+This outlines the goals and lessons and introduces the `tidyverse`.
 
 # step 1 (install and load packages)
 
