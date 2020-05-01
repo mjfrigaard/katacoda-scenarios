@@ -4,8 +4,6 @@ We rarely collect data in a way that can be immediately analyzed or visualized. 
 
 ## Goals & Lessons
 
-
-
 This scenario will introduce the following topics in R: 
 
 1. how to get data into R (manually, importing rectangular files, from packages)
@@ -14,6 +12,6 @@ This scenario will introduce the following topics in R:
 4. how to create new variables based on conditions (i.e. the values in) existing columns 
 5. how to check your work with pivoting  
 
-## Packages and libraries
+## The `tidyverse`
 
 In this scenario, we'll be using the [`tidyverse packages`](https://www.tidyverse.org/), "an opinionated collection of R packages designed for data science"

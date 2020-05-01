@@ -112,6 +112,7 @@ The introduction for this scenario is stored in the following file:
 fs::dir_tree("format-shape-data", regex = "intro")
 ```
 
+This outlines the goals and lessons and introduces the `tidyverse`.
 
 # step 1 (install and load packages)
 

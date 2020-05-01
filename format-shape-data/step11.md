@@ -30,16 +30,18 @@ BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 head(BobRossStep11)
 ```{{execute}}
 
-We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create an `painting_category` variable based on what `object`s were in a particular episode's painting. We'll be using `stringr::str_detect()` again to find all the paintings of with `mountains`, `trees`, and `bushes`. 
+We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create an `painting_category` variable based on what `object`s were in a particular episode's painting. 
+
+We'll be using `stringr::str_detect()` again to find all the paintings of with `mountains`, `trees`, and `bushes`. 
 
 ```
 dplyr::mutate(.data = BobRossStep11, 
           object_category = case_when(
-              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
-              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes"))
+              season == 1 & str_detect(object, "mountain") ~ "mountains",
+              season == 1 & str_detect(object, "deciduous") ~ "trees",
+              season == 1 & str_detect(object, "tree") ~ "trees",
+              season == 1 & str_detect(object, "conifer") ~ "trees",
+              season == 1 & str_detect(object, "bush") ~ "bushes"))
 ```{{execute}}
 
 The great thing about `case_when()` is that we can keep adding more conditions. For example, we can add `water` and `buildings` to the same `object_category` variable. 
@@ -47,14 +49,14 @@ The great thing about `case_when()` is that we can keep adding more conditions. 
 ```
 dplyr::mutate(.data = BobRossStep11, 
           object_category = case_when(
-              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
-              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
-              season == 1 & str_detect(string = object, pattern = "river") ~ "water",
-              season == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
-              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings"))
+              season == 1 & str_detect(object, "mountain") ~ "mountains",
+              season == 1 & str_detect(object, "deciduous") ~ "trees",
+              season == 1 & str_detect(object, "tree") ~ "trees",
+              season == 1 & str_detect(object, "conifer") ~ "trees",
+              season == 1 & str_detect(object, "bush") ~ "bushes",
+              season == 1 & str_detect(object, "river") ~ "water",
+              season == 1 & str_detect(object, "barn") ~ "buildings",
+              season == 1 & str_detect(object, "cabin") ~ "buildings"))
 ```{{execute}}
 
 We can also include a 'catch-all' with a logical `TRUE` condition.
@@ -62,14 +64,14 @@ We can also include a 'catch-all' with a logical `TRUE` condition.
 ```
 BobRossStep11 <- dplyr::mutate(.data = BobRossStep11, 
           object_category = case_when(
-              season == 1 & str_detect(string = object, pattern = "mountain") ~ "mountains",
-              season == 1 & str_detect(string = object, pattern = "deciduous") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "tree") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "conifer") ~ "trees",
-              season == 1 & str_detect(string = object, pattern = "bush") ~ "bushes",
-              season == 1 & str_detect(string = object, pattern = "river") ~ "water",
-              season == 1 & str_detect(string = object, pattern = "barn") ~ "buildings",
-              season == 1 & str_detect(string = object, pattern = "cabin") ~ "buildings",
+              season == 1 & str_detect(object, "mountain") ~ "mountains",
+              season == 1 & str_detect(object, "deciduous") ~ "trees",
+              season == 1 & str_detect(object, "tree") ~ "trees",
+              season == 1 & str_detect(object, "conifer") ~ "trees",
+              season == 1 & str_detect(object, "bush") ~ "bushes",
+              season == 1 & str_detect(object, "river") ~ "water",
+              season == 1 & str_detect(object, "barn") ~ "buildings",
+              season == 1 & str_detect(object, "cabin") ~ "buildings",
               TRUE ~ "other"))
 head(BobRossStep11)
 ```{{execute}}
