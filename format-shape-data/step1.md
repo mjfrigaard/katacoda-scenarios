@@ -6,19 +6,20 @@ You are looking at the R [REPL](https://en.wikipedia.org/wiki/Read%E2%80%93eval%
 
 ## The R language (in brief)
 
-R is an object-oriented, functional programming scripting language. R is a free and open-source software (FOSS) with a massive global community of users and developers who have helped create and maintain tools for data manipulation, graphics, statistics, and machine learning.
+R is an object-oriented, functional programming scripting language. R is free and open-source software (FOSS) with a massive global community of users and developers who have helped create and maintain tools for data manipulation, graphics, statistics, and machine learning.
 
-Generally speaking, R is comprised of *functions*, *commands*, and *operators*.
+Generally speaking, the R language has *functions*, *commands*, and *operators*.
 
 *Functions* take `input`s and return `output`s: 
 
 ```
-function(input) {
+function('input') {
 
     perform command(s) on 'input'
     
-    return 'output'
+    return output
 }
+output
 ```
 
 *Commands* are verbs we use to tell the R to do something. Unlike *functions*, *commands* don't always return an `output`. 
@@ -37,7 +38,7 @@ library(tidyverse)
 
 R `packages` are collections of commands for a particular purpose or task. R comes 'out of the box' with a handful of useful commands. 
 
-For this scenario, we'll be using the popular `tidyr` and `dplyr` packages for data manipulation. Both packages are part of the `tidyverse,` which is a suite of tools pioneered by RStudio's Chief Scientist [Hadley Wickham](http://hadley.nz/). All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
+For this scenario, we'll be using the `tidyr` and `dplyr` packages for data manipulation. Both packages are part of the `tidyverse,` which is a suite of tools pioneered by RStudio's Chief Scientist [Hadley Wickham](http://hadley.nz/). All packages in the `tidyverse` work well together because they center around a common thread of [tidy data](https://vita.had.co.nz/papers/tidy-data.pdf). 
 
 ### Data in R
 
@@ -95,9 +96,9 @@ tidyverse::tidyverse_logo()
 ```{{execute}}
 
 
-The `tidyverse::tidyverse_logo()` function can be entered without any arguments (i.e. nothing inside the parentheses), but we can view the arguments by placing the cursor inside the parenthesis and hitting the <kbd>tab</kbd> key. 
+The `tidyverse::tidyverse_logo()` function can run without any arguments (i.e. nothing inside the parentheses), but we can view the arguments by placing the cursor inside the parenthesis and hitting the <kbd>tab</kbd> key. 
 
-Function arguments can be entered by position or name (see below).
+We can enter function arguments by position or name (see below).
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/00-name-arg.png?raw=true)
 

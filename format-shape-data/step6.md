@@ -14,7 +14,7 @@ dim(BobRoss)
 dim(BobRossLong)
 ```{{execute}}
 
-*...vs `27001` rows and `6` columns in `BobRossLong`!*
+*...vs. `27001` rows and `6` columns in `BobRossLong`!*
 
 As we can see, the `BobRossLong` has a ton more rows, but far fewer columns. 
 

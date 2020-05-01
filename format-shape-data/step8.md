@@ -2,7 +2,7 @@
 
 Just like with the two `pivot_` functions, there is an opposite version of `tidyr::separate()` called `tidyr::unite()`. The `unite()` function takes multiple columns and sticks them together into a single new column. 
 
-#### *First a little house cleaning...*
+##### *First, a little house cleaning...*
 
 We've accumulated quite a few datasets in our R environment, which can make things seem cluttered. You can check the objects in R using `ls()`. 
 
@@ -11,16 +11,16 @@ We've accumulated quite a few datasets in our R environment, which can make thin
 ls()
 ```{{execute}}
 
-Yikes--so many Bob Ross's! We will remove the `BobRoss` and `BobRossStep7` datasets using `rm(BobRoss, BobRossStep7)`.
+Yikes--so many Bob Ross's! We will remove the `SmallBobRoss`, `BobRoss` and `BobRossStep7` datasets using `rm()`.
 
 ```
 # click to execute code
-rm(BobRoss, BobRossStep7)
+rm(SmallBobRoss, BobRoss, BobRossStep7)
 ```{{execute}}
 
-Now check again with `ls()` just to make sure. Remove any additional datasets with `rm()`
+Now check again with `ls()` just to make sure (you can remove any additional datasets with `rm()`).
 
-#### *...back to `unite()`*
+##### *...back to `unite()`*
 
 We'll load another alternative version of `BobRossLong` into R and view it with `head()` 
 

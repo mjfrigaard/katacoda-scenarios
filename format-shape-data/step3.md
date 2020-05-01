@@ -1,4 +1,4 @@
-# Tibbles and tribbles
+# Tables, tibbles, and tribbles
 
 One quick and easy way to get data into R is to create the data 'by hand' using the `tibble::tribble()` function. Read more about this function [here on the tidyverse website](https://tibble.tidyverse.org/reference/tribble.html) function.
 

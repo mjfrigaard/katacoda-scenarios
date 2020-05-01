@@ -1,6 +1,6 @@
 # Combine `case_when` and `pivot`
 
-After creating new variables, it's always a good idea to check your work. Now that we have some tools for creating new variables, we can use the `tidyr::pivot_` functions to check and make sure all the rows were properly assigned. 
+After creating new variables, it's always a good idea to check your work. Now that we have some tools for creating new variables, we can use the `tidyr::pivot_` functions to check and make sure all the rows were assigned correctly. 
 
 ## Small Bob Ross
 
@@ -39,16 +39,16 @@ Now that we have a long dataset, we can create a new variable (`painting_cats`) 
 
 + Label all the clouds as `Clouds` (*same as above, but with different types of clouds*)
 
-+ All other missing values should be labelled `NA` with `NA_character_` (*here we will use `TRUE` as the condition, and the `NA` type as the result*)
++ All other missing values should be labeled `NA` with `NA_character_` (*here we will use `TRUE` as the condition, and the `NA` type as a result *)
 
 ```
 dplyr::mutate(.data = BobRossStep12, 
         painting_cats = case_when(
-                present == 1 & str_detect(object, "______") ~ "Cabins",
-                  present == 1 & str_detect(object, "______") ~ "Frames", 
-                    present == 1 & str_detect(object, "____|_________") ~ "Trees",
-                        present == 1 & str_detect(object, "_____|_______") ~ "Clouds", 
-                            TRUE ~ __________)) 
+            present == 1 & str_detect(object, "______") ~ "Cabins",
+            present == 1 & str_detect(object, "______") ~ "Frames", 
+            present == 1 & str_detect(object, "____|_________") ~ "Trees",
+            present == 1 & str_detect(object, "_____|_______") ~ "Clouds", 
+            TRUE ~ __________))
 ```{{copy}}
 
 **Did you get it?** 
@@ -58,16 +58,16 @@ You can run the code below to check
 ```
 BobRossStep12 <- dplyr::mutate(.data = BobRossStep12, 
               painting_cats = case_when(
-                  present == 1 & str_detect(object, "cabin") ~ "Cabins",
-                  present == 1 & str_detect(object, "frame") ~ "Frames",
-                  present == 1 & str_detect(object, "tree|deciduous") ~ "Trees",
-                  present == 1 & str_detect(object, "cloud|cumulus") ~ "Clouds",
-                  TRUE ~ NA_character_)) 
+              present == 1 & str_detect(object, "cabin") ~ "Cabins",
+              present == 1 & str_detect(object, "frame") ~ "Frames",
+              present == 1 & str_detect(object, "tree|deciduous") ~ "Trees",
+              present == 1 & str_detect(object, "cloud|cumulus") ~ "Clouds",
+              TRUE ~ NA_character_)) 
 BobRossStep12
 ```{{execute}}
 
 
-Now we want to check our work by creating a cross tabulation between `object` and `painting_cats`. We can do this with `dplyr::count()`, which tallys up all the values in a column. Copy the code below to see the new values in `painting_cats`.
+Now we want to check our work by creating a cross-tabulation between `object` and `painting_cats`. We can do this with `dplyr::count()`, which tallies up all the values in a column. Copy the code below to see the new values in `painting_cats`.
 
 ```
 # the n column is the tally of the values
@@ -94,7 +94,4 @@ Assign the names from our new `painting_cats` variable and values from n
 # reshape this to wide and use n as the values
 pivot_wider(data = BobRossCounts, names_from = painting_cats, values_from = _)
 ```{{copy}}
-
-
-
 

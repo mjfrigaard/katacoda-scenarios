@@ -1,8 +1,8 @@
 # Creating new variables based on multiple conditions
 
-The `dplyr::if_else()` function works well with `dplyr::mutate()` for creating new variables based on a single condition, but sometimes we want to create new variables based on the values in more than one column (i.e. multiple conditions). 
+The `dplyr::if_else()` function works well with `dplyr::mutate()` for creating new variables based on a single condition, but sometimes we want to create new variables based on the values in more than one column (i.e., multiple conditions). 
 
-In this case, we can combine `dplyr::mutate()` wjth `dplyr::case_when()` to create new variables based on multiple conditions. These functions work together with the following arguments. 
+In this case, we can combine `dplyr::mutate()` with `dplyr::case_when()` to create new variables based on multiple conditions. These functions work together with the following arguments. 
 
 ### Using `dplyr::case_when()` with `dplyr::mutate()`
 
@@ -19,7 +19,7 @@ dplyr::mutate(.data = DataSet,
 
 We can learn more about how `dplyr::case_when` works by accessing the R help files (`?dplyr::case_when`).
 
-> *The left hand side determines which values match this case. The right hand side provides the replacement value. The LHS must evaluate to a logical vector. The right hand side does not need to be logical, but all right hand sides must evaluate to the same type of vector.* 
+> *The left-hand side determines which values match this case. The right-hand side provides the replacement value. The left-hand side must evaluate to a logical vector. The right-hand side does not need to be logical, but all right-hand sides must evaluate to the same type of vector.* 
 
 ### Creating categorical variables
 
@@ -30,9 +30,9 @@ BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 head(BobRossStep11)
 ```{{execute}}
 
-We can see this is a reduced dataset from `BobRoss` We will use `dplyr::case_when()` to create an `painting_category` variable based on what `object`s were in a particular episode's painting. 
+We can see this is a reduced dataset from `BobRoss`. We will use `dplyr::case_when()` to create a `object_category` variable based on what `object`s were in a particular episode's painting. 
 
-We'll be using `stringr::str_detect()` again to find all the paintings of with `mountains`, `trees`, and `bushes`. 
+We'll be using `stringr::str_detect()` again to find all the paintings of `mountains`, `trees`, and `bushes`, but we've dropped the names of arguments, so it's easier to read. 
 
 ```
 dplyr::mutate(.data = BobRossStep11, 
@@ -75,4 +75,6 @@ BobRossStep11 <- dplyr::mutate(.data = BobRossStep11,
               TRUE ~ "other"))
 head(BobRossStep11)
 ```{{execute}}
+
+
 

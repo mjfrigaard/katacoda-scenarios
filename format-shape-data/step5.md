@@ -26,7 +26,7 @@ head(BobRoss)
 
 We also want to know if there are duplicate rows in the `BobRoss` data, and we can check this by using `dplyr::distinct()` and `base::nrow()` with `base::identical()`
 
-*numer of rows?*
+*Number of rows?*
 
 ```
 # click to copy code
@@ -47,7 +47,7 @@ dplyr::distinct(.data = BobRoss)
 identical(x = nrow(BobRoss), y = nrow(dplyr::distinct(BobRoss)))
 ```{{execute}}
 
-If you're seeing `TRUE`, this means all the rows are unique!
+If you see `TRUE`, this means all the rows are unique!
 
 Now we can answer more of the questions above: 
 
@@ -72,7 +72,7 @@ Can you think of another way to organize the same information? What if we change
 
 - the `object` column keeps track of the *thing* in the painting (`apple_frame`, `aurora_borealis`, `barn`, etc.), 
 - the `present` column corresponds to the *number of times* that particular thing occurred,  
-- the `season`, `episode`, `episode_num`, and `title` information repeats down the rows for every object that was originally in a column  
+- the `season`, `episode`, `episode_num`, and `title` information repeats down the rows for every object that was initially in a column  
 
 
 Data arrangements like this are typically called long or tidy, but the vital thing to know is that each value has an index in two places (in this case `object` and `present`). We can convert `BobRoss` into a long dataset using `tidyr::pivot_longer()`.

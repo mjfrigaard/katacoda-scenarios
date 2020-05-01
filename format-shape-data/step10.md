@@ -1,6 +1,6 @@
 # Create new variables based on a condition
 
-Many times we'll want to create a new variable based on the values in another variable. For example, assume we want to identify only those object that are in season 1. We can do this by creating a new variable called `season01`, and assigning the value of `TRUE` to all the objects that occured in season 1, and `FALSE` to every other object. 
+Many times we'll want to create a new variable based on the values in another variable. For example, assume we want to identify only those objects that are in season 1. We can do this by creating a new variable called `season01`, and assigning the value of `TRUE` to all the objects that occurred in season 1, and `FALSE` to every other object. 
 
 Let's import a dataset for this step. 
 
@@ -16,10 +16,10 @@ Create `season01` by filling in the following portions of code.
 mutate(.data = BobRossStep10, season01 = if_else(condition = ______ == _, true = ____, false = _____))
 ```{{copy}}
 
-We notice this creates a `<lgl>` variable, which can only have one of two values (`TRUE` and `FALSE`). Logical are great for binary variables because you can still perform mathematical operations on them.
+We notice this creates a `<lgl>` variable, which can only have one of two values (`TRUE` and `FALSE`). Logical is excellent for binary variables because you can still perform mathematical operations on them.
 
 
-*Logical vectors are coerced to integer vectors in contexts where a numerical value is required, with `TRUE` being mapped to `1`, `FALSE` to `0`*
+*Logical vectors are coerced to integer vectors in contexts where a numerical value is required, with `TRUE` mapped to `1`, `FALSE` to `0`*
 
 ## Counting to check our work
 
@@ -52,3 +52,6 @@ dplyr::count(BobRossStep10, episode01)
 ```{{execute}}
 
 We can see the total number of first episodes. Again, this assumes we know the total number of first episodes and that they are all coded correctly.
+
+
+
