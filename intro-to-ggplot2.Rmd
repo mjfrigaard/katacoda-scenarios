@@ -11,7 +11,7 @@ output:
 library(tidyverse)
 library(knitr)
 library(rmdformats)
-# images folder
+# figs folder
 if (!file.exists("figs")) {
   dir.create("figs")
 }
@@ -36,6 +36,22 @@ base::options(
   tibble.width = 78,
   scipen = 100000000
 )
+```
+
+# setup 
+
+The layout for this scenario should be able to render the ggplot2 image in a window adjacent to the console/terminal. 
+
+In RStudio, this looks like this: 
+
+```{r rstudio-cloud-ggplot2.png, echo=FALSE}
+knitr::include_graphics(path = "figs/rstudio-cloud-ggplot2.png")
+```
+
+In datacamp, it looks like this: 
+
+```{r datacamp-ggplot2.png, echo=FALSE}
+knitr::include_graphics(path = "figs/datacamp-ggplot2.png")
 ```
 
 # intro
@@ -84,32 +100,25 @@ These data are available for download here as part of the [#TidyTuesday]() proje
 
 ```{r importing-data}
 # Brexit ----
-# Brexit <- readr::read_csv("")
-readr::write_csv(base::as.data.frame(Brexit), "data/Brexit.csv")
+Brexit <- readr::read_csv("data/Brexit.csv")
 
 # Corbyn ----
-# Corbyn <- readr::read_csv("")
-readr::write_csv(base::as.data.frame(Corbyn), "data/Corbyn.csv")
+Corbyn <- readr::read_csv("data/Corbyn.csv")
 
 # Dogs ----
-# Dogs <- readr::read_csv("")
-readr::write_csv(base::as.data.frame(Dogs), "data/Dogs.csv")
+Dogs <- readr::read_csv("data/Dogs.csv")
 
 # EuBalance ----
-# EuBalance <- readr::read_csv("")
-readr::write_csv(base::as.data.frame(EuBalance), "data/EuBalance.csv")
+EuBalance <- readr::read_csv("data/EuBalance.csv")
 
 # Pensions -----
-# Pensions <- readr::read_csv("")
-# readr::write_csv(base::as.data.frame(Pensions), "data/Pensions.csv")
+Pensions <- readr::read_csv("data/Pensions.csv")
 
 # Trade -----
-# Trade <- readr::read_csv("")
-readr::write_csv(base::as.data.frame(Trade), "data/Trade.csv")
+Trade <- readr::read_csv("data/Trade.csv")
 
 # WomenResearch -----
-# WomenResearch <- readr::read_csv("")
-readr::write_csv(base::as.data.frame(WomenResearch), "data/WomenResearch.csv")
+WomenResearch <- readr::read_csv("data/WomenResearch.csv")
 ```
 
 
@@ -128,8 +137,8 @@ Data %>% ggplot2::qplot(data = .,
 The `data = .` argument is a product of the piping syntax. By placing the `data = .` on the right-hand side of the pipe operator (`%>%`), we are telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" See the figure below:
 
 ```{r IMAGE-pipe-data-args.png, echo=FALSE}
-# fs::dir_ls("images")
-knitr::include_graphics(path = "images/pipe-data-args.png")
+# fs::dir_ls("figs")
+knitr::include_graphics(path = "figs/pipe-data-args.png")
 ```
 
 The `geom = shape` will be replaced by a geom or type of graph (`"bar"`, `"point"`, "box")
@@ -186,8 +195,8 @@ Box-plots (or box and whisker plots) display five statistical concepts in a sing
 
 <!-- The image below is a taken from page 41,  -->
 <!-- ```{r IMAGE-og-box-whisker, echo=FALSE} -->
-<!-- # fs::dir_ls("images") -->
-<!-- knitr::include_graphics(path = "images/og-box-whisker.png") -->
+<!-- # fs::dir_ls("figs") -->
+<!-- knitr::include_graphics(path = "figs/og-box-whisker.png") -->
 <!-- ``` -->
 
 Box-plots display the five number summary, which includes the smallest, largest, median, and upper and lower quartiles (quartiles divide the numbers into a percentage, and the 25th and 75th are included on the graph). Box-plots also display 'outliers', or extreme values as dots or points. 
@@ -201,8 +210,8 @@ base::summary(MadMen$score)
 The `Median` is the horizontal line within the box, and if I look over to the `y` axis, I can see this corresponds to a score of 2 (just like the article stated).
 
 ```{r IMAGE-box-plot-median, echo=FALSE}
-# fs::dir_ls("images")
-knitr::include_graphics(path = "images/box-plot-median.png")
+# fs::dir_ls("figs")
+knitr::include_graphics(path = "figs/box-plot-median.png")
 ```
 
 Can you guess which bars in the bar-plot correspond to the points on the box-plot?

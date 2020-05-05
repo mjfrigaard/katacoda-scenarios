@@ -1,0 +1,91 @@
+---
+title: "Build beautiful, customized graphs and charts in R with ggplot2 (setup & layout)"
+author: "Martin Frigaard"
+output: 
+  github_document: 
+    toc: yes
+    toc_depth: 5
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(rmdformats)
+# images folder
+if (!file.exists("figs")) {
+  dir.create("figs")
+}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
+  tidy = FALSE,
+  fig.width = 10,
+  fig.height = 7.5,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "figs/"
+)
+knitr::opts_knit$set(
+  width = 78
+)
+base::options(
+  tibble.print_max = 25,
+  tibble.width = 78,
+  scipen = 100000000
+)
+```
+
+# Preferred setup
+
+The layout for this scenario should be able to render the `ggplot2` image in a window adjacent to the console/terminal. 
+
+In RStudio, this looks like this: 
+
+```{r rstudio-cloud-ggplot2.png, echo=FALSE}
+knitr::include_graphics(path = "figs/rstudio-cloud-ggplot2.png")
+```
+
+In datacamp, it looks like this: 
+
+```{r datacamp-ggplot2.png, echo=FALSE}
+knitr::include_graphics(path = "figs/datacamp-ggplot2.png")
+```
+
+
+## Options for setting up `ggplot2` in Katacoda
+
+The options for layouts katacoda are available [here](https://katacoda.com/docs/scenarios/layouts) and include the following:
+
+### The `Terminal`	
+
+Use command `terminal`	
+
+### The `2x Terminal Split`
+
+Use command `terminal-terminal`	
+
+### The `Editor + Terminal`	
+
+Use command `editor-terminal`
+
+### The `Terminal + Editor` 
+
+for the embedded presentation	`editor-terminal-split`	Make sure to include `data-katacoda-layout="editor-terminal-split"` in the `html` for the embedded code.
+
+### The `Terminal + Iframe` (application inside the dashboard). 
+
+Requires `backend.port` within `index.json`	
+
+Use command `terminal-iframe`	
+
+
+
+
+
+
+
+
+
