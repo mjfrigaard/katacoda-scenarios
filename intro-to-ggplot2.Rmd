@@ -154,7 +154,7 @@ x %>% function_01() %>% function_02(y)
 
 - [x] included in step4.md?
 
-## Using the pipe cont.
+## Using the pipe (cont.)
 
 [`magrittr` package](https://magrittr.tidyverse.org/) has some additional tricks that are worth knowing. For example, in the code above, you may have noticed the `data = .` argument. 
 
@@ -166,7 +166,8 @@ Data %>%
                  geom = "shape")
 ```
 
-The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` 
+The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` by using `args(qplot)`{{execute}}
+
 
 ```
 function(x, y, ..., data, 
@@ -187,19 +188,19 @@ function(x, y, ..., data,
 
 We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. That means we need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
 
-This makes this: 
+So by using the pipe, we can rewrite this function,
 
 ```
 function(y, named_argument = x)
 ```
 
-the same thing as this
+to this:
 
 ```
 x %>% function(y, named_argument = .)
 ```
  
-By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the named argument position, we are telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
+By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the `named_argument` position, we're telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
 
 We can demonstrate this with the `diamonds` dataset in the `ggplot2` package. 
 
@@ -211,7 +212,6 @@ diamonds %>%
                  y = price,
                  geom = "point")
 ```
-
 
 See the figure below:
 
@@ -228,7 +228,7 @@ We will be using `ggplot2` to explore data from the Economist's Medium post titl
 
 These data are available for download as part of the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) project on Github. 
 
-```{r importing-data}
+```{r import-data}
 # Brexit 
 Brexit <- readr::read_csv("https://bit.ly/brexit-data")
 
@@ -251,9 +251,9 @@ Trade <- readr::read_csv("https://bit.ly/trade-economist-data")
 WomenResearch <- readr::read_csv("https://bit.ly/women-research-data")
 ```
 
-We can examine each dataset using the `glimpse()`, `head()`, or `str()` arguments we learned about in the last scenario.
+We can examine each dataset using the `dplyr::glimpse()`, `utils::head()`, or `utils::str()` arguments we learned about in the last scenario.
  
-```{r glimpse-datasets}
+```{r check-corbyn}
 Corbyn %>% dplyr::glimpse()
 Corbyn %>% utils::head()
 Corbyn %>% utils::str()
@@ -275,11 +275,13 @@ More information on the datasets are below:
 
 + `WomenResearch` is a dataset of countries, field of scientific study, and women among researchers with papers published between 2011-15 as percent of the total by field of study.
 
+
+
 ## step 6
 
 - [ ] included in step6.md?
 
-### Visualizing a single variable
+## Visualizing a single variable
 
 Before we look at how variables relate to one another, we should get an idea for how each variable looks independently, or it's [distribution.](https://en.wikipedia.org/wiki/List_of_probability_distributions). 
 
@@ -291,7 +293,7 @@ How we visualize a variable's distribution depends on whether it's **numeric** o
 
 A special case of categorical variable is a *binary* variable, which only has two possible values (`0` or `1`, `alive` or `dead`, `yes` or `no`, etc.)
 
-### Creating a histogram
+### Creating a single variable plot
 
 We will view the distribution of the `avg_facebook_likes` using `ggplot2::qplot()` below. 
 
@@ -306,7 +308,7 @@ Corbyn %>%
 
 *What is this graph telling us?* 
 
-Well, we can print the entire Corbyn dataset to the console and view it (it's not very big)
+Well, we can print the entire Corbyn dataset to the console to view it (it's not very big). 
 
 ```{r view-corbyn, eval=FALSE}
 Corbyn
@@ -321,7 +323,13 @@ Corbyn
 # 6 Saving Labour                   56
 ```
 
-We can see the tibble printed to the screen has the `avg_facebook_likes` sorted descending, with the highest number on top.
+We can see the tibble printed to the screen has the `avg_facebook_likes` sorted descending, with the highest number on top (`5210`) and the lowest number on the bottom (`56`). 
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-tibble.png?raw=true)
+
+When we give the `qplot()` function a single variable, it assumes that we want a [histogram](https://ggplot2.tidyverse.org/reference/geom_histogram.html). The histogram is displaying the `avg_facebook_likes` variable by splitting up the x axis into `bins`, then plotting the count for each number of observations in each bin on the `y` axis.
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-histogram.png?raw=true)
 
 
 ## step 7 

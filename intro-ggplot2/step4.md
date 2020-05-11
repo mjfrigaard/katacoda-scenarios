@@ -10,7 +10,8 @@ Data %>%
                  geom = "shape")
 ```
 
-The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` 
+The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` by using `args(qplot)`{{execute}}
+
 
 ```
 function(x, y, ..., data, 
@@ -31,30 +32,30 @@ function(x, y, ..., data,
 
 We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. That means we need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
 
-This makes this: 
+So by using the pipe, we can rewrite this function,
 
 ```
 function(y, named_argument = x)
 ```
 
-the same thing as this
+to this:
 
 ```
 x %>% function(y, named_argument = .)
 ```
  
-By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the named argument position, we are telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
+By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the `named_argument` position, we're telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
 
 We can demonstrate this with the `diamonds` dataset in the `ggplot2` package. 
 
-```{r diamonds-qplot}
+```
 diamonds <- ggplot2::diamonds
 diamonds %>% 
   ggplot2::qplot(data = ., 
                  x = carat, 
                  y = price,
                  geom = "point")
-```
+```{{execute}}
 
 See the figure below:
 
