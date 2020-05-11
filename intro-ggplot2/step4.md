@@ -13,12 +13,23 @@ Data %>%
 The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` 
 
 ```
-function(x, y, ..., data, facets = NULL, margins = FALSE, geom = "auto", 
-    xlim = c(NA, NA), ylim = c(NA, NA), log = "", main = NULL, 
-    xlab = NULL, ylab = NULL, asp = NA, stat = NULL, position = NULL) 
+function(x, y, ..., data, 
+        # all other optional arguments
+        facets = NULL, 
+        margins = FALSE, 
+        geom = "auto", 
+        xlim = c(NA, NA), 
+        ylim = c(NA, NA), 
+        log = "", 
+        main = NULL, 
+        xlab = NULL, 
+        ylab = NULL, 
+        asp = NA, 
+        stat = NULL, 
+        position = NULL) 
 ```
 
-We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. We need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
+We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. That means we need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
 
 This makes this: 
 
@@ -34,6 +45,16 @@ x %>% function(y, named_argument = .)
  
 By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the named argument position, we are telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
 
+We can demonstrate this with the `diamonds` dataset in the `ggplot2` package. 
+
+```{r diamonds-qplot}
+diamonds <- ggplot2::diamonds
+diamonds %>% 
+  ggplot2::qplot(data = ., 
+                 x = carat, 
+                 y = price,
+                 geom = "point")
+```
 
 See the figure below:
 

@@ -70,7 +70,7 @@ Now that we have some experience with data wrangling, we'll extend what we know 
 
 The `ggplot2` package is an implementation of the ["Grammar of Graphics"](https://amzn.to/2MRRCAB) by Leland Wilkinson. This text outlines a foundation for understanding the components of just about every graph or figure we've encountered (and some we haven't). `ggplot2` extends these concepts into a powerful grammar for developing data visualizations in R.
 
-**Why have a 'grammar' of data visualization?**
+### Why have a 'grammar' of data visualization?
 
 [Wilhelm von Humboldt](https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt) has described a language as a system for "*making infinite use of finite means.*" Grammar is the set of rules we use to generate and display comprehensible thought (to humans or computers). Within the R language, `ggplot2` provides the grammar (or set of rules) we can learn to develop a rich vocabulary for data visualizations. Knowing how to use `ggplot2`'s grammar also gives us an excellent mental model for thinking about individual graphical elements. 
 
@@ -90,7 +90,7 @@ Lastly, `ggplot2` has an expansive vocabulary, so by learning a finite list of `
 
 Launch an R console by clicking here -> `R`{{execute}} (Click on the *Run command* icon)
 
-Load the `tidyverse` package below. 
+Load the `tidyverse` package by typing or copying and pasting the code below.
 
 ```r
 install.packages("tidyverse")
@@ -111,9 +111,9 @@ We will start using `ggplot2` with the `qplot()` function. `qplot()` is short fo
 
 ```r
 ggplot2::qplot(data = Data, # assume dataset 'Data'
-                 x = variable_x, # single column we want on the x
-                 y = variable_y, # single column we want on the y
-                 geom = "shape") # the 'thing' we want to see on the graph
+               x = variable_x, # single column on the x
+               y = variable_y, # single column on the y
+               geom = "shape") # the 'thing' on the graph
 ```
 
 ## step 3
@@ -158,7 +158,7 @@ x %>% function_01() %>% function_02(y)
 
 [`magrittr` package](https://magrittr.tidyverse.org/) has some additional tricks that are worth knowing. For example, in the code above, you may have noticed the `data = .` argument. 
 
-```{r qplot-syntax-part2, eval=FALSE}
+```
 Data %>% 
   ggplot2::qplot(data = ., 
                  x = variable_x, 
@@ -168,40 +168,55 @@ Data %>%
 
 The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` 
 
-```r
-function(x, y, ..., data, facets = NULL, margins = FALSE, geom = "auto", 
-    xlim = c(NA, NA), ylim = c(NA, NA), log = "", main = NULL, 
-    xlab = NULL, ylab = NULL, asp = NA, stat = NULL, position = NULL) 
+```
+function(x, y, ..., data, 
+        # all other optional arguments
+        facets = NULL, 
+        margins = FALSE, 
+        geom = "auto", 
+        xlim = c(NA, NA), 
+        ylim = c(NA, NA), 
+        log = "", 
+        main = NULL, 
+        xlab = NULL, 
+        ylab = NULL, 
+        asp = NA, 
+        stat = NULL, 
+        position = NULL) 
 ```
 
-We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. We need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
+We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. That means we need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
 
 This makes this: 
 
-```r
+```
 function(y, named_argument = x)
 ```
 
 the same thing as this
 
-```r
+```
 x %>% function(y, named_argument = .)
 ```
  
 By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the named argument position, we are telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
+
+We can demonstrate this with the `diamonds` dataset in the `ggplot2` package. 
+
+```{r diamonds-qplot}
+diamonds <- ggplot2::diamonds
+diamonds %>% 
+  ggplot2::qplot(data = ., 
+                 x = carat, 
+                 y = price,
+                 geom = "point")
+```
 
 
 See the figure below:
 
 ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true)
 
-<!--
-this was previously rendered with Rmarkdown
-```{r IMAGE-pipe-data-args.png, echo=FALSE}
-# fs::dir_ls("figs")
-# knitr::include_graphics(path = "figs/pipe-data-args.png")
-```
--->
 
 ## step 5
 
@@ -214,25 +229,25 @@ We will be using `ggplot2` to explore data from the Economist's Medium post titl
 These data are available for download as part of the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) project on Github. 
 
 ```{r importing-data}
-# Brexit ----
+# Brexit 
 Brexit <- readr::read_csv("https://bit.ly/brexit-data")
 
-# Corbyn ----
+# Corbyn 
 Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
 
-# Dogs ----
+# Dogs 
 Dogs <- readr::read_csv("https://bit.ly/dogs-data")
 
-# EuBalance ----
+# EuBalance 
 EuBalance <- readr::read_csv("https://bit.ly/eu-balance-data")
 
-# Pensions -----
+# Pensions 
 Pensions <- readr::read_csv("https://bit.ly/pensions-data")
 
-# Trade -----
+# Trade 
 Trade <- readr::read_csv("https://bit.ly/trade-economist-data")
 
-# WomenResearch -----
+# WomenResearch 
 WomenResearch <- readr::read_csv("https://bit.ly/women-research-data")
 ```
 
@@ -240,27 +255,25 @@ We can examine each dataset using the `glimpse()`, `head()`, or `str()` argument
  
 ```{r glimpse-datasets}
 Corbyn %>% dplyr::glimpse()
-Brexit %>% dplyr::glimpse()
-Dogs %>% dplyr::glimpse()
-EuBalance %>% dplyr::glimpse()
-Pensions %>% dplyr::glimpse()
-Trade %>% dplyr::glimpse()
-WomenResearch %>% dplyr::glimpse()
+Corbyn %>% utils::head()
+Corbyn %>% utils::str()
 ```
 
-`Corbyn` is a dataset of average Facebook likes and political leader/group.
+More information on the datasets are below:
 
-`Brexit` is a dataset of Brexit poll opinions (with dates).  
++ `Corbyn` is a dataset of average Facebook likes and political leader/group.
 
-`Dogs` is a dataset of dog body weights (in kgs) and average neck size (in cm), along with the date the dog was registered with the UK's kennel club.
++ `Brexit` is a dataset of Brexit poll opinions (with dates).  
 
-`EuBalance` is a dataset of countries, the country budget balance/current-account balance, the year, and the value in billions or euros. 
++ `Dogs` is a dataset of dog body weights (in kgs) and average neck size (in cm), along with the date the dog was registered with the UK's kennel club.
 
-`Pensions` is a dataset of countries, percent of the country's population 65 years old or over, and the percent of government spending on pensions as percent of GDP.
++ `EuBalance` is a dataset of countries, the country budget balance/current-account balance, the year, and the value in billions or euros. 
 
-`Trade` is a dataset of the United States trade deficit with China in goods (in US dollar), the manufacturing employment in the US, and the year.   
++ `Pensions` is a dataset of countries, percent of the country's population 65 years old or over, and the percent of government spending on pensions as percent of GDP.
 
-`WomenResearch` is a dataset of countries, field of scientific study, and women among researchers with papers published between 2011-15 as percent of the total by field of study.
++ `Trade` is a dataset of the United States trade deficit with China in goods (in US dollar), the manufacturing employment in the US, and the year.   
+
++ `WomenResearch` is a dataset of countries, field of scientific study, and women among researchers with papers published between 2011-15 as percent of the total by field of study.
 
 ## step 6
 
@@ -278,12 +291,17 @@ How we visualize a variable's distribution depends on whether it's **numeric** o
 
 A special case of categorical variable is a *binary* variable, which only has two possible values (`0` or `1`, `alive` or `dead`, `yes` or `no`, etc.)
 
+### Creating a histogram
+
 We will view the distribution of the `avg_facebook_likes` using `ggplot2::qplot()` below. 
 
 ```{r step-6}
-Corbyn %>% # the data 
-  ggplot2::qplot(x = avg_facebook_likes, # the variable 
-                 data = .) # the dot
+# the data 
+Corbyn %>% 
+  # the variable 
+  ggplot2::qplot(x = avg_facebook_likes, 
+                 # the dot
+                 data = .) 
 ```
 
 *What is this graph telling us?* 
