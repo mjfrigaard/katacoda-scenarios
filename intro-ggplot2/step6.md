@@ -12,7 +12,7 @@ A special case of categorical variable is a *binary* variable, which only has tw
 
 ### Creating a single variable plot
 
-We will view the distribution of the `avg_facebook_likes` using `ggplot2::qplot()` below. 
+We will view the distribution of the `avg_facebook_likes` from the `Corbyn` dataset using `ggplot2::qplot()`.  
 
 ```
 # the data 
