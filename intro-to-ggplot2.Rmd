@@ -40,106 +40,282 @@ base::options(
 
 # setup 
 
-The layout for this scenario should be able to render the ggplot2 image in a window adjacent to the console/terminal. 
+To see how to set up the Katacoda environment and layout, check out the `ggplot2-setup.Rmd` file.
 
-In RStudio, this looks like this: 
+# Outline 
 
-```{r rstudio-cloud-ggplot2.png, echo=FALSE}
-knitr::include_graphics(path = "figs/rstudio-cloud-ggplot2.png")
-```
+Below are the 15 steps (plus `intro` and `finish`) files in the scenario. 
 
-In datacamp, it looks like this: 
+## intro
 
-```{r datacamp-ggplot2.png, echo=FALSE}
-knitr::include_graphics(path = "figs/datacamp-ggplot2.png")
-```
+- [x] included in intro.md?
 
-# intro
+Welcome to 'Building beautiful, customized graphs and charts in R with ggplot2'! In this scenario we'll go over some basic graphing principles using the popular `ggplot2` package.
 
-## Exploring the data with ggplot2
+`ggplot2` is part of the `tidyverse`, which is a collection of opinionated packages from RStudio that ['*you're likely to use in everyday data analyses.*'](https://www.tidyverse.org/packages/)
+
+### Exploring the data with ggplot2
 
 In the previous scenario, we used the `tidyverse` and `fivethirtyeight` packages to wrangle data in R. 
 
 <!-- insert link to previous scenario! -->
 
-Now that we have some experience with data wrangling, we'll extend what we know into visualizing data with the [`ggplot2`](https://ggplot2.tidyverse.org/) package. 
+Now that we have some experience with data wrangling, we'll extend what we know into visualizing our data with the [`ggplot2`](https://ggplot2.tidyverse.org/) package. 
 
-# step 2
+# step 1
+
+- [x] included in step1.md?
 
 ## `ggplot2`: a quick overview
 
-The `ggplot2` package is an implementation of the ["Grammar of Graphics"](https://amzn.to/2MRRCAB) by Leland Wilkinson. 
+The `ggplot2` package is an implementation of the ["Grammar of Graphics"](https://amzn.to/2MRRCAB) by Leland Wilkinson. This text outlines a foundation for understanding the components of just about every graph or figure we've encountered (and some we haven't). `ggplot2` extends these concepts into a powerful grammar for developing data visualizations in R.
 
 **Why have a 'grammar' of data visualization?**
 
-[Wilhelm von Humboldt](https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt) described language as a system for "*making infinite use of finite means.*" 
+[Wilhelm von Humboldt](https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt) has described a language as a system for "*making infinite use of finite means.*" Grammar is the set of rules we use to generate and display comprehensible thought (to humans or computers). Within the R language, `ggplot2` provides the grammar (or set of rules) we can learn to develop a rich vocabulary for data visualizations. Knowing how to use `ggplot2`'s grammar also gives us an excellent mental model for thinking about individual graphical elements. 
 
-Grammar is then a set of rules used to generate comprehensible sentences in a language (human or computer languages).
+### The lingua franca for graphical elements
 
-Within the R language, `ggplot2` provides a rich vocabulary for graphical elements. Knowing how to use `ggplot2`'s grammar gives an excellent mental model for thinking about data visualizations. 
+We'll extend the definition of 'grammar' above to include Steven Pinker's description of language in [The Sense of Style](https://www.amazon.com/Sense-Style-Thinking-Persons-Writing/dp/0143127799), "*[language is] our species’ solution to the problem of getting complicated thoughts from one head into another*." In this sense, the `ggplot2` package gives us an ability to communicate the *complexities* of our data in the same way that scientific jargon allows us to precisely and unambiguously define ideas. 
 
-### Composition of graphical elements
+### Building graphs, bit-by-bit
 
-We'll extend the definition of 'grammar' above to include Steven Pinker's description in [The Sense of Style](https://www.amazon.com/Sense-Style-Thinking-Persons-Writing/dp/0143127799), "*[grammar is] our species’ solution to the problem of getting complicated thoughts from one head into another*." 
+Lastly, `ggplot2` has an expansive vocabulary, so by learning a finite list of `ggplot2` functions and their syntax will allow us to build a seemingly unlimited number of visualizations. 
 
-In this sense, the `ggplot2` package gives us an ability to communicate the *complexities* of our data in the same way that scientific jargon allows us to precisely and unambiguously define ideas. 
+## step 2
 
-Lastly, `ggplot2` has an expansive vocabulary, so knowing a finite list of functions and their syntax unlocks an unlimited number of visualizations. 
+- [x] included in step2.md?
 
-# step 3
+### Install and load the tidyverse
 
-## Geoms and aesthetics
+Launch an R console by clicking here -> `R`{{execute}} (Click on the *Run command* icon)
 
-A geom (or geometric object) is, *"what you actually see on the plot: points, lines, polygons, etc.* 
+Load the `tidyverse` package below. 
 
-These are combined with aesthetic mappings, which are *"properties that can be perceived on the graphic*" like color, size, position, and shape. 
+```r
+install.packages("tidyverse")
+library(tidyverse)
+```
 
-I'll be using `ggplot2::qplot()`'s `geom = ` argument to explore data from The Economist's Medium post titled, ["Mistakes, we've drawn a few"](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). 
+### Terms and definitions: `geoms` and `aes`thetics
 
-These data are available for download here as part of the [#TidyTuesday]() project. 
+A *geom* (or geometric object) is the 'thing' we see on a graph or plot (this includes dots or points, lines, bars, etc.).
+
+*geoms* are combined with aesthetic mappings, which are properties of the 'thing' on the plot or graph (this includes things like color, size, position, and shape).
+
+So every graph or plot has a geom, and that geom will also have some visual properties called aesthetics.
+
+## Starting with quick plots
+
+We will start using `ggplot2` with the `qplot()` function. `qplot()` is short for 'quick plot', and it takes the following arguments: 
+
+```r
+ggplot2::qplot(data = Data, # assume dataset 'Data'
+                 x = variable_x, # single column we want on the x
+                 y = variable_y, # single column we want on the y
+                 geom = "shape") # the 'thing' we want to see on the graph
+```
+
+## step 3
+
+- [x] included in step3.md?
+
+## the pipe `%>%`
+
+A major reason for using the `tidyverse` is the pipe operator from the [`magrittr` package](https://magrittr.tidyverse.org/). 
+
+The pipe (`%>%`) is what's referred to as syntactic sugar (yes, that's [really a term](https://en.wikipedia.org/wiki/Syntactic_sugar)) because it's,
+
+"*syntax within a programming language that is designed to make things easier to read or to express*" 
+
+Assume the same dataset `Data`, and two variables `variable_x` and `variable_y`. If we wanted to use the pipe with the `ggplot2::qplot()` function, it would look like the code below:
+
+```{r qplot-syntax, eval=FALSE}
+Data %>% 
+  ggplot2::qplot(data = ., 
+                 x = variable_x, 
+                 y = variable_y,
+                 geom = "shape")
+```
+
+### How the pipe works
+
+Writing R code this way makes it easier to combine function calls, and it's easier for to read. For example, if we had to wrangle our data before creating a graph (which we almost always do), we wouldn't want to read the functions inside out: 
+
+```r
+# instead of this...
+function_02(function_01(x), y) 
+
+# we see this
+x %>% function_01() %>% function_02(y) 
+```
+
+## step 4
+
+- [x] included in step4.md?
+
+## Using the pipe cont.
+
+[`magrittr` package](https://magrittr.tidyverse.org/) has some additional tricks that are worth knowing. For example, in the code above, you may have noticed the `data = .` argument. 
+
+```{r qplot-syntax-part2, eval=FALSE}
+Data %>% 
+  ggplot2::qplot(data = ., 
+                 x = variable_x, 
+                 y = variable_y,
+                 geom = "shape")
+```
+
+The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` 
+
+```r
+function(x, y, ..., data, facets = NULL, margins = FALSE, geom = "auto", 
+    xlim = c(NA, NA), ylim = c(NA, NA), log = "", main = NULL, 
+    xlab = NULL, ylab = NULL, asp = NA, stat = NULL, position = NULL) 
+```
+
+We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. We need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
+
+This makes this: 
+
+```r
+function(y, named_argument = x)
+```
+
+the same thing as this
+
+```r
+x %>% function(y, named_argument = .)
+```
+ 
+By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the named argument position, we are telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
+
+
+See the figure below:
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true)
+
+<!--
+this was previously rendered with Rmarkdown
+```{r IMAGE-pipe-data-args.png, echo=FALSE}
+# fs::dir_ls("figs")
+# knitr::include_graphics(path = "figs/pipe-data-args.png")
+```
+-->
+
+## step 5
+
+- [x] included in step5.md?
+
+## Lets get some data! 
+
+We will be using `ggplot2` to explore data from the Economist's Medium post titled, ["Mistakes, we've drawn a few"](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). 
+
+These data are available for download as part of the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) project on Github. 
 
 ```{r importing-data}
 # Brexit ----
-Brexit <- readr::read_csv("data/Brexit.csv")
+Brexit <- readr::read_csv("https://bit.ly/brexit-data")
 
 # Corbyn ----
-Corbyn <- readr::read_csv("data/Corbyn.csv")
+Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
 
 # Dogs ----
-Dogs <- readr::read_csv("data/Dogs.csv")
+Dogs <- readr::read_csv("https://bit.ly/dogs-data")
 
 # EuBalance ----
-EuBalance <- readr::read_csv("data/EuBalance.csv")
+EuBalance <- readr::read_csv("https://bit.ly/eu-balance-data")
 
 # Pensions -----
-Pensions <- readr::read_csv("data/Pensions.csv")
+Pensions <- readr::read_csv("https://bit.ly/pensions-data")
 
 # Trade -----
-Trade <- readr::read_csv("data/Trade.csv")
+Trade <- readr::read_csv("https://bit.ly/trade-economist-data")
 
 # WomenResearch -----
-WomenResearch <- readr::read_csv("data/WomenResearch.csv")
+WomenResearch <- readr::read_csv("https://bit.ly/women-research-data")
 ```
 
+We can examine each dataset using the `glimpse()`, `head()`, or `str()` arguments we learned about in the last scenario.
+ 
+```{r glimpse-datasets}
+Corbyn %>% dplyr::glimpse()
+Brexit %>% dplyr::glimpse()
+Dogs %>% dplyr::glimpse()
+EuBalance %>% dplyr::glimpse()
+Pensions %>% dplyr::glimpse()
+Trade %>% dplyr::glimpse()
+WomenResearch %>% dplyr::glimpse()
+```
 
+`Corbyn` is a dataset of average Facebook likes and political leader/group.
+
+`Brexit` is a dataset of Brexit poll opinions (with dates).  
+
+`Dogs` is a dataset of dog body weights (in kgs) and average neck size (in cm), along with the date the dog was registered with the UK's kennel club.
+
+`EuBalance` is a dataset of countries, the country budget balance/current-account balance, the year, and the value in billions or euros. 
+
+`Pensions` is a dataset of countries, percent of the country's population 65 years old or over, and the percent of government spending on pensions as percent of GDP.
+
+`Trade` is a dataset of the United States trade deficit with China in goods (in US dollar), the manufacturing employment in the US, and the year.   
+
+`WomenResearch` is a dataset of countries, field of scientific study, and women among researchers with papers published between 2011-15 as percent of the total by field of study.
+
+## step 6
+
+- [ ] included in step6.md?
+
+### Visualizing a single variable
+
+Before we look at how variables relate to one another, we should get an idea for how each variable looks independently, or it's [distribution.](https://en.wikipedia.org/wiki/List_of_probability_distributions). 
+
+How we visualize a variable's distribution depends on whether it's **numeric** or **categorical**.
+
+**Numeric** variables can be *continuous*--which means they can be any value including `0`--and are typically thought of as raw measurements (i.e. human body weight, speed, time in seconds, etc.). 
+
+*Categorical* numeric variables count discrete items or events, such as Facebook 'like's or number of page views. Categorical numeric variables are different from continuous variables because the have a fixed set of possible values (i.e. you can't have 1/2 a Facebook 'like'). 
+
+A special case of categorical variable is a *binary* variable, which only has two possible values (`0` or `1`, `alive` or `dead`, `yes` or `no`, etc.)
+
+We will view the distribution of the `avg_facebook_likes` using `ggplot2::qplot()` below. 
+
+```{r step-6}
+Corbyn %>% # the data 
+  ggplot2::qplot(x = avg_facebook_likes, # the variable 
+                 data = .) # the dot
+```
+
+*What is this graph telling us?* 
+
+Well, we can print the entire Corbyn dataset to the console and view it (it's not very big)
+
+```{r view-corbyn, eval=FALSE}
+Corbyn
+# # A tibble: 6 x 2
+#   political_group avg_facebook_likes
+#   <chr>                        <dbl>
+# 1 Jeremy Corbyn                 5210
+# 2 Labour Party                   845
+# 3 Momentum                       229
+# 4 Owen Smith                     127
+# 5 Andy Burnham                   105
+# 6 Saving Labour                   56
+```
+
+We can see the tibble printed to the screen has the `avg_facebook_likes` sorted descending, with the highest number on top.
+
+
+## step 7 
+
+### Visualizing two variables
+
+## step 8
 
 ### Using geoms with ggplot2::qplot()
 
+
 Using the geoms in `ggplot2::qplot()` means supplying the `geom =` argument with a type of graph. The syntax looks like this:
-
-```{r qplot-syntax, eval=FALSE}
-Data %>% ggplot2::qplot(data = ., 
-                      x = variable_x, 
-                      y = variable_y,
-                      geom = "shape")
-```
-
-The `data = .` argument is a product of the piping syntax. By placing the `data = .` on the right-hand side of the pipe operator (`%>%`), we are telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" See the figure below:
-
-```{r IMAGE-pipe-data-args.png, echo=FALSE}
-# fs::dir_ls("figs")
-knitr::include_graphics(path = "figs/pipe-data-args.png")
-```
 
 The `geom = shape` will be replaced by a geom or type of graph (`"bar"`, `"point"`, "box")
 

@@ -8,10 +8,14 @@ Martin Frigaard
         ggplot2](#exploring-the-data-with-ggplot2)
   - [step 2](#step-2)
       - [`ggplot2`: a quick overview](#ggplot2-a-quick-overview)
-          - [Composition of graphical
-            elements](#composition-of-graphical-elements)
+          - [The lingua franca for graphical
+            elements](#the-lingua-franca-for-graphical-elements)
+          - [Building graphs, bit-by-bit](#building-graphs-bit-by-bit)
   - [step 3](#step-3)
-      - [Geoms and aesthetics](#geoms-and-aesthetics)
+      - [Terms and definitions: `geoms` and
+        `aes`thetics](#terms-and-definitions-geoms-and-aesthetics)
+      - [Starting with quick plots](#starting-with-quick-plots)
+          - [Using the pipe (this -\> `%>%`)](#using-the-pipe-this--)
           - [Using geoms with
             ggplot2::qplot()](#using-geoms-with-ggplot2qplot)
           - [The bar plot](#the-bar-plot)
@@ -25,16 +29,7 @@ Martin Frigaard
 
 # setup
 
-The layout for this scenario should be able to render the ggplot2 image
-in a window adjacent to the console/terminal.
-
-In RStudio, this looks like this:
-
-<img src="figs/rstudio-cloud-ggplot2.png" width="1626" />
-
-In datacamp, it looks like this:
-
-<img src="figs/datacamp-ggplot2.png" width="1838" />
+See `ggplot2-setup.Rmd` file.
 
 # intro
 
@@ -46,7 +41,7 @@ packages to wrangle data in R.
 <!-- insert link to previous scenario! -->
 
 Now that we have some experience with data wrangling, we’ll extend what
-we know into visualizing data with the
+we know into visualizing our data with the
 [`ggplot2`](https://ggplot2.tidyverse.org/) package.
 
 # step 2
@@ -54,49 +49,101 @@ we know into visualizing data with the
 ## `ggplot2`: a quick overview
 
 The `ggplot2` package is an implementation of the [“Grammar of
-Graphics”](https://amzn.to/2MRRCAB) by Leland Wilkinson.
+Graphics”](https://amzn.to/2MRRCAB) by Leland Wilkinson. This text
+outlines a foundation for understanding the components of just about
+every graph or figure we’ve encountered (and some we haven’t). `ggplot2`
+extends these concepts into a powerful grammar for developing data
+visualizations in R.
 
 **Why have a ‘grammar’ of data visualization?**
 
 [Wilhelm von
-Humboldt](https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt) described
-language as a system for “*making infinite use of finite means.*”
+Humboldt](https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt) has
+described a language as a system for “*making infinite use of finite
+means.*” Grammar is the set of rules we use to generate and display
+comprehensible thought (to humans or computers). Within the R language,
+`ggplot2` provides the grammar (or set of rules) we can learn to develop
+a rich vocabulary for data visualizations. Knowing how to use
+`ggplot2`’s grammar also gives us an excellent mental model for
+thinking about individual graphical elements.
 
-Grammar is then a set of rules used to generate comprehensible sentences
-in a language (human or computer languages).
-
-Within the R language, `ggplot2` provides a rich vocabulary for
-graphical elements. Knowing how to use `ggplot2`’s grammar gives an
-excellent mental model for thinking about data visualizations.
-
-### Composition of graphical elements
+### The lingua franca for graphical elements
 
 We’ll extend the definition of ‘grammar’ above to include Steven
-Pinker’s description in [The Sense of
+Pinker’s description of language in [The Sense of
 Style](https://www.amazon.com/Sense-Style-Thinking-Persons-Writing/dp/0143127799),
-“*\[grammar is\] our species’ solution to the problem of getting
-complicated thoughts from one head into another*.”
+“*\[language is\] our species’ solution to the problem of getting
+complicated thoughts from one head into another*.” In this sense, the
+`ggplot2` package gives us an ability to communicate the *complexities*
+of our data in the same way that scientific jargon allows us to
+precisely and unambiguously define ideas.
 
-In this sense, the `ggplot2` package gives us an ability to communicate
-the *complexities* of our data in the same way that scientific jargon
-allows us to precisely and unambiguously define ideas.
+### Building graphs, bit-by-bit
 
-Lastly, `ggplot2` has an expansive vocabulary, so knowing a finite list
-of functions and their syntax unlocks an unlimited number of
-visualizations.
+Lastly, `ggplot2` has an expansive vocabulary, so by learning a finite
+list of `ggplot2` functions and their syntax will allow us to build a
+seemingly unlimited number of visualizations.
 
 # step 3
 
-## Geoms and aesthetics
+## Terms and definitions: `geoms` and `aes`thetics
 
-A geom (or geometric object) is, *"what you actually see on the plot:
-points, lines, polygons, etc.*
+A geom (or geometric object) is the ‘things’ we see on the graph or plot
+(his includes dots or points, lines, bars, etc.)
 
-These are combined with aesthetic mappings, which are *"properties that
-can be perceived on the graphic*" like color, size, position, and shape.
+`geom`s are combined with aesthetic mappings, which are properties we
+*perceived* on the plot or graph (this includes things like color, size,
+position, and shape)
 
-I’ll be using `ggplot2::qplot()`’s `geom =` argument to explore data
-from The Economist’s Medium post titled, [“Mistakes, we’ve drawn a
+## Starting with quick plots
+
+We will start using `ggplot2` with the `qplot()` function. `qplot()` is
+short for ‘quick plot’, and it takes the following arguments:
+
+``` r
+Data %>% 
+  ggplot2::qplot(data = ., 
+                 x = variable_x, 
+                 y = variable_y,
+                 geom = "shape")
+```
+
+### Using the pipe (this -\> `%>%`)
+
+In the code above, you may have noticed the `data = .` argument. The
+period (`.`) here is a product of the pipe syntax provided by the
+[`magrittr` package](https://magrittr.tidyverse.org/).
+
+A pipe `%>%` is what’s referred to as syntactic sugar (yes, that’s
+[really a term](https://en.wikipedia.org/wiki/Syntactic_sugar)) because
+it’s,
+
+“*syntax within a programming language that is designed to make things
+easier to read or to express*”
+
+By placing the `data = .` on the right-hand side of the pipe operator
+(`%>%`), we are telling R to read this statement as, “*the object to the
+left of the `%>%` belongs in the `data` argument.*”
+
+Writing R code this way makes it easier to combine function calls, and
+it’s easier to read. For example, if we had to wrangle our data before
+creating a graph (which we almost always do), we wouldn’t want to read
+the functions inside out:
+
+``` r
+# instead of this...
+function_02(function_01(x), y) 
+
+# we see this
+x %>% function_01() %>% function_02(y) 
+```
+
+See the figure below:
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true)
+
+`geom =` argument to explore data from The Economist’s Medium post
+titled, [“Mistakes, we’ve drawn a
 few”](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368).
 
 These data are available for download here as part of the
@@ -129,20 +176,6 @@ WomenResearch <- readr::read_csv("data/WomenResearch.csv")
 
 Using the geoms in `ggplot2::qplot()` means supplying the `geom =`
 argument with a type of graph. The syntax looks like this:
-
-``` r
-Data %>% ggplot2::qplot(data = ., 
-                      x = variable_x, 
-                      y = variable_y,
-                      geom = "shape")
-```
-
-The `data = .` argument is a product of the piping syntax. By placing
-the `data = .` on the right-hand side of the pipe operator (`%>%`), we
-are telling R to read this statement as, “*the object to the left of the
-`%>%` belongs in the `data` argument.*” See the figure below:
-
-<img src="figs/pipe-data-args.png" width="1943" />
 
 The `geom = shape` will be replaced by a geom or type of graph (`"bar"`,
 `"point"`, “box”)

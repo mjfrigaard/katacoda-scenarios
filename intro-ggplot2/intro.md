@@ -1,3 +1,13 @@
-# Introduction to `ggplot2`
+## Introduction to `ggplot2`
 
-This introduction will cover how to create beautiful graphs with R's `ggplot2`, a package built with Leland Wilkinson's [The Grammar of Graphics](https://www.amazon.com/Grammar-Graphics-Statistics-Computing/dp/0387245448).
+Welcome to 'Building beautiful, customized graphs and charts in R with ggplot2'! In this scenario we'll go over some basic graphing principles using the popular `ggplot2` package.
+
+`ggplot2` is part of the `tidyverse`, which is a collection of opinionated packages from RStudio that ['*you're likely to use in everyday data analyses.*'](https://www.tidyverse.org/packages/)
+
+### Exploring the data with ggplot2
+
+In the previous scenario, we used the `tidyverse` and `fivethirtyeight` packages to wrangle data in R. 
+
+<!-- insert link to previous scenario! -->
+
+Now that we have some experience with data wrangling, we'll extend what we know into visualizing our data with the [`ggplot2`](https://ggplot2.tidyverse.org/) package. 
