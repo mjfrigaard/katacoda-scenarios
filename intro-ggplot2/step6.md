@@ -14,7 +14,7 @@ A special case of categorical variable is a *binary* variable, which only has tw
 
 We will view the distribution of the `avg_facebook_likes` using `ggplot2::qplot()` below. 
 
-```{r step-6}
+```
 # the data 
 Corbyn %>% 
   # the variable 
@@ -27,22 +27,9 @@ Corbyn %>%
 
 Well, we can print the entire Corbyn dataset to the console to view it (it's not very big). 
 
-```{r view-corbyn, eval=FALSE}
-Corbyn
-# # A tibble: 6 x 2
-#   political_group avg_facebook_likes
-#   <chr>                        <dbl>
-# 1 Jeremy Corbyn                 5210
-# 2 Labour Party                   845
-# 3 Momentum                       229
-# 4 Owen Smith                     127
-# 5 Andy Burnham                   105
-# 6 Saving Labour                   56
-```
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-tibble.png?raw=true)
 
 We can see the tibble printed to the screen has the `avg_facebook_likes` sorted descending, with the highest number on top (`5210`) and the lowest number on the bottom (`56`). 
-
-![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-tibble.png?raw=true)
 
 When we give the `qplot()` function a single variable, it assumes that we want a [histogram](https://ggplot2.tidyverse.org/reference/geom_histogram.html). The histogram is displaying the `avg_facebook_likes` variable by splitting up the x axis into `bins`, then plotting the count for each number of observations in each bin on the `y` axis.
 
