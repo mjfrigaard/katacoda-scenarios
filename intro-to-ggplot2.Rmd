@@ -21,8 +21,6 @@ knitr::opts_chunk$set(
   cache = FALSE,
   prompt = FALSE,
   tidy = FALSE,
-  fig.width = 10,
-  fig.height = 7.5,
   comment = "#>",
   message = FALSE,
   warning = FALSE,
@@ -348,34 +346,198 @@ For more on the statistics displayed in the box-plot, read up on the [`geom_boxp
 
 Other options for individual variables include the [`geom = "density"`](https://ggplot2.tidyverse.org/reference/geom_density.html) and [`geom = "violin"`](https://ggplot2.tidyverse.org/reference/geom_violin.html).
 
-### Visualizing two variables
-
-
-
-
-
 ## step 8
 
-### Using geoms with ggplot2::qplot()
+- [x] included in step8.md
+
+## Visualizing the relationship between two variables
+
+What if we want to graph the relationship between two variables? In this step, we'll graph two variables from the `Brexit` dataset. Use the terminal to view this dataset with `dplyr::glimpse()` or `utils::str()`:
+
+```{r glimpse-brexit}
+dplyr::glimpse(Brexit)
+utils::str(object = Brexit)
+```
+
+When we view the contents of `Brexit`, we can see the `date` column is a character variable (`<chr>`), and the other two variables--`percent_responding_right` and `percent_responding_wrong`--are numeric (`<dbl>`). 
+
+### Changing character variables to dates 
+
+If we want to plot the relationship between `date` and the `percent_responding_right`, we'll first need to change the format of `date` from character to `Date`, which we can do using the [`lubridate` package](https://lubridate.tidyverse.org/) (also from the `tidyverse`). 
+
+Copy the code below and complete the `lubridate::mdy()` function to format the `date` variable as a `Date`. 
+
+```{r change-date-to-date}
+# first reformat the date variable as a date
+# Brexit <- Brexit %>% mutate(date = lubridate::mdy(____))
+Brexit <- Brexit %>% mutate(date = lubridate::mdy(date))
+```
+
+Use the `base::is.double()`, `base::class()`, or `base::typeof()` function to figure out if you've formatted the new `date` variable correctly.
+
+```{r check-date-as-date}
+base::is.double(Brexit$date)
+base::class(Brexit$date)
+base::typeof(Brexit$date)
+```
+
+After we're sure the `date` variable has been formatted correctly, we want to 'pipe' the formatted data to the `ggplot2::qplot()` function with the new `date` variable on the `x` and the `percent_responding_right` variable on the `y`.
+
+```{r lubridate}
+Brexit %>% qplot(x = date, y = percent_responding_right, data = .)
+```
+
+The `ggplot2::qplot()` function is smart enough to automatically choose a `geom` depending on what type of variable we assign to the `x` and `y` axes. In this case, the `percent_responding_right` variable is a `<dbl>` (numeric), and we've reformatted the `date` variable into a double before we passed it to the `y` axis.
+
+The `ggplot2::qplot()` function knows to plot the dates on the `y` axes (notice it displays only the `year`) and represent the data with `geom = "points"`.
+
+## step 9 
+
+- [x] included in the step9.md?
+
+## Wrangling and visualizing 
+
+Sometimes we might want to pass the data directly from a wrangling step to a data visualization without assigning changes to the data frame. We will demonstrate how this works using the same `Brexit` dataset. 
+
+If you read the [Medium article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368), you'll find The Economist first plotted these data as a line graph, with two lines (see 'Original' image below). The 'Better' way to improve the graph would be to include points and smooth the line in the graph (see below):
+
+![](https://miro.medium.com/max/1400/1*9GzHVtm4y_LeVmFCjqV3Ww.png)
+
+In order to re-create these graphs, we'll need to restructure the `Brexit` data with the `tidyr::pivot_longer()` function we learned about in the last [scenario]().
+
+Complete the code below by filling in the `cols = ` argument as `date`, the `names_to = ` as `"poll"`, and the `values_to = ` as `"percent"`.
+
+```
+Brexit %>% pivot_longer(cols = , names_to =, values_to =)
+```
+
+We should end up with a dataset that has three variables: `date`, `poll`, and `percent`. The data below display the top six rows you should see when you've used `tidyr::pivot()` correctly. 
+
+```
+# A tibble: 170 x 3
+   date       poll                     percent
+   <date>     <chr>                      <dbl>
+ 1 2016-02-08 percent_responding_right      46
+ 2 2016-02-08 percent_responding_wrong      42
+ 3 2016-09-08 percent_responding_right      45
+ 4 2016-09-08 percent_responding_wrong      44
+ 5 NA         percent_responding_right      46
+ 6 NA         percent_responding_wrong      43
+```
+
+After we're sure the data are structured correctly, we won't assign it to the `Brexit` data frame. Instead, we'll pass it straight through to the `ggplot2::qplot()` function. The `date` variable will go on the `x`, and the `percent` variable will go on the `y`. Click on the Run icon below to see the graph.
+
+First, we will create the 'Original' graph by using `geom = "line'`, but we want a separate line for each `poll`. We can create this by adding the `color = poll` aesthetic. 
+
+```{r original-graph}
+Brexit %>% 
+  pivot_longer(cols = -date, 
+               names_to = "poll", 
+               values_to = "percent") %>% 
+  ggplot2::qplot(x = date, 
+                 y = percent, 
+                 data = .,
+                 geom = "line",
+                 color = poll)
+```
+
+As we can see from the graph above, being able to use the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
+
+In the next step, we'll re-create the `Brexit` dataset.
+
+## step 10
+
+- [ ] included in step10.md
+
+## Building plots layer-by-layer with `ggplot()`
+
+Now that we've learned how to plot using geoms and aesthetics, we can begin adding layers to the graph. In the previous step, we re-created the 'Original' plot using `geom = "line"`.
+
+As we start to build more complex, customized plots, we will want to move away from using the `ggplot2::qplot()` function and start using `ggplot2::ggplot()` function.
+
+The `ggplot2::ggplot()` function initializes a graph, then we can 'map' variables to the axes, aesthetics, or groupings. We'll start by assigning the restructuring changes to the `Brexit` dataset. 
+
+```{r change-Brexit}
+Brexit <- Brexit %>% pivot_longer(-date, 
+                                  names_to = "poll", 
+                                  values_to = "percent")
+```
+
+The `ggplot()` follows a pretty standard template, and it's similar to the `qplot()` function. See below: 
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>))
+```
+
+We begin with a dataset, pass it over to to the `ggplot()` function, then map the `x` and `y` variables. Run the code below to assign the variable mappings to object `p`.
+
+```{r mappings}
+p <- Brexit %>% ggplot(mapping = aes(x = date, y = percent, color = poll))
+p
+```
+
+There aren't any points on the graph stored in object `p` because we haven't added any geoms or aesthetics. We'll add the smoothed line in the step below with `ggplot2::geom_smooth()` like the template below.
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>()
+```
+
+**Note**: the `+` operator is used with `ggplot2` functions, not the pipe `%>%` operator. 
+
+```{r geom_smooth}
+p + ggplot2::geom_smooth()
+```
+
+The default `ggplot2::geom_smooth()` function includes the gray confidence interval around the smoothed line. We can remove this with `se = FALSE`. We'll also add the `show.legend = FALSE` argument to remove the `poll` categories from the left-hand side of the graph.
+
+Copy the code below and complete the `show.legend` argument and assign the graph to the `p_smooth` object.
+
+```{r standard-error-and-legend}
+p_smooth <- p + geom_smooth(se = FALSE, show.legend = FALSE)
+p_smooth
+```
+
+In the next step, we'll add the points to the graph.
+
+## step 11
+
+## Adding aesthetics and layers 
+
+In the last step we added a `geom_smooth()` to the `p` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `p_smooth` object. 
+
+We're going to continue building our plot by adding the `ggplot2::geom_point()` function, but we'll also include the `show.legend = FALSE` argument again to remove the legend for the two `poll` categories.
+
+```{r geom_point}
+p_smooth +
+  geom_point(show.legend = FALSE)
+```
+
+This looks more like the graph in the medium article, but still need to make a few minor adjustments. The points in the 
 
 
-Using the geoms in `ggplot2::qplot()` means supplying the `geom =` argument with a type of graph. The syntax looks like this:
+![](https://miro.medium.com/max/1400/1*9GzHVtm4y_LeVmFCjqV3Ww.png)
 
-The `geom = shape` will be replaced by a geom or type of graph (`"bar"`, `"point"`, "box")
 
-In the [Mad Men article](https://fivethirtyeight.com/features/mad-men-is-ending-whats-next-for-the-cast/), the variables are described with the language below,
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
 
-```{r MadMen}
-MadMen <- fivethirtyeight::mad_men
-MadMen %>% dplyr::glimpse(78)
+We can continue adding `geom`s and 
+
+```{r}
+  
+  ggthemes::theme_economist_white(gray_bg = FALSE)
 ```
 
 
-> I zeroed in on the actors who had been on a defunct show or, if the program was still on the air, had left the show. This encompassed 248 performers, all of whom were given a score for their post-show career. They received:
->
-> - 1 point for each season they regularly appeared on another TV show.
-> - 1 point for each time they had a leading role in a film.
-> - 0.25 points for each supporting role in a film.
+
+
+
 
 The variables outlined above are `num_shows`, `num_lead`, `num_support`, and they give us the `score_div_y` (or *"Score" divided by "Years Since"*). The `score_div_y` and `years_since` then give us the total `score`. These data are presented in the article as a table, but I'll explore the `score` variable using two geoms from `ggplot2`. 
 
