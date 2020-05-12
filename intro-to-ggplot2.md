@@ -40,21 +40,26 @@ Martin Frigaard
           - [Changing character variables to
             dates](#changing-character-variables-to-dates)
       - [step 9](#step-9)
-      - [Wrangling and visualizing](#wrangling-and-visualizing)
+      - [Using pipes to wrangle and
+        visualize](#using-pipes-to-wrangle-and-visualize)
           - [Restructure and plot](#restructure-and-plot)
       - [step 10](#step-10)
-      - [Building plots layer-by-layer with
-        `ggplot()`](#building-plots-layer-by-layer-with-ggplot)
+      - [Build plots layer-by-layer with
+        `ggplot()`](#build-plots-layer-by-layer-with-ggplot)
+          - [Using ggplot](#using-ggplot)
       - [step 11](#step-11)
       - [Adding aesthetics and layers](#adding-aesthetics-and-layers)
       - [step 11](#step-11-1)
-      - [Settings inside `aes()` vs. inside
-        `geom()`](#settings-inside-aes-vs.-inside-geom)
+      - [Adding aesthetics manually](#adding-aesthetics-manually)
           - [Adding colors manually](#adding-colors-manually)
       - [step12](#step12)
+      - [Adding text to a graph](#adding-text-to-a-graph)
       - [step13](#step13)
+      - [Adjusting axes on a graph](#adjusting-axes-on-a-graph)
       - [step14](#step14)
+      - [Adding labels](#adding-labels)
       - [step15](#step15)
+      - [Using themes](#using-themes)
       - [finish](#finish)
 
 # setup
@@ -585,7 +590,7 @@ The `ggplot2::qplot()` function knows to plot the dates on the `y` axes
 
   - [x] included in the step9.md?
 
-## Wrangling and visualizing
+## Using pipes to wrangle and visualize
 
 Sometimes we might want to pass the data directly from a wrangling step
 to a data visualization without assigning changes to the data frame. We
@@ -633,7 +638,7 @@ below to see the graph.
 
 First, we will create the ‘Original’ graph by using `geom = "line'`, but
 we want a separate line for each `poll`. We can create this by adding
-the `color = poll` aesthetic.
+`color = poll`.
 
 ``` r
 Brexit %>% 
@@ -657,27 +662,31 @@ In the next step, we’ll re-create the `Brexit` dataset.
 
 ## step 10
 
-  - [x] included in step10.md
+  - [ ] included in step10.md
 
-## Building plots layer-by-layer with `ggplot()`
+## Build plots layer-by-layer with `ggplot()`
 
 Now that we’ve learned how to plot using geoms and aesthetics, we can
 begin adding layers to the graph. In the previous step, we re-created
-the ‘Original’ plot using `geom = "line"`.
-
-As we start to build more complex, customized plots, we will want to
-move away from using the `ggplot2::qplot()` function and start using
-`ggplot2::ggplot()` function.
+the ‘Original’ plot using `geom = "line"`. As we start to build more
+complex, customized plots, we will want to move away from using the
+`ggplot2::qplot()` function and start using `ggplot2::ggplot()`
+function.
 
 The `ggplot2::ggplot()` function initializes a graph, then we can ‘map’
-variables to the axes, aesthetics, or groupings. We’ll start by
-assigning the restructuring changes to the `Brexit` dataset.
+variables to the positions (`x` or `y`), aesthetics (`color =`), or
+groupings (`group =`.
+
+We’ll start by assigning the restructuring changes to the `Brexit`
+dataset.
 
 ``` r
 Brexit <- Brexit %>% pivot_longer(-date, 
                                   names_to = "poll", 
                                   values_to = "percent")
 ```
+
+### Using ggplot
 
 The `ggplot()` follows a pretty standard template, and it’s similar to
 the `qplot()` function. See below:
@@ -819,11 +828,11 @@ adding new layers and aesthetics\!
 
   - [x] included in step11.md?
 
-## Settings inside `aes()` vs. inside `geom()`
+## Adding aesthetics manually
 
-So far we have added the `aes()` argument *inside* each new `geom` layer
-we’ve built, but there was a way to plan ahead and do this in the
-original `ggplot()` function. See the code below:
+**Note**: so far we have added the `aes()` argument *inside* each new
+`geom` layer we’ve built, but there was a way to plan ahead and do this
+in the original `ggplot()` function. See the code below:
 
 ``` r
 Brexit %>% 
@@ -834,15 +843,15 @@ Brexit %>%
 
 ![](figs/mapp-in-ggplot-1.png)<!-- -->
 
-By adding `color = poll` in the `ggplot` function, it carries all the
-way down through each `geom`. All we have to do is add the arguments for
-each `geom`.
+By adding `color = poll` in the `ggplot()` function, the aesthetic
+carries all the way down through each `geom`. All we have to do is add
+the arguments for each `geom`.
 
 ### Adding colors manually
 
-We’d like to change the colors in the graph from the default colors to a
-more traditional red and blue. We can do this by adding the
-`ggplot2::scale_color_manual()` function and specifying the
+We’d like to change the colors in the graph from the default settings to
+a more traditional fire-brick red and cornflower blue. We can do this by
+adding the `ggplot2::scale_color_manual()` function and specifying the
 values(`c("cornflowerblue", "firebrick3")`).
 
 ``` r
@@ -857,10 +866,28 @@ For a full list of colors, check the pdf
 
 ## step12
 
+## Adding text to a graph
+
+The graph in the
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+
 ## step13
+
+## Adjusting axes on a graph
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
 ## step14
 
+## Adding labels
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+
 ## step15
+
+## Using themes
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
 ## finish
