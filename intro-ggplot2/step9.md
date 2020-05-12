@@ -1,4 +1,4 @@
-## Wrangling and visualizing 
+## Using pipes to wrangle and visualize 
 
 Sometimes we might want to pass the data directly from a wrangling step to a data visualization without assigning changes to the data frame. We will demonstrate how this works using the same `Brexit` dataset. 
 

@@ -381,7 +381,7 @@ The `ggplot2::qplot()` function knows to plot the dates on the `y` axes (notice 
 
 - [x] included in the step9.md?
 
-## Wrangling and visualizing 
+## Using pipes to wrangle and visualize 
 
 Sometimes we might want to pass the data directly from a wrangling step to a data visualization without assigning changes to the data frame. We will demonstrate how this works using the same `Brexit` dataset. 
 
@@ -415,7 +415,7 @@ We should end up with a dataset that has three variables: `date`, `poll`, and `p
 
 After we're sure the data are structured correctly, we won't assign it to the `Brexit` data frame. Instead, we'll pass it straight through to the `ggplot2::qplot()` function. The `date` variable will go on the `x`, and the `percent` variable will go on the `y`. Click on the Run icon below to see the graph.
 
-First, we will create the 'Original' graph by using `geom = "line'`, but we want a separate line for each `poll`. We can create this by adding the `color = poll` aesthetic. 
+First, we will create the 'Original' graph by using `geom = "line'`, but we want a separate line for each `poll`. We can create this by adding `color = poll`. 
 
 ```{r original-graph}
 Brexit %>% 
@@ -435,21 +435,23 @@ In the next step, we'll re-create the `Brexit` dataset.
 
 ## step 10
 
-- [x] included in step10.md
+- [ ] included in step10.md
 
-## Building plots layer-by-layer with `ggplot()`
+## Build plots layer-by-layer with `ggplot()`
 
-Now that we've learned how to plot using geoms and aesthetics, we can begin adding layers to the graph. In the previous step, we re-created the 'Original' plot using `geom = "line"`.
+Now that we've learned how to plot using geoms and aesthetics, we can begin adding layers to the graph. In the previous step, we re-created the 'Original' plot using `geom = "line"`. As we start to build more complex, customized plots, we will want to move away from using the `ggplot2::qplot()` function and start using `ggplot2::ggplot()` function.
 
-As we start to build more complex, customized plots, we will want to move away from using the `ggplot2::qplot()` function and start using `ggplot2::ggplot()` function.
+The `ggplot2::ggplot()` function initializes a graph, then we can 'map' variables to the positions (`x` or `y`), aesthetics (`color = `), or groupings (`group = `. 
 
-The `ggplot2::ggplot()` function initializes a graph, then we can 'map' variables to the axes, aesthetics, or groupings. We'll start by assigning the restructuring changes to the `Brexit` dataset. 
+We'll start by assigning the restructuring changes to the `Brexit` dataset. 
 
 ```{r change-Brexit}
 Brexit <- Brexit %>% pivot_longer(-date, 
                                   names_to = "poll", 
                                   values_to = "percent")
 ```
+
+### Using ggplot
 
 The `ggplot()` follows a pretty standard template, and it's similar to the `qplot()` function. See below: 
 
@@ -559,9 +561,9 @@ As you can see, the grammar of graphics makes it easy to think about what we'd l
 
 - [x] included in step11.md?
 
-## Settings inside `aes()` vs. inside `geom()`
+## Adding aesthetics manually
 
-So far we have added the `aes()` argument *inside* each new `geom` layer we've built, but there was a way to plan ahead and do this in the original `ggplot()` function. See the code below:
+**Note**: so far we have added the `aes()` argument *inside* each new `geom` layer we've built, but there was a way to plan ahead and do this in the original `ggplot()` function. See the code below:
 
 ```{r mapp-in-ggplot}
 Brexit %>% 
@@ -570,11 +572,11 @@ Brexit %>%
                 geom_point(alpha = 1/3, show.legend = FALSE)
 ```
 
-By adding `color = poll` in the `ggplot` function, it carries all the way down through each `geom`. All we have to do is add the arguments for each `geom`. 
+By adding `color = poll` in the `ggplot()` function, the aesthetic carries all the way down through each `geom`. All we have to do is add the arguments for each `geom`. 
 
 ### Adding colors manually
 
-We'd like to change the colors in the graph from the default colors to a more traditional red and blue. We can do this by adding the `ggplot2::scale_color_manual()` function and specifying the values(`c("cornflowerblue", "firebrick3")`).
+We'd like to change the colors in the graph from the default settings to a more traditional fire-brick red and cornflower blue. We can do this by adding the `ggplot2::scale_color_manual()` function and specifying the values(`c("cornflowerblue", "firebrick3")`).
 
 ```{r scale_color_manual}
 p3 +  
@@ -585,10 +587,30 @@ For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tz
 
 ## step12
 
+## Adding text to a graph 
+
+The graph in the 
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+
 ## step13
+
+## Adjusting axes on a graph
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
 ## step14 
 
+## Adding labels 
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+
 ## step15
 
+## Using themes
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+
 ## finish
+
+
