@@ -60,7 +60,7 @@ In the previous scenario, we used the `tidyverse` and `fivethirtyeight` packages
 
 Now that we have some experience with data wrangling, we'll extend what we know into visualizing our data with the [`ggplot2`](https://ggplot2.tidyverse.org/) package. 
 
-# step 1
+## step 1
 
 - [x] included in step1.md?
 
@@ -229,32 +229,18 @@ These data are available for download as part of the [#TidyTuesday](https://gith
 ```{r import-data}
 # Brexit 
 Brexit <- readr::read_csv("https://bit.ly/brexit-data")
-
 # Corbyn 
 Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
-
-# Dogs 
-Dogs <- readr::read_csv("https://bit.ly/dogs-data")
-
-# EuBalance 
-EuBalance <- readr::read_csv("https://bit.ly/eu-balance-data")
-
 # Pensions 
 Pensions <- readr::read_csv("https://bit.ly/pensions-data")
-
-# Trade 
-Trade <- readr::read_csv("https://bit.ly/trade-economist-data")
-
-# WomenResearch 
-WomenResearch <- readr::read_csv("https://bit.ly/women-research-data")
 ```
 
 We can examine each dataset using the `dplyr::glimpse()`, `utils::head()`, or `utils::str()` arguments we learned about in the last scenario.
  
 ```{r check-Brexit}
 Brexit %>% dplyr::glimpse()
-Brexit %>% utils::head()
-Brexit %>% utils::str()
+Corbyn %>% utils::head()
+Pensions %>% utils::str()
 ```
 
 More information on the datasets are below:
@@ -596,3 +582,13 @@ p3 +
 ```
 
 For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+
+## step12
+
+## step13
+
+## step14 
+
+## step15
+
+## finish
