@@ -228,9 +228,7 @@ These data are available for download as part of the [#TidyTuesday](https://gith
 
 ```{r import-data}
 # Brexit 
-# Brexit <- readr::read_csv("https://bit.ly/brexit-data")
-# fs::dir_ls("data")
-Brexit <- readr::read_csv("data/economist-brexit.csv")
+Brexit <- readr::read_csv("https://bit.ly/brexit-data")
 
 # Corbyn 
 Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
@@ -451,7 +449,7 @@ In the next step, we'll re-create the `Brexit` dataset.
 
 ## step 10
 
-- [ ] included in step10.md
+- [x] included in step10.md
 
 ## Building plots layer-by-layer with `ggplot()`
 
@@ -477,7 +475,7 @@ The `ggplot()` follows a pretty standard template, and it's similar to the `qplo
 We begin with a dataset, pass it over to to the `ggplot()` function, then map the `x` and `y` variables. Run the code below to assign the variable mappings to object `p`.
 
 ```{r mappings}
-p <- Brexit %>% ggplot(mapping = aes(x = date, y = percent, color = poll))
+p <- Brexit %>% ggplot(mapping = aes(x = date, y = percent))
 p
 ```
 
@@ -486,7 +484,7 @@ There aren't any points on the graph stored in object `p` because we haven't add
 ```
 <DATA> %>% 
   ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
-    <GEOM_FUNCTION>()
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 ```
 
 **Note**: the `+` operator is used with `ggplot2` functions, not the pipe `%>%` operator. 
@@ -495,38 +493,7 @@ There aren't any points on the graph stored in object `p` because we haven't add
 p + ggplot2::geom_smooth()
 ```
 
-The default `ggplot2::geom_smooth()` function includes the gray confidence interval around the smoothed line. We can remove this with `se = FALSE`. We'll also add the `show.legend = FALSE` argument to remove the `poll` categories from the left-hand side of the graph.
-
-Copy the code below and complete the `show.legend` argument and assign the graph to the `p_smooth` object.
-
-```{r standard-error-and-legend}
-p_smooth <- p + geom_smooth(se = FALSE, show.legend = FALSE)
-p_smooth
-```
-
-In the next step, we'll add the points to the graph.
-
-## step 11
-
-## Adding aesthetics and layers 
-
-In the last step we added a `geom_smooth()` to the `p` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `p_smooth` object. 
-
-We're going to continue building our plot by adding the `ggplot2::geom_point()` function, and we'll also include the `show.legend = FALSE` argument again to remove the legend for the two `poll` categories.
-
-```{r geom_point}
-p_smooth +
-  geom_point(show.legend = FALSE)
-```
-
-This is starting to look more like the graph in the medium article, but we still need to make a few minor adjustments. 
-
-![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
-
-`ggplot2` allows us to build graphs layer-by-layer, using the geoms and aesthetics to create plots that are clear and accurate. Each time we need to add something to a graph, we can either add a new `geom`, or look for ways to adjust the geoms with new aesthetic options. 
-
-
-For example, we can see from the 'Original' graph in the medium article that the points are slightly transparent. This is the alpha transparency argument, and it's available inside nearly every `geom`. 
+*Why are we only seeing a single line?* We need to look at our template again:
 
 ```
 <DATA> %>% 
@@ -534,102 +501,98 @@ For example, we can see from the 'Original' graph in the medium article that the
     <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 ```
 
-```{r}
-  p_smooth +
-  geom_point(alpha = 1/3, show.legend = FALSE) 
+This shows the aesthetic mapping (`aes(<MAPPINGS>)`) needs to be set inside the geom we want to display. In this case, we want the lines colored by the two kinds of polls. We can set this with `color = poll`.
+
+```{r aes-color}
+p + ggplot2::geom_smooth(aes(color = poll))
 ```
 
+The default `ggplot2::geom_smooth()` function includes the gray confidence interval around the smoothed line. We can remove this with `se = FALSE`. We'll also add the `show.legend = FALSE` argument to remove the `poll` categories from the left-hand side of the graph.
 
+Copy the code below and complete the `show.legend` argument and assign the graph to the `p2` object.
 
-
-
-
-The variables outlined above are `num_shows`, `num_lead`, `num_support`, and they give us the `score_div_y` (or *"Score" divided by "Years Since"*). The `score_div_y` and `years_since` then give us the total `score`. These data are presented in the article as a table, but I'll explore the `score` variable using two geoms from `ggplot2`. 
-
-### The bar plot
-
-Using the geoms in `ggplot2::qplot()` means supplying the `geom =` argument with a type of graph. 
-
-A bar-plot might help us understand the distribution of `score` in the `MadMen` data. I can build this graph using the template above, substituting the `MadMen` for `Data`, `score` in the `x` variable position, and `"bar"` for `"shape"`.
-
-```{r bar-plot}
-MadMen %>% ggplot2::qplot(data = ., 
-                        x = score, 
-                        geom = "bar")
+```{r standard-error-and-legend}
+p2 <- p + geom_smooth(aes(color = poll), se = FALSE, show.legend = FALSE)
+p2
 ```
 
-#### What is this graph telling us? 
+In the next step, we'll add the points to the graph. We've also updated the template below for adding aesthetics.
 
-The `geom = "bar"` displays the `score` values in the height of each bar (i.e. their `count`, as indicated by the `y` axis). These bars aren't equal heights, and the highest bar is at `0`. Fewer tall bars are on the right side of the graph (high `score`s), only four bars have a `count` higher than `10` (all are under `5`). 
-
-The article indicated, "*The median actor in our set had a score of 2*", but it's not clear where the median value is in the bar-plot. To view how this statistic fits into the distribution of `score`, I will use the `geom = "boxplot"`.
-
-### A box-plot
-
-Change the code above to use a `geom = "boxplot"`, but map `score` to the `y` axis and give the `x` axis a blank character string (`" "`). 
-
-```{r box-plot}
-MadMen %>% ggplot2::qplot(data = ., 
-                        x = " ", 
-                        y = score,
-                        geom = "boxplot") 
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), 
+                    optional_arguments = "values")
 ```
 
+## step 11
 
-#### What is this graph telling us? 
+## Adding aesthetics and layers 
 
-Box-plots (or box and whisker plots) display five statistical concepts in a single graph. These were initially introduced by John Tukey in his 1977 book, ["Exploratory Data Analysis."](https://amzn.to/2t8lUWI)
+In the last step we added a `geom_smooth()` to the `p` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `p2` object. 
 
-<!-- The image below is a taken from page 41,  -->
-<!-- ```{r IMAGE-og-box-whisker, echo=FALSE} -->
-<!-- # fs::dir_ls("figs") -->
-<!-- knitr::include_graphics(path = "figs/og-box-whisker.png") -->
-<!-- ``` -->
-
-Box-plots display the five number summary, which includes the smallest, largest, median, and upper and lower quartiles (quartiles divide the numbers into a percentage, and the 25th and 75th are included on the graph). Box-plots also display 'outliers', or extreme values as dots or points. 
-
-In order to get an idea of what I should be seeing on the graph, I will use the `base::summary()` function to list the `Min`, `1st Qu.`, `Median`, `Mean`, `3rd Qu.`, and `Max.` This is a five number summary plus the mean (or average).
-
-```{r summary-score}
-base::summary(MadMen$score)
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), 
+                    optional_arguments = "values")
 ```
 
-The `Median` is the horizontal line within the box, and if I look over to the `y` axis, I can see this corresponds to a score of 2 (just like the article stated).
+We're going to continue building our plot by adding the `ggplot2::geom_point()` function. We need to specify the `aes()` argument (`color = poll`), and we'll also include the `show.legend = FALSE` argument again to remove the legend for the two `poll` categories.
 
-```{r IMAGE-box-plot-median, echo=FALSE}
-# fs::dir_ls("figs")
-knitr::include_graphics(path = "figs/box-plot-median.png")
+```{r geom_point}
+p2 + geom_point(aes(color = poll), show.legend = FALSE)
 ```
 
-Can you guess which bars in the bar-plot correspond to the points on the box-plot?
+This is starting to look more like the graph in the medium article, but we still need to make a few minor adjustments. 
 
-## Output the new tables as csv files
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
-Use `write_csv(as.data.frame(x = Data, file = "path/to/file.csv"))` and voilá, you have a csv.
+`ggplot2` allows us to build graphs layer-by-layer using the geoms and aesthetics to customize each plot so that they are necessarily expressive. Each time we need to add something to a graph, we can either add a new `geom`, or look for ways to adjust a geoms with new aesthetic options. 
 
-```{r tidy-export, eval=FALSE}
-readr::write_csv(as.data.frame(MadMen), path = "data/MadMen.csv")
+For example, we can see from the 'Original' graph in the medium article that the points are slightly transparent. This is the alpha transparency argument, and it's available inside nearly every `geom`. 
+
+We can add the `alpha` argument inside the `ggplot2::geom_point()` function, and specify either a decimal, fraction, or numeric value.
+
+```{r alpha}
+p3 <- p2 + geom_point(aes(color = poll), alpha = 1/3, show.legend = FALSE)
+p3
 ```
 
-<!---
-## A recap of what we learned
+Now the points are slightly transparent, which helps with over-plotting. 
 
-We used the pipe operator to string together various `tidyr` and `dplyr` functions for structuring our data (in tibbles). Remember that:
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), args = "options")
+```
 
-- `dplyr::arrange()` sorts the data in each column  
+As you can see, the grammar of graphics makes it easy to think about what we'd like to see on a plot, decide what kind of graph element it is (`geom`, `aesthetic`, etc.), and then add it as a layer with the `+` operator. Hopefully you can see how easy it is to customize a graph by adding new layers and aesthetics!
 
-- `tidyr::separate()` divides the contents of a column apart into new *columns* 
-- `tidyr::separate_rows()` split the contents of a column into new *rows* 
-- `tidyr::unite()` sticks the contents from one column onto the contents of another column  
+## step 11
 
-- `tidyr::gather()` collects and indexes data across columns and puts them into into rows 
-- `tidyr::spread()` distributes indexed data from rows into columns  
+- [x] included in step11.md?
 
-- using `geom`s in `ggplot2::qplot()` 
+## Settings inside `aes()` vs. inside `geom()`
 
-- `base::summary()` to get the five number (and mean) 
+So far we have added the `aes()` argument *inside* each new `geom` layer we've built, but there was a way to plan ahead and do this in the original `ggplot()` function. See the code below:
 
-In the next tutorial we will expand our `ggplot2` abilities. 
+```{r mapp-in-ggplot}
+Brexit %>% 
+  ggplot(mapping = aes(x = date, y = percent, color = poll)) + 
+              geom_smooth(se = FALSE, show.legend = FALSE) + 
+                geom_point(alpha = 1/3, show.legend = FALSE)
+```
 
-### End
---->
+By adding `color = poll` in the `ggplot` function, it carries all the way down through each `geom`. All we have to do is add the arguments for each `geom`. 
+
+### Adding colors manually
+
+We'd like to change the colors in the graph from the default colors to a more traditional red and blue. We can do this by adding the `ggplot2::scale_color_manual()` function and specifying the values(`c("cornflowerblue", "firebrick3")`).
+
+```{r scale_color_manual}
+p3 +  
+  scale_color_manual(values = c("cornflowerblue", "firebrick3"))
+```
+
+For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
