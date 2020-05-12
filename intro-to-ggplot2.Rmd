@@ -589,7 +589,11 @@ For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tz
 
 ## Adding text to a graph 
 
-The graph in the 
+In the [Medium article]()https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368, the fixed 'Better' graph labels each smoothed line with `'Wrong'` vs `'Right'`. 
+
+We're going to do the same using the `ggplot2::geom_text()` function, which is great for adding labels and text on graphs. 
+
+
 
 ![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
