@@ -1,4 +1,4 @@
-## Introduction to `ggplot2`
+### Introduction to `ggplot2`
 
 Welcome to 'Building beautiful, customized graphs and charts in R with ggplot2'! In this scenario we'll go over some basic graphing principles using the popular `ggplot2` package.
 
@@ -8,6 +8,6 @@ Welcome to 'Building beautiful, customized graphs and charts in R with ggplot2'!
 
 In the previous scenario, we used the `tidyverse` and `fivethirtyeight` packages to wrangle data in R. 
 
-<!-- insert link to previous scenario! -->
 
-Now that we have some experience with data wrangling, we'll extend what we know into visualizing our data with the [`ggplot2`](https://ggplot2.tidyverse.org/) package. 
+
+Now that we have some experience with data wrangling, we'll extend what we know into visualizing our data with the [`ggplot2`](https://ggplot2.tidyverse.org/) package.

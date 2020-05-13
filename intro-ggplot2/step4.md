@@ -1,4 +1,4 @@
-## Using the pipe cont.
+### Using the pipe (cont.)
 
 [`magrittr` package](https://magrittr.tidyverse.org/) has some additional tricks that are worth knowing. For example, in the code above, you may have noticed the `data = .` argument. 
 
@@ -46,17 +46,15 @@ x %>% function(y, named_argument = .)
  
 By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the `named_argument` position, we're telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
 
+See the figure below:
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true)
+
 We can demonstrate this with the `diamonds` dataset in the `ggplot2` package. 
 
 ```
 diamonds <- ggplot2::diamonds
-diamonds %>% 
-  ggplot2::qplot(data = ., 
-                 x = carat, 
-                 y = price,
-                 geom = "point")
+diamonds %>% ggplot2::qplot(data = ., x = carat, y = price, geom = "point")
 ```{{execute}}
 
-See the figure below:
 
-![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true)

@@ -1,40 +1,51 @@
-## Visualizing the relationship between two variables
+### Wrangling and visualization pipelines 
 
-What if we want to graph the relationship between two variables? In this step, we'll graph two variables from the `Brexit` dataset. Use the terminal to view this dataset with `dplyr::glimpse()` or `utils::str()`:
+Sometimes we might want to pass the data directly from a wrangling step to a data visualization without assigning changes to the data frame. We will demonstrate how this works using the same `Brexit` dataset. 
 
-```
-dplyr::glimpse(Brexit)
-utils::str(object = Brexit)
-```{{execute}}
+If you read the [Medium article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368), you'll find The Economist first plotted these data as a line graph, with two lines (see 'Original' image below). The 'Better' way to improve the graph would be to include points and smooth the line in the graph (see below):
 
-When we view the contents of `Brexit`, we can see the `date` column is a character variable (`<chr>`), and the other two variables--`percent_responding_right` and `percent_responding_wrong`--are numeric (`<dbl>`). 
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
-### Changing character variables to dates 
+In order to re-create these graphs, we'll need to restructure the `Brexit` data with the `tidyr::pivot_longer()` function we learned about in the last [scenario]().
 
-If we want to plot the relationship between `date` and the `percent_responding_right`, we'll first need to change the format of `date` from character to `Date`, which we can do using the [`lubridate` package](https://lubridate.tidyverse.org/) (also from the `tidyverse`). 
-
-Copy the code below and complete the `lubridate::mdy()` function to format the `date` variable as a `Date`. 
+Complete the code below by filling in the `cols = ` argument as `date`, the `names_to = ` as `"poll"`, and the `values_to = ` as `"percent"`.
 
 ```
-# first reformat the date variable as a date
-# Brexit <- Brexit %>% mutate(date = lubridate::mdy(____))
-Brexit <- Brexit %>% mutate(date = lubridate::mdy(date))
-```{{copy}}
-
-Use the `base::is.double()`, `base::class()`, or `base::typeof()` function to figure out if you've formatted the new `date` variable correctly.
-
-```
-base::is.double(Brexit$date)
-base::class(Brexit$date)
-base::typeof(Brexit$date)
+Brexit %>% pivot_longer(cols = , names_to =, values_to =)
 ```
 
-After we're sure the `date` variable has been formatted correctly, we want to 'pipe' the formatted data to the `ggplot2::qplot()` function with the new `date` variable on the `x` and the `percent_responding_right` variable on the `y`.
+We should end up with a dataset that has three variables: `date`, `poll`, and `percent`. The data below display the top six rows you should see when you've used `tidyr::pivot()` correctly. 
 
 ```
-Brexit %>% qplot(x = date, y = percent_responding_right, data = .)
-```{{copy}}
+# A tibble: 170 x 3
+   date       poll                     percent
+   <date>     <chr>                      <dbl>
+ 1 2016-02-08 percent_responding_right      46
+ 2 2016-02-08 percent_responding_wrong      42
+ 3 2016-09-08 percent_responding_right      45
+ 4 2016-09-08 percent_responding_wrong      44
+ 5 NA         percent_responding_right      46
+ 6 NA         percent_responding_wrong      43
+```
 
-The `ggplot2::qplot()` function is smart enough to automatically choose a `geom` depending on what type of variable we assign to the `x` and `y` axes. In this case, the `percent_responding_right` variable is a `<dbl>` (numeric), and we've reformatted the `date` variable into a double before we passed it to the `y` axis.
+#### Restructure and plot
 
-The `ggplot2::qplot()` function knows to plot the dates on the `y` axes (notice it displays only the `year`) and represent the data with `geom = "points"`.
+After we're sure the data are structured correctly, we won't assign it to the `Brexit` data frame. Instead, we'll pass it straight through to the `ggplot2::qplot()` function. The `date` variable will go on the `x`, and the `percent` variable will go on the `y`. Click on the Run icon below to see the graph.
+
+First, we will create the 'Original' graph by using `geom = "line'`, but we want a separate line for each `poll`. We can create this by adding `color = poll`. 
+
+```{r original-graph}
+Brexit %>% 
+  pivot_longer(cols = -date, 
+               names_to = "poll", 
+               values_to = "percent") %>% 
+  ggplot2::qplot(x = date, 
+                 y = percent, 
+                 data = .,
+                 geom = "line",
+                 color = poll)
+```
+
+As we can see from the graph above, being able to use the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
+
+In the next step, we'll re-create the `Brexit` dataset.
