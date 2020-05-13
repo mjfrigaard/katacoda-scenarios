@@ -4,6 +4,8 @@ Martin Frigaard
 
   - [setup](#setup)
   - [Outline](#outline)
+      - [Objectives](#objectives)
+      - [The learners](#the-learners)
       - [intro](#intro)
           - [Introduction to `ggplot2`](#introduction-to-ggplot2)
           - [Exploring the data with
@@ -71,6 +73,11 @@ Martin Frigaard
           - [Using themes](#using-themes)
               - [`ggthemes`](#ggthemes)
       - [finish](#finish)
+      - [Appendix 1: Katacoda scenario
+        tutorials](#appendix-1-katacoda-scenario-tutorials)
+      - [Appendix 2: Katacoda
+        guidelines](#appendix-2-katacoda-guidelines)
+      - [Appendix 3: Scenario Checklist](#appendix-3-scenario-checklist)
 
 # setup
 
@@ -81,6 +88,8 @@ To see how to set up the Katacoda environment and layout, check out the
 
 Below are the 15 steps (plus `intro` and `finish`) files in the
 scenario.
+
+## Objectives
 
 The objectives for this scenario are:
 
@@ -96,6 +105,22 @@ The objectives for this scenario are:
     (`qplot()`)
 
   - [ ] Build a graph one layer at a time using the `ggplot` template
+
+## The learners
+
+The learners I’m expecting to be participating in this course are:
+
+  - **Alice** will take this class on her own time for professional
+    development.
+
+  - **Sam** will this course in a two-day weekend because he needs to
+    complete a project.
+
+  - **Betty** is using these scenarios to supplement a semester-long
+    undergraduate course on R.
+
+  - **Gene** has been told to take this course for his job because his
+    team is using R.
 
 ## intro
 
@@ -310,7 +335,7 @@ See the figure below:
 
 ## step 5
 
-  - [ ] included in step5.md?
+  - [x] included in step5.md?
 
 ### Lets get some data\!
 
@@ -478,7 +503,7 @@ quartiles, higher/lower values, and outliers (see image below).
 
 ## step 7
 
-  - [ ] included in step7.md
+  - [x] included in step7.md
 
 ### Visualizing a numerical and categorical variable
 
@@ -1046,3 +1071,64 @@ charts in R with `ggplot2`*”.
 We hope you feel more comfortable creating graphs with `ggplot2`, and
 that you have plenty of code to adapt to your needs. Please check out
 the other scenarios on R and the `tidyverse`\!
+
+## Appendix 1: Katacoda scenario tutorials
+
+The tutorial for building the scenario is
+[here](https://katacoda.com/scenario-examples/scenarios/create-scenario-101).
+
+I took notes on this tutorial and made them available in [this Google
+document](https://docs.google.com/document/d/e/2PACX-1vSf2w2onhH5t3IhuD4sYLoWqn46BLKMYFR7q3BHO8QTaRkVgXfhKvnl8T9uHrjmbVpTZVKCWrfxEl0R/pub).
+
+## Appendix 2: Katacoda guidelines
+
+There are multiple guidelines and resources for writing scenarios.
+O’Reilly has provided an *Authoring Guide* and *Formatting and Design
+Guide*.
+
+The link for these files can be found here:
+
+  - [Katacoda Scenario Formatting and Design Guide for
+    Authors](https://docs.google.com/document/d/1l4lofG5kAu8JFzumZPCsJJE2muCYe6rHSHCQsMlijd8/edit)
+
+  - [Katacoda Scenario Authoring
+    Guide](https://docs.google.com/document/d/14rudtruZQhRxvD3zcR3g75j5nuOgKGz4CYk8hdhaV-w/edit)
+
+## Appendix 3: Scenario Checklist
+
+**Scenario Readiness Checklist:**
+
+When you think your scenario is ready for publication, we recommend you
+run through the checklist below to ensure it is ready to go. \[Reminder:
+We discuss these best practices in the Katacoda Formatting and Design
+Guide for Authors\]:
+
+Does the scenario start consistently and in a timely manner? More than 5
+minutes to start would be cause to reconsider your build decisions.
+
+  - [x] Are your intro and final pages present and are their respective
+    goals and lessons learned in agreement?
+
+  - [ ] Have you tested your scenario lately?
+
+  - [x] Do you agree with the leveling (beginner, intermediate,
+    advanced) you indicated when you started the build?
+
+  - [x] Was learning time you entered correct, or should it be adjusted?
+
+  - [ ] Are your versions of tools and other dependencies up to date?
+
+  - [ ] Have you tried every instruction?
+
+  - [ ] Have you written each step in the most concise manner possible?
+
+  - [ ] Have you run your text through a spelling/grammar checker?
+
+  - [ ] Are your credits to others given present and correct?
+
+  - [ ] Are your images legal and with credits?
+
+  - [ ] Are your hyperlinks all working?
+
+  - [ ] Do the goals and lessons learned items match the steps in the
+    scenario?

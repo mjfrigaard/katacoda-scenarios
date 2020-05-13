@@ -44,6 +44,8 @@ To see how to set up the Katacoda environment and layout, check out the `ggplot2
 
 Below are the 15 steps (plus `intro` and `finish`) files in the scenario. 
 
+## Objectives
+
 The objectives for this scenario are: 
 
 - [ ] Explain why there is as Grammar of Graphics is and what problem it solves
@@ -56,7 +58,7 @@ The objectives for this scenario are:
 
 - [ ] Build a graph one layer at a time using the `ggplot` template 
 
-### The learners 
+## The learners 
 
 The learners I'm expecting to be participating in this course are: 
 
@@ -237,7 +239,7 @@ See the figure below:
 
 ## step 5
 
-- [ ] included in step5.md?
+- [x] included in step5.md?
 
 ### Lets get some data! 
 
@@ -336,7 +338,7 @@ The box-plot gives us an idea of `pop_65_percent`'s distribution by using the wh
 
 ## step 7 
 
-- [ ] included in step7.md
+- [x] included in step7.md
 
 ### Visualizing a numerical and categorical variable
 
@@ -344,7 +346,7 @@ Box-plots are also great for visualizing continuous variables across the levels 
 
 ```{r box-plot2}
 # the data
-Balance$ %>% ggplot2::qplot(x = value, y = country, data = ., geom = "boxplot") 
+Balance %>% ggplot2::qplot(x = value, y = country, data = ., geom = "boxplot") 
 ```
 
 
