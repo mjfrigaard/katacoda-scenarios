@@ -10,11 +10,10 @@ Our graph is coming along, but we should shift the `y` axes to the opposite side
 
 Assign these changes to `p6` and print it to the screen.
 
-```{r scale_y_continuous}
-# p6 <- p5 + ggplot2::scale_y_continuous(position = "_____")
-p6 <- p5 + ggplot2::scale_y_continuous(position = "right")
-p6
 ```
+p6 <- p5 + ggplot2::scale_y_continuous(position = "_____")
+p6
+```{{copy}}
 
 Compare to the `Better' graph. 
 

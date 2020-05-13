@@ -11,9 +11,11 @@ In the last step we added a `geom_smooth()` to the `p` object and removed the st
 
 We're going to continue building our plot by adding the `ggplot2::geom_point()` function. We need to specify the `aes()` argument (`color = poll`), and we'll also include the `show.legend = FALSE` argument again to remove the legend for the two `poll` categories.
 
-```{r geom_point}
-p2 + geom_point(aes(color = poll), show.legend = FALSE)
+Complete the `show.legend` argument:
+
 ```
+p2 + geom_point(aes(color = poll), show.legend = FALSE)
+```{{copy}}
 
 This is starting to look more like the graph in the medium article, but we still need to make a few minor adjustments. 
 
@@ -23,12 +25,14 @@ This is starting to look more like the graph in the medium article, but we still
 
 For example, we can see from the 'Original' graph in the medium article that the points are slightly transparent. This is the alpha transparency argument, and it's available inside nearly every `geom`. 
 
-We can add the `alpha` argument inside the `ggplot2::geom_point()` function, and specify either a decimal, fraction, or numeric value.
+We can add the `alpha` argument inside the `ggplot2::geom_point()` function, and specify either a decimal, fraction, or numeric value. In this case, we want the value set to `1/3`.
 
-```{r alpha}
-p3 <- p2 + geom_point(aes(color = poll), alpha = 1/3, show.legend = FALSE)
-p3
+Complete the code below to change the `alpha` level.
+
 ```
+p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = ___)
+# view p3
+```{{copy}}
 
 Now the points are slightly transparent, which helps with over-plotting. 
 

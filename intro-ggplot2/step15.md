@@ -8,11 +8,11 @@ The `ggthemes` package has pre-packaged design, color, and font choices for most
 
 This function takes a `gray_bg = ` argument, which we will set to `FALSE`. We'll also change the `base_size` for the font to `12`, and the default font family to `"Verdana"`.
 
-```{r theme_economist_white}
+```
 p7 + ggthemes::theme_economist_white(gray_bg = FALSE, 
                                      base_size = 12, 
                                      base_family = "Verdana")
-```
+```{{execute}}
 
 This looks pretty close, right? Compare to the image below:
 

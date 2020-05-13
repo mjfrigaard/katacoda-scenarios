@@ -8,11 +8,11 @@ If you read the [Medium article](https://medium.economist.com/mistakes-weve-draw
 
 In order to re-create these graphs, we'll need to restructure the `Brexit` data with the `tidyr::pivot_longer()` function we learned about in the last [scenario]().
 
-Complete the code below by filling in the `cols = ` argument as `date`, the `names_to = ` as `"poll"`, and the `values_to = ` as `"percent"`.
+Complete the code below by filling in the `cols = ` argument as `-date`, the `names_to = ` as `"poll"`, and the `values_to = ` as `"percent"`.
 
 ```
 Brexit %>% pivot_longer(cols = , names_to =, values_to =)
-```
+```{{copy}}
 
 We should end up with a dataset that has three variables: `date`, `poll`, and `percent`. The data below display the top six rows you should see when you've used `tidyr::pivot()` correctly. 
 
@@ -34,7 +34,7 @@ After we're sure the data are structured correctly, we won't assign it to the `B
 
 First, we will create the 'Original' graph by using `geom = "line'`, but we want a separate line for each `poll`. We can create this by adding `color = poll`. 
 
-```{r original-graph}
+```
 Brexit %>% 
   pivot_longer(cols = -date, 
                names_to = "poll", 
@@ -44,8 +44,8 @@ Brexit %>%
                  data = .,
                  geom = "line",
                  color = poll)
-```
+```{{execute}}
 
 As we can see from the graph above, being able to use the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
 
-In the next step, we'll re-create the `Brexit` dataset.
+In the next step, we'll learn how to build a graph layer-by-layer!
