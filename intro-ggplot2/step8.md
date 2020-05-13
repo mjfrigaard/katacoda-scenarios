@@ -20,19 +20,24 @@ We should end up with a dataset that has three variables: `date`, `poll`, and `p
 # A tibble: 170 x 3
    date       poll                     percent
    <date>     <chr>                      <dbl>
- 1 2016-02-08 percent_responding_right      46
- 2 2016-02-08 percent_responding_wrong      42
- 3 2016-09-08 percent_responding_right      45
- 4 2016-09-08 percent_responding_wrong      44
- 5 NA         percent_responding_right      46
- 6 NA         percent_responding_wrong      43
+ 1 2016-08-02 percent_responding_right      46
+ 2 2016-08-02 percent_responding_wrong      42
+ 3 2016-08-09 percent_responding_right      45
+ 4 2016-08-09 percent_responding_wrong      44
+ 5 2016-08-17 percent_responding_right      46
+ 6 2016-08-17 percent_responding_wrong      43
+ 7 2016-08-23 percent_responding_right      45
+ 8 2016-08-23 percent_responding_wrong      43
+ 9 2016-08-31 percent_responding_right      47
+10 2016-08-31 percent_responding_wrong      44
+# … with 160 more rows
 ```
 
 #### Restructure and plot
 
 After we're sure the data are structured correctly, we won't assign it to the `Brexit` data frame. Instead, we'll pass it straight through to the `ggplot2::qplot()` function. The `date` variable will go on the `x`, and the `percent` variable will go on the `y`. Click on the Run icon below to see the graph.
 
-First, we will create the 'Original' graph by using `geom = "line'`, but we want a separate line for each `poll`. We can create this by adding `color = poll`. 
+First, we will create the 'Original' graph by using `group = poll` and `geom = "line'`, because this allows us to build a separate colored line for each `poll`.  
 
 ```
 Brexit %>% 
@@ -40,12 +45,13 @@ Brexit %>%
                names_to = "poll", 
                values_to = "percent") %>% 
   ggplot2::qplot(x = date, 
-                 y = percent, 
+                 y = percent,
+                 group = poll,
                  data = .,
                  geom = "line",
                  color = poll)
 ```{{execute}}
 
-As we can see from the graph above, being able to use the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
+As we can see from the graph above, being able to use `group` and the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
 
 In the next step, we'll learn how to build a graph layer-by-layer!

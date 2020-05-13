@@ -43,6 +43,7 @@ Below is a box-plot of the `pop_65_percent` from the `Pensions` dataset.
 Pensions %>% 
   # the variable 
   ggplot2::qplot(x = pop_65_percent, 
+                 y = " ",
                  # the dot
                  data = .,
                  geom = "boxplot") 

@@ -149,7 +149,7 @@ we know into visualizing our data with the
 
 ## step 1
 
-  - [ ] included in step1.md?
+  - [x] included in step1.md?
 
 ### `ggplot2`: a quick overview
 
@@ -488,6 +488,7 @@ Below is a box-plot of the `pop_65_percent` from the `Pensions` dataset.
 Pensions %>% 
   # the variable 
   ggplot2::qplot(x = pop_65_percent, 
+                 y = " ",
                  # the dot
                  data = .,
                  geom = "boxplot") 
@@ -509,7 +510,9 @@ quartiles, higher/lower values, and outliers (see image below).
 
 Box-plots are also great for visualizing continuous variables across the
 levels of a categorical variable. For example, we have the `Balance`
-dataset with `value`s of European Union countries budget surplus.
+dataset with `value`s of European Union countries budget surplus. We can
+add the categorical variable to the `y` axis to view one box-plot per
+level of `country`.
 
 ``` r
 # the data
@@ -545,14 +548,17 @@ If we want to plot the relationship between `date` and the
 `date` from character to `Date`, which we can do using the [`lubridate`
 package](https://lubridate.tidyverse.org/) (also from the `tidyverse`).
 
-Copy the code below and complete the `lubridate::mdy()` function to
+Copy the code below and complete the `lubridate::dmy()` function to
 format the `date` variable as a `Date`.
 
 ``` r
 # first reformat the date variable as a date
-# Brexit <- Brexit %>% mutate(date = lubridate::mdy(____))
-Brexit <- Brexit %>% mutate(date = lubridate::mdy(date))
+# Brexit <- Brexit %>% mutate(date = lubridate::dmy(____))
+Brexit <- Brexit %>% mutate(date = lubridate::dmy(date))
 ```
+
+Read more about `dmy()`
+[here.](https://lubridate.tidyverse.org/reference/ymd.html)
 
 Use the `base::is.double()`, `base::class()`, or `base::typeof()`
 function to figure out if you’ve formatted the new `date` variable
@@ -620,7 +626,7 @@ In order to re-create these graphs, we’ll need to restructure the
 `Brexit` data with the `tidyr::pivot_longer()` function we learned about
 in the last [scenario]().
 
-Complete the code below by filling in the `cols =` argument as `date`,
+Complete the code below by filling in the `cols =` argument as `-date`,
 the `names_to =` as `"poll"`, and the `values_to =` as `"percent"`.
 
     Brexit %>% pivot_longer(cols = , names_to =, values_to =)
@@ -632,12 +638,17 @@ should see when you’ve used `tidyr::pivot()` correctly.
     # A tibble: 170 x 3
        date       poll                     percent
        <date>     <chr>                      <dbl>
-     1 2016-02-08 percent_responding_right      46
-     2 2016-02-08 percent_responding_wrong      42
-     3 2016-09-08 percent_responding_right      45
-     4 2016-09-08 percent_responding_wrong      44
-     5 NA         percent_responding_right      46
-     6 NA         percent_responding_wrong      43
+     1 2016-08-02 percent_responding_right      46
+     2 2016-08-02 percent_responding_wrong      42
+     3 2016-08-09 percent_responding_right      45
+     4 2016-08-09 percent_responding_wrong      44
+     5 2016-08-17 percent_responding_right      46
+     6 2016-08-17 percent_responding_wrong      43
+     7 2016-08-23 percent_responding_right      45
+     8 2016-08-23 percent_responding_wrong      43
+     9 2016-08-31 percent_responding_right      47
+    10 2016-08-31 percent_responding_wrong      44
+    # … with 160 more rows
 
 #### Restructure and plot
 
@@ -647,9 +658,9 @@ the `ggplot2::qplot()` function. The `date` variable will go on the `x`,
 and the `percent` variable will go on the `y`. Click on the Run icon
 below to see the graph.
 
-First, we will create the ‘Original’ graph by using `geom = "line'`, but
-we want a separate line for each `poll`. We can create this by adding
-`color = poll`.
+First, we will create the ‘Original’ graph by using `group = poll` and
+`geom = "line'`, because this allows us to build a separate colored line
+for each `poll`.
 
 ``` r
 Brexit %>% 
@@ -657,7 +668,8 @@ Brexit %>%
                names_to = "poll", 
                values_to = "percent") %>% 
   ggplot2::qplot(x = date, 
-                 y = percent, 
+                 y = percent,
+                 group = poll,
                  data = .,
                  geom = "line",
                  color = poll)
@@ -665,11 +677,11 @@ Brexit %>%
 
 ![](figs/original-graph-1.png)<!-- -->
 
-As we can see from the graph above, being able to use the `color`
-aesthetic extends the `qplot()`s capabilities by making it clear there
-are two categories for `polls` represented in the graph.
+As we can see from the graph above, being able to use `group` and the
+`color` aesthetic extends the `qplot()`s capabilities by making it clear
+there are two categories for `polls` represented in the graph.
 
-In the next step, we’ll re-create the `Brexit` dataset.
+In the next step, we’ll learn how to build a graph layer-by-layer\!
 
 ## step 9
 
@@ -707,10 +719,11 @@ the `qplot()` function. See below:
 
 We begin with a dataset, pass it over to to the `ggplot()` function,
 then map the `x` and `y` variables. Run the code below to assign the
-variable mappings to object `p`.
+variable mappings to object `p`, then print `p` to the console.
 
 ``` r
 p <- Brexit %>% ggplot(mapping = aes(x = date, y = percent))
+# view p
 p
 ```
 
@@ -794,7 +807,10 @@ argument (`color = poll`), and we’ll also include the `show.legend =
 FALSE` argument again to remove the legend for the two `poll`
 categories.
 
+Complete the `show.legend` argument:
+
 ``` r
+# p2 + geom_point(aes(color = poll), show.legend = ____)
 p2 + geom_point(aes(color = poll), show.legend = FALSE)
 ```
 
@@ -816,10 +832,14 @@ that the points are slightly transparent. This is the alpha transparency
 argument, and it’s available inside nearly every `geom`.
 
 We can add the `alpha` argument inside the `ggplot2::geom_point()`
-function, and specify either a decimal, fraction, or numeric value.
+function, and specify either a decimal, fraction, or numeric value. In
+this case, we want the value set to `1/3`.
+
+Complete the code below to change the `alpha` level.
 
 ``` r
-p3 <- p2 + geom_point(aes(color = poll), alpha = 1/3, show.legend = FALSE)
+# p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = ___)
+p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = 1/3)
 p3
 ```
 
@@ -867,9 +887,10 @@ a more traditional fire-brick red and cornflower blue. We can do this by
 adding the `ggplot2::scale_color_manual()` function and specifying the
 values(`c("cornflowerblue", "firebrick3")`).
 
-Run the code below to save the new changes to the `p4` object.
+Fill in the code below and save the new changes to the `p4` object.
 
 ``` r
+# p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "__________"))
 p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "firebrick3"))
 p4
 ```
@@ -886,7 +907,7 @@ For a full list of colors, check the pdf
 ### Adding text to a graph
 
 In the [Medium
-article]()<https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368>,
+article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368),
 the fixed ‘Better’ graph labels each smoothed line with `'Wrong'` vs
 `'Right'`.
 
@@ -901,19 +922,10 @@ requires the `x`, `y`, and `label` arguments. We want to place the
 `Wrong` label at the intersection of percent `46`, just above the red
 line near the year `2018`.
 
-``` r
-p4 + geom_text(label = "Wrong", color = "firebrick3", x = as.Date("2018-01-01"), y = __)
-```
-
 Recall that the dates are formatted as `YYYY-MM-DD`, so we have to pick
 an `x` value that we can specify as a date with `as.Date()`.
 
-``` r
-p4 + geom_text(label = "Wrong", color = "firebrick3", 
-               x = as.Date("2018-01-01"), y = 46) 
-```
-
-![](figs/geom_text-1.png)<!-- -->
+    p4 + geom_text(label = "Wrong", color = "firebrick3", x = as.Date("2018-01-01"), y = __)
 
 Now we want to add the `Right` label to the graph, but make this
 cornflower blue, at position `x` = `as.Date("2018-01-01")` and `y` =

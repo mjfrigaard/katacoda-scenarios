@@ -25,7 +25,7 @@ Copy the code below and complete the `lubridate::mdy()` function to format the `
 
 ```
 # first reformat the date variable as a date
-Brexit <- Brexit %>% mutate(date = lubridate::mdy(____))
+Brexit <- Brexit %>% mutate(date = lubridate::dmy(____))
 ```
 
 Use the `base::is.double()`, `base::class()`, or `base::typeof()` function to figure out if you've formatted the new `date` variable correctly.

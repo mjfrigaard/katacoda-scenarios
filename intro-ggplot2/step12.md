@@ -1,6 +1,6 @@
 ### Adding text to a graph 
 
-In the [Medium article]()https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368, the fixed 'Better' graph labels each smoothed line with `'Wrong'` vs `'Right'`. 
+In the [Medium article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368), the fixed 'Better' graph labels each smoothed line with `'Wrong'` vs `'Right'`.  
 
 We're going to add text labels to our graph using the `ggplot2::geom_text()` function. The `p4` object has the latest changes to the plot.
 

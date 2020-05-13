@@ -91,7 +91,7 @@ Now that we have some experience with data wrangling, we'll extend what we know 
 
 ## step 1
 
-- [ ] included in step1.md?
+- [x] included in step1.md?
 
 ### `ggplot2`: a quick overview
 
@@ -326,6 +326,7 @@ Below is a box-plot of the `pop_65_percent` from the `Pensions` dataset.
 Pensions %>% 
   # the variable 
   ggplot2::qplot(x = pop_65_percent, 
+                 y = " ",
                  # the dot
                  data = .,
                  geom = "boxplot") 
@@ -364,13 +365,15 @@ When we view the contents of `Brexit`, we can see the `date` column is a charact
 
 If we want to plot the relationship between `date` and the `percent_responding_right`, we'll first need to change the format of `date` from character to `Date`, which we can do using the [`lubridate` package](https://lubridate.tidyverse.org/) (also from the `tidyverse`). 
 
-Copy the code below and complete the `lubridate::mdy()` function to format the `date` variable as a `Date`. 
+Copy the code below and complete the `lubridate::dmy()` function to format the `date` variable as a `Date`. 
 
 ```{r change-date-to-date}
 # first reformat the date variable as a date
-# Brexit <- Brexit %>% mutate(date = lubridate::mdy(____))
-Brexit <- Brexit %>% mutate(date = lubridate::mdy(date))
+# Brexit <- Brexit %>% mutate(date = lubridate::dmy(____))
+Brexit <- Brexit %>% mutate(date = lubridate::dmy(date))
 ```
+
+Read more about `dmy()` [here.](https://lubridate.tidyverse.org/reference/ymd.html)
 
 Use the `base::is.double()`, `base::class()`, or `base::typeof()` function to figure out if you've formatted the new `date` variable correctly.
 
@@ -416,19 +419,24 @@ We should end up with a dataset that has three variables: `date`, `poll`, and `p
 # A tibble: 170 x 3
    date       poll                     percent
    <date>     <chr>                      <dbl>
- 1 2016-02-08 percent_responding_right      46
- 2 2016-02-08 percent_responding_wrong      42
- 3 2016-09-08 percent_responding_right      45
- 4 2016-09-08 percent_responding_wrong      44
- 5 NA         percent_responding_right      46
- 6 NA         percent_responding_wrong      43
+ 1 2016-08-02 percent_responding_right      46
+ 2 2016-08-02 percent_responding_wrong      42
+ 3 2016-08-09 percent_responding_right      45
+ 4 2016-08-09 percent_responding_wrong      44
+ 5 2016-08-17 percent_responding_right      46
+ 6 2016-08-17 percent_responding_wrong      43
+ 7 2016-08-23 percent_responding_right      45
+ 8 2016-08-23 percent_responding_wrong      43
+ 9 2016-08-31 percent_responding_right      47
+10 2016-08-31 percent_responding_wrong      44
+# … with 160 more rows
 ```
 
 #### Restructure and plot
 
 After we're sure the data are structured correctly, we won't assign it to the `Brexit` data frame. Instead, we'll pass it straight through to the `ggplot2::qplot()` function. The `date` variable will go on the `x`, and the `percent` variable will go on the `y`. Click on the Run icon below to see the graph.
 
-First, we will create the 'Original' graph by using `geom = "line'`, but we want a separate line for each `poll`. We can create this by adding `color = poll`. 
+First, we will create the 'Original' graph by using `group = poll` and `geom = "line'`, because this allows us to build a separate colored line for each `poll`. 
 
 ```{r original-graph}
 Brexit %>% 
@@ -436,13 +444,14 @@ Brexit %>%
                names_to = "poll", 
                values_to = "percent") %>% 
   ggplot2::qplot(x = date, 
-                 y = percent, 
+                 y = percent,
+                 group = poll,
                  data = .,
                  geom = "line",
                  color = poll)
 ```
 
-As we can see from the graph above, being able to use the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
+As we can see from the graph above, being able to use `group` and the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
 
 In the next step, we'll learn how to build a graph layer-by-layer!
 
@@ -547,6 +556,7 @@ We're going to continue building our plot by adding the `ggplot2::geom_point()` 
 Complete the `show.legend` argument:
 
 ```{r geom_point}
+# p2 + geom_point(aes(color = poll), show.legend = ____)
 p2 + geom_point(aes(color = poll), show.legend = FALSE)
 ```
 
@@ -564,7 +574,8 @@ Complete the code below to change the `alpha` level.
 
 
 ```{r alpha}
-p3 <- p2 + geom_point(aes(color = poll), alpha = 1/3, show.legend = FALSE)
+# p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = ___)
+p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = 1/3)
 p3
 ```
 
@@ -602,6 +613,7 @@ We'd like to change the colors in the graph from the default settings to a more 
 Fill in the code below and save the new changes to the `p4` object. 
 
 ```{r scale_color_manual}
+# p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "__________"))
 p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "firebrick3"))
 p4
 ```
@@ -614,7 +626,7 @@ For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tz
 
 ### Adding text to a graph 
 
-In the [Medium article]()https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368, the fixed 'Better' graph labels each smoothed line with `'Wrong'` vs `'Right'`. 
+In the [Medium article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368), the fixed 'Better' graph labels each smoothed line with `'Wrong'` vs `'Right'`. 
 
 We're going to add text labels to our graph using the `ggplot2::geom_text()` function. The `p4` object has the latest changes to the plot.
 
