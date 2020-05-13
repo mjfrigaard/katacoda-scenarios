@@ -7,20 +7,10 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-library(hrbrthemes)
-library(extrafont)
+library(tidyverse)
 library(knitr)
 library(rmdformats)
-library(tidyverse)
-library(magrittr)
-library(skimr)
-library(rlang)
-library(gt)
-library(visdat)
-library(inspectdf)
-library(foreign)
-library(naniar)
-# images folder
+# figs folder
 if (!file.exists("figs")) {
   dir.create("figs")
 }
@@ -30,8 +20,6 @@ knitr::opts_chunk$set(
   cache = FALSE,
   prompt = FALSE,
   tidy = FALSE,
-  fig.width = 10,
-  fig.height = 7.5,
   comment = "#>",
   message = FALSE,
   warning = FALSE,
@@ -45,18 +33,6 @@ base::options(
   tibble.width = 78,
   scipen = 100000000
 )
-ggplot2::theme_set(hrbrthemes::theme_ipsum_tw(
-  base_size = 10,
-  strip_text_size = 11,
-  axis_title_size = 13,
-  plot_title_size = 17,
-  subtitle_size = 13,
-  base_family = "Ubuntu",
-  strip_text_family = "TitilliumWeb-Regular",
-  axis_title_family = "TitilliumWeb-Regular",
-  subtitle_family = "TitilliumWeb-Regular",
-  plot_title_family = "JosefinSans-Regular"
-))
 ```
 
 # Access the scenario
@@ -96,11 +72,11 @@ Katacoda comes with it's own flavor of Markdown, which you can learn more about 
 
 The learner personas for this scenario are: 
 
-1. Horatio is an executive at a tech company who wants to learn more about 
+1. Horatio is an executive at a tech company who wants to learn more about data manipulation with R and Python
 
-2. Judy is a product manager at a start-up...
+2. Judy is a product manager at a start-up and needs to restructure data before loading it into their database.
 
-3. Andrew is a graduate student in college...
+3. Andrew is a graduate student in college and needs to analyze his thesis/dissertation project.
 
 ***
 

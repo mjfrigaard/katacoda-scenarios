@@ -84,11 +84,13 @@ Katacoda should copy or run the code inside the R REPL.
 The learner personas for this scenario are:
 
 1.  Horatio is an executive at a tech company who wants to learn more
-    about
+    about data manipulation with R and Python
 
-2.  Judy is a product manager at a start-up…
+2.  Judy is a product manager at a start-up and needs to restructure
+    data before loading it into their database.
 
-3.  Andrew is a graduate student in college…
+3.  Andrew is a graduate student in college and needs to analyze his
+    thesis/dissertation project.
 
 -----
 
