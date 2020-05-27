@@ -7,7 +7,8 @@ output:
     keep_md: yes
 ---
 
-I will be creating three scenarios for using R in Katacoda. They are listed below:
+This is the `README.Rmd` file for the Katacoda scenarios. All the scenarios and courses can be found on my profile page [here](https://katacoda.com/mjfrigaard).
+
 
 ## Scenario 1: Format and shape your data with R in the tidyverse
 
@@ -54,7 +55,11 @@ We create a tidy dataset with `pivot_longer()`.
 
 <img src="figs/step5.png" width="1212" />
 
+Here are the original data arrangements 
+
 <img src="figs/01-orig-bob-ross.png" width="1716" />
+
+A tidier version of the same data.
 
 <img src="figs/02-long-bob-ross.png" width="1338" />
 
@@ -115,11 +120,13 @@ Wrap up.
 
 ***
 
-Coming soon!
+## Scenario 2: Build beautiful, customized graphs and charts in R with `ggplot2`
 
-*Scenario 2: Build beautiful, customized graphs and charts in R with ggplot2*
 
-*Scenario 3: Combine narrative with numbers for effective storytelling in R*
 
-This is the `README.Rmd` file for the Katacoda scenarios. All the scenarios and courses can be found on my profile page [here](https://katacoda.com/mjfrigaard).
+
+***
+
+## Scenario 3: Combine narrative with numbers for effective storytelling in R
+
 

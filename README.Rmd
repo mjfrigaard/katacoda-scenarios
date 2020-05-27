@@ -7,7 +7,8 @@ output:
     keep_md: yes
 ---
 
-I will be creating three scenarios for using R in Katacoda. They are listed below:
+This is the `README.Rmd` file for the Katacoda scenarios. All the scenarios and courses can be found on my profile page [here](https://katacoda.com/mjfrigaard).
+
 
 ## Scenario 1: Format and shape your data with R in the tidyverse
 
@@ -15,7 +16,7 @@ I will be creating three scenarios for using R in Katacoda. They are listed belo
 
 This introduces the `tidyverse` and gives a little preview of what is to come. 
 
-```{r , echo=FALSE}
+```{r intro, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/intro.png")
 ```
@@ -24,17 +25,17 @@ knitr::include_graphics(path = "figs/intro.png")
 
 Step 1 covers how to install and load packages in R (`install.packages()` and `library()`). It also covers some basic information about functions.
 
-```{r , echo=FALSE}
+```{r step1.png, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step1.png")
 ```
 
-```{r , echo=FALSE}
+```{r 00-name-arg.png, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/00-name-arg.png")
 ```
 
-```{r , echo=FALSE}
+```{r 00-position-arg.png, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/00-position-arg.png")
 ```
@@ -43,12 +44,12 @@ knitr::include_graphics(path = "figs/00-position-arg.png")
 
 This covers the Bob Ross dataset from 538, and using the `BobRoss <- fivethirtyeight::bob_ross` function to create a dataset in R. 
 
-```{r , echo=FALSE}
+```{r step2.png, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step2.png")
 ```
 
-```{r , echo=FALSE}
+```{r 00-538-bob-ross, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/00-538-bob-ross.png")
 ```
@@ -58,7 +59,7 @@ knitr::include_graphics(path = "figs/00-538-bob-ross.png")
 
 Here we cover loading data into R from the `fivethirtyeight` package with `tibble::tribble()`.
 
-```{r , echo=FALSE}
+```{r step3, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step3.png")
 ```
@@ -67,7 +68,7 @@ knitr::include_graphics(path = "figs/step3.png")
 
 This introduces `tidyr` and `dplyr::glimpse()`. 
 
-```{r , echo=FALSE}
+```{r step4, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step4.png")
 ```
@@ -76,17 +77,21 @@ knitr::include_graphics(path = "figs/step4.png")
 
 We create a tidy dataset with `pivot_longer()`.
 
-```{r , echo=FALSE}
+```{r step5, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step5.png")
 ```
 
-```{r , echo=FALSE, fig.height=3, fig.width=5}
+Here are the original data arrangements 
+
+```{r 01-orig-bob-ross, echo=FALSE, fig.height=3, fig.width=5}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/01-orig-bob-ross.png")
 ```
 
-```{r , echo=FALSE, fig.height=3, fig.width=5}
+A tidier version of the same data.
+
+```{r 02-long-bob-ross, echo=FALSE, fig.height=3, fig.width=5}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/02-long-bob-ross.png")
 ```
@@ -95,7 +100,7 @@ knitr::include_graphics(path = "figs/02-long-bob-ross.png")
 
 We revert to the wide dataset with `tidyr::pivot_wider()`
 
-```{r , echo=FALSE}
+```{r step6, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step6.png")
 ```
@@ -104,7 +109,7 @@ knitr::include_graphics(path = "figs/step6.png")
 
 We split a column with `tidyr::separate()`
 
-```{r , echo=FALSE}
+```{r step7, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step7.png")
 ```
@@ -114,7 +119,7 @@ knitr::include_graphics(path = "figs/step7.png")
 
 We bring two columns back together with `tidyr::unite()`
 
-```{r , echo=FALSE}
+```{r step8, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step8.png")
 ```
@@ -123,22 +128,22 @@ knitr::include_graphics(path = "figs/step8.png")
 
 We change the format of a variable with `dplyr::mutate()`
 
-```{r , echo=FALSE}
+```{r step9, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step9.png")
 ```
 
-```{r , echo=FALSE, fig.height=3, fig.width=5}
+```{r 03-original-data, echo=FALSE, fig.height=3, fig.width=5}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/03-original-data.png")
 ```
 
-```{r , echo=FALSE, fig.height=3, fig.width=5}
+```{r 04-pivot-longer, echo=FALSE, fig.height=3, fig.width=5}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/04-pivot-longer.png")
 ```
 
-```{r , echo=FALSE, fig.height=3, fig.width=5}
+```{r 05-pivot-wider, echo=FALSE, fig.height=3, fig.width=5}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/05-pivot-wider.png")
 ```
@@ -147,7 +152,7 @@ knitr::include_graphics(path = "figs/05-pivot-wider.png")
 
 We create a new variable based on a condition with `dplyr::if_else()` and `dplyr::mutate()`.
 
-```{r , echo=FALSE}
+```{r step10, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step10.png")
 ```
@@ -156,7 +161,7 @@ knitr::include_graphics(path = "figs/step10.png")
 
 We create a new variable based on multiple conditions with `dplyr::case_when()` and `dplyr::mutate()`. 
 
-```{r , echo=FALSE}
+```{r step11, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step11.png")
 ```
@@ -165,7 +170,7 @@ knitr::include_graphics(path = "figs/step11.png")
 
 We combine creating new variables with reshaping to check our work (`dplyr::case_when()` and `dplyr::mutate()`, then `dplyr::count`, and `tidyr::pivot_wider()`).
 
-```{r , echo=FALSE}
+```{r step12, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/step12.png")
 ```
@@ -174,18 +179,20 @@ knitr::include_graphics(path = "figs/step12.png")
 
 Wrap up. 
 
-```{r , echo=FALSE}
+```{r finish, echo=FALSE}
 # fs::dir_ls("figs")
 knitr::include_graphics(path = "figs/finish.png")
 ```
 
 ***
 
-Coming soon!
+## Scenario 2: Build beautiful, customized graphs and charts in R with `ggplot2`
 
-*Scenario 2: Build beautiful, customized graphs and charts in R with ggplot2*
 
-*Scenario 3: Combine narrative with numbers for effective storytelling in R*
 
-This is the `README.Rmd` file for the Katacoda scenarios. All the scenarios and courses can be found on my profile page [here](https://katacoda.com/mjfrigaard).
+
+***
+
+## Scenario 3: Combine narrative with numbers for effective storytelling in R
+
 

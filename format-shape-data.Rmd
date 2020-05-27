@@ -185,7 +185,6 @@ dplyr::setdiff(x = BobRoss, y = BobRossWide)
 
 # step 7 (separate)
 
-
 Create data set for this step. 
 
 ```{r BobRossEpisodes}
@@ -238,7 +237,7 @@ unite(data = BobRossStep8, season_text, episode_text, col = 'episode_new',
       sep = "E")
 ```
 
-# step 9 
+# step 9 (dplyr intro)
 
 ```{r clean-9}
 rm(list = ls(pattern = "Step"))
@@ -321,7 +320,7 @@ BobRossStep9 <- dplyr::mutate(.data = BobRossStep9,
                                        replacement = " "))
 ```
 
-# step 10
+# step 10 (if_else)
 
 ```{r clean-10}
 rm(list = ls(pattern = "Step"))
@@ -361,7 +360,7 @@ dplyr::count(BobRossStep10, episode01)
 ```
 
 
-# step 11
+# step 11 (case_when)
 
 Check working environment 
 
@@ -407,7 +406,7 @@ dplyr::mutate(.data = BobRossStep11,
               TRUE ~ "other"))
 ```
 
-# step 12 
+# step 12 (case_when & mutate)
 
 This uses the original `bob_ross` (reduced to season 4, episodes 4 - )
 

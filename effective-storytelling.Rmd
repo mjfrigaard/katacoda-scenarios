@@ -268,7 +268,9 @@ When we're want to ask questions that get us closer to what the stakeholder is a
 
 - [ ] included in step20.md?
 
-<!--
+## finish
+
+- [ ] included in finish.md?
 
 ## Appendix 1: Katacoda scenario tutorials
 

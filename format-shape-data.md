@@ -15,10 +15,10 @@ Format and reshape your data in R with the tidyverse
   - [step6 (pivot\_wider)](#step6-pivot_wider)
   - [step 7 (separate)](#step-7-separate)
   - [step 8 (unite and rm)](#step-8-unite-and-rm)
-  - [step 9](#step-9)
-  - [step 10](#step-10)
-  - [step 11](#step-11)
-  - [step 12](#step-12)
+  - [step 9 (dplyr intro)](#step-9-dplyr-intro)
+  - [step 10 (if\_else)](#step-10-if_else)
+  - [step 11 (case\_when)](#step-11-case_when)
+  - [step 12 (case\_when & mutate)](#step-12-case_when-mutate)
       - [Appendix 1: Katacoda scenario
         tutorials](#appendix-1-katacoda-scenario-tutorials)
       - [Appendix 2: Katacoda
@@ -434,7 +434,7 @@ unite(data = BobRossStep8, season_text, episode_text, col = 'episode_new',
     #> 10 S01E01      A WALK IN THE WOODS cactus                0
     #> # … with 26,991 more rows
 
-# step 9
+# step 9 (dplyr intro)
 
 ``` r
 rm(list = ls(pattern = "Step"))
@@ -589,7 +589,7 @@ BobRossStep9 <- dplyr::mutate(.data = BobRossStep9,
                                        replacement = " "))
 ```
 
-# step 10
+# step 10 (if\_else)
 
 ``` r
 rm(list = ls(pattern = "Step"))
@@ -665,7 +665,7 @@ dplyr::count(BobRossStep10, episode01)
     #> 1 FALSE     24924
     #> 2 TRUE       2077
 
-# step 11
+# step 11 (case\_when)
 
 Check working environment
 
@@ -750,7 +750,7 @@ dplyr::mutate(.data = BobRossStep11,
     #> 24 S01E03       1           3 Ebony Sunset  trees            1 trees          
     #> 25 S01E03       1           3 Ebony Sunset  winter           1 other
 
-# step 12
+# step 12 (case\_when & mutate)
 
 This uses the original `bob_ross` (reduced to season 4, episodes 4 - )
 

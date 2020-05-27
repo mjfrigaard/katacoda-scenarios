@@ -7,6 +7,7 @@ Martin Frigaard
       - [Objectives](#objectives)
       - [The learners](#the-learners)
       - [intro](#intro)
+          - [Welcome\!](#welcome)
           - [What makes a great graphic?](#what-makes-a-great-graphic)
           - [What makes a bad graphic?](#what-makes-a-bad-graphic)
       - [step 1](#step-1)
@@ -27,10 +28,11 @@ Martin Frigaard
           - [Data quality: do we need to make changes to the
             variables?](#data-quality-do-we-need-to-make-changes-to-the-variables)
       - [step 6](#step-6)
-          - [Asking the right question](#asking-the-right-question)
+          - [Example:](#example)
               - [Who is the best major league baseball (MLB) hitter of
                 all-time?](#who-is-the-best-major-league-baseball-mlb-hitter-of-all-time)
-              - [The Lahman package](#the-lahman-package)
+              - [The `Lahman` baseball
+                package](#the-lahman-baseball-package)
       - [step 7](#step-7)
           - [Converting questions into actionable
             steps](#converting-questions-into-actionable-steps)
@@ -45,6 +47,8 @@ Martin Frigaard
       - [step 10](#step-10)
           - [Asking better questions](#asking-better-questions)
       - [step 11](#step-11)
+          - [Building graphics: visual
+            cues](#building-graphics-visual-cues)
       - [step 12](#step-12)
       - [step 13](#step-13)
       - [step 14](#step-14)
@@ -54,6 +58,7 @@ Martin Frigaard
       - [step 18](#step-18)
       - [step 19](#step-19)
       - [step 20](#step-20)
+      - [finish](#finish)
       - [Appendix 1: Katacoda scenario
         tutorials](#appendix-1-katacoda-scenario-tutorials)
       - [Appendix 2: Katacoda
@@ -107,15 +112,21 @@ The learners I’m expecting to be participating in this course are:
 
   - [ ] included in intro.md?
 
-### What makes a great graphic?
+### Welcome\!
 
 Welcome to ‘*Combine narrative with numbers for effective storytelling
 in R*’\! In this scenario we will cover how to build data visualizations
 that present data clearly to your audience.
 
-Now that we have some experience with data wrangling, we’ll extend what
-we know into visualizing our data with the
-[`ggplot2`](https://ggplot2.tidyverse.org/) package.
+Now that we have some experience with data wrangling with
+[`tidyr`](https://tidyr.tidyverse.org/) and
+[`dplyr`](https://dplyr.tidyverse.org/), and data visualization with
+[`ggplot2`](https://ggplot2.tidyverse.org/), we can put these tools
+together to get your point across to stakeholders and audiences.
+
+### What makes a great graphic?
+
+Great graphics are
 
 <!-- insert link to previous scenario! -->
 
@@ -201,7 +212,7 @@ Are they all the correct format (character, factor, numeric, logical)?
 
   - [ ] included in step6.md?
 
-### Asking the right question
+### Example:
 
 So far, we’ve focused on the quality of the dataset(s) we’re working
 with. After checking the overall shape (total columns and rows),
@@ -232,7 +243,7 @@ writing an article featuring top MLB sluggers over time?
 All three of these audiences might have different definitions for *best*
 and *hitter*.
 
-#### The Lahman package
+#### The `Lahman` baseball package
 
 To answer this question, we will be using the [`Lahman`
 package](http://lahman.r-forge.r-project.org/doc/). The `Lahman` package
@@ -322,6 +333,8 @@ our intended audience.
 
 ## step 11
 
+### Building graphics: visual cues
+
   - [ ] included in step11.md?
 
 ## step 12
@@ -360,7 +373,9 @@ our intended audience.
 
   - [ ] included in step20.md?
 
-\<\!–
+## finish
+
+  - [ ] included in finish.md?
 
 ## Appendix 1: Katacoda scenario tutorials
 
