@@ -4,7 +4,7 @@ The [`tidyverse readr`](https://readr.tidyverse.org/) package has functions for 
 
 ## Importing .csv files into R
 
-The code below allows us to import data directly from a web URL like the one below. The bitly link takes us to a comma-separated values (.csv) file with the same data we loaded in the previous step.
+The code below allows us to import data directly from a web URL. The bitly link takes us to a comma-separated values (.csv) file with the same data we loaded in the previous step.
 
 ```
 # click to execute code

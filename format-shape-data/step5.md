@@ -1,6 +1,6 @@
 # Two levels of data wrangling 
 
-We like to think of wrangling on two different levels. The first level deals with the data shape and structure. The second level of data wrangling refers to the format of individual variables (which we will get to in the following steps). 
+We like to think of wrangling on two different levels. The first level deals with the data shape and structure. The second level of data wrangling refers to the format of individual variables (which we will get to in the following steps).  
 
 Questions we should be asking ourselves about data at this level include:
 
@@ -11,11 +11,11 @@ Questions we should be asking ourselves about data at this level include:
 
 ## Reshaping data
 
-A common task for data manipulation is moving columns to rows, or rows to columns. The `tidyr` package in R makes this easy with two `tidyr::pivot_` functions. 
+A common task for data manipulation is moving columns to rows, or rows to columns. The [`tidyr` package](https://tidyr.tidyverse.org/) in R makes this easy with two `tidyr::pivot_` functions. 
 
 ## Viewing the dataset
 
-`glimpse()` is a convenient function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. 
+`dplyr::glimpse()` is a convenient function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. 
 
 ```
 # click to execute code
@@ -53,8 +53,8 @@ Now we can answer more of the questions above:
 
 1. Approximately how many rows (or observations) and columns (or variables) should we be seeing? *403 rows, 71 columns*
 2. Are all the rows unique (i.e.will each case have a row)? *Yes*
-3. Does each measurement have a column (or variable)? *...do they?*
-4. Are these variables each measuring exactly one thing?   *I think so?*
+3. Does each measurement have a column (or variable)? *...do they? We don't know yet*  
+4. Are these variables each measuring exactly one thing?   *We have to take a deeper dive into the data and documentation to figure this out*  
 
 ## Pivoting part 1 (reorganizing values in a dataset) 
 
