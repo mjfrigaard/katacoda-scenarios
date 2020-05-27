@@ -16,7 +16,7 @@ dim(BobRossLong)
 
 *...vs. `27001` rows and `6` columns in `BobRossLong`!*
 
-As we can see, the `BobRossLong` has a ton more rows, but far fewer columns. 
+As we can see, the `BobRossLong` has a ton more rows, but far fewer columns. The dimensions of the dataset have changed, but we've retained the information.
 
 But what if we want to keep the dataset in it's original 'wide' format? The `tidyr::pivot_wider()` is the complement to `tidyr::pivot_longer()`, and it takes the following arguments: 
 
