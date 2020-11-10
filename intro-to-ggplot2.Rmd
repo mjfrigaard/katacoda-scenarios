@@ -2,19 +2,20 @@
 title: "Build beautiful, customized graphs and charts in R with ggplot2"
 author: "Martin Frigaard"
 output: 
-  github_document: 
+  html_document:
     toc: yes
-    toc_depth: 5
+    toc_float: true
 ---
 
 ```{r setup, include=FALSE}
+library(tint)
 library(tidyverse)
 library(knitr)
 library(rmdformats)
-# figs folder
-if (!file.exists("figs")) {
-  dir.create("figs")
-}
+# folders
+folders <- c("data/", "docs/", "code/", "img/")
+purrr::map(.x = folders, .f = fs::dir_create)
+
 knitr::opts_chunk$set(
   echo = TRUE,
   eval = TRUE,
@@ -24,7 +25,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   message = FALSE,
   warning = FALSE,
-  fig.path = "figs/"
+  fig.path = "img/"
 )
 knitr::opts_knit$set(
   width = 78
@@ -36,9 +37,21 @@ base::options(
 )
 ```
 
-# setup 
+# Setup 
 
-To see how to set up the Katacoda environment and layout, check out the `ggplot2-setup.Rmd` file.
+This scenario does not produce a graph in the current environment
+
+```json
+  "environment": {
+    "uilayout": "terminal-iframe"
+  },
+  "backend": {
+    "imageid": "rlang:3.4",
+    "port": "1"
+  }
+```
+
+***Is there an environment that can produce the graph output in a window or downloadable format?***
 
 # Outline 
 
@@ -77,11 +90,11 @@ The learners I'm expecting to be participating in this course are:
 
 ### Introduction to `ggplot2`
 
-Welcome to 'Building beautiful, customized graphs and charts in R with ggplot2'! In this scenario we'll go over some basic graphing principles using the popular `ggplot2` package.
+Welcome to 'Building beautiful, customized graphs and charts in R with `ggplot2`'! In this scenario we'll go over some basic graphing principles using the popular `ggplot2` package.
 
 `ggplot2` is part of the `tidyverse`, which is a collection of opinionated packages from RStudio that ['*you're likely to use in everyday data analyses.*'](https://www.tidyverse.org/packages/)
 
-### Exploring the data with ggplot2
+### Exploring the data with `ggplot2`
 
 In the previous scenario, we used the `tidyverse` and `fivethirtyeight` packages to wrangle data in R. 
 
@@ -119,7 +132,7 @@ Launch an R console by clicking here -> `R`{{execute}} (Click on the *Run comman
 
 Load the `tidyverse` package by typing or copying and pasting the code below.
 
-```r
+```{r package, eval=FALSE}
 install.packages("tidyverse")
 library(tidyverse)
 ```
@@ -341,7 +354,7 @@ The box-plot gives us an idea of `pop_65_percent`'s distribution by using the wh
 
 - [x] included in step7.md
 
-### Visualizing a numerical and categorical variable
+#### Visualizing a numerical and categorical variable
 
 Box-plots are also great for visualizing continuous variables across the levels of a categorical variable. For example, we have the `Balance` dataset with `value`s of European Union countries budget surplus. We can add the categorical variable to the `y` axis to view one box-plot per level of `country`.
 
@@ -355,7 +368,7 @@ For more on the statistics displayed in the box-plot, read up on the [`geom_boxp
 
 Other options for individual variables include the [`geom = "density"`](https://ggplot2.tidyverse.org/reference/geom_density.html) and [`geom = "violin"`](https://ggplot2.tidyverse.org/reference/geom_violin.html).
 
-### Visualizing two continuous variables
+#### Visualizing two continuous variables
 
 What if we want to graph the relationship between two variables? In this step, we'll graph two variables from the `Brexit` dataset. Use the terminal to view this dataset with `dplyr::glimpse()` or `utils::str()`.
 

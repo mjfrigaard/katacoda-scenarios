@@ -83,7 +83,9 @@ Now that we have some experience with data wrangling with [`tidyr`](https://tidy
 
 ### What makes a great graphic?
 
-Great graphics are 
+We all know a great data visualization when we see it, but can you explain *why* it's so great? Beyond just being aesthetically appealing (the choice of color palettes, fonts, etc.), data visualizations are tools for communicating complicated information. Pretty colors and novel font styling can't make up for presenting data in a misleading way. 
+
+Great graphics make 
 
 <!-- insert link to previous scenario! -->
 
