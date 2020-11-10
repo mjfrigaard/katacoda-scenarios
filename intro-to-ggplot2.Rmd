@@ -2,9 +2,12 @@
 title: "Build beautiful, customized graphs and charts in R with ggplot2"
 author: "Martin Frigaard"
 output: 
-  html_document:
+  html_document: 
     toc: yes
-    toc_float: true
+    toc_float: yes
+    highlight: tango
+    theme: cosmo
+    keep_md: yes
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +16,7 @@ library(tidyverse)
 library(knitr)
 library(rmdformats)
 # folders
-folders <- c("data/", "docs/", "code/", "img/")
+folders <- c("data/", "docs/", "code/", "figs/")
 purrr::map(.x = folders, .f = fs::dir_create)
 
 knitr::opts_chunk$set(
@@ -25,7 +28,7 @@ knitr::opts_chunk$set(
   comment = "#>",
   message = FALSE,
   warning = FALSE,
-  fig.path = "img/"
+  fig.path = "figs/"
 )
 knitr::opts_knit$set(
   width = 78

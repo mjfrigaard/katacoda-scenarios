@@ -1,8 +1,8 @@
 # Data in packages
 
-It's hard to learn any of R's capabilities without a dataset. There are multiple ways to get datasets into the R environment, but we'll cover that in another scenario. 
+It's hard to learn any of R's capabilities without a dataset. There are multiple ways to get datasets into the R environment, but we'll cover that in another scenario.
 
-Today we'll be using a dataset from the [`fivethirtyeight` package](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html) in R. This package has over 100 datasets from articles on the website [FiveThirtyEight](https://fivethirtyeight.com/).  
+Today we'll be using a dataset from the [`fivethirtyeight` package](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html) in R. This package has over 100 datasets from articles on the website [FiveThirtyEight](https://fivethirtyeight.com/).
 
 The dataset we will be using today comes from the article ["A Statistical Analysis of the Work of Bob Ross."](https://fivethirtyeight.com/features/a-statistical-analysis-of-the-work-of-bob-ross/)
 
@@ -10,7 +10,7 @@ The dataset we will be using today comes from the article ["A Statistical Analys
 
 Bob Ross was the host of [The Joy of Painting](https://en.wikipedia.org/wiki/The_Joy_of_Painting), a painting educational program from 1980 - 1994.
 
-We'll load the `BobRoss` dataset into R using `fivethirtyeight::bob_ross`. 
+We'll load the `BobRoss` dataset into R using `fivethirtyeight::bob_ross`.
 
 First, we have to install and load the package into the R environment.
 
@@ -20,14 +20,14 @@ install.packages("fivethirtyeight")
 library(fivethirtyeight)
 ```{{execute}}
 
-Now we can assign the `bob_ross` data frame into the `BobRoss` object. 
+Now we can assign the `bob_ross` data frame into the `BobRoss` object.
 
 ```
 # click to execute code
 BobRoss <- fivethirtyeight::bob_ross
 ```{{execute}}
 
-As we noted earlier, functions are like verbs in the R language, and the data we've created is the object. Similar to English grammar, the verbs (functions) do things to the objects. We can build data objects in R using a variety of methods, but typically we'll be loading data from an outside source into the R environment. 
+As we noted earlier, functions are like verbs in the R language, and the data we've created is the object. Similar to English grammar, the verbs (functions) do things to the objects. We can build data objects in R using a variety of methods, but typically we'll be loading data from an outside source into the R environment.
 
 
 ```
@@ -36,7 +36,7 @@ As we noted earlier, functions are like verbs in the R language, and the data we
 BobRoss
 ```{{execute}}
 
-We should pay attention to the information printed with each `tibble`. 
+We should pay attention to the information printed in `BobRoss`. As we can see, it's contained in a `tibble`.
 
 ```
 # A tibble: 403 x 71
@@ -70,4 +70,6 @@ We should pay attention to the information printed with each `tibble`.
 #   winter <int>, wood_framed <int>
 ```
 
-`tibbles` print the dimensions of the dataset (`# A tibble: 403 x 71`), numerical indices for rows (far left), and the type of variable in the dataset (`<chr>` variables have text information vs. `<dbl>` and `<int>` variables which contain numbers), and additional information about the data when it's too big to print on the screen (`… with 393 more rows, and 63 more variables:`)
+
+
+`tibble`s print the dimensions of the dataset (`# A tibble: 403 x 71`), numerical indices for rows (far left), and the type of variable in the dataset (`<chr>` variables have text information vs. `<dbl>` and `<int>` variables which contain numbers), and additional information about the data when it's too big to print on the screen (`… with 393 more rows, and 63 more variables:`)
