@@ -1,0 +1,911 @@
+---
+title: "Build beautiful, customized graphs and charts in R with ggplot2"
+author: "Martin Frigaard"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: tango
+    theme: cosmo
+    keep_md: yes
+---
+
+
+
+# Setup 
+
+This scenario does not produce a graph in the current environment
+
+```json
+  "environment": {
+    "uilayout": "terminal-iframe"
+  },
+  "backend": {
+    "imageid": "rlang:3.4",
+    "port": "1"
+  }
+```
+
+***Is there an environment that can produce the graph output in a window or downloadable format?***
+
+# Outline 
+
+Below are the 15 steps (plus `intro` and `finish`) files in the scenario. 
+
+## Objectives
+
+The objectives for this scenario are: 
+
+- [ ] Explain why there is as Grammar of Graphics is and what problem it solves
+
+- [ ] Define the terms `geom` and `aesthetic`
+
+- [ ] Compare and contrast function calls with and without the pipe operator
+
+- [ ] Create a visualization using `ggplot2`'s quickplot function (`qplot()`)  
+
+- [ ] Build a graph one layer at a time using the `ggplot` template 
+
+## The learners 
+
+The learners I'm expecting to be participating in this course are: 
+
+- **Alice** will take this class on her own time for professional development. 
+
+- **Sam** will this course in a two-day weekend because he needs to complete a project.
+
+- **Betty** is using these scenarios to supplement a semester-long undergraduate course on R.
+
+- **Gene** has been told to take this course for his job because his team is using R.
+
+
+## intro
+
+- [x] included in intro.md?
+
+### Introduction to `ggplot2`
+
+Welcome to 'Building beautiful, customized graphs and charts in R with `ggplot2`'! In this scenario we'll go over some basic graphing principles using the popular `ggplot2` package.
+
+`ggplot2` is part of the `tidyverse`, which is a collection of opinionated packages from RStudio that ['*you're likely to use in everyday data analyses.*'](https://www.tidyverse.org/packages/)
+
+### Exploring the data with `ggplot2`
+
+In the previous scenario, we used the `tidyverse` and `fivethirtyeight` packages to wrangle data in R. 
+
+<!-- insert link to previous scenario! -->
+
+Now that we have some experience with data wrangling, we'll extend what we know into visualizing our data with the [`ggplot2`](https://ggplot2.tidyverse.org/) package. 
+
+## step 1
+
+- [x] included in step1.md?
+
+### `ggplot2`: a quick overview
+
+The `ggplot2` package is an implementation of the ["Grammar of Graphics"](https://amzn.to/2MRRCAB) by Leland Wilkinson. This text outlines a foundation for understanding the components of just about every graph or figure we've encountered (and some we haven't). `ggplot2` extends these concepts into a powerful grammar for developing data visualizations in R.
+
+#### Why have a 'grammar' of data visualization?
+
+[Wilhelm von Humboldt](https://en.wikipedia.org/wiki/Wilhelm_von_Humboldt) has described a language as a system for "*making infinite use of finite means.*" Grammar is the set of rules we use to generate and display comprehensible thought (to humans or computers). Within the R language, `ggplot2` provides the grammar (or set of rules) we can learn to develop a rich vocabulary for data visualizations. Knowing how to use `ggplot2`'s grammar also gives us an excellent mental model for thinking about individual graphical elements. 
+
+#### The lingua franca for graphical elements
+
+We'll extend the definition of 'grammar' above to include Steven Pinker's description of language in [The Sense of Style](https://www.amazon.com/Sense-Style-Thinking-Persons-Writing/dp/0143127799), "*[language is] our species’ solution to the problem of getting complicated thoughts from one head into another*." In this sense, the `ggplot2` package gives us an ability to communicate the *complexities* of our data in the same way that scientific jargon allows us to precisely and unambiguously define ideas. 
+
+#### Building graphs, bit-by-bit
+
+Lastly, `ggplot2` has an expansive vocabulary, so by learning a finite list of `ggplot2` functions and their syntax will allow us to build a seemingly unlimited number of visualizations. 
+
+## step 2
+
+- [x] included in step2.md?
+
+### Install and load the tidyverse
+
+Launch an R console by clicking here -> `R`{{execute}} (Click on the *Run command* icon)
+
+Load the `tidyverse` package by typing or copying and pasting the code below.
+
+
+```r
+install.packages("tidyverse")
+library(tidyverse)
+```
+
+### Terms and definitions: `geoms` and `aes`thetics
+
+A *geom* (or geometric object) is the 'thing' we see on a graph or plot (this includes dots or points, lines, bars, etc.).
+
+*geoms* are combined with aesthetic mappings, which are properties of the 'thing' on the plot or graph (this includes things like color, size, position, and shape).
+
+So every graph or plot has a geom, and that geom will also have some visual properties called aesthetics.
+
+### Starting with quick plots
+
+We will start using `ggplot2` with the `qplot()` function. `qplot()` is short for 'quick plot', and it takes the following arguments: 
+
+```r
+ggplot2::qplot(data = Data, # assume dataset 'Data'
+               x = variable_x, # single column on the x
+               y = variable_y, # single column on the y
+               geom = "shape") # the 'thing' on the graph
+```
+
+## step 3
+
+- [x] included in step3.md?
+
+### the pipe `%>%`
+
+A major reason for using the `tidyverse` is the pipe operator from the [`magrittr` package](https://magrittr.tidyverse.org/). 
+
+The pipe (`%>%`) is what's referred to as syntactic sugar (yes, that's [really a term](https://en.wikipedia.org/wiki/Syntactic_sugar)) because it's,
+
+"*syntax within a programming language that is designed to make things easier to read or to express*" 
+
+Assume the same dataset `Data`, and two variables `variable_x` and `variable_y`. If we wanted to use the pipe with the `ggplot2::qplot()` function, it would look like the code below:
+
+```
+Data %>% ggplot2::qplot(data = ., x = variable_x, y = variable_y, geom = "shape")
+```
+
+#### How the pipe works
+
+Writing R code this way makes it easier to combine function calls, and it's easier for to read. For example, if we had to wrangle our data before creating a graph (which we almost always do), we wouldn't want to read the functions inside out: 
+
+```r
+# instead of this...
+function_02(function_01(x), y) 
+
+# we see this
+x %>% function_01() %>% function_02(y) 
+```
+
+## step 4
+
+- [x] included in step4.md?
+
+### Using the pipe (cont.)
+
+[`magrittr` package](https://magrittr.tidyverse.org/) has some additional tricks that are worth knowing. For example, in the code above, you may have noticed the `data = .` argument. 
+
+```
+Data %>% 
+  ggplot2::qplot(data = ., 
+                 x = variable_x, 
+                 y = variable_y,
+                 geom = "shape")
+```
+
+The period (`.`) here is a product of the pipe syntax. We use the `.` argument because of where the `data =` argument sits inside the `qplot()` function. See the `args()` by using `args(qplot)`{{execute}}
+
+
+```
+function(x, y, ..., data, 
+        # all other optional arguments
+        facets = NULL, 
+        margins = FALSE, 
+        geom = "auto", 
+        xlim = c(NA, NA), 
+        ylim = c(NA, NA), 
+        log = "", 
+        main = NULL, 
+        xlab = NULL, 
+        ylab = NULL, 
+        asp = NA, 
+        stat = NULL, 
+        position = NULL) 
+```
+
+We can see the `data` argument comes *after* the `x`, `y`, and any other variable arguments `...`. That means we need to tell the pipe we want the `Data` to be in the named `data = ` argument, so we use `data = .`
+
+So by using the pipe, we can rewrite this function,
+
+```
+function(y, named_argument = x)
+```
+
+to this:
+
+```
+x %>% function(y, named_argument = .)
+```
+ 
+By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in the `named_argument` position, we're telling R to read this statement as, "*the object to the left of the `%>%` belongs in the `data` argument.*" 
+
+We can demonstrate this with the `diamonds` dataset in the `ggplot2` package. 
+
+
+```r
+diamonds <- ggplot2::diamonds
+diamonds %>% ggplot2::qplot(data = ., x = carat, y = price, geom = "point")
+```
+
+![](figs/diamonds-qplot-1.png)<!-- -->
+
+See the figure below:
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true)
+
+
+## step 5
+
+- [x] included in step5.md?
+
+### Lets get some data! 
+
+We will be using `ggplot2` to explore data from the Economist's Medium post titled, ["Mistakes, we've drawn a few"](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). 
+
+These data are available for download as part of the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) project on Github. 
+
+
+```r
+# Balance 
+Balance <- readr::read_csv("https://bit.ly/eu-balance-data")
+# Brexit 
+Brexit <- readr::read_csv("https://bit.ly/brexit-data")
+# Corbyn 
+Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
+# Pensions 
+Pensions <- readr::read_csv("https://bit.ly/pensions-data")
+```
+
+We can examine each dataset using the `dplyr::glimpse()`, `utils::head()`, or `utils::str()` arguments we learned about in the last scenario.
+ 
+
+```r
+Brexit %>% dplyr::glimpse()
+```
+
+```
+#> Rows: 85
+#> Columns: 3
+#> $ date                     <chr> "2/8/16", "9/8/16", "17/08/16", "23/08/16"…
+#> $ percent_responding_right <dbl> 46, 45, 46, 45, 47, 46, 45, 45, 46, 44, 44…
+#> $ percent_responding_wrong <dbl> 42, 44, 43, 43, 44, 43, 44, 44, 43, 45, 42…
+```
+
+```r
+Corbyn %>% utils::head()
+```
+
+```
+#> # A tibble: 6 x 2
+#>   political_group avg_facebook_likes
+#>   <chr>                        <dbl>
+#> 1 Jeremy Corbyn                 5210
+#> 2 Labour Party                   845
+#> 3 Momentum                       229
+#> 4 Owen Smith                     127
+#> 5 Andy Burnham                   105
+#> 6 Saving Labour                   56
+```
+
+```r
+Pensions %>% utils::str()
+```
+
+```
+#> tibble [35 × 3] (S3: spec_tbl_df/tbl_df/tbl/data.frame)
+#>  $ country              : chr [1:35] "Australia" "Austria" "Belgium" "Brazil" ...
+#>  $ pop_65_percent       : num [1:35] 15.04 18.76 18.22 7.84 16.14 ...
+#>  $ gov_spend_percent_gdp: num [1:35] 5.2 13.86 10.36 12 4.31 ...
+#>  - attr(*, "spec")=
+#>   .. cols(
+#>   ..   country = col_character(),
+#>   ..   pop_65_percent = col_double(),
+#>   ..   gov_spend_percent_gdp = col_double()
+#>   .. )
+```
+
+More information on the datasets are below:
+
++ `Corbyn` is a dataset of average Facebook likes and political leader/group.
+
++ `Brexit` is a dataset of Brexit poll opinions (with dates).  
+
++ `Balance` is a dataset of countries, the country budget balance/current-account balance, the year, and the value in billions or euros. 
+
++ `Pensions` is a dataset of countries, percent of the country's population 65 years old or over, and the percent of government spending on pensions as percent of GDP.
+
+
+## step 6
+
+- [x] included in step6.md?
+
+### Variable types
+
+Before we look at how variables relate to one another, we should get an idea for how each variable looks independently, or it's [distribution.](https://en.wikipedia.org/wiki/List_of_probability_distributions). 
+
+How we visualize a variable's distribution depends on whether it's **continuous**, **categorical**, or **binary**.
+
+**Continuous** variables means they can be any value including `0`--and are typically thought of as raw measurements (i.e. human body weight, speed, time in seconds, etc.). Continuous variables also can have decimal values that make sense.
+
+**Categorical** variables count discrete items or events, such as Facebook 'like's or number of page views. Categorical variables are different from continuous variables because the have a fixed set of possible values (i.e. you can't have 1/2 a Facebook 'like'). 
+
+A special case of categorical variable is a **binary** variable, which only has two possible values (`0` or `1`, `alive` or `dead`, `yes` or `no`, etc.).
+
+#### Visualize a single variable: histograms
+
+We will view the distribution of the `avg_facebook_likes` from the `Corbyn` dataset using `ggplot2::qplot()`. 
+
+
+```r
+Corbyn %>% ggplot2::qplot(x = avg_facebook_likes, data = .) 
+```
+
+![](figs/step-6-plot-01-1.png)<!-- -->
+
+*What is this graph telling us?* 
+
+Well, we can print the entire Corbyn dataset to the console to view it (it's not very big). 
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-tibble.png?raw=true)
+
+We can see the tibble printed to the screen has the `avg_facebook_likes` sorted descending, with the highest number on top (`5210`) and the lowest number on the bottom (`56`). 
+
+When we give the `qplot()` function a single variable, it assumes we want a [histogram](https://ggplot2.tidyverse.org/reference/geom_histogram.html). 
+
+The histogram is displaying the `avg_facebook_likes` variable by splitting up the x axis into `bins`, then plotting the count for each number of observations in each bin on the `y` axis.
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-histogram.png?raw=true)
+
+#### Visualize a single variable: box-plots
+
+Histograms are a great way to visualize the distribution of a single variable, but there are other `geom`s too. For example, a box-plot gives us a graph with quite a few summary statistics.
+
+Below is a box-plot of the `pop_65_percent` from the `Pensions` dataset. 
+
+
+```r
+# the data 
+Pensions %>% 
+  # the variable 
+  ggplot2::qplot(x = pop_65_percent, 
+                 y = " ",
+                 # the dot
+                 data = .,
+                 geom = "boxplot") 
+```
+
+![](figs/step-6-plot-02-1.png)<!-- -->
+
+The box-plot gives us an idea of `pop_65_percent`'s distribution by using the white box to show where the median (middle value), 1st and 3rd quartiles, higher/lower values, and outliers (see image below).
+
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/07-boxplot.png?raw=true)
+
+
+## step 7 
+
+- [x] included in step7.md
+
+#### Visualizing a numerical and categorical variable
+
+Box-plots are also great for visualizing continuous variables across the levels of a categorical variable. For example, we have the `Balance` dataset with `value`s of European Union countries budget surplus. We can add the categorical variable to the `y` axis to view one box-plot per level of `country`.
+
+
+```r
+# the data
+Balance %>% ggplot2::qplot(x = value, y = country, data = ., geom = "boxplot") 
+```
+
+![](figs/box-plot2-1.png)<!-- -->
+
+
+For more on the statistics displayed in the box-plot, read up on the [`geom_boxplot()` documentation](https://ggplot2.tidyverse.org/reference/geom_boxplot.html). 
+
+Other options for individual variables include the [`geom = "density"`](https://ggplot2.tidyverse.org/reference/geom_density.html) and [`geom = "violin"`](https://ggplot2.tidyverse.org/reference/geom_violin.html).
+
+#### Visualizing two continuous variables
+
+What if we want to graph the relationship between two variables? In this step, we'll graph two variables from the `Brexit` dataset. Use the terminal to view this dataset with `dplyr::glimpse()` or `utils::str()`.
+
+When we view the contents of `Brexit`, we can see the `date` column is a character variable (`<chr>`), and the other two variables--`percent_responding_right` and `percent_responding_wrong`--are numeric (`<dbl>`). 
+
+#### Creating date variables
+
+If we want to plot the relationship between `date` and the `percent_responding_right`, we'll first need to change the format of `date` from character to `Date`, which we can do using the [`lubridate` package](https://lubridate.tidyverse.org/) (also from the `tidyverse`). 
+
+Copy the code below and complete the `lubridate::dmy()` function to format the `date` variable as a `Date`. 
+
+
+```r
+# first reformat the date variable as a date
+# Brexit <- Brexit %>% mutate(date = lubridate::dmy(____))
+Brexit <- Brexit %>% mutate(date = lubridate::dmy(date))
+```
+
+Read more about `dmy()` [here.](https://lubridate.tidyverse.org/reference/ymd.html)
+
+Use the `base::is.double()`, `base::class()`, or `base::typeof()` function to figure out if you've formatted the new `date` variable correctly.
+
+
+```r
+base::is.double(Brexit$date)
+```
+
+```
+#> [1] TRUE
+```
+
+```r
+base::class(Brexit$date)
+```
+
+```
+#> [1] "Date"
+```
+
+```r
+base::typeof(Brexit$date)
+```
+
+```
+#> [1] "double"
+```
+
+After we're sure the `date` variable has been formatted correctly, we want to 'pipe' the formatted data to the `ggplot2::qplot()` function with the new `date` variable on the `x` and the `percent_responding_right` variable on the `y`.
+
+
+```r
+Brexit %>% qplot(x = date, y = percent_responding_right, data = .)
+```
+
+![](figs/lubridate-1.png)<!-- -->
+
+The `ggplot2::qplot()` function is smart enough to automatically choose a `geom` depending on what type of variable we assign to the `x` and `y` axes. In this case, the `percent_responding_right` variable is a `<dbl>` (numeric), and we've reformatted the `date` variable into a double before we passed it to the `y` axis.
+
+The `ggplot2::qplot()` function knows to plot the dates on the `y` axes (notice it displays only the `year`) and represent the data with `geom = "points"`.
+
+## step 8
+
+- [x] included in the step8.md?
+
+### Wrangling and visualization pipelines 
+
+Sometimes we might want to pass the data directly from a wrangling step to a data visualization without assigning changes to the data frame. We will demonstrate how this works using the same `Brexit` dataset. 
+
+If you read the [Medium article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368), you'll find The Economist first plotted these data as a line graph, with two lines (see 'Original' image below). The 'Better' way to improve the graph would be to include points and smooth the line in the graph (see below):
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+
+In order to re-create these graphs, we'll need to restructure the `Brexit` data with the `tidyr::pivot_longer()` function we learned about in the last [scenario]().
+
+Complete the code below by filling in the `cols = ` argument as `-date`, the `names_to = ` as `"poll"`, and the `values_to = ` as `"percent"`.
+
+```
+Brexit %>% pivot_longer(cols = , names_to =, values_to =)
+```
+
+We should end up with a dataset that has three variables: `date`, `poll`, and `percent`. The data below display the top six rows you should see when you've used `tidyr::pivot()` correctly. 
+
+```
+# A tibble: 170 x 3
+   date       poll                     percent
+   <date>     <chr>                      <dbl>
+ 1 2016-08-02 percent_responding_right      46
+ 2 2016-08-02 percent_responding_wrong      42
+ 3 2016-08-09 percent_responding_right      45
+ 4 2016-08-09 percent_responding_wrong      44
+ 5 2016-08-17 percent_responding_right      46
+ 6 2016-08-17 percent_responding_wrong      43
+ 7 2016-08-23 percent_responding_right      45
+ 8 2016-08-23 percent_responding_wrong      43
+ 9 2016-08-31 percent_responding_right      47
+10 2016-08-31 percent_responding_wrong      44
+# … with 160 more rows
+```
+
+#### Restructure and plot
+
+After we're sure the data are structured correctly, we won't assign it to the `Brexit` data frame. Instead, we'll pass it straight through to the `ggplot2::qplot()` function. The `date` variable will go on the `x`, and the `percent` variable will go on the `y`. Click on the Run icon below to see the graph.
+
+First, we will create the 'Original' graph by using `group = poll` and `geom = "line'`, because this allows us to build a separate colored line for each `poll`. 
+
+
+```r
+Brexit %>% 
+  pivot_longer(cols = -date, 
+               names_to = "poll", 
+               values_to = "percent") %>% 
+  ggplot2::qplot(x = date, 
+                 y = percent,
+                 group = poll,
+                 data = .,
+                 geom = "line",
+                 color = poll)
+```
+
+![](figs/original-graph-1.png)<!-- -->
+
+As we can see from the graph above, being able to use `group` and the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
+
+In the next step, we'll learn how to build a graph layer-by-layer!
+
+## step 9
+
+- [x] included in step9.md
+
+### Build plots layer-by-layer with `ggplot()`
+
+Now that we've learned how to plot using geoms and aesthetics, we can begin adding layers to the graph. In the previous step, we re-created the 'Original' plot using `geom = "line"`. As we start to build more complex, customized plots, we will want to move away from using the `ggplot2::qplot()` function and start using `ggplot2::ggplot()` function.
+
+The `ggplot2::ggplot()` function initializes a graph, then we can 'map' variables to the positions (`x` or `y`), aesthetics (`color = `), or groupings (`group = `. 
+
+We'll start by assigning the restructuring changes to the `Brexit` dataset. 
+
+
+```r
+Brexit <- Brexit %>% pivot_longer(-date, 
+                                  names_to = "poll", 
+                                  values_to = "percent")
+```
+
+#### Using the `ggplot()` function
+
+The `ggplot()` follows a pretty standard template, and it's similar to the `qplot()` function. See below: 
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>))
+```
+
+We begin with a dataset, pass it over to to the `ggplot()` function, then map the `x` and `y` variables. Run the code below to assign the variable mappings to object `p`, then print `p` to the console.
+
+
+```r
+p <- Brexit %>% ggplot(mapping = aes(x = date, y = percent))
+# view p
+p
+```
+
+![](figs/mappings-1.png)<!-- -->
+
+There aren't any points on the graph stored in object `p` because we haven't added any geoms or aesthetics. We'll add the smoothed line in the step below with `ggplot2::geom_smooth()` like the template below.
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+
+**Note**: the `+` operator is used with `ggplot2` functions, not the pipe `%>%` operator. 
+
+
+```r
+p + ggplot2::geom_smooth()
+```
+
+![](figs/geom_smooth-1.png)<!-- -->
+
+*Why are we only seeing a single line?* We need to look at our template again:
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
+```
+
+This shows the aesthetic mapping (`aes(<MAPPINGS>)`) needs to be set inside the geom we want to display. In this case, we want the lines colored by the two kinds of polls. We can set this with `color = poll`.
+
+
+```r
+p + ggplot2::geom_smooth(aes(color = poll))
+```
+
+![](figs/aes-color-1.png)<!-- -->
+
+The default `ggplot2::geom_smooth()` function includes the gray confidence interval around the smoothed line. We can remove this with `se = FALSE`. We'll also add the `show.legend = FALSE` argument to remove the `poll` categories from the left-hand side of the graph.
+
+Copy the code below and complete the `show.legend` argument and assign the graph to the `p2` object.
+
+
+```r
+p2 <- p + geom_smooth(aes(color = poll), se = FALSE, show.legend = FALSE)
+p2
+```
+
+![](figs/standard-error-and-legend-1.png)<!-- -->
+
+In the next step, we'll add the points to the graph. We've also updated the template below for adding aesthetics.
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), 
+                    optional_arguments = "values")
+```
+
+## step 10
+
+- [x] included in step10.md
+
+### Adding aesthetics and layers 
+
+In the last step we added a `geom_smooth()` to the `p` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `p2` object. 
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), 
+                    optional_arguments = "values")
+```
+
+We're going to continue building our plot by adding the `ggplot2::geom_point()` function. We need to specify the `aes()` argument (`color = poll`), and we'll also include the `show.legend = FALSE` argument again to remove the legend for the two `poll` categories.
+
+Complete the `show.legend` argument:
+
+
+```r
+# p2 + geom_point(aes(color = poll), show.legend = ____)
+p2 + geom_point(aes(color = poll), show.legend = FALSE)
+```
+
+![](figs/geom_point-1.png)<!-- -->
+
+This is starting to look more like the graph in the medium article, but we still need to make a few minor adjustments. 
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+
+`ggplot2` allows us to build graphs layer-by-layer using the geoms and aesthetics to customize each plot so that they are necessarily expressive. Each time we need to add something to a graph, we can either add a new `geom`, or look for ways to adjust a geoms with new aesthetic options. 
+
+For example, we can see from the 'Original' graph in the medium article that the points are slightly transparent. This is the alpha transparency argument, and it's available inside nearly every `geom`. 
+
+We can add the `alpha` argument inside the `ggplot2::geom_point()` function, and specify either a decimal, fraction, or numeric value. In this case, we want the value set to `1/3`.
+
+Complete the code below to change the `alpha` level.
+
+
+
+```r
+# p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = ___)
+p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = 1/3)
+p3
+```
+
+![](figs/alpha-1.png)<!-- -->
+
+Now the points are slightly transparent, which helps with over-plotting. 
+
+```
+<DATA> %>% 
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), args = "options")
+```
+
+As you can see, the grammar of graphics makes it easy to think about what we'd like to see on a plot, decide what kind of graph element it is (`geom`, `aesthetic`, etc.), and then add it as a layer with the `+` operator. Hopefully you can see how easy it is to customize a graph by adding new layers and aesthetics!
+
+## step 11
+
+- [x] included in step11.md?
+
+### Adding aesthetics manually
+
+**Note**: so far we have added the `aes()` argument *inside* each new `geom` layer we've built, but there was a way to plan ahead and do this in the original `ggplot()` function. See the code below:
+
+
+```r
+Brexit %>% 
+  ggplot(mapping = aes(x = date, y = percent, color = poll)) + 
+              geom_smooth(se = FALSE, show.legend = FALSE) + 
+                geom_point(alpha = 1/3, show.legend = FALSE)
+```
+
+![](figs/mapp-in-ggplot-1.png)<!-- -->
+
+By adding `color = poll` in the `ggplot()` function, the aesthetic carries all the way down through each `geom`. All we have to do is add the arguments for each `geom`. 
+
+#### Adding colors manually
+
+We'd like to change the colors in the graph from the default settings to a more traditional fire-brick red and cornflower blue. We can do this by adding the `ggplot2::scale_color_manual()` function and specifying the values(`c("cornflowerblue", "firebrick3")`).
+
+Fill in the code below and save the new changes to the `p4` object. 
+
+
+```r
+# p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "__________"))
+p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "firebrick3"))
+p4
+```
+
+![](figs/scale_color_manual-1.png)<!-- -->
+
+For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
+
+## step12
+
+- [x] included in step12.md
+
+### Adding text to a graph 
+
+In the [Medium article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368), the fixed 'Better' graph labels each smoothed line with `'Wrong'` vs `'Right'`. 
+
+We're going to add text labels to our graph using the `ggplot2::geom_text()` function. The `p4` object has the latest changes to the plot.
+
+#### Using the `geom_text()` function
+
+`ggplot2::geom_text()` works on a Cartesian coordinate system and requires the `x`, `y`, and `label` arguments. We want to place the `Wrong` label at the intersection of percent `46`, just above the red line near the year `2018`.
+
+Recall that the dates are formatted as `YYYY-MM-DD`, so we have to pick an `x` value that we can specify as a date with `as.Date()`.
+
+```
+p4 + geom_text(label = "Wrong", color = "firebrick3", x = as.Date("2018-01-01"), y = __)
+```
+
+Now we want to add the `Right` label to the graph, but make this cornflower blue, at position `x` = `as.Date("2018-01-01")` and `y` = `42.5`.
+
+
+```r
+p5 <- p4 + geom_text(label = "Wrong", color = "firebrick3", 
+               x = as.Date("2018-01-01"), y = 46) +
+     geom_text(label = "Right", color = "cornflowerblue", 
+               x = as.Date("2018-01-01"), y = 42.5)
+p5
+```
+
+![](figs/geom_text_2-1.png)<!-- -->
+
+These labels match up with the Medium article graph below: 
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/12-bremore-better.png?raw=true)
+
+In the next step, we will move the `y` axis over to the right-hand side of the graph.
+
+## step13
+
+- [x] included in step13.md
+
+### Adjusting axes on a graph
+
+Our graph is coming along, but we should shift the `y` axes to the opposite side of the graph (like the image below). 
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/12-bremore-better.png?raw=true)
+
+#### Moving the `y` axis
+
+`ggplot2` has a rich grammar for building graphs, which also means it has a function for doing nearly anything we can think of, which includes moving axes. To shift the `y` axis from it's original position, we can use the `ggplot2::scale_y_continuous()` function and specify `"right"` in the `position =` argument.
+
+Assign these changes to `p6` and print it to the screen.
+
+
+```r
+# p6 <- p5 + ggplot2::scale_y_continuous(position = "_____")
+p6 <- p5 + ggplot2::scale_y_continuous(position = "right")
+p6
+```
+
+![](figs/scale_y_continuous-1.png)<!-- -->
+
+Compare to the `Better' graph. 
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/12-bremore-better.png?raw=true)
+
+
+Now we have the lines, the points, the plot labels, and the axes in the correct spot. Next up, we need to make sure our chart is titled and labeled correctly!
+
+## step14 
+
+- [x] included in step14.md
+
+### Adding labels 
+
+Titles and labels are important because they give readers the context for the information they're seeing in a graph. Without some additional information about the data, the audience is just staring at lines, points, colors, etc.
+
+`ggplot2` has a few options for labeling graphs, but we recommend using the standard `ggplot2::labs()` function. It's easy to remember, and it has most of the necessary arguments you'll need for almost all the graphs you'll build. 
+
+#### Using the `ggplot2::labs()` function
+
+Below is a set of arguments that match the title and labels from the 'Better' graph from the Medium article. 
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/12-bremore-better.png?raw=true)
+
+As you can see, the Economist article chose to remove the `x` and `y` axes labels, but we think it's clearer to leave them in.
+
+
+```r
+lbs <- ggplot2::labs(title = "Bremorse", 
+                subtitle = "'In hindsight, do you think Britain was right or wrong to vote to leave the EU?'", 
+                    caption = "Source: NatCen Social Research", 
+                      x = "Date", 
+                      y = "Percent (%)")
+```
+
+We store the labels in the `lbs` object, which we can add to the `p6` object and reassign this to the `p7` object. This way, we can always backtrack to the previous plot if we need to change anything.
+
+Run the code below to assign the labels layer to the plot object. 
+
+
+```r
+p7 <- p6 + lbs
+p7
+```
+
+![](figs/p7-1.png)<!-- -->
+
+Labels are also important for keeping track of your work. If you're exploring a dataset using graphs (a process called [Exploratory Data Analysis](https://en.wikipedia.org/wiki/Exploratory_data_analysis), or EDA), the labels can help you remember what transformations or changes you made to the data under hood.   
+
+
+## step15
+
+- [x] included in step15.md
+
+### Using themes
+
+Our graph is nearly complete! We have all the geoms, aesthetics, titles, and labels. The last thing we will add is a theme, but we will do this by going outside of the `tidyverse` to the [`ggthemes`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package. 
+
+#### `ggthemes` 
+
+The `ggthemes` package has pre-packaged design, color, and font choices for most of the popular media outlets (FiveThirtyEight, Wall Street Journal, etc.). We'll use the `ggthemes::theme_economist_white()` function to change the colors and design of our plot.
+
+This function takes a `gray_bg = ` argument, which we will set to `FALSE`. We'll also change the `base_size` for the font to `12`, and the default font family to `"Verdana"`.
+
+
+```r
+p7 + ggthemes::theme_economist_white(gray_bg = FALSE, 
+                                     base_size = 12, 
+                                     base_family = "Verdana")
+```
+
+![](figs/theme_economist_white-1.png)<!-- -->
+
+This looks pretty close, right? Compare to the image below:
+
+![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/12-bremore-better.png?raw=true)
+
+## finish
+
+- [x] included in finish.md?
+
+This wraps up our scenario, "*Build beautiful, customized graphs and charts in R with `ggplot2`*". 
+
+We hope you feel more comfortable creating graphs with `ggplot2`, and that you have plenty of code to adapt to your needs. Please check out the other scenarios on R and the `tidyverse`!
+
+## Appendix 1: Katacoda scenario tutorials
+
+The tutorial for building the scenario is [here](https://katacoda.com/scenario-examples/scenarios/create-scenario-101).
+
+I took notes on this tutorial and made them available in [this Google document](https://docs.google.com/document/d/e/2PACX-1vSf2w2onhH5t3IhuD4sYLoWqn46BLKMYFR7q3BHO8QTaRkVgXfhKvnl8T9uHrjmbVpTZVKCWrfxEl0R/pub).
+
+## Appendix 2: Katacoda guidelines
+
+There are multiple guidelines and resources for writing scenarios. O'Reilly has provided an *Authoring Guide* and *Formatting and Design Guide*.
+
+The link for these files can be found here:
+
++ [Katacoda Scenario Formatting and Design Guide for Authors](https://docs.google.com/document/d/1l4lofG5kAu8JFzumZPCsJJE2muCYe6rHSHCQsMlijd8/edit)
+
++ [Katacoda Scenario Authoring Guide](https://docs.google.com/document/d/14rudtruZQhRxvD3zcR3g75j5nuOgKGz4CYk8hdhaV-w/edit)
+
+## Appendix 3: Scenario Checklist
+
+**Scenario Readiness Checklist:**
+
+When you think your scenario is ready for publication, we recommend you run through the checklist below to ensure it is ready to go. [Reminder: We discuss these best practices in the Katacoda Formatting and Design Guide for Authors]:
+
+Does the scenario start consistently and in a timely manner? More than 5 minutes to start would be cause to reconsider your build decisions.
+
+- [x] Are your intro and final pages present and are their respective goals and lessons learned in agreement?
+
+- [ ] Have you tested your scenario lately?
+
+- [x] Do you agree with the leveling (beginner, intermediate, advanced) you indicated when you started the build?
+
+- [x] Was learning time you entered correct, or should it be adjusted?
+
+- [ ] Are your versions of tools and other dependencies up to date?
+
+- [ ] Have you tried every instruction?
+
+- [ ] Have you written each step in the most concise manner possible?
+
+- [ ] Have you run your text through a spelling/grammar checker?
+
+- [ ] Are your credits to others given present and correct?
+
+- [ ] Are your images legal and with credits?
+
+- [ ] Are your hyperlinks all working?
+
+- [ ] Do the goals and lessons learned items match the steps in the scenario?
+
