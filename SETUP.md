@@ -97,7 +97,7 @@ Now I could add the remote/origin.
 
 ```bash
 # …or push an existing repository from the command line
-git remote add origin https://github.com/mjfrigaard/katacoda-scenarios.git
+git remote add origin https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show.git
 git push -u origin master
 ```
 
