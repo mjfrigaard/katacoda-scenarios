@@ -1,4 +1,4 @@
-# Thank you for completing this scenario!
+### Thank you for completing this scenario!
 
 We've gone over how to:
 
@@ -12,6 +12,6 @@ We've gone over how to:
 
 5. how to check your work with counting and pivoting (`dplyr::count()` and `tidyr::pivot_wider()`)
 
-## Learn more 
+#### Learn more 
 
 Feel free to check out more courses from [Katacoda](https://www.katacoda.com/) and [`tidyverse packages`](https://www.tidyverse.org/).

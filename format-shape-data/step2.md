@@ -1,4 +1,4 @@
-# Data in packages
+### Data in packages
 
 It's hard to learn any of R's capabilities without a dataset. There are multiple ways to get datasets into the R environment, but we'll cover that in another scenario.
 

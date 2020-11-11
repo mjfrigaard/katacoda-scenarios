@@ -1,23 +1,23 @@
-# Combine `case_when` and `pivot`
+### Combine `case_when` and `pivot`
 
-After creating new variables, it's always a good idea to check your work. Now that we have some tools for creating new variables, we can use the `tidyr::pivot_` functions to check and make sure all the rows were assigned correctly. 
+After creating new variables, it's always a good idea to check your work. Now that we have some tools for creating new variables, we can use the `tidyr::pivot_` functions to check and make sure all the rows were assigned correctly.
 
-## Small Bob Ross
+#### Small Bob Ross
 
-We'll import a small version of the `bob_ross` dataset to demonstrate how we can combine both levels of data wrangling to create new variables and check our work. 
+We'll import a small version of the `bob_ross` dataset to demonstrate how we can combine both levels of data wrangling to create new variables and check our work.
 
 ```
 BobRossStep12 <- readr::read_csv(file = "https://bit.ly/bob-ross-step12")
 head(BobRossStep12)
 ```{{execute}}
 
-## View the data 
+#### View the data
 
 Use `utils::head()`, `dplyr::glimpse()`, or `utils::str()` to view the contents of `BobRossStep12`.
 
-### Create long (tidy) dataset
+#### Create long (tidy) dataset
 
-First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started, 
+First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started,
 
 + the `cols` argument should be `-c(episode, season, episode_num, title)` (this means negate these four columns)  
 
@@ -42,27 +42,27 @@ Now that we have a long dataset, we can create a new variable (`painting_cats`) 
 + All other missing values should be labeled `NA` with `NA_character_` (*here we will use `TRUE` as the condition, and the `NA` type as a result *)
 
 ```
-dplyr::mutate(.data = BobRossStep12, 
+dplyr::mutate(.data = BobRossStep12,
         painting_cats = case_when(
             present == 1 & str_detect(object, "______") ~ "Cabins",
-            present == 1 & str_detect(object, "______") ~ "Frames", 
+            present == 1 & str_detect(object, "______") ~ "Frames",
             present == 1 & str_detect(object, "____|_________") ~ "Trees",
-            present == 1 & str_detect(object, "_____|_______") ~ "Clouds", 
+            present == 1 & str_detect(object, "_____|_______") ~ "Clouds",
             TRUE ~ __________))
 ```{{copy}}
 
-**Did you get it?** 
+**Did you get it?**
 
-You can run the code below to check 
+You can run the code below to check
 
 ```
-BobRossStep12 <- dplyr::mutate(.data = BobRossStep12, 
+BobRossStep12 <- dplyr::mutate(.data = BobRossStep12,
               painting_cats = case_when(
               present == 1 & str_detect(object, "cabin") ~ "Cabins",
               present == 1 & str_detect(object, "frame") ~ "Frames",
               present == 1 & str_detect(object, "tree|deciduous") ~ "Trees",
               present == 1 & str_detect(object, "cloud|cumulus") ~ "Clouds",
-              TRUE ~ NA_character_)) 
+              TRUE ~ NA_character_))
 BobRossStep12
 ```{{execute}}
 
@@ -74,24 +74,23 @@ Now we want to check our work by creating a cross-tabulation between `object` an
 dplyr::count(BobRossStep12, painting_cats)
 ```{{copy}}
 
-If we want to count two variables, we simply separate them with a comma (see below). 
+If we want to count two variables, we simply separate them with a comma (see below).
 
 ```
 # the n is the tally, but for both variables
 dplyr::count(BobRossStep12, object, painting_cats)
 ```{{copy}}
 
-As you can see, this is returning a `tibble`. We know how to reshape `tibbles` with the `pivot_` functions now, so let's restructure the output to view the values of `painting_cats` across columns. 
+As you can see, this is returning a `tibble`. We know how to reshape `tibbles` with the `pivot_` functions now, so let's restructure the output to view the values of `painting_cats` across columns.
 
 ```
 # create counts dataset of object and painting_cats
 BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, ______)
 ```{{copy}}
 
-Assign the names from our new `painting_cats` variable and values from n
+Assign the names from our new `painting_cats` variable and values from `n`
 
 ```
 # reshape this to wide and use n as the values
 pivot_wider(data = BobRossCounts, names_from = painting_cats, values_from = _)
 ```{{copy}}
-

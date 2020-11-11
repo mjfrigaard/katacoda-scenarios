@@ -1,4 +1,4 @@
-# Pivoting part 2 (re-reorganizing values in a dataset) 
+### Pivoting part 2 (re-reorganizing values in a dataset)
 
 Now that we have two datasets in the R environment, we can compare their structures with `dim()` (short for data `dim`ensions).
 
@@ -18,26 +18,26 @@ dim(BobRossLong)
 
 As we can see, the `BobRossLong` has a ton more rows, but far fewer columns. The dimensions of the dataset have changed, but we've retained the information.
 
-But what if we want to keep the dataset in it's original 'wide' format? The `tidyr::pivot_wider()` is the complement to `tidyr::pivot_longer()`, and it takes the following arguments: 
+But what if we want to keep the dataset in it's original 'wide' format? The `tidyr::pivot_wider()` is the complement to `tidyr::pivot_longer()`, and it takes the following arguments:
 
-1. A data set (`BobRossLong`), 
+1. A data set (`BobRossLong`),
 2. Where the indexed names are stored (`names_from = object`),  
-3. What variable holds the indexed values  (`values_from = present`) 
+3. What variable holds the indexed values  (`values_from = present`)
 
 ```
 # click to execute code
-BobRossWide <- pivot_wider(data = BobRossLong, 
-                      names_from = object, 
+BobRossWide <- pivot_wider(data = BobRossLong,
+                      names_from = object,
                       values_from = present)
 head(BobRossWide)
 ```{{execute}}
 
-Does the `BobRossWide` dataset have the same information as the original `BobRoss` dataset? We can check with `dplyr::setdiff()` which will test for differences in the two tibbles: 
+Does the `BobRossWide` dataset have the same information as the original `BobRoss` dataset? We can check with `dplyr::setdiff()` which will test for differences in the two tibbles:
 
 ```
 # click to copy code
 dplyr::setdiff(x = BobRoss, y = BobRossWide)
-```{{copy}}
+```{{execute}}
 
 Notice this returned an empty tibble? That means `BobRoss` and `BobRossWide` are identical (i.e. no set differences).
 

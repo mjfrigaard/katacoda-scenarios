@@ -38,11 +38,11 @@ base::options(
 )
 ```
 
-## Access the scenario
+# Access the scenario
 
 You can run through this scenario on Katacoda [here](https://katacoda.com/orm-mfrigaard/scenarios/format-shape-data).
 
-## Setup
+# Setup
 
 This scenario is built using the following commands in the Terminal pane in RStudio.
 
@@ -84,7 +84,7 @@ The learner personas for this scenario are:
 
 ## Intro
 
--   [x] included in intro.md?
+- [x] included in intro.md?
 
 #### Getting your data into the correct shape
 
@@ -104,9 +104,9 @@ This scenario will introduce the following topics in R:
 
 In this scenario, we'll be using the [`tidyverse packages`](https://www.tidyverse.org/), "an opinionated collection of R packages designed for data science"
 
-## step 1 (install and load packages)
+## step 1 
 
--   [x] included in step1.md?
+- [x] included in step1.md?
 
 ### Getting started in R
 
@@ -210,7 +210,9 @@ We can enter function arguments by position or name (see below).
 
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-data-wrangle-viz-show/master/figs/00-name-arg.png)
 
-## step 2 (data in packages)
+## step 2 
+
+- [x] included in step2.md?
 
 ### Data in packages
 
@@ -251,7 +253,9 @@ We should pay attention to the information printed in `BobRoss`. As we can see, 
 
 `tibble`s print the dimensions of the dataset (`# A tibble: 403 x 71`), numerical indices for rows (far left), and the type of variable in the dataset (`<chr>` variables have text information vs. `<dbl>` and `<int>` variables which contain numbers), and additional information about the data when it's too big to print on the screen (`… with 393 more rows, and 63 more variables:`)
 
-## step 3 (Data frames and tibbles)
+## step 3 
+
+- [x] included in step3.md?
 
 ### Data frames and tibbles
 
@@ -350,6 +354,741 @@ BobRossDataFrame <- data.frame(
 BobRossDataFrame
 ```
 
+## step 4 
+
+- [x] included in step4.md?
+
+### Importing data from external files
+
+The [`tidyverse readr`](https://readr.tidyverse.org/) package has functions for loading multiple rectangular file types, including [comma-separated value](https://en.wikipedia.org/wiki/Comma-separated_values), [tab-separated value](https://en.wikipedia.org/wiki/Tab-separated_values), and other [fixed width format files](https://www.softinterface.com/Convert-XLS/Features/Fixed-Width-Text-File-Definition.htm).
+
+#### Importing .csv files into R
+
+The code below allows us to import data directly from a web URL. The bitly link takes us to a comma-separated values (.csv) file with the same data we loaded in the previous step.
+
+```{r import-SmallBobRoss}
+# click to execute code
+SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
+SmallBobRoss
+```
+
+The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)) into a data object `SmallBobRoss`, then prints this object to the screen.
+
+After these data are loaded into R, we get a message about how the data were formatted,
+
+```
+Parsed with column specification:
+cols(
+  title = col_character(),
+  bushes = col_double(),
+  clouds = col_double()
+)
+```
+
+`col_character()` means these data are text, which makes sense because they are the titles for the episodes. The `col_double()` tells us the `bushes` and `clouds` variables were imported as double (a kind of numerical variable in R).
+
+#### Getting a glimpse of the data
+
+We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (`glimpse()` displays the variables horizontally, and prints as much data as possible to the screen.
+
+```{r glimpse-SmallBobRoss}
+# click to execute code
+glimpse(SmallBobRoss)
+```
+
+## step 5 
+
+- [x] included in step5.md?
+
+### Two levels of data wrangling 
+
+We like to think of wrangling on two different levels. The first level deals with the data shape and structure. The second level of data wrangling refers to the format of individual variables (which we will get to in the following steps).  
+
+Questions we should be asking ourselves about data at this level include:
+
+1. Approximately how many rows (or observations) and columns (or variables) should we be seeing?  
+2. Are all the rows unique (i.e.will each case have a row)?    
+3. Does each measurement have a column (or variable)?   
+4. Are these variables each measuring exactly one thing?   
+
+#### Reshaping data
+
+A common task for data manipulation is moving columns to rows, or rows to columns. The [`tidyr` package](https://tidyr.tidyverse.org/) in R makes this easy with two `tidyr::pivot_` functions. 
+
+#### Viewing the dataset
+
+`dplyr::glimpse()` is a convenient function for examining the structure and shape of a dataset. Other options include `utils::str()` and `utils::head()`. 
+
+```{r step5-head-BobRoss}
+# click to execute code
+head(BobRoss)
+```
+
+#### Checking for duplicates
+
+We also want to know if there are duplicate rows in the `BobRoss` data, and we can check this by using `dplyr::distinct()` and `base::nrow()` with `base::identical()`
+
+*Number of rows?*
+
+```{r step5-nrow-BobRoss}
+# click to copy code
+base::nrow(BobRoss)
+```
+
+*distinct rows (note this returns a `tibble`!)*
+
+```{r step5-distinct-BobERoss}
+# click to copy code
+dplyr::distinct(.data = BobRoss)
+```
+
+*how about we check to see if they're identical?*
+
+```{r step5-identical-BobRoss}
+# click to execute code
+identical(x = nrow(BobRoss), y = nrow(dplyr::distinct(BobRoss)))
+```
+
+If you see `TRUE`, this means all the rows are unique!
+
+Now we can answer more of the questions above:
+
+1. Approximately how many rows (or observations) and columns (or variables) should we be seeing? *403 rows, 71 columns*
+2. Are all the rows unique (i.e.will each case have a row)? *Yes*
+3. Does each measurement have a column (or variable)? *...do they? We don't know yet*
+4. Are these variables each measuring exactly one thing?   *We have to take a deeper dive into the data and documentation to figure this out*  
+
+#### Pivoting part 1 (reorganizing values in a dataset)
+
+As we can see in the Terminal, the `BobRoss` dataset is full of the variables named for the various objects in his paintings. From `apple_frame` down to `wood_framed`, the objects have what appears to be `0`s and `1`s for values. These are called indicators, or [*binary variables*](https://en.wikipedia.org/wiki/Binary_data#Binary_variables).
+
+#### Moving columns to rows
+
+The columns in `BobRoss` represent various objects in Bob Ross's paintings, and the values in the rows are whether or not the object was present or absent in a particular episode. An image of this data arrangement is below:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-data-wrangle-viz-show/master/figs/01-orig-bob-ross.png)
+
+Can you think of another way to organize the same information? What if we changed the original data from having a column for each different painting object to a format with only two columns: the name of the painting `object`, and whether or not it was `present`. Take a look at the data format below:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-data-wrangle-viz-show/master/figs/02-long-bob-ross.png)
+
+- the `object` column keeps track of the *thing* in the painting (`apple_frame`, `aurora_borealis`, `barn`, etc.),
+- the `present` column corresponds to the *number of times* that particular thing occurred,
+- the `season`, `episode`, `episode_num`, and `title` information repeats down the rows for every object that was initially in a column
+
+
+Data arrangements like this are typically called long or tidy, but the vital thing to know is that each value has an index in two places (in this case `object` and `present`). We can convert `BobRoss` into a long dataset using `tidyr::pivot_longer()`.
+
+The `tidyr::pivot_longer()` function takes the following arguments:
+
+1. A data set (`BobRoss`),  
+2. The columns we want indexed (the `c(apple_frame:wood_framed)` is shorthand for `apple_frame` through `wood_framed`),  
+3. What we want the indexed names to be (`names_to = 'object'`),  
+4. What we want the indexed values to be (`values_to = 'present'`)  
+ 
+Click anywhere in the dark area below to run the code and see the result.
+
+```{r pivot-longer-BobRoss}
+# click to execute code
+BobRossLong <- pivot_longer(data = BobRoss, 
+                            cols = c(apple_frame:wood_framed), 
+                            names_to = 'object', 
+                            values_to = 'present')
+# view data
+head(BobRossLong)
+```
+
+## step 6 
+
+- [x] included in step6.md?
+
+### Pivoting part 2 (re-reorganizing values in a dataset) 
+
+Now that we have two datasets in the R environment, we can compare their structures with `dim()` (short for data `dim`ensions).
+
+```{r step6-dim-BobRoss}
+# click to execute code
+dim(BobRoss)
+```
+
+*This is telling us there are `403` rows and `71` columns in `BobRoss`...*
+
+```{r step6-dim-BobRossLong}
+# click to execute code
+dim(BobRossLong)
+```
+
+*...vs. `27001` rows and `6` columns in `BobRossLong`!*
+
+As we can see, the `BobRossLong` has a ton more rows, but far fewer columns. The dimensions of the dataset have changed, but we've retained the information.
+
+But what if we want to keep the dataset in it's original 'wide' format? The `tidyr::pivot_wider()` is the complement to `tidyr::pivot_longer()`, and it takes the following arguments: 
+
+1. A data set (`BobRossLong`), 
+2. Where the indexed names are stored (`names_from = object`),   
+3. What variable holds the indexed values  (`values_from = present`)   
+
+```{r step6-pivot_wider}
+# click to execute code
+BobRossWide <- pivot_wider(data = BobRossLong, 
+                      names_from = object, 
+                      values_from = present)
+head(BobRossWide)
+```
+
+Does the `BobRossWide` dataset have the same information as the original `BobRoss` dataset? We can check with `dplyr::setdiff()` which will test for differences in the two tibbles: 
+
+```{r step6-setdiff}
+# click to copy code
+dplyr::setdiff(x = BobRoss, y = BobRossWide)
+```
+
+Notice this returned an empty tibble? That means `BobRoss` and `BobRossWide` are identical (i.e. no set differences).
+
+#### Long or wide?
+
+We've just shown two formats with the same information in them. You might be wondering which is better, and the answer is *it depends.* R prefers datasets formatted as long, but there are other reasons you might want to store (or collect) data in the wide format.  
+
+Fortunately, now you don't have to choose because you can easily change whatever arrangement the data are in!
+
+## step 7  
+
+- [x] included in step7.md?
+
+### Splitting columns into new columns
+
+Sometimes data are not as granular as we would like them to be, so we need to break up bits of information into individual columns.
+
+For example, the `episode` column contains information on the season and number from `season` and `episode_num`. But what if these two columns were missing? We could recreate them using `tidyr::separate()`.
+
+#### Separating columns
+
+We will load an alternative version of `BobRossLong` into the R environment for this step.
+
+Please click on the *Run command* icon below to load `BobRossStep7` into R.
+
+```{r}
+# click to execute code
+BobRossStep7 <- readr::read_csv(file = "https://bit.ly/bob-ross-step7")
+glimpse(BobRossStep7)
+```
+
+As we can see, `BobRossStep7` has an `episode_info` variable with both `season` and `episode` information separated by a comma and space (`"S01, E01"` and `"S01, E01",`, etc.).
+
+We want to use `tidyr::separate()` to split the `episode_info` column into `season` and `episode` using the following arguments.
+
+1. `data` = the name of the dataset (`BobRossStep7`)  
+2. `col` = the name of the column to separate (`episode_info`),  
+3. `into` = the new columns for the separated information (combine these with `c("season", "episode")`)
+
+Copy the code below and replace `c("______", "_______")` with the two new column names before pasting it back into the Terminal and running it.
+
+```{r step7-separate, eval=FALSE}
+# click to copy code
+separate(data = BobRossStep7, col = episode_info, into = c("______", "_______"))
+```
+
+If you've completed this step correctly, you should see the following dataset:
+
+```{r step7-output, eval=FALSE}
+# A tibble: 27,001 x 5
+   season episode title               object          present
+   <chr>  <chr>   <chr>               <chr>             <dbl>
+ 1 S01    E01     A WALK IN THE WOODS apple_frame           0
+ 2 S01    E01     A WALK IN THE WOODS aurora_borealis       0
+ 3 S01    E01     A WALK IN THE WOODS barn                  0
+ 4 S01    E01     A WALK IN THE WOODS beach                 0
+ 5 S01    E01     A WALK IN THE WOODS boat                  0
+ 6 S01    E01     A WALK IN THE WOODS bridge                0
+ 7 S01    E01     A WALK IN THE WOODS building              0
+ 8 S01    E01     A WALK IN THE WOODS bushes                1
+ 9 S01    E01     A WALK IN THE WOODS cabin                 0
+10 S01    E01     A WALK IN THE WOODS cactus                0
+# … with 26,991 more rows
+```
+
+As we can see, `season` and `episode` contain the same information as the previous `episode_info` column.
+
+## step 8 
+
+- [x] included in step8.md?
+
+### Combining two columns 
+
+Just like with the two `pivot_` functions, there is an opposite version of `tidyr::separate()` called `tidyr::unite()`. The `unite()` function takes multiple columns and sticks them together into a single new column. 
+
+##### *First, a little house cleaning...*
+
+We've accumulated quite a few datasets in our R environment, which can make things seem cluttered. You can check the objects in R using `ls()`. 
+
+```{r step8-ls}
+# click to execute code
+ls()
+```
+
+Yikes--so many Bob Ross's! We will remove the `SmallBobRoss`, `BobRoss` and `BobRossStep7` datasets using `rm()`.
+
+```{r step8-rm}
+# click to execute code
+rm(SmallBobRoss, BobRoss, BobRossStep7)
+```
+
+Now check again with `ls()` just to make sure (you can remove any additional datasets with `rm()`).
+
+##### *...back to `unite()`*
+
+We'll load another alternative version of `BobRossLong` into R and view it with `head()` 
+
+```{r step8-import-BobRossStep8}
+# click to execute code
+BobRossStep8 <- readr::read_csv(file = "https://bit.ly/bob-ross-step8")
+head(BobRossStep8)
+```
+
+Now use `tidyr::unite()` with the following arguments:
+
+1. `data` = `BobRossStep8`
+
+2. the columns we want to unite (`season_text` and `episode_text`) 
+
+3. the new column name (`col = episode_new`) 
+
+4. And `sep =`, a regular expression pattern to place between the two columns we're uniting (in this case, it's `E`). 
+
+Replace `col = '___________'` below with the new united column name before entering and running it in the Terminal.
+
+```{r step8-unite-episode_new, eval=FALSE}
+# click to copy code
+unite(data = BobRossStep8, season_text, episode_text, col = '___________', sep = "E")
+```
+
+If you've filled in the function correctly, you should see the following data set:
+
+```{r step8-unite-output, eval=FALSE}
+# A tibble: 27,001 x 4
+   episode_new title               object          present
+   <chr>       <chr>               <chr>             <dbl>
+ 1 S01E01      A WALK IN THE WOODS apple_frame           0
+ 2 S01E01      A WALK IN THE WOODS aurora_borealis       0
+ 3 S01E01      A WALK IN THE WOODS barn                  0
+ 4 S01E01      A WALK IN THE WOODS beach                 0
+ 5 S01E01      A WALK IN THE WOODS boat                  0
+ 6 S01E01      A WALK IN THE WOODS bridge                0
+ 7 S01E01      A WALK IN THE WOODS building              0
+ 8 S01E01      A WALK IN THE WOODS bushes                1
+ 9 S01E01      A WALK IN THE WOODS cabin                 0
+10 S01E01      A WALK IN THE WOODS cactus                0
+# … with 26,991 more rows
+```
+
+As we can see, `unite()` placed the `E` between `season_text` and `episode_text`. 
+
+Now we should feel more comfortable answering the last two questions related to this level of data wrangling:
+
+3. Does each measurement have a column (or variable)? *Yes, and if not I can pivot the data into another arrangement* 
+
+4. Are these variables each measuring exactly one thing? *Yes, and if not I can separate/unite columns to capture that one thing* 
+
+
+## step 9 
+
+- [x] included in step9.md?
+
+### Data wrangling: level two
+
+We said we like to think of the first level of data wrangling as changes to the data structure itself (what the dimensions, columns, and rows should be). The second level of data wrangling refers to *creating or calculating new variables based on existing columns and values*. 
+
+You might be wondering how these two are different, and the primary difference is that all the changes we made used only the position or location of the data. For example, consider the data arrangement below:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-data-wrangle-viz-show/master/figs/03-original-data.png)
+
+This data has three months spread across columns and a `category` variable that serves as an index for the values. If we put these data in the long format, it will look like the image below:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-data-wrangle-viz-show/master/figs/04-pivot-longer.png)
+
+The `tidyr::pivot_longer()` changes the position of the indices and values, but doesn't calculate or create any new information. We can just as quickly move the data back into its original arrangement (see below).
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-data-wrangle-viz-show/master/figs/05-pivot-wider.png)
+
+`unite` and `separate()` also change the position and contents of the information, but they do not calculate or create new values. 
+
+#### The `dplyr` package
+
+The primary package for data manipulation at the second level is `dplyr`, and we will explore its functions in the next three steps. 
+
+#### Creating new variables
+
+How `dplyr::mutate()` works:
+
+```{r step9-mutate-template, eval=FALSE}
+dplyr::mutate(.data = DataFrame,
+              # changed variable
+              `new variable name` =
+                  # function used to change variable
+                   some_function(
+                      # current variable name
+                      `old variable name`))
+```
+
+As you can see from the code and comments above, first, we enter the data set (`DataFrame`).  Next, we introduce a name for the new variable we want to create (`new variable name`), the equals sign `=`, then the function we want to apply `some_function()` and the original variable we want to apply it to `old variable name`.
+
+Let's import a new version of `BobRoss` for this step. 
+
+```{r step9-import-BobRossStep9}
+BobRossStep9 <- readr::read_csv(file = "https://bit.ly/bob-ross-step9")
+```
+
+#### Changing variable formats
+
+We're going to use the `dplyr::mutate()` function to change the format of a character variable (`<chr>`) to numeric (`<dbl>`). So if we run the code below, it should create `episode_num`, which is a numerical version `episode_txt` (converting `<chr>` to `<dbl>` to numeric).
+
+```{r step9-episode_num}
+# click to execute code
+dplyr::mutate(.data = BobRossStep9, episode_num = as.numeric(episode_txt))
+```
+
+We can see this creates a new variable, but we still have `episode_txt`. Next, we'll convert the `title` to title case using the `stringr` package (also from the `tidyverse`), and we'll overwrite the existing variable by naming the new variable `title` as well. 
+
+```{r step9-title}
+dplyr::mutate(.data = BobRossStep9, 
+              # first new variable 
+              episode_num = base::as.numeric(episode_txt),
+              # second new variable 
+              title = stringr::str_to_title(title))
+```
+
+The great thing about `dplyr::mutate()` and other `tidyverse` functions is that we can view our work before assigning anything to a dataset. **It's always a good idea to check your data wrangling before assigning it back to the data frame.** 
+
+We will make one final change to the `object` variable by removing the underscores between the objects with `stringr::str_replace_all()`. 
+
+```{r step9-object}
+dplyr::mutate(.data = BobRossStep9, 
+              # first new variable 
+              episode_num = base::as.numeric(episode_txt),
+              # second variable change
+              title = stringr::str_to_title(title),
+              # third variable change
+              object = stringr::str_replace_all(string = object, 
+                                       pattern = "_", 
+                                       replacement = " "))
+```
+
+Now that we can see the variables are formatted how we want, we can assign the changes to the `BobRossStep9` object. 
+
+```{r step9-assign-BobRossStep9}
+BobRossStep9 <- dplyr::mutate(.data = BobRossStep9, 
+              # first new variable 
+              episode_num = base::as.numeric(episode_txt),
+              # second variable change
+              title = stringr::str_to_title(title),
+              # third variable change
+              object = stringr::str_replace_all(string = object, 
+                                       pattern = "_", 
+                                       replacement = " "))
+head(BobRossStep9)
+```
+
+Read more about [`stringr` package](https://stringr.tidyverse.org/).
+
+
+
+
+
+
+## step 10   
+
+- [x] included in step10.md?  
+
+### Create new variables based on a condition
+
+Many times we'll want to create a new variable based on the values in another variable. For example, assume we want to identify only those objects that are in season 1. We can do this by creating a new variable called `season01`, and assigning the value of `TRUE` to all the objects that occurred in season 1, and `FALSE` to every other object.
+
+Let's import a dataset for this step.
+
+```{r step10-import-BobRossStep10}
+BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
+head(BobRossStep10)
+```
+
+Create `season01` by filling in the the appropriate value for `season` in `condition = ______ == _`, and the two logical values for `true` and `false`. 
+
+```{r step10-mutate, eval=FALSE}
+# click to copy code
+mutate(.data = BobRossStep10, season01 = if_else(condition = ______ == _, 
+                                                 true = ____, false = _____))
+```
+
+We notice this creates a `<lgl>` variable, which can only have one of two values (`TRUE` and `FALSE`). Logical is excellent for binary variables because you can still perform mathematical operations on them.
+
+
+*Logical vectors are coerced to integer vectors in contexts where a numerical value is required, with `TRUE` mapped to `1`, `FALSE` to `0`*
+
+#### Counting to check our work
+
+Assuming we know how many episodes are season 1, we can check the new variable using `dplyr::count()`.
+
+```{r step10-assign-season01}
+# click to execute code
+BobRossStep10 <- dplyr::mutate(.data = BobRossStep10,
+                            season01 = if_else(condition = season == 1,
+                                               true = TRUE,
+                                               false = FALSE))
+# count the new values
+dplyr::count(BobRossStep10, season01)
+```
+
+`count` returns a tibble with a sum of each value in `season01`.
+
+We can also use `if_else` in combination with [`stringr::str_detect()`](https://stringr.tidyverse.org/reference/str_detect.html) to find all `E01` instances in `episode`. The `str_detect()` is incredibly handy for finding patterns in text data because it returns a logical (`TRUE` or `FALSE`).
+
+```{r step10-episode01}
+# click to execute code
+BobRossStep10 <- dplyr::mutate(.data = BobRossStep10,
+                   episode01 = if_else(condition = str_detect(
+                                                    string = episode,
+                                                     pattern = "E01"),
+                                                        true = TRUE,
+                                                        false = FALSE))
+# count the new values
+dplyr::count(BobRossStep10, episode01)
+```
+
+We can see the total number of first episodes. Again, this assumes we know the total number of first episodes and that they are all coded correctly.
+
+## step 11  
+
+- [x] included in step11.md?  
+
+### Creating new variables based on multiple conditions
+
+The `dplyr::if_else()` function works well with `dplyr::mutate()` for creating new variables based on a single condition, but sometimes we want to create new variables based on the values in more than one column (i.e., multiple conditions).
+
+In this case, we can combine `dplyr::mutate()` with `dplyr::case_when()` to create new variables based on multiple conditions. These functions work together with the following arguments.
+
+#### Using `dplyr::case_when()` with `dplyr::mutate()`
+
+```{r step11-case_when-template, eval=FALSE}
+# first we assign a new variable name
+dplyr::mutate(.data = DataSet,
+                `new variable name`,
+           case_when(
+             # then we enter our conditions (condition 1)
+             left hand side condition 1 ~ right hand side result 1,
+             # condition 2
+             left hand side condition 2 ~ right hand side result 2))
+```
+
+We can learn more about how `dplyr::case_when` works by accessing the R help files (`?dplyr::case_when`).
+
+> *The left-hand side determines which values match this case. The right-hand side provides the replacement value. The left-hand side must evaluate to a logical vector. The right-hand side does not need to be logical, but all right-hand sides must evaluate to the same type of vector.*
+
+#### Creating categorical variables
+
+We will load a small example of `BobRoss` to experiment with [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html). This dataset only has the first three episodes of season 1.
+
+```{r step11-import-BobRossStep11}
+BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
+head(BobRossStep11)
+```
+
+We can see this is a reduced dataset from `BobRoss`. We will use `dplyr::case_when()` to create a `object_category` variable based on what `object`s were in a particular episode's painting.
+
+We'll be using `stringr::str_detect()` again to find all the paintings of `mountains`, `trees`, and `bushes`, but we've dropped the names of arguments, so it's easier to read.
+
+```{r step11-case_when-object_category}
+dplyr::mutate(.data = BobRossStep11,
+          object_category = case_when(
+              season == 1 & str_detect(object, "mountain") ~ "mountains",
+              season == 1 & str_detect(object, "deciduous") ~ "trees",
+              season == 1 & str_detect(object, "tree") ~ "trees",
+              season == 1 & str_detect(object, "conifer") ~ "trees",
+              season == 1 & str_detect(object, "bush") ~ "bushes"))
+```
+
+The great thing about `case_when()` is that we can keep adding more conditions. For example, we can add `water` and `buildings` to the same `object_category` variable.
+
+```{r step11-object_category-condition-2}
+dplyr::mutate(.data = BobRossStep11,
+          object_category = case_when(
+              season == 1 & str_detect(object, "mountain") ~ "mountains",
+              season == 1 & str_detect(object, "deciduous") ~ "trees",
+              season == 1 & str_detect(object, "tree") ~ "trees",
+              season == 1 & str_detect(object, "conifer") ~ "trees",
+              season == 1 & str_detect(object, "bush") ~ "bushes",
+              season == 1 & str_detect(object, "river") ~ "water",
+              season == 1 & str_detect(object, "barn") ~ "buildings",
+              season == 1 & str_detect(object, "cabin") ~ "buildings"))
+```
+
+We can also include a 'catch-all' with a logical `TRUE` condition.
+
+```{r step11-object_category-case_when-catchall}
+BobRossStep11 <- dplyr::mutate(.data = BobRossStep11,
+          object_category = case_when(
+              season == 1 & str_detect(object, "mountain") ~ "mountains",
+              season == 1 & str_detect(object, "deciduous") ~ "trees",
+              season == 1 & str_detect(object, "tree") ~ "trees",
+              season == 1 & str_detect(object, "conifer") ~ "trees",
+              season == 1 & str_detect(object, "bush") ~ "bushes",
+              season == 1 & str_detect(object, "river") ~ "water",
+              season == 1 & str_detect(object, "barn") ~ "buildings",
+              season == 1 & str_detect(object, "cabin") ~ "buildings",
+              TRUE ~ "other"))
+head(BobRossStep11)
+```
+
+
+## step 12   
+
+- [x] included in step12.md?  
+
+### Combine `case_when` and `pivot`
+
+After creating new variables, it's always a good idea to check your work. Now that we have some tools for creating new variables, we can use the `tidyr::pivot_` functions to check and make sure all the rows were assigned correctly.
+
+#### Small Bob Ross
+
+We'll import a small version of the `bob_ross` dataset to demonstrate how we can combine both levels of data wrangling to create new variables and check our work.
+
+```{r step12-import-BobRossStep12}
+BobRossStep12 <- readr::read_csv(file = "https://bit.ly/bob-ross-step12")
+head(BobRossStep12)
+```
+
+#### View the data
+
+Use `utils::head()`, `dplyr::glimpse()`, or `utils::str()` to view the contents of `BobRossStep12`.
+
+#### Create long (tidy) dataset
+
+First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started,
+
++ the `cols` argument should be `-c(episode, season, episode_num, title)` (this means negate these four columns)  
+
++ assign `names_to` to `"object"` and `values_to` to `"present"`).
+
++ when you're confident you have it correct, assign these changes to `BobRossStep12`.
+
+```{r step12-pivot_longer, eval=FALSE}
+BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12, 
+                                     cols = -c(episode, season, episode_num, title), 
+                                     names_to = "_______",  
+                                     values_to = "________")
+```
+
+```{r step12-pivot_longer-assign, include=FALSE}
+BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12, 
+                                     cols = -c(episode, season, episode_num, title), 
+                                     names_to = "object",  
+                                     values_to = "present")
+```
+
+
+Now that we have a long dataset, we can create a new variable (`painting_cats`) for the following categories.
+
++ Label any mention of cabin as `Cabins` (*there should only be one*)
+
++ Capture all framed paintings under the label `Frames` (*a single pattern of `frame` should do the trick*)
+
++ Create a category for all the `Trees` (*there are different types of trees here, so we can combine multiple arguments by placing a pipe (|) between them*)
+
++ Label all the clouds as `Clouds` (*same as above, but with different types of clouds*)
+
++ All other missing values should be labeled `NA` with `NA_character_` (*here we will use `TRUE` as the condition, and the `NA` type as a result *)
+
+```{r step12-painting_cats, eval=FALSE}
+dplyr::mutate(.data = BobRossStep12,
+        painting_cats = case_when(
+            present == 1 & str_detect(object, "______") ~ "Cabins",
+            present == 1 & str_detect(object, "______") ~ "Frames",
+            present == 1 & str_detect(object, "____|_________") ~ "Trees",
+            present == 1 & str_detect(object, "_____|_______") ~ "Clouds",
+            TRUE ~ __________))
+```
+
+**Did you get it?**
+
+You can run the code below to check
+
+```{r step12-assign-painting_cats}
+BobRossStep12 <- dplyr::mutate(.data = BobRossStep12,
+              painting_cats = case_when(
+              present == 1 & str_detect(object, "cabin") ~ "Cabins",
+              present == 1 & str_detect(object, "frame") ~ "Frames",
+              present == 1 & str_detect(object, "tree|deciduous") ~ "Trees",
+              present == 1 & str_detect(object, "cloud|cumulus") ~ "Clouds",
+              TRUE ~ NA_character_))
+BobRossStep12
+```
+
+
+Now we want to check our work by creating a cross-tabulation between `object` and `painting_cats`. We can do this with `dplyr::count()`, which tallies up all the values in a column. Copy the code below to see the new values in `painting_cats`.
+
+```{r step12-count}
+# the n column is the tally of the values
+dplyr::count(BobRossStep12, painting_cats)
+```
+
+If we want to count two variables, we simply separate them with a comma (see below).
+
+```{r step12-count-2-vars}
+# the n is the tally, but for both variables
+dplyr::count(BobRossStep12, object, painting_cats)
+```
+
+As you can see, this is returning a `tibble`. We know how to reshape `tibbles` with the `pivot_` functions now, so let's restructure the output to view the values of `painting_cats` across columns.
+
+```{r step12-fill-in, eval=FALSE}
+# create counts dataset of object and painting_cats
+BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, ______)
+```
+
+Assign the names from our new `painting_cats` variable and values from `n`
+
+```{r step12-values_from, eval=FALSE}
+# reshape this to wide and use n as the values
+pivot_wider(data = BobRossCounts, names_from = painting_cats, values_from = _)
+```
+
+## finish.md    
+
+- [x] included in finish.md?  
+
+### Thank you for completing this scenario!
+
+We've gone over how to:
+
+1. Load packages and data into R (`utils::install.packages()`, `base::library()`, `tibble::tribble()`, and `readr::read_csv()`).
+
+2. how to use R to format and shape (or *reformat* and *reshape*) your data (`tidyr::pivot_longer()`, `tidyr::pivot_wider()`, `tidyr::separate()`, and `tidyr::unite()`).
+
+3. how to create new variables based on existing columns `dplyr::mutate()` and `dplyr::if_else()`
+
+4. how to create new variables based on multiple conditions (i.e. `dplyr::mutate()` and `dplyr::case_when()`)
+
+5. how to check your work with counting and pivoting (`dplyr::count()` and `tidyr::pivot_wider()`)
+
+#### Learn more 
+
+Feel free to check out more courses from [Katacoda](https://www.katacoda.com/) and [`tidyverse packages`](https://www.tidyverse.org/).
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***
+
 
 ## Appendix 1: Katacoda scenario tutorials
 
@@ -375,26 +1114,26 @@ When you think your scenario is ready for publication, we recommend you run thro
 
 Does the scenario start consistently and in a timely manner? More than 5 minutes to start would be cause to reconsider your build decisions.
 
--   [ ] Are your intro and final pages present and are their respective goals and lessons learned in agreement?
+- [x] Are your intro and final pages present and are their respective goals and lessons learned in agreement?
 
--   [ ] Have you tested your scenario lately?
+- [x] Have you tested your scenario lately?
 
--   [ ] Do you agree with the leveling (beginner, intermediate, advanced) you indicated when you started the build?
+- [x] Do you agree with the leveling (beginner, intermediate, advanced) you indicated when you started the build?
 
--   [ ] Was learning time you entered correct, or should it be adjusted?
+- [x] Was learning time you entered correct, or should it be adjusted?
 
--   [ ] Are your versions of tools and other dependencies up to date?
+- [x] Are your versions of tools and other dependencies up to date?
 
--   [ ] Have you tried every instruction?
+- [x] Have you tried every instruction?
 
--   [ ] Have you written each step in the most concise manner possible?
+- [x] Have you written each step in the most concise manner possible?
 
--   [ ] Have you run your text through a spelling/grammar checker?
+- [x] Have you run your text through a spelling/grammar checker?
 
--   [ ] Are your credits to others given present and correct?
+- [x] Are your credits to others given present and correct?
 
--   [ ] Are your images legal and with credits?
+- [x] Are your images legal and with credits?
 
--   [ ] Are your hyperlinks all working?
+- [x] Are your hyperlinks all working?
 
--   [ ] Do the goals and lessons learned items match the steps in the scenario?
+- [x] Do the goals and lessons learned items match the steps in the scenario?

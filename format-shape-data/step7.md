@@ -1,37 +1,37 @@
-# Splitting columns into new columns
+### Splitting columns into new columns
 
 Sometimes data are not as granular as we would like them to be, so we need to break up bits of information into individual columns.
 
-For example, the `episode` column contains information on the season and number from `season` and `episode_num`. But what if these two columns were missing? We could recreate them using `tidyr::separate()`. 
+For example, the `episode` column contains information on the season and number from `season` and `episode_num`. But what if these two columns were missing? We could recreate them using `tidyr::separate()`.
 
-## Separating columns 
+#### Separating columns
 
-We will load an alternative version of `BobRossLong` into the R environment for this step. 
+We will load an alternative version of `BobRossLong` into the R environment for this step.
 
-Please click on the *Run command* icon below to load `BobRossStep7` into R. 
+Please click on the *Run command* icon below to load `BobRossStep7` into R.
 
 ```
 # click to execute code
 BobRossStep7 <- readr::read_csv(file = "https://bit.ly/bob-ross-step7")
 glimpse(BobRossStep7)
-```{{execute}} 
+```{{execute}}
 
-As we can see, `BobRossStep7` has an `episode_info` variable with both `season` and `episode` information separated by a comma and space (`"S01, E01"` and `"S01, E01",`, etc.). 
+As we can see, `BobRossStep7` has an `episode_info` variable with both `season` and `episode` information separated by a comma and space (`"S01, E01"` and `"S01, E01",`, etc.).
 
-We want to use `tidyr::separate()` to split the `episode_info` column into `season` and `episode` using the following arguments. 
+We want to use `tidyr::separate()` to split the `episode_info` column into `season` and `episode` using the following arguments.
 
 1. `data` = the name of the dataset (`BobRossStep7`)  
 2. `col` = the name of the column to separate (`episode_info`),  
-3. `into` = the new columns for the separated information (combine these with `c("season", "episode")`) 
+3. `into` = the new columns for the separated information (combine these with `c("season", "episode")`)
 
-Copy the code below and fill in the `into` section before pasting it back into the Terminal and running it. 
+Copy the code below and replace `c("______", "_______")` with the two new column names before pasting it back into the Terminal and running it.
 
 ```
 # click to copy code
 separate(data = BobRossStep7, col = episode_info, into = c("______", "_______"))
 ```{{copy}}
 
-If you've completed this step correctly, you should see the following dataset: 
+If you've completed this step correctly, you should see the following dataset:
 
 ```
 # A tibble: 27,001 x 5

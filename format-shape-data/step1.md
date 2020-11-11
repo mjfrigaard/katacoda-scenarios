@@ -1,4 +1,4 @@
-#### Getting started in R
+### Getting started in R
 
 Launch an R console by clicking here -> `R`{{execute}}
 

@@ -12,9 +12,9 @@ SmallBobRoss <- readr::read_csv("https://bit.ly/small-bob-ross")
 SmallBobRoss
 ```{{execute}}
 
-The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)) into a data object `SmallBobRoss`, then prints this object to the screen. 
+The code above loads the data from an external source (see the data [here](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/data/SmallBobRoss.csv)) into a data object `SmallBobRoss`, then prints this object to the screen.
 
-After these data are loaded into R, we get a message about how the data were formatted, 
+After these data are loaded into R, we get a message about how the data were formatted,
 
 ```
 Parsed with column specification:
@@ -27,14 +27,11 @@ cols(
 
 `col_character()` means these data are text, which makes sense because they are the titles for the episodes. The `col_double()` tells us the `bushes` and `clouds` variables were imported as double (a kind of numerical variable in R).
 
-### Getting a glimpse of the data 
+### Getting a glimpse of the data
 
 We can view the `BobRoss` dataset using `dplyr`'s `glimpse()` function, which shows the data in a transposed view (`glimpse()` displays the variables horizontally, and prints as much data as possible to the screen.
 
 ```
-# click to copy code
+# click to execute code
 glimpse(SmallBobRoss)
-```{{copy}}
-
-
-
+```{{execute}}
