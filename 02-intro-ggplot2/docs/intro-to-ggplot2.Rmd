@@ -7,7 +7,8 @@ output:
     toc_float: yes
     highlight: tango
     theme: cosmo
-    keep_md: yes
+
+always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
@@ -39,7 +40,7 @@ base::options(
 
 # Setup 
 
-This scenario is setup using the following configuration:
+This [scenario](https://www.katacoda.com/orm-mfrigaard) is setup using the following configuration:
 
 ```json
   "environment": {
@@ -239,7 +240,9 @@ See the figure below:
 <!-- ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true) -->
 
 ```{r pipe-data-args, echo=FALSE}
-knitr::include_graphics(path = "https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true")
+knitr::include_graphics(path =
+"https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/pipe-data-args.png")
+# "https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/pipe-data-args.png?raw=true"
 ```
 
 We can demonstrate this in the code section below: 
@@ -257,8 +260,8 @@ diamonds %>%
                  x = carat, y = price, 
                  geom = "point")
 # save
-ggsave(filename = "gg-step4.png", device = "png", width = 7, height = 5, 
-       units = "in")
+# ggsave(filename = "gg-step4.png", device = "png", width = 7, height = 5, 
+       # units = "in")
 ```
 
 
@@ -269,11 +272,19 @@ ggsave(filename = "gg-step4.png", device = "png", width = 7, height = 5,
 
 ### Viewing our images
 
-Now we have an image file in our `root/` folder above. 
+Now we have an image file in our `ROOT` folder above. We can click on `gg-step4.png` and it will open in an adjacent window.
+
+<!-- ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/vscode-png.png?raw=true) -->
+
+```{r vscode-png, echo=FALSE}
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/vscode-png.png")
+```
+
+And just like that, `ggplot2` allows us to create high-quality graphs with only a few lines of code!
 
 ### Lets get some data! 
 
-We will be using `ggplot2` to explore data from the Economist's Medium post titled, ["Mistakes, we've drawn a few"](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). These data are available for download as part of the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) project on Github. 
+We will be using `ggplot2` to explore data from the Economist's Medium post titled, ["Mistakes, we've drawn a few"](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368). These data are available for download as part of the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) project on Github. Click on the code section below to import the data. 
 
 ```{r import-data}
 # Balance 
@@ -286,7 +297,7 @@ Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
 Pensions <- readr::read_csv("https://bit.ly/pensions-data")
 ```
 
-We can examine each dataset using the `dplyr::glimpse()`, `utils::head()`, or `utils::str()` arguments we learned about in the last scenario.
+The code below displays each dataset using three different functions: `dplyr::glimpse()`, `utils::head()`, and `utils::str()` (*we learned about these functions in the last scenario*)
  
 ```{r check-data}
 Brexit %>% dplyr::glimpse()
@@ -294,15 +305,16 @@ Corbyn %>% utils::head()
 Pensions %>% utils::str()
 ```
 
-More information on the datasets are below:
 
-+ `Corbyn` is a dataset of average Facebook likes and political leader/group.
+We've provided some additional information on each datasets below:
+
++ `Corbyn` is a dataset of average Facebook likes and political leaders/groups.
 
 + `Brexit` is a dataset of Brexit poll opinions (with dates).  
 
-+ `Balance` is a dataset of countries, the country budget balance/current-account balance, the year, and the value in billions or euros. 
++ `Balance` is a dataset with countries, the country budget balance/current-account balance, the year, and the value in billions of euros. 
 
-+ `Pensions` is a dataset of countries, percent of the country's population 65 years old or over, and the percent of government spending on pensions as percent of GDP.
++ `Pensions` is a dataset of countries, percent of the country's population 65 years old or over, and the percent of government spending on pensions as a percent of GDP.
 
 
 ## step 6
@@ -311,53 +323,59 @@ More information on the datasets are below:
 
 ### Variable types
 
-Before we look at how variables relate to one another, we should get an idea for how each variable looks independently, or it's [distribution.](https://en.wikipedia.org/wiki/List_of_probability_distributions). 
+Before we look at how variables relate to each other, we should get an idea of how each variable looks independently, or it's [distribution.](https://en.wikipedia.org/wiki/List_of_probability_distributions). 
 
 How we visualize a variable's distribution depends on whether it's **continuous**, **categorical**, or **binary**.
 
-**Continuous** variables means they can be any value including `0`--and are typically thought of as raw measurements (i.e. human body weight, speed, time in seconds, etc.). Continuous variables also can have decimal values that make sense.
+**Continuous** variables mean they can be any value including `0`--and are typically thought of as raw measurements (i.e., human body weight, speed, time in seconds, etc.). Continuous variables also can have decimal values that make sense.
 
-**Categorical** variables count discrete items or events, such as Facebook 'like's or number of page views. Categorical variables are different from continuous variables because the have a fixed set of possible values (i.e. you can't have 1/2 a Facebook 'like'). 
+**Categorical** variables count discrete items or events, such as Facebook 'like's or the number of page views. Categorical variables are different from continuous variables because they have a fixed set of possible values (i.e. you can't have 1/2 a Facebook 'like'). 
 
-A special case of categorical variable is a **binary** variable, which only has two possible values (`0` or `1`, `alive` or `dead`, `yes` or `no`, etc.).
+A particular case of a categorical variable is a **binary** variable, which only has two possible values (`0` or `1`, `alive` or `dead`, `yes` or `no`, etc.).
 
 #### Visualize a single variable: histograms
 
-We will view the distribution of the `avg_facebook_likes` from the `Corbyn` dataset using `ggplot2::qplot()`. 
+We will view the distribution of the `avg_facebook_likes` from the `Corbyn` dataset using `ggplot2::qplot()`. Click below:
 
 ```{r step-6-plot-01}
-Corbyn %>% ggplot2::qplot(x = avg_facebook_likes, data = .) 
+Corbyn %>% 
+    ggplot2::qplot(x = avg_facebook_likes, data = .) 
+# save
+# ggsave(filename = "gg-step6-hist.png", device = "png", 
+        # width = 7, height = 5, units = "in")
 ```
 
 *What is this graph telling us?* 
 
-Well, we can print the entire Corbyn dataset to the console to view it (it's not very big). 
+Well, we can print the entire `Corbyn` dataset to the console to view it (it's not very big). 
 
 <!-- ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-tibble.png?raw=true) -->
 
 ```{r 06-corbyn-tibble, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/06-corbyn-tibble.png")
+# knitr::include_graphics(path = "../figs/06-corbyn-tibble.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/06-corbyn-tibble.png")
 ```
 
-We can see the tibble printed to the screen has the `avg_facebook_likes` sorted descending, with the highest number on top (`5210`) and the lowest number on the bottom (`56`). 
+We can see the data printed to the screen has the `avg_facebook_likes` variable sorted descending, with the highest number on top (`5210`), and the lowest number on the bottom (`56`). 
 
-When we give the `qplot()` function a single variable, it assumes we want a [histogram](https://ggplot2.tidyverse.org/reference/geom_histogram.html). 
+When we give the `qplot()` function a single numerical variable, it assumes we want a [histogram](https://ggplot2.tidyverse.org/reference/geom_histogram.html). 
 
-The histogram is displaying the `avg_facebook_likes` variable by splitting up the x axis into `bins`, then plotting the count for each number of observations in each bin on the `y` axis.
+The histogram displays the `avg_facebook_likes` variable by splitting up the `x` axis into `bins`, then plotting the count for each number of observations in each bin on the `y` axis.
 
 <!-- ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/06-corbyn-histogram.png?raw=true) -->
 
 ```{r 06-corbyn-histogram, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/06-corbyn-histogram.png")
+# knitr::include_graphics(path = "../figs/06-corbyn-histogram.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/06-corbyn-histogram.png")
 ```
 
 #### Visualize a single variable: box-plots
 
-Histograms are a great way to visualize the distribution of a single variable, but there are other `geom`s too. For example, a box-plot gives us a graph with quite a few summary statistics.
+Histograms are a great way to visualize the distribution of a single variable, but there are other `geom`s, too. For example, a box-plot gives us a graph with quite a few summary statistics.
 
-Below is a box-plot of the `pop_65_percent` from the `Pensions` dataset. 
+Click the code section below to create a box-plot of the `pop_65_percent` from the `Pensions` dataset.
 
 ```{r step-6-plot-02}
 # the data 
@@ -367,16 +385,21 @@ Pensions %>%
                  y = " ",
                  # the dot
                  data = .,
-                 geom = "boxplot") 
+                 geom = "boxplot")
+# ggsave(filename = "gg-step6-box.png", device = "png", 
+        # width = 7, height = 5, units = "in")
 ```
 
-The box-plot gives us an idea of `pop_65_percent`'s distribution by using the white box to show where the median (middle value), 1st and 3rd quartiles, higher/lower values, and outliers (see image below).
+Our new graph (`gg-step6-box.png`) should be in the `ROOT` folder above. Click on it to view.
+
+The box-plot gives us an idea of `pop_65_percent`'s distribution using the white box to show where the median (middle value), 1st and 3rd quartiles, higher/lower values, and outliers (see image below). 
 
 <!-- ![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/07-boxplot.png?raw=true) -->
 
 ```{r 07-boxplot, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/07-boxplot.png")
+# knitr::include_graphics(path = "../figs/07-boxplot.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/07-boxplot.png")
 ```
 
 
@@ -384,21 +407,25 @@ knitr::include_graphics(path = "../figs/07-boxplot.png")
 
 - [x] included in step7.md
 
-#### Visualizing a numerical and categorical variable
+### Visualizing a numerical and categorical variable
 
-Box-plots are also great for visualizing continuous variables across the levels of a categorical variable. For example, we have the `Balance` dataset with `value`s of European Union countries budget surplus. We can add the categorical variable to the `y` axis to view one box-plot per level of `country`.
+Box-plots are also great for visualizing continuous variables across the levels of a categorical variable. For example, we have the `Balance` dataset with `value`s of European Union countries' budget surplus. We can add the categorical variable to the `y` axis to view one box-plot per `country` level.
 
 ```{r box-plot2}
 # the data
-Balance %>% ggplot2::qplot(x = value, y = country, data = ., geom = "boxplot") 
+Balance %>% 
+  ggplot2::qplot(x = value, y = country, 
+                 data = ., geom = "boxplot") 
+# ggsave(filename = "gg-step7-box.png", device = "png", 
+        # width = 7, height = 5, units = "in")
 ```
 
 
-For more on the statistics displayed in the box-plot, read up on the [`geom_boxplot()` documentation](https://ggplot2.tidyverse.org/reference/geom_boxplot.html). 
+Click on the `gg-step7-box.png` file in `ROOT` folder above. For more on the statistics displayed in the box-plot, read up on the [`geom_boxplot()` documentation](https://ggplot2.tidyverse.org/reference/geom_boxplot.html).  
 
 Other options for individual variables include the [`geom = "density"`](https://ggplot2.tidyverse.org/reference/geom_density.html) and [`geom = "violin"`](https://ggplot2.tidyverse.org/reference/geom_violin.html).
 
-#### Visualizing two continuous variables
+### Visualizing two continuous variables
 
 What if we want to graph the relationship between two variables? In this step, we'll graph two variables from the `Brexit` dataset. Use the terminal to view this dataset with `dplyr::glimpse()` or `utils::str()`.
 
@@ -408,7 +435,7 @@ When we view the contents of `Brexit`, we can see the `date` column is a charact
 
 If we want to plot the relationship between `date` and the `percent_responding_right`, we'll first need to change the format of `date` from character to `Date`, which we can do using the [`lubridate` package](https://lubridate.tidyverse.org/) (also from the `tidyverse`). 
 
-Copy the code below and complete the `lubridate::dmy()` function to format the `date` variable as a `Date`. 
+Copy the code below and complete the `lubridate::mdy()` function to format the `date` variable as a `Date`. 
 
 ```{r change-date-to-date}
 # first reformat the date variable as a date
@@ -426,11 +453,17 @@ base::class(Brexit$date)
 base::typeof(Brexit$date)
 ```
 
-After we're sure the `date` variable has been formatted correctly, we want to 'pipe' the formatted data to the `ggplot2::qplot()` function with the new `date` variable on the `x` and the `percent_responding_right` variable on the `y`.
+After we're sure we've formatted the `date` variable correctly, we want to 'pipe' the formatted data to the `ggplot2::qplot()` function with the new `date` variable on the `x` and the `percent_responding_right` variable on the `y'.
 
 ```{r lubridate}
-Brexit %>% qplot(x = date, y = percent_responding_right, data = .)
+Brexit %>% 
+  qplot(x = date, 
+        y = percent_responding_right, data = .)
+# ggsave(filename = "gg-step7-point.png", device = "png", 
+        # width = 7, height = 5, units = "in")
 ```
+
+Click on the `gg-step7-point.png` file in `ROOT` above to view the output. 
 
 The `ggplot2::qplot()` function is smart enough to automatically choose a `geom` depending on what type of variable we assign to the `x` and `y` axes. In this case, the `percent_responding_right` variable is a `<dbl>` (numeric), and we've reformatted the `date` variable into a double before we passed it to the `y` axis.
 
@@ -450,7 +483,9 @@ If you read the [Medium article](https://medium.economist.com/mistakes-weve-draw
 
 ```{r 10-bremorse-plots-medium-1, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/10-bremorse-plots-medium.png")
+# https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/10-bremorse-plots-medium.png
+# knitr::include_graphics(path = "../figs/10-bremorse-plots-medium.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/10-bremorse-plots-medium.png")
 ```
 
 In order to re-create these graphs, we'll need to restructure the `Brexit` data with the `tidyr::pivot_longer()` function we learned about in the last [scenario]().
@@ -497,9 +532,11 @@ Brexit %>%
                  data = .,
                  geom = "line",
                  color = poll)
+# ggsave(filename = "gg-step8-line.png", device = "png", 
+        # width = 7, height = 5, units = "in")
 ```
 
-As we can see from the graph above, being able to use `group` and the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
+As we can see from the graph above, using `group` and the `color` aesthetic extends the `qplot()`'s capabilities by making it clear there are two categories for `polls` represented in the graph.
 
 In the next step, we'll learn how to build a graph layer-by-layer!
 
@@ -509,36 +546,44 @@ In the next step, we'll learn how to build a graph layer-by-layer!
 
 ### Build plots layer-by-layer with `ggplot()`
 
-Now that we've learned how to plot using geoms and aesthetics, we can begin adding layers to the graph. In the previous step, we re-created the 'Original' plot using `geom = "line"`. As we start to build more complex, customized plots, we will want to move away from using the `ggplot2::qplot()` function and start using `ggplot2::ggplot()` function.
+Now that we've learned how to plot using geoms and aesthetics, we can add layers to the graph. In the previous step, we re-created the 'Original' plot using `geom = "line"`. The `ggplot2::qplot()` function was written to "produce plots quickly", but more complex graphs should be built using the `ggplot2::ggplot()` function.
 
 The `ggplot2::ggplot()` function initializes a graph, then we can 'map' variables to the positions (`x` or `y`), aesthetics (`color = `), or groupings (`group = `. 
 
-We'll start by assigning the restructuring changes to the `Brexit` dataset. 
+We'll start by assigning the restructuring changes to the `Brexit` dataset. The `tidyr::pivot_longer()` function takes a 'wide' dataset and makes it 'long', or [tidy](https://vita.had.co.nz/papers/tidy-data.pdf).
 
 ```{r change-Brexit}
 Brexit <- Brexit %>% pivot_longer(-date, 
                                   names_to = "poll", 
                                   values_to = "percent")
+head(Brexit)
 ```
 
 #### Using the `ggplot()` function
 
-The `ggplot()` follows a pretty standard template, and it's similar to the `qplot()` function. See below: 
+The `ggplot()` follows a pretty standard template, similar to the `qplot()` function. See below: 
 
 ```
 <DATA> %>% 
   ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>))
 ```
 
-We begin with a dataset, pass it over to to the `ggplot()` function, then map the `x` and `y` variables. Run the code below to assign the variable mappings to object `p`, then print `p` to the console.
+We begin with a dataset, pass it over to to the `ggplot()` function, then map the `x` and `y` variables. 
 
-```{r mappings}
-p <- Brexit %>% ggplot(mapping = aes(x = date, y = percent))
-# view p
-p
+Run the code below to assign the variable mappings to object `gg_p9`, then print `gg_p9` to the console. 
+
+```{r gg-step9-p.png}
+gg_p9 <- Brexit %>% ggplot(mapping = aes(x = date, y = percent))
+
+# view gg_p9
+gg_p9
+# ggsave(filename = "gg-step9-p.png", device = "png", 
+        # width = 7, height = 5, units = "in")
 ```
 
-There aren't any points on the graph stored in object `p` because we haven't added any geoms or aesthetics. We'll add the smoothed line in the step below with `ggplot2::geom_smooth()` like the template below.
+There aren't any points on the graph stored in object `gg_p9` because we haven't added any geoms or aesthetics. 
+
+We'll add the smoothed line in the step below with `ggplot2::geom_smooth()` like the template below.
 
 ```
 <DATA> %>% 
@@ -546,10 +591,12 @@ There aren't any points on the graph stored in object `p` because we haven't add
     <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 ```
 
-**Note**: the `+` operator is used with `ggplot2` functions, not the pipe `%>%` operator. 
+**Note**: the `+` operator is used with `ggplot2` functions, not the pipe `%>%` operator.  
 
 ```{r geom_smooth}
-p + ggplot2::geom_smooth()
+gg_p9 + ggplot2::geom_smooth()
+# ggsave(filename = "gg-step9-smooth.png", device = "png", 
+        # width = 7, height = 5, units = "in")
 ```
 
 *Why are we only seeing a single line?* We need to look at our template again:
@@ -560,19 +607,31 @@ p + ggplot2::geom_smooth()
     <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>))
 ```
 
-This shows the aesthetic mapping (`aes(<MAPPINGS>)`) needs to be set inside the geom we want to display. In this case, we want the lines colored by the two kinds of polls. We can set this with `color = poll`.
+We can see from the template above that we can set the aesthetic mappings (`aes(<MAPPINGS>)`) globally *and* inside the geom layer we want to display. 
+
+In this case, we want the lines from `geom_smooth()` colored by the two kinds of polls. We can set this with `color = poll`.
 
 ```{r aes-color}
-p + ggplot2::geom_smooth(aes(color = poll))
+gg_p9 + 
+  ggplot2::geom_smooth(aes(color = poll))
+
+# ggsave(filename = "gg-step9-color.png", device = "png", 
+        # width = 7, height = 5, units = "in")
+
+# view gg-step9-smooth.png
 ```
 
 The default `ggplot2::geom_smooth()` function includes the gray confidence interval around the smoothed line. We can remove this with `se = FALSE`. We'll also add the `show.legend = FALSE` argument to remove the `poll` categories from the left-hand side of the graph.
 
-Copy the code below and complete the `show.legend` argument and assign the graph to the `p2` object.
+Run the code below to assign the graph to the `gg_p9_col_smth` object.
 
-```{r standard-error-and-legend}
-p2 <- p + geom_smooth(aes(color = poll), se = FALSE, show.legend = FALSE)
-p2
+```{r gg_p9_col_smth}
+gg_p9_col_smth <- gg_p9 + geom_smooth(aes(color = poll), 
+                                   se = FALSE, show.legend = FALSE)
+gg_p9_col_smth
+# ggsave(filename = "gg-step9-col-smth.png", device = "png", 
+#        width = 7, height = 5, units = "in")
+# view gg-step9-smooth-2.png
 ```
 
 In the next step, we'll add the points to the graph. We've also updated the template below for adding aesthetics.
@@ -590,7 +649,7 @@ In the next step, we'll add the points to the graph. We've also updated the temp
 
 ### Adding aesthetics and layers 
 
-In the last step we added a `geom_smooth()` to the `p` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `p2` object. 
+In the last step we added a `geom_smooth()` to the `gg_p9_col_smth` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `gg-step9-col-smth.png` file. Refer to the template below for a refresher.
 
 ```
 <DATA> %>% 
@@ -601,11 +660,12 @@ In the last step we added a `geom_smooth()` to the `p` object and removed the st
 
 We're going to continue building our plot by adding the `ggplot2::geom_point()` function. We need to specify the `aes()` argument (`color = poll`), and we'll also include the `show.legend = FALSE` argument again to remove the legend for the two `poll` categories.
 
-Complete the `show.legend` argument:
+Click on the section below to add points to the smooth plot:
 
 ```{r geom_point}
-# p2 + geom_point(aes(color = poll), show.legend = ____)
-p2 + geom_point(aes(color = poll), show.legend = FALSE)
+gg_p9_col_smth + geom_point(aes(color = poll), show.legend = FALSE)
+# ggsave(filename = "gg-step9-col-smth.png", device = "png", 
+       # width = 7, height = 5, units = "in")
 ```
 
 This is starting to look more like the graph in the medium article, but we still need to make a few minor adjustments. 
@@ -614,26 +674,27 @@ This is starting to look more like the graph in the medium article, but we still
 
 ```{r 10-bremorse-plots-medium-2, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/10-bremorse-plots-medium.png")
+# knitr::include_graphics(path = "../figs/10-bremorse-plots-medium.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/10-bremorse-plots-medium.png")
 ```
-
 
 `ggplot2` allows us to build graphs layer-by-layer using the geoms and aesthetics to customize each plot so that they are necessarily expressive. Each time we need to add something to a graph, we can either add a new `geom`, or look for ways to adjust a geoms with new aesthetic options. 
 
-For example, we can see from the 'Original' graph in the medium article that the points are slightly transparent. This is the alpha transparency argument, and it's available inside nearly every `geom`. 
+For example, from the 'Original' graph in the medium article, the points are slightly transparent. The `alpha` is the transparency argument, and it's available inside nearly every `geom`. 
 
 We can add the `alpha` argument inside the `ggplot2::geom_point()` function, and specify either a decimal, fraction, or numeric value. In this case, we want the value set to `1/3`.
 
-Complete the code below to change the `alpha` level.
+Click below to change the `alpha` level.
 
-
-```{r alpha}
-# p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = ___)
-p3 <- p2 + geom_point(aes(color = poll), show.legend = FALSE, alpha = 1/3)
-p3
+```{r gg_p10_alpha}
+gg_p10_alpha <- gg_p9_col_smth + 
+  geom_point(aes(color = poll), show.legend = FALSE, alpha = 1/3)
+gg_p10_alpha
+# ggsave(filename = "gg-step10-alpha.png", device = "png",
+       # width = 7, height = 5, units = "in")
 ```
 
-Now the points are slightly transparent, which helps with over-plotting. 
+View `gg-step10-alpha.png` in the vscode IDE. Now the points are slightly transparent, which helps with over-plotting. Review the template below for adding layers. 
 
 ```
 <DATA> %>% 
@@ -641,36 +702,46 @@ Now the points are slightly transparent, which helps with over-plotting.
     <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), args = "options")
 ```
 
-As you can see, the grammar of graphics makes it easy to think about what we'd like to see on a plot, decide what kind of graph element it is (`geom`, `aesthetic`, etc.), and then add it as a layer with the `+` operator. Hopefully you can see how easy it is to customize a graph by adding new layers and aesthetics!
+As you can see, the grammar of graphics makes it easy to think about what we'd like to see on a plot, decide what kind of graph element it is (`geom`, `aesthetic`, etc.), and then add it as a layer with the `+` operator. Hopefully, you can see how easy it is to customize a graph by adding new layers and aesthetics!
 
 ## step 11
 
 - [x] included in step11.md?
 
-### Adding aesthetics manually
+### Mapping aesthetics globally
 
-**Note**: so far we have added the `aes()` argument *inside* each new `geom` layer we've built, but there was a way to plan ahead and do this in the original `ggplot()` function. See the code below:
+**Note**: so far, we have added the `aes()` arguments *locally* in each new `geom` layer we've built. This section will map these variables *globally* in the `ggplot()` function. See the code below:
 
 ```{r mapp-in-ggplot}
-Brexit %>% 
+gg_p11 <- Brexit %>% 
   ggplot(mapping = aes(x = date, y = percent, color = poll)) + 
               geom_smooth(se = FALSE, show.legend = FALSE) + 
                 geom_point(alpha = 1/3, show.legend = FALSE)
+gg_p11
+# save
+# ggsave(filename = "gg-step11-global.png", device = "png", 
+       # width = 7, height = 5, units = "in")
 ```
 
-By adding `color = poll` in the `ggplot()` function, the aesthetic carries all the way down through each `geom`. All we have to do is add the arguments for each `geom`. 
+By adding `color = poll` in the `ggplot()` function, the aesthetic carries down through each `geom`. All we have to do is add the arguments for each `geom`. 
 
 #### Adding colors manually
 
-We'd like to change the colors in the graph from the default settings to a more traditional fire-brick red and cornflower blue. We can do this by adding the `ggplot2::scale_color_manual()` function and specifying the values(`c("cornflowerblue", "firebrick3")`).
+We want to change the graph's colors from the default settings to fire-brick red and cornflower blue. We can do this by adding the `ggplot2::scale_color_manual()` function and specifying the values(`c("cornflowerblue", "firebrick3")`).
 
-Fill in the code below and save the new changes to the `p4` object. 
+Fill in the code below and save the new changes to the `gg_p11_scale` object. 
 
 ```{r scale_color_manual}
-# p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "__________"))
-p4 <- p3 +  scale_color_manual(values = c("cornflowerblue", "firebrick3"))
-p4
+gg_p11_scale <- gg_p11 +  
+  scale_color_manual(values = c("cornflowerblue", "firebrick3"))
+gg_p11_scale
+
+# save
+# ggsave(filename = "gg-step11-scale.png", device = "png", 
+       # width = 7, height = 5, units = "in")
 ```
+
+View the `gg-step11-scale.png` file in the vscode IDE. 
 
 For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf).
 
@@ -682,26 +753,33 @@ For a full list of colors, check the pdf [here](http://www.stat.columbia.edu/~tz
 
 In the [Medium article](https://medium.economist.com/mistakes-weve-drawn-a-few-8cdd8a42d368), the fixed 'Better' graph labels each smoothed line with `'Wrong'` vs `'Right'`. 
 
-We're going to add text labels to our graph using the `ggplot2::geom_text()` function. The `p4` object has the latest changes to the plot.
+We're going to add text labels to our graph using the `ggplot2::geom_text()` function. The `gg_p11_scale` object has the latest changes to the plot.
 
 #### Using the `geom_text()` function
 
 `ggplot2::geom_text()` works on a Cartesian coordinate system and requires the `x`, `y`, and `label` arguments. We want to place the `Wrong` label at the intersection of percent `46`, just above the red line near the year `2018`.
 
-Recall that the dates are formatted as `YYYY-MM-DD`, so we have to pick an `x` value that we can specify as a date with `as.Date()`.
+Recall that the dates are formatted as `YYYY-MM-DD`, so we have to pick an `x` value that we can specify as a date with `as.Date()`. See the example below:
 
 ```
-p4 + geom_text(label = "Wrong", color = "firebrick3", x = as.Date("2018-01-01"), y = __)
+gg_p11_scale + 
+  geom_text(label = "Wrong", color = "firebrick3", 
+            x = as.Date("2018-01-01"), y = 46)
 ```
 
-Now we want to add the `Right` label to the graph, but make this cornflower blue, at position `x` = `as.Date("2018-01-01")` and `y` = `42.5`.
+Now we want to add the `Right` label to the graph, but make this cornflower blue, at position `x` = `as.Date("2018-01-01")` and `y` = `42.5`. Click the section below to add the text to the graph:
 
-```{r geom_text_2}
-p5 <- p4 + geom_text(label = "Wrong", color = "firebrick3", 
-               x = as.Date("2018-01-01"), y = 46) +
-     geom_text(label = "Right", color = "cornflowerblue", 
-               x = as.Date("2018-01-01"), y = 42.5)
-p5
+```{r gg_p12_txt}
+gg_p12_txt <- gg_p11_scale + 
+  geom_text(label = "Wrong", color = "firebrick3", 
+            x = as.Date("2018-01-01"), y = 46) + 
+  geom_text(label = "Right", color = "cornflowerblue", 
+            x = as.Date("2018-01-01"), y = 42.5)
+gg_p12_txt
+
+# save
+# ggsave(filename = "gg-step12-txt.png", device = "png", 
+       # width = 7, height = 5, units = "in")
 ```
 
 These labels match up with the Medium article graph below: 
@@ -710,7 +788,8 @@ These labels match up with the Medium article graph below:
 
 ```{r 12-bremorse-better, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/12-bremore-better.png")
+# knitr::include_graphics(path = "../figs/12-bremore-better.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/12-bremore-better.png")
 ```
 
 In the next step, we will move the `y` axis over to the right-hand side of the graph.
@@ -727,30 +806,26 @@ Our graph is coming along, but we should shift the `y` axes to the opposite side
 
 ```{r 12-bremorse-better-2, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/12-bremore-better.png")
+# knitr::include_graphics(path = "../figs/12-bremore-better.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/12-bremore-better.png")
 ```
 
 #### Moving the `y` axis
 
-`ggplot2` has a rich grammar for building graphs, which also means it has a function for doing nearly anything we can think of, which includes moving axes. To shift the `y` axis from it's original position, we can use the `ggplot2::scale_y_continuous()` function and specify `"right"` in the `position =` argument.
+`ggplot2` has a rich grammar for building graphs, which means it has a function for doing nearly anything we can think of, including moving axes. To shift the `y` axis from it's original position, we can use the `ggplot2::scale_y_continuous()` function and specify `"right"` in the `position =` argument.
 
-Assign these changes to `p6` and print it to the screen.
+Run the code below and assign these changes to `gg_p13_y` and print it to the screen.
 
 ```{r scale_y_continuous}
-# p6 <- p5 + ggplot2::scale_y_continuous(position = "_____")
-p6 <- p5 + ggplot2::scale_y_continuous(position = "right")
-p6
+gg_p13_y <- gg_p12_txt + 
+  ggplot2::scale_y_continuous(position = "right")
+gg_p13_y
+
+# ggsave(filename = "gg-step13-y-axis.png", device = "png", 
+       # width = 7, height = 5, units = "in")
 ```
 
-Compare to the `Better' graph. 
-
-<!-- ![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/12-bremore-better.png?raw=true) -->
-
-
-```{r 12-bremorse-better-3, echo=FALSE}
-# fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/12-bremore-better.png")
-```
+View the `gg-step13-y-axis.png` file and compare it to the `Better' graph. 
 
 Now we have the lines, the points, the plot labels, and the axes in the correct spot. Next up, we need to make sure our chart is titled and labeled correctly!
 
@@ -760,7 +835,7 @@ Now we have the lines, the points, the plot labels, and the axes in the correct 
 
 ### Adding labels 
 
-Titles and labels are important because they give readers the context for the information they're seeing in a graph. Without some additional information about the data, the audience is just staring at lines, points, colors, etc.
+Titles and labels are important because they give readers the context of the information they see in a graph. Without some additional information about the data, the audience is just staring at lines, points, colors, etc.
 
 `ggplot2` has a few options for labeling graphs, but we recommend using the standard `ggplot2::labs()` function. It's easy to remember, and it has most of the necessary arguments you'll need for almost all the graphs you'll build. 
 
@@ -772,26 +847,28 @@ Below is a set of arguments that match the title and labels from the 'Better' gr
 
 ```{r 12-bremorse-better-4, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/12-bremore-better.png")
+# knitr::include_graphics(path = "../figs/12-bremore-better.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/12-bremore-better.png")
+
 ```
 
-As you can see, the Economist article chose to remove the `x` and `y` axes labels, but we think it's clearer to leave them in.
+As you can see, the Economist article chose to remove the `x` and `y` axes labels, but we think it's clearer to leave them in. Run the code below to create the `labs_eco` layer.
 
-```{r lbs}
-lbs <- ggplot2::labs(title = "Bremorse", 
+```{r labs_eco}
+labs_eco <- ggplot2::labs(title = "Bremorse", 
                 subtitle = "'In hindsight, do you think Britain was right or wrong to vote to leave the EU?'", 
-                    caption = "Source: NatCen Social Research", 
-                      x = "Date", 
-                      y = "Percent (%)")
+                caption = "Source: NatCen Social Research", 
+                x = "Date", 
+                y = "Percent (%)")
 ```
 
-We store the labels in the `lbs` object, which we can add to the `p6` object and reassign this to the `p7` object. This way, we can always backtrack to the previous plot if we need to change anything.
+We store the labels in the `labs_eco` object, which we can add to the `gg_p13_y` object and reassign this to the `gg_p14_labs` object. 
 
 Run the code below to assign the labels layer to the plot object. 
 
-```{r p7}
-p7 <- p6 + lbs
-p7
+```{r gg_p14_labs}
+gg_p14_labs <- gg_p13_y + labs_eco
+gg_p14_labs
 ```
 
 Labels are also important for keeping track of your work. If you're exploring a dataset using graphs (a process called [Exploratory Data Analysis](https://en.wikipedia.org/wiki/Exploratory_data_analysis), or EDA), the labels can help you remember what transformations or changes you made to the data under hood.   
@@ -803,18 +880,28 @@ Labels are also important for keeping track of your work. If you're exploring a 
 
 ### Using themes
 
-Our graph is nearly complete! We have all the geoms, aesthetics, titles, and labels. The last thing we will add is a theme, but we will do this by going outside of the `tidyverse` to the [`ggthemes`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package. 
+Our graph is nearly complete! We have all the geoms, aesthetics, titles, and labels. The last thing we will add is a theme, but we will do this by going outside the `tidyverse` to the [`ggthemes`](https://yutannihilation.github.io/allYourFigureAreBelongToUs/ggthemes/) package. 
 
 #### `ggthemes` 
 
-The `ggthemes` package has pre-packaged design, color, and font choices for most of the popular media outlets (FiveThirtyEight, Wall Street Journal, etc.). We'll use the `ggthemes::theme_economist_white()` function to change the colors and design of our plot.
+The `ggthemes` package has pre-packaged design, color, and font choices for most popular media outlets (FiveThirtyEight, Wall Street Journal, etc.). We'll use the `ggthemes::theme_economist_white()` function to change our plot's colors and design.
+
+Install this package by clicking on the code section below:
+
+```r
+install.packages("ggthemes")
+library(ggthemes)
+```
 
 This function takes a `gray_bg = ` argument, which we will set to `FALSE`. We'll also change the `base_size` for the font to `12`, and the default font family to `"Verdana"`.
 
 ```{r theme_economist_white}
-p7 + ggthemes::theme_economist_white(gray_bg = FALSE, 
+gg_p14_labs + ggthemes::theme_economist_white(gray_bg = FALSE, 
                                      base_size = 12, 
                                      base_family = "Verdana")
+
+# ggsave(filename = "gg-step15-ggthemes.png", device = "png", 
+       # width = 7, height = 5, units = "in")
 ```
 
 This looks pretty close, right? Compare to the image below:
@@ -823,7 +910,8 @@ This looks pretty close, right? Compare to the image below:
 
 ```{r 12-bremorse-better-5, echo=FALSE}
 # fs::dir_ls("../figs")
-knitr::include_graphics(path = "../figs/12-bremore-better.png")
+# knitr::include_graphics(path = "../figs/12-bremore-better.png")
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/12-bremore-better.png")
 ```
 
 ## finish

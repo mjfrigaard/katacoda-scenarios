@@ -92,9 +92,10 @@
     "finish": {
       "text": "finish.md"
     }
-  },
+  }, 
   "environment": {
-    "uilayout": "editor-terminal-split"
+    "uilayout": "vscode-terminal-split",
+    "showide": true
   },
   "backend": {
     "imageid": "rlang:3.4"

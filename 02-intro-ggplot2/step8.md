@@ -50,8 +50,11 @@ Brexit %>%
                  data = .,
                  geom = "line",
                  color = poll)
+                 
+ggsave(filename = "gg-step8-line.png", device = "png", 
+        width = 7, height = 5, units = "in")
 ```{{execute}}
 
-As we can see from the graph above, being able to use `group` and the `color` aesthetic extends the `qplot()`s capabilities by making it clear there are two categories for `polls` represented in the graph.
+As we can see from the graph above, using `group` and the `color` aesthetic extends the `qplot()`'s capabilities by making it clear there are two categories for `polls` represented in the graph.
 
 In the next step, we'll learn how to build a graph layer-by-layer!

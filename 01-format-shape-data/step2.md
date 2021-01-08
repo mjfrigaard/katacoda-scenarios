@@ -70,6 +70,4 @@ We should pay attention to the information printed in `BobRoss`. As we can see, 
 #   winter <int>, wood_framed <int>
 ```
 
-
-
-`tibble`s print the dimensions of the dataset (`# A tibble: 403 x 71`), numerical indices for rows (far left), and the type of variable in the dataset (`<chr>` variables have text information vs. `<dbl>` and `<int>` variables which contain numbers), and additional information about the data when it's too big to print on the screen (`… with 393 more rows, and 63 more variables:`)
+`tibble`s print the dimensions of the dataset (`# A tibble: 403 x 71`), numerical indices for rows (far left), and the type of variable in the dataset (`<chr>` variables have text information vs. `<dbl>` and `<int>` variables which contain numbers), and additional information about the data when it's too big to print on the screen (`… with 393 more rows, and 63 more variables:`). Read more about `tibble`s in [this chapter of R for Data Science](https://www.oreilly.com/library/view/r-for-data/9781491910382/ch07.html#tibbles). 

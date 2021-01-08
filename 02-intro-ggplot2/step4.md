@@ -48,7 +48,7 @@ By placing the `data = .` on the right-hand side of the pipe operator (`%>%`) in
 
 See the figure below:
 
-![](https://resources.oreilly.com/katacoda/martin-frigaard/raw/master/figs/pipe-data-args.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/pipe-data-args.png)
 
 We can demonstrate this in the code section below: 
 
