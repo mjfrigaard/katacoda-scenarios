@@ -35,7 +35,7 @@ head(BobRossWide)
 Does the `BobRossWide` dataset have the same information as the original `BobRoss` dataset? We can check with `dplyr::setdiff()` which will test for differences in the two tibbles:
 
 ```
-# click to copy code
+# click to execute code
 dplyr::setdiff(x = BobRoss, y = BobRossWide)
 ```{{execute}}
 

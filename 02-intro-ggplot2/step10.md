@@ -14,6 +14,7 @@ We're going to continue building our plot by adding the `ggplot2::geom_point()` 
 Click on the section below to add points to the smooth plot:
 
 ```
+# click to execute code
 gg_p9_col_smth + geom_point(aes(color = poll), show.legend = FALSE)
 # save
 ggsave(filename = "gg-step10-col-smth.png", device = "png", 
@@ -33,6 +34,7 @@ We can add the `alpha` argument inside the `ggplot2::geom_point()` function, and
 Click below to change the `alpha` level.
 
 ```
+# click to execute code
 gg_p10_alpha <- gg_p9_col_smth + 
   geom_point(aes(color = poll), show.legend = FALSE, alpha = 1/3)
  

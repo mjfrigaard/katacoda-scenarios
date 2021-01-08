@@ -3,6 +3,7 @@
 **Note**: so far, we have added the `aes()` arguments *locally* in each new `geom` layer we've built. This section will map these variables *globally* in the `ggplot()` function. See the code below:
 
 ```
+# click to execute code
 gg_p11 <- Brexit %>% 
   ggplot(mapping = aes(x = date, y = percent, color = poll)) + 
               geom_smooth(se = FALSE, show.legend = FALSE) + 
@@ -23,6 +24,7 @@ We want to change the graph's colors from the default settings to fire-brick red
 Run the code below to save the new changes to the `gg_p11_scale` object.
 
 ```
+# click to execute code
 gg_p11_scale <- gg_p11 +  
   scale_color_manual(values = c("cornflowerblue", "firebrick3"))
 gg_p11_scale

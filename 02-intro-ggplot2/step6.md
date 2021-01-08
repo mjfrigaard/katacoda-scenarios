@@ -15,8 +15,10 @@ A particular case of a categorical variable is a **binary** variable, which only
 We will view the distribution of the `avg_facebook_likes` from the `Corbyn` dataset using `ggplot2::qplot()`. Click below:
 
 ```
+# click to execute code
 Corbyn %>% 
     ggplot2::qplot(x = avg_facebook_likes, data = .) 
+    
 # save
 ggsave(filename = "gg-step6-hist.png", device = "png", 
         width = 7, height = 5, units = "in")
@@ -43,6 +45,7 @@ Histograms are a great way to visualize the distribution of a single variable, b
 Click the code section below to create a box-plot of the `pop_65_percent` from the `Pensions` dataset.
 
 ```
+# click to execute code
 # the data 
 Pensions %>% 
   # the variable 

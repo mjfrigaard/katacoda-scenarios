@@ -3,6 +3,7 @@
 Box-plots are also great for visualizing continuous variables across the levels of a categorical variable. For example, we have the `Balance` dataset with `value`s of European Union countries' budget surplus. We can add the categorical variable to the `y` axis to view one box-plot per `country` level.
 
 ```
+# click to execute code
 # the data
 Balance %>% 
     ggplot2::qplot(x = value, y = country, 
@@ -28,15 +29,17 @@ If we want to plot the relationship between `date` and the `percent_responding_r
 Copy the code below and complete the `lubridate::mdy()` function to format the `date` variable as a `Date`. 
 
 ```
+# click to copy code
 # first reformat the date variable as a date
 Brexit <- Brexit %>% mutate(date = lubridate::dmy(____))
-```
+```{{copy}}
 
 Read more about `dmy()` [here.](https://lubridate.tidyverse.org/reference/ymd.html)
 
 Use the `base::is.double()`, `base::class()`, or `base::typeof()` function to figure out if you've formatted the new `date` variable correctly.
 
 ```
+# click to execute code
 base::is.double(Brexit$date)
 base::class(Brexit$date)
 base::typeof(Brexit$date)
@@ -45,6 +48,7 @@ base::typeof(Brexit$date)
 After we're sure we've formatted the `date` variable correctly, we want to 'pipe' the formatted data to the `ggplot2::qplot()` function with the new `date` variable on the `x` and the `percent_responding_right` variable on the `y'.
 
 ```
+# click to execute code
 Brexit %>% 
     qplot(x = date, 
           y = percent_responding_right, data = .)

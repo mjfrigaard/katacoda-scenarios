@@ -59,6 +59,7 @@ We can demonstrate this in the code section below:
 Click anywhere in the section below to run the code.
 
 ```
+# click to execute code
 # data 
 diamonds <- ggplot2::diamonds
 # graph

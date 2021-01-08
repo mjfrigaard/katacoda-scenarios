@@ -40,7 +40,7 @@ Now use `tidyr::unite()` with the following arguments:
 
 4. And `sep =`, a regular expression pattern to place between the two columns we're uniting (in this case, it's `E`).
 
-Fill in the code below to use `unite()`.
+Replace `col = '___________'` below with the new united column name before entering and running it in the Terminal.
 
 ```
 # click to copy code

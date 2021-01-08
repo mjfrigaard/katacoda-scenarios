@@ -13,6 +13,7 @@ Below is a set of arguments that match the title and labels from the 'Better' gr
 As you can see, the Economist article chose to remove the `x` and `y` axes labels, but we think it's clearer to leave them in. Run the code below to create the `labs_eco` layer.
 
 ```
+# click to execute code
 labs_eco <- ggplot2::labs(title = "Bremorse", 
                 subtitle = "'In hindsight, do you think Britain was right or wrong to vote to leave the EU?'", 
                 caption = "Source: NatCen Social Research", 
@@ -25,6 +26,7 @@ We store the labels in the `labs_eco` object, which we can add to the `gg_p13_y`
 Copy the code below to assign the labels layer to the plot object. 
 
 ```
+# click to execute code
 gg_p14_labs <- gg_p13_y + labs_eco
 
 ggsave(filename = "gg-step14-labs.png", device = "png", 

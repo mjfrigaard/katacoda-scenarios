@@ -26,6 +26,7 @@ We can learn more about how `dplyr::case_when` works by accessing the R help fil
 We will load a small example of `BobRoss` to experiment with [`dplyr::case_when()`](https://dplyr.tidyverse.org/reference/case_when.html). This dataset only has the first three episodes of season 1.
 
 ```
+# click to execute code
 BobRossStep11 <- readr::read_csv(file = "https://bit.ly/bob-ross-step11")
 head(BobRossStep11)
 ```{{execute}}
@@ -35,6 +36,7 @@ We can see this is a reduced dataset from `BobRoss`. We will use `dplyr::case_wh
 We'll be using `stringr::str_detect()` again to find all the paintings of `mountains`, `trees`, and `bushes`, but we've dropped the names of arguments, so it's easier to read.
 
 ```
+# click to execute code
 dplyr::mutate(.data = BobRossStep11,
           object_category = case_when(
               season == 1 & str_detect(object, "mountain") ~ "mountains",
@@ -47,6 +49,7 @@ dplyr::mutate(.data = BobRossStep11,
 The great thing about `case_when()` is that we can keep adding more conditions. For example, we can add `water` and `buildings` to the same `object_category` variable.
 
 ```
+# click to execute code
 dplyr::mutate(.data = BobRossStep11,
           object_category = case_when(
               season == 1 & str_detect(object, "mountain") ~ "mountains",
@@ -62,6 +65,7 @@ dplyr::mutate(.data = BobRossStep11,
 We can also include a 'catch-all' with a logical `TRUE` condition.
 
 ```
+# click to execute code
 BobRossStep11 <- dplyr::mutate(.data = BobRossStep11,
           object_category = case_when(
               season == 1 & str_detect(object, "mountain") ~ "mountains",

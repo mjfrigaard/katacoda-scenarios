@@ -9,6 +9,7 @@ The `ggplot2::ggplot()` function initializes a graph, then we can 'map' variable
 We'll start by assigning the restructuring changes to the `Brexit` dataset. The `tidyr::pivot_longer()` function takes a 'wide' dataset and makes it 'long', or [tidy](https://vita.had.co.nz/papers/tidy-data.pdf). 
 
 ```
+# click to execute code
 Brexit <- Brexit %>% pivot_longer(-date, 
                                   names_to = "poll", 
                                   values_to = "percent")
@@ -28,6 +29,7 @@ We begin with a dataset, pass it over to to the `ggplot()` function, then map th
 Run the code below to assign the variable mappings to object `gg_p9`, then print `gg_p9` to the console. 
 
 ```
+# click to execute code
 gg_p9 <- Brexit %>% ggplot(mapping = aes(x = date, y = percent))
 ggsave(filename = "gg-step9-p.png", device = "png", 
         width = 7, height = 5, units = "in")
@@ -47,6 +49,7 @@ We'll add the smoothed line in the step below with `ggplot2::geom_smooth()` like
 **Note**: the `+` operator is used with `ggplot2` functions, not the pipe `%>%` operator. 
 
 ```
+# click to execute code
 gg_p9 + ggplot2::geom_smooth()
 
 ggsave(filename = "gg-step9-smooth.png", device = "png", 
@@ -67,6 +70,7 @@ We can see from the template above that we can set the aesthetic mappings (`aes(
 In this case, we want the lines from `geom_smooth()` colored by the two kinds of polls. We can set this with `color = poll`.
 
 ```
+# click to execute code
 gg_p9 + ggplot2::geom_smooth(aes(color = poll))
 
 ggsave(filename = "gg-step9-color.png", device = "png", 
@@ -80,6 +84,7 @@ The default `ggplot2::geom_smooth()` function includes the gray confidence inter
 Run the code below to assign the graph to the `gg_p9_col_smth` object.
 
 ```
+# click to execute code
 gg_p9_col_smth <- gg_p9 + geom_smooth(aes(color = poll), 
                                    se = FALSE, show.legend = FALSE)
 # save

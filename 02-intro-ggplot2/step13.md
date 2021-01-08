@@ -11,6 +11,7 @@ Our graph is coming along. Next we're going to shift the `y` axes to the opposit
 Run the code below and assign these changes to `gg_p13_y` and print it to the screen.
 
 ```
+# click to execute code
 gg_p13_y <- gg_p12_txt + 
   ggplot2::scale_y_continuous(position = "right")
 

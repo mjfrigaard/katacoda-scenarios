@@ -19,6 +19,7 @@ gg_p11_scale +
 Now we want to add the `Right` label to the graph, but make this cornflower blue, at position `x` = `as.Date("2018-01-01")` and `y` = `42.5`. Click the section below to add the text to the graph
 
 ```
+# click to execute code
 gg_p12_txt <- gg_p11_scale + 
   geom_text(label = "Wrong", color = "firebrick3", 
             x = as.Date("2018-01-01"), y = 46) + 

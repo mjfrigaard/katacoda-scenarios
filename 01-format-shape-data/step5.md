@@ -29,14 +29,14 @@ We also want to know if there are duplicate rows in the `BobRoss` data, and we c
 *Number of rows?*
 
 ```
-# click to copy code
+# click to execute code
 base::nrow(BobRoss)
 ```{{execute}}
 
 *distinct rows (note this returns a tibble!)*
 
 ```
-# click to copy code
+# click to execute code
 dplyr::distinct(.data = BobRoss)
 ```{{execute}}
 

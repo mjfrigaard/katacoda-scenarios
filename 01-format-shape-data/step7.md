@@ -8,7 +8,7 @@ For example, the `episode` column contains information on the season and number 
 
 We will load an alternative version of `BobRossLong` into the R environment for this step.
 
-Please click on the *Run command* icon below to load `BobRossStep7` into R.
+Please click on anywhere in the dark area below to run the code below and load `BobRossStep7` into R.
 
 ```
 # click to execute code

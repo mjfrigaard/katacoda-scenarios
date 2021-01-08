@@ -70,6 +70,7 @@ BobRossStep12
 Now we want to check our work by creating a cross-tabulation between `object` and `painting_cats`. We can do this with `dplyr::count()`, which tallies up all the values in a column. Copy the code below to see the new values in `painting_cats`.
 
 ```
+# click to copy code
 # the n column is the tally of the values
 dplyr::count(BobRossStep12, painting_cats)
 ```{{copy}}
@@ -77,6 +78,7 @@ dplyr::count(BobRossStep12, painting_cats)
 If we want to count two variables, we simply separate them with a comma (see below).
 
 ```
+# click to copy code
 # the n is the tally, but for both variables
 dplyr::count(BobRossStep12, object, painting_cats)
 ```{{copy}}
@@ -84,6 +86,7 @@ dplyr::count(BobRossStep12, object, painting_cats)
 As you can see, this is returning a `tibble`. We know how to reshape `tibbles` with the `pivot_` functions now, so let's restructure the output to view the values of `painting_cats` across columns.
 
 ```
+# click to copy code
 # create counts dataset of object and painting_cats
 BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, ______)
 ```{{copy}}
@@ -91,6 +94,7 @@ BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, ______)
 Assign the names from our new `painting_cats` variable and values from `n`
 
 ```
+# click to copy code
 # reshape this to wide and use n as the values
 pivot_wider(data = BobRossCounts, names_from = painting_cats, values_from = _)
 ```{{copy}}

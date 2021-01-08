@@ -6,11 +6,13 @@ If you read the [Medium article](https://medium.economist.com/mistakes-weve-draw
 
 ![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
-In order to re-create these graphs, we'll need to restructure the `Brexit` data with the `tidyr::pivot_longer()` function we learned about in the last [scenario]().
+In order to re-create these graphs, we'll need to restructure the `Brexit` data with the `tidyr::pivot_longer()` function we learned about in the last [scenario](https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data).
 
 Complete the code below by filling in the `cols = ` argument as `-date`, the `names_to = ` as `"poll"`, and the `values_to = ` as `"percent"`.
 
 ```
+# click to copy code
+# enter -date, "poll", and "percent"
 Brexit %>% pivot_longer(cols = , names_to =, values_to =)
 ```{{copy}}
 
@@ -40,6 +42,7 @@ After we're sure the data are structured correctly, we won't assign it to the `B
 First, we will create the 'Original' graph by using `group = poll` and `geom = "line'`, because this allows us to build a separate colored line for each `poll`.  
 
 ```
+# click to execute code
 Brexit %>% 
   pivot_longer(cols = -date, 
                names_to = "poll", 

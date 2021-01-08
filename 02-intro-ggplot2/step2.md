@@ -5,6 +5,7 @@ Launch an R console by clicking here -> `R`{{execute}} (Click on the *Run comman
 Load the `tidyverse` package by typing or copying and pasting the code below.
 
 ```
+# click to execute code
 install.packages("tidyverse")
 library(tidyverse)
 ```{{execute}}

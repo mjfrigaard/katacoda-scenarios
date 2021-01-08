@@ -5,16 +5,16 @@ Many times we'll want to create a new variable based on the values in another va
 Let's import a dataset for this step.
 
 ```
+# click to execute code
 BobRossStep10 <- readr::read_csv(file = "https://bit.ly/bob-ross-step10")
 head(BobRossStep10)
 ```{{execute}}
 
-Create `season01` by filling in the the appropriate value for `season` in `condition = ______ == _`, and the two logical values for `true` and `false`.
+Create `season01` by filling in the the appropriate logical values (`TRUE`/`FALSE`) for `true =` and `false = `.
 
 ```
 # click to copy code
-mutate(.data = BobRossStep10, season01 = if_else(condition = ______ == _,
-                                              true = ____, false = _____))
+mutate(.data = BobRossStep10, season01 = if_else(season == 1, true = ____, false = _____))
 ```{{copy}}
 
 We notice this creates a `<lgl>` variable, which can only have one of two values (`TRUE` and `FALSE`). Logical is excellent for binary variables because you can still perform mathematical operations on them.
@@ -45,7 +45,7 @@ We can also use `if_else` in combination with [`stringr::str_detect()`](https://
 BobRossStep10 <- dplyr::mutate(.data = BobRossStep10,
                    episode01 = if_else(condition = str_detect(
                                                     string = episode,
-                                                     pattern = "E01"),
+                                                    pattern = "E01"),
                                                         true = TRUE,
                                                         false = FALSE))
 # count the new values

@@ -38,7 +38,7 @@ base::options(
 )
 ```
 
-# Setup 
+## Setup 
 
 This [scenario](https://www.katacoda.com/orm-mfrigaard) is setup using the following configuration:
 
@@ -52,7 +52,7 @@ This [scenario](https://www.katacoda.com/orm-mfrigaard) is setup using the follo
   }
 ```
 
-# Outline 
+## Outline 
 
 Below are the 15 steps (plus `intro` and `finish`) files in the scenario. 
 
@@ -288,13 +288,13 @@ We will be using `ggplot2` to explore data from the Economist's Medium post titl
 
 ```{r import-data}
 # Balance 
-Balance <- readr::read_csv("https://bit.ly/eu-balance-data")
+Balance <- readr::read_csv("https://bit.ly/3hRzrKS")
 # Brexit 
-Brexit <- readr::read_csv("https://bit.ly/brexit-data")
+Brexit <- readr::read_csv("https://bit.ly/3s2wqMx")
 # Corbyn 
-Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
+Corbyn <- readr::read_csv("https://bit.ly/35mgYRB")
 # Pensions 
-Pensions <- readr::read_csv("https://bit.ly/pensions-data")
+Pensions <- readr::read_csv("https://bit.ly/2MNAvEp")
 ```
 
 The code below displays each dataset using three different functions: `dplyr::glimpse()`, `utils::head()`, and `utils::str()` (*we learned about these functions in the last scenario*)
@@ -492,9 +492,16 @@ In order to re-create these graphs, we'll need to restructure the `Brexit` data 
 
 Complete the code below by filling in the `cols = ` argument as `-date`, the `names_to = ` as `"poll"`, and the `values_to = ` as `"percent"`.
 
-```
+```{r, eval=FALSE}
 Brexit %>% pivot_longer(cols = , names_to =, values_to =)
 ```
+
+```{r}
+Brexit %>% pivot_longer(cols = -date, 
+                        names_to = "poll", 
+                        values_to = "percent")
+```
+
 
 We should end up with a dataset that has three variables: `date`, `poll`, and `percent`. The data below display the top six rows you should see when you've used `tidyr::pivot()` correctly. 
 

@@ -13,19 +13,21 @@ We will be using `ggplot2` to explore data from the Economist's Medium post titl
 These data are available for download as part of the [#TidyTuesday](https://github.com/rfordatascience/tidytuesday) project on Github. Click on the code section below to import the data. 
 
 ```
+# click to execute code
 # Balance 
-Balance <- readr::read_csv("https://bit.ly/eu-balance-data")
+Balance <- readr::read_csv("https://bit.ly/3hRzrKS")
 # Brexit 
-Brexit <- readr::read_csv("https://bit.ly/brexit-data")
+Brexit <- readr::read_csv("https://bit.ly/3s2wqMx")
 # Corbyn 
-Corbyn <- readr::read_csv("https://bit.ly/corbyn-data")
+Corbyn <- readr::read_csv("https://bit.ly/35mgYRB")
 # Pensions 
-Pensions <- readr::read_csv("https://bit.ly/pensions-data")
+Pensions <- readr::read_csv("https://bit.ly/2MNAvEp")
 ```{{execute}}
 
 The code below displays each dataset using three different functions: `dplyr::glimpse()`, `utils::head()`, and `utils::str()` (*we learned about these functions in the last scenario*)
  
 ```
+# click to execute code
 Brexit %>% dplyr::glimpse()
 Corbyn %>% utils::head()
 Pensions %>% utils::str()
