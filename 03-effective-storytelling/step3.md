@@ -1,55 +1,75 @@
-### Data quality
+### Before you start: what do we expect to see?
 
-We're going to load a few datasets to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
+Generally speaking, we should have an idea about how many columns and rows a new dataset will contain. We should know some general information about the variable formats, too. 
+
+For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical values (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or text data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
+
+### Load data
+
+We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
 
 These data come from the [`baseballDBR` package](https://github.com/keberwein/baseballDBR), and it contains an "R version of the 2020 edition of [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/)".
 
 Click to install and load the `baseballDBR` package:
 
 ```
+# click to execute code
 install.packages("baseballDBR")
 library(baseballDBR)
 ```{{execute}}
 
 ### Why baseball data? 
 
-Now, I am not going to assume everyone participating in this scenario is familiar with baseball. This exercise is arguably more rewarding if you are *not* a baseball fan. If you're working with data, part of your job to be interested in whatever you've been asked to analyze (even if it is only for the monetary reward). Analyzing and visualizing data you're not familiar with is a chance to learn something new, and it puts you in a position to ask 'out of the box' questions. 
+Now, I am not going to assume everyone participating in this scenario is familiar with baseball. However, this exercise is arguably more rewarding if you are *not* a baseball fan. If you're working with data, part of your job to be interested in whatever you've been asked to analyze (even if it is only for the monetary reward).
 
-### Viewing missing data
+> "...if you want to work in data visualisation, you need to be relentlessly and systematically curious. You should try to get interested in anything and everything that comes your way." - Alberto Cairo, Knight Chair in Visual Journalism, University of Miami
 
-The first visualization we're going to create is a display of the missing data `visdat::vis_miss()` by column (or variable). We will look at the `People` dataset from the `baseballDBR` package, which contains "*Player names, DOB, and biographical info*" 
+Analyzing and visualizing data you're not familiar with is a chance to learn something new, and it puts you in a position to ask 'out of the box' questions. 
+
+### Doing your homework
+
+It's also important to read any accompanying documentation for new datasets. If we read the documentation on the [Lahman website](http://www.seanlahman.com/files/database/readme2017.txt), we find out that `People` contains "*Player names, DOB, and biographical info.*" 
+
+The variables in `People` are presented below: 
+
+**People table**
+
+`playerID` = A unique code assigned to each player. The `playerID` links the data in this file with records in the other files     
+`birthYear` = Year player was born  
+`birthMonth` = Month player was born  
+`birthDay` = Day player was born  
+`birthCountry` = Country where player was born  
+`birthState` = State where player was born  
+`birthCity` = City where player was born
+`deathYear` = Year player died  
+`deathMonth` = Month player died  
+`deathDay` = Day player died  
+`deathCountry` = Country where player died   
+`deathState` = State where player died  
+`deathCity` = City where player died  
+`nameFirst` = Player's first name  
+`nameLast` = Player's last name  
+`nameGiven` = Player's given name (typically first and middle)  
+`weight` = Player's weight in pounds  
+`height` = Player's height in inches  
+`bats` = Player's batting hand (left, right, or both)          
+`throws` = Player's throwing hand (left or right)  
+`debut` = Date that player made first major league appearance  
+`finalGame` = Date that player made first major league appearance (blank if still active)  
+`retroID` = ID used by retrosheet  
+`bbrefID` = ID used by Baseball Reference website   
+
+
+Now that we have some background information on this new dataset, we will take a look at how well `People` meets our expectations.  
+
+### Load data 
+
+Whenever we get a new source of data, we should try to view the data in its native format (if possible). We can view the raw data on the [`baseballdatabank` Github repository](https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv). 
+
+Fortunately, we are able to load the data directly into R using the `baseballDBR::get_bbdb()` function. We will load the `People` dataset using `baseballDBR::get_bbdb()`, and assign `"People"` to the `table` argument. 
 
 ```
+# click to execute code
 baseballDBR::get_bbdb(table = "People")
-# view data
-head(People)
 ```{{execute}}
-
-We create the visualization by piping `Lahman::People` to `visdat::vis_miss()` and then to `ggplot2::coord_flip()`. We include the `ggplot2::labs()` function to add the `title` and `caption` on the graph. 
-
-If this code looks unfamiliar to you, review the [Introduction to `ggplot2` scenario](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2).
-
-```
-gg_step3_people_vis_miss <- People %>%  
-  visdat::vis_miss() + 
-  ggplot2::coord_flip() + 
-  ggplot2::labs(title = "Missing values in People data", 
-                caption = "Source: https://github.com/cdalzell/Lahman")
-# save
-ggsave(filename = "gg-step3-people-vis-miss.png", device = "png",
-        width = 7, height = 5, units = "in")
-```{{execute}}
-
-To view the graph, we will need to open it in the vscode IDE (above the console).
-
-The output from `visdat::vis_miss()` shows us all of the variables in the `People` dataset, along with the percentage of missing values. As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). Does this makes sense?
-
-Yes, this makes sense because because most of the missing data are a result of the baseball players in the `People` dataset are alive. 
-
-#### Other resources for missing data
-
-Read more about visualizing missing data [here](http://naniar.njtierney.com/articles/naniar-visualisation.html) on the `visdat` package site, or on the [`inspectdf` package](https://github.com/alastairrushworth/inspectdf) website. 
-
-
-
 

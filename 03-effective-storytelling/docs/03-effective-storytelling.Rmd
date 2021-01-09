@@ -1,0 +1,856 @@
+---
+title: "Combine narrative with numbers for effective storytelling in R"
+author: "Martin Frigaard"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: tango
+    theme: cosmo
+
+always_allow_html: true
+---
+
+```{r setup, include=FALSE}
+library(tint)
+library(tidyverse)
+library(knitr)
+library(rmdformats)
+# folders
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
+  tidy = FALSE,
+  comment = "#>",
+  message = TRUE,
+  fig.width = 9,
+  fig.height = 6,
+  warning = TRUE,
+  fig.path = "img/"
+)
+fs::dir_create("img/")
+# invalidate cache when the package version changes
+options(htmltools.dir.version = FALSE)
+```
+
+## Setup 
+
+Link to scenario: https://www.katacoda.com/orm-mfrigaard/scenarios/03-effective-storytelling
+
+The `index.json` configuration file is set using the following environment: 
+
+```json
+"environment": {
+  "uilayout": "editor-terminal-split"
+},
+"backend": {
+  "imageid": "rlang:3.4"
+}
+```
+
+## Outline 
+
+Below are the 20 steps (plus `intro` and `finish`) files in the scenario. 
+
+## Objectives
+
+The objectives for this scenario are: 
+
+1. recognize the needs of your audience (data literacy, level of expertise, etc.)
+
+2. check and communicate data quality with stakeholders  
+
+3. identify the correct data visualization (single variable, bivariate, and multivariate graphs) based on the data  
+
+4. incorporate feedback from stakeholders/audience into graphs  
+
+5. design visualizations with the appropriate detail and annotations that inform (and do not mislead) the audience  
+
+## The learners 
+
+The learners I'm expecting to be participating in this course are: 
+
+- **Jessica** will take this class on her own time for professional development. 
+
+- **Peter** will this course in a two-day weekend because he needs to complete a project.
+
+- **Bruce** is using these scenarios to supplement a semester-long undergraduate course on R.
+
+- **Jane** has been told to take this course for his job because his team is using R.
+
+
+## intro
+
+- [x] included in intro.md?
+
+### Welcome!
+
+Welcome to '*Combine narrative with numbers for effective storytelling in R*'! In this scenario, we will cover how to build data visualizations that effectively communicate and engage your audience. 
+
+Now that we have some experience with data wrangling with [`tidyr` and `dplyr`](https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data), and [data visualization with `ggplot2`](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2), we can put these tools together to get your point across to stakeholders and audiences. 
+
+### What makes a bad graphic?
+
+Bad graphs aren't just ugly; they're misleading. A chart can have pretty colors and novel font styling, but that can't make up for inaccurately presenting data. Mislabeling axes, using inappropriate scales or labels, and including unnecessary elements ('chart junk') are common characteristics of bad graphics. 
+
+*We'll be using the terms 'graph', 'figure,' and 'chart' interchangeably throughout this scenario.*
+
+[Claus Wilke](https://twitter.com/clauswilke) describes the difference between *ugly*, *bad*, and *wrong* graphs in his excellent text, [Fundamental of Data Visualization](https://clauswilke.com/dataviz/). 
+
+- An *ugly* graph isn't aesthetic appealing, but the data presented is clear and informative  
+- A *bad* graph fails to communicate the information it contains because of poor design  
+- A graph is *wrong* if it's mathematically incorrect (the underlying calculations, representations, or transformations are inaccurate).  
+
+We want to avoid making ugly, bad, *and* wrong graphs.
+
+#### What makes a great graphic?
+
+Have you ever heard a joke and thought, "it's funny *because* it's true"?
+
+We all know a great data visualization when we see it, but can you explain *why* it's so great? Beyond just being aesthetically appealing (the choice of color palettes, fonts, etc.), data visualizations are tools for communicating complicated information. 
+
+Well, great graphics are similar to great jokes in this way--they should reveal a complicated 'truth' that was otherwise difficult to comprehend or articulate with words alone. 
+
+This scenario will show you how to make sure your graphs and figures communicate complexity effectively without misleading your audience.
+
+
+## step 1
+
+- [x] included in step1.md?
+
+### Things to consider about your audience
+
+We need to determine who the audience or stakeholders will be before creating graphs or figures. You'll likely create multiple charts throughout a data analysis that you won't include as a final deliverable.  But in most cases, our stakeholders or audience is whoever is getting the final results or product. 
+
+The final graphs you produce will depend on 1) the question we're trying to answer, and 2) the level of [statistical literacy](https://en.wikipedia.org/wiki/Statistical_literacy#) of our audience. 
+
+If our audience isn't familiar with particular data visualizations, we should consider it part of our job to educate them. However, if we find ourselves spending more time explaining a data visualization's design than what the visualization reveals, we should consider a different graph. 
+
+### Asking questions
+
+Data visualization should be an iterative process, and getting regular feedback from your audience will help you understand their point of view. It will also help manage their expectations regarding the final deliverable.  
+
+As Hilary Mason and D.J. Patil point out in their 2015 text, [Data Driven: Creating a Data Culture](https://www.oreilly.com/library/view/data-driven/9781491925454/), asking good questions "*involves domain knowledge and expertise, coupled with a keen ability to see the problem, see the available data, and match up the two.*"
+
+The questions below can help guide your project and make sure you understand what your audience/stakeholders are expecting:
+
+1. *What question(s) is this project trying to answer?* (or *What problem(s) is this project trying to solve?*)  
+2. *Do we have access to the data to answer the question/problem posed?* (or do we need to gather more data?)  
+3. *What is the current format/structure/location of the data?* (this will have an enormous impact on the project timeline!)
+4. *What context will we present the deliverable(s) in?* (slide deck, website, report, etc.)  
+5. *How familiar will the audience be with the data in our project?* (how much background information should we be providing?)
+
+Having the answers to these questions documented will 1) keep your project focused and timely, 2) ensure both you and your client/customer have a clear vision for successful completion. 
+
+## step 2 
+
+- [x] included in step2.md?
+
+### Data lineage: the background on our data
+
+It's best to start a project off with a '*view of the forest from outside the trees*'. The technical term for this is [data lineage](https://en.wikipedia.org/wiki/Data_lineage#), which 
+
+> "includes the data origin, what happens to it, and where it moves over time."
+
+Having a 'birds' eye view' of the data ensures there weren't any problems with exporting or importing. Data lineage also means understanding where the data are coming from--was it collected from an internal relational database, an external vendor, or did it come from the web or social media?
+
+Knowing some of the technical details behind a dataset gives us some framing for the questions or problems we're trying to tackle. 
+
+### Initiate R 
+
+Launch an R console by clicking here -> `R` (Click on the *Run command* icon)
+
+### Load packages
+
+The package we'll use to view the entire datasets with R is [`skimr`](https://docs.ropensci.org/skimr/). We will install and load these packages below:
+
+```{r step2-packages-no-show, echo=FALSE, message=FALSE, warning=FALSE}
+# install.packages(c("tidyverse", "skimr"))
+library(tidyverse)
+library(skimr)
+```
+
+
+```{r step2-packages, message=FALSE, warning=FALSE, results='hide', eval=FALSE}
+install.packages(c("tidyverse", "skimr"))
+library(tidyverse)
+library(skimr)
+```
+
+
+## step 3
+
+- [x] included in step3.md?
+
+### Before you start: what do we expect to see?
+
+Generally speaking, we should have an idea about how many columns and rows the new dataset will contain. We should know some general information about the variable formats, too. 
+
+For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or categorical data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
+
+### Load data
+
+We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
+
+These data come from the [`baseballDBR` package](https://github.com/keberwein/baseballDBR), and it contains an "R version of the 2020 edition of [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/)".
+
+Click to install and load the `baseballDBR` package:
+
+```{r step3-package-no-show, message=FALSE, warning=FALSE, echo=FALSE}
+# install.packages("baseballDBR")
+library(baseballDBR)
+```
+
+```{r step3-package, message=FALSE, warning=FALSE, eval=FALSE}
+install.packages("baseballDBR")
+library(baseballDBR)
+```
+
+### Why baseball data? 
+
+Now, I am not going to assume everyone participating in this scenario is familiar with baseball. However, this exercise is arguably more rewarding if you are *not* a baseball fan. If you're working with data, part of your job to be interested in whatever you've been asked to analyze (even if it is only for the monetary reward).
+
+> "...if you want to work in data visualisation, you need to be relentlessly and systematically curious. You should try to get interested in anything and everything that comes your way." - Alberto Cairo, Knight Chair in Visual Journalism, University of Miami
+
+Analyzing and visualizing data you're not familiar with is a chance to learn something new, and it puts you in a position to ask 'out of the box' questions. 
+
+### Doing your homework
+
+It's also important to read any accompanying documentation for new datasets. If we read the documentation on the [Lahman website](http://www.seanlahman.com/files/database/readme2017.txt), we find out that `People` contains "*Player names, DOB, and biographical info.*" 
+
+The variables in `People` are presented below: 
+
+**People table**
+
+`playerID` = A unique code assigned to each player. The `playerID` links the data in this file with records in the other files.
+`birthYear` = Year player was born  
+`birthMonth` = Month player was born  
+`birthDay` = Day player was born  
+`birthCountry` = Country where player was born  
+`birthState` = State where player was born  
+`birthCity` = City where player was born
+`deathYear` = Year player died  
+`deathMonth` = Month player died  
+`deathDay` = Day player died  
+`deathCountry` = Country where player died   
+`deathState` = State where player died  
+`deathCity` = City where player died  
+`nameFirst` = Player's first name  
+`nameLast` = Player's last name  
+`nameGiven` = Player's given name (typically first and middle)  
+`weight` = Player's weight in pounds  
+`height` = Player's height in inches  
+`bats` = Player's batting hand (left, right, or both)          
+`throws` = Player's throwing hand (left or right)  
+`debut` = Date that player made first major league appearance  
+`finalGame` = Date that player made first major league appearance (blank if still active)  
+`retroID` = ID used by retrosheet  
+`bbrefID` = ID used by Baseball Reference website   
+
+
+Now that we have some background information on this new dataset, we will take a look at how well `People` meets our expectations.  
+
+Whenever we get a new source of data, we should try to view the data in it's native format (if possible). We can view the raw data on the [`baseballdatabank` Github repository](https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv). 
+
+```{r download-People, include=FALSE, results='hide'}
+download.file(url = "https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv", 
+              destfile = "../data/People.csv")
+```
+
+
+Fortunately, we are able to load the data directly into R using the `baseballDBR::get_bbdb()` function. We will load the `People` dataset using `baseballDBR::get_bbdb()`, and assign `"People"` to the `table` argument. 
+
+```{r get_bbdb-People}
+baseballDBR::get_bbdb(table = "People")
+```
+
+## step 4
+
+- [ ] included in step4.md?
+
+### Are we seeing what we expected?
+
+Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset so we can see if it was imported correctly.
+
+### Viewing entire datasets
+
+We'll be using the [`skimr` package](https://docs.ropensci.org/skimr/), which is designed for
+
+> "displaying summary statistics the user can skim quickly to understand their data"
+
+Below we pass the `People` dataset to the `skimr::skim()` function to create `PeopleSkim`. We then use the `base::summary()` function to review the new object.
+
+If this code looks unfamiliar to you, review the [Introduction to `ggplot2` scenario](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2).
+
+```{r PeopleSkim}
+PeopleSkim <- People %>%  
+  skimr::skim()
+summary(PeopleSkim)
+```
+
+
+The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`16` of which are `character` and `8` are `numeric`).
+
+### Viewing variables by type
+
+The new `PeopleSkim` object gives us summary information that we can check against the documentation and can help guide our data visualizations. We will start by viewing the 16 character variables in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)).
+
+The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"factor"`). Run the code below to view the character values in `People`.
+
+```{r char-vars-skim}
+PeopleSkim %>% 
+  skimr::yank(skim_type = "character")
+```
+
+We can see none of these data are missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `16` character values. 
+
+*Do these numbers make sense?*
+
+We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*").
+
+Next we will view the `"numeric"` variables in `People`.
+
+```{r num-vars-skim}
+PeopleSkim %>% 
+  skimr::yank("numeric")
+```
+
+
+The numeric variables give us some additional information about these `8` columns. Along with `n_missing` and `complete_rate`, we get [set of summary statistics](https://en.wikipedia.org/wiki/Summary_statistics): 
+
+**Location statistics**
+
+- the `mean` (or average) gives us the expected value for each variable  
+- the median (as `p50`) or the 'center' value for each variable (half of the values are above and half are below)  
+
+**Spread statistics**
+
+- the lowest value for each variable, or minimum (as `p0`)  
+- the highest value for each variable, or maximum (as `p100`)  
+*Together, these two values can give us the range, which is the difference between the maximum and minimum values*
+
+- the first quartile (as `p25`), which is the 'middle' of the data points *below* the median  
+- the third quartile (as `p75`), which is the 'middle' of the data points *above* the median  
+*Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles*  
+
+- the standard deviation (as `sd`), a measure of each variable's disbursement.
+*The standard deviation describes how far a variable's values are spread out from their mean*
+
+Below we use `skimr::focus()` and `skimr::yank()` to view the missing, mean, standard deviation, minimum, maximum, and a small histogram for the numeric variables in the `People` dataset:
+
+```{r focus-num-missing}
+PeopleSkim %>% 
+  skimr::focus(n_missing, 
+               numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p100,
+               numeric.hist) %>% 
+    skimr::yank("numeric") 
+```
+
+
+*Do these numbers make sense?*
+
+We notice two implausible values from the `skimr` output: the `weight` variable has max value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven` for the abnormally high `weight` value.
+
+```{r weight-outlier}
+People %>% 
+  filter(weight == 2125) %>% 
+  select(nameGiven, birthMonth, birthDay, birthYear, weight)
+```
+
+Google the player's name. *What is his listed weight on Wikipedia?*
+
+As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to still be alive.
+
+### Other resources for missing data
+
+Read more about visualizing missing data [here](http://naniar.njtierney.com/articles/naniar-visualisation.html) and on the [`visdat` package site](https://docs.ropensci.org/visdat/), or on the [`inspectdf` package](https://github.com/alastairrushworth/inspectdf) website. 
+
+
+## step 5
+
+- [ ] included in step5.md?
+
+### Counting values (1)
+
+In the previous step, the `skimr` output displayed a small histogram for each numeric variable in the `People` dataset. Histograms display the distribution for a single variable.
+
+### Load data
+
+These data come from [the `TidyTuesday` project](https://github.com/rfordatascience/tidytuesday), a data repository who's intent is 
+
+> "to provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions"
+
+We're going to use a dataset of Ramen ratings from [The Ramen Rater](https://www.theramenrater.com/resources-2/the-list/). Read more about these data [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04).
+
+Below we import the raw data from an external .csv file into `Ramen` and get a `skimr::skim()` summary (stored in `RamenSkim`)
+
+```{r import-Ramen, message=FALSE, warning=FALSE}
+Ramen <- readr::read_csv("https://bit.ly/38sO0S7")
+RamenSkim <- skimr::skim(Ramen)
+```
+
+### Review data 
+
+View the character variables in `RamenSkim`
+
+```{r RamenSkim-char}
+RamenSkim %>% 
+  skimr::yank("character")
+```
+
+*How complete are these data?*
+
+View the numeric variables in `RamenSkim`
+
+```{r RamenSkim-num}
+RamenSkim %>% 
+  skimr::yank("numeric")
+```
+
+Pay attention to the `hist` column for `stars`--it shows the distribution for the values. *What are most of the values concentrated?* 
+
+We are going to investigate the distribution of `stars` by building a histogram with `ggplot2`.
+
+### Build a histogram
+
+We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`. Note that we are also assigning labels to the graph that include 1) a clear title, 2) descriptive information about the graph, 3) the source of the data.
+
+```{r step5-hist-01, message=FALSE, warning=FALSE}
+# click to execute code
+gg_step5_hist_01 <- Ramen %>% 
+  ggplot2::ggplot(aes(x = stars)) + 
+  ggplot2::geom_histogram() + 
+  ggplot2::labs(
+       title = "Distribution of ramen stars", 
+       subtitle = "bins = 30",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+# ggsave(plot = gg_step5_hist_01,
+#        filename = "gg-step5-hist-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step5_hist_01
+```
+
+We will need to open the `gg-step5-hist-01.png` graph in the vscode IDE (above the Terminal console). 
+
+Histograms are built by stacking the variable values into defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument. Run the code below to see how the distribution looks with 20 `bins`.
+
+```{r gg_step5_hist_02, message=FALSE, warning=FALSE}
+# click to execute code
+gg_step5_hist_02 <- Ramen %>% 
+  ggplot2::ggplot(aes(x = stars)) + 
+  ggplot2::geom_histogram(bins = 20) + 
+  ggplot2::labs(
+       title = "Distribution of ramen stars", 
+       subtitle = "bins = 20",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+# ggsave(plot = gg_step5_hist_02,
+#        filename = "gg-step5-hist-02.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step5_hist_02
+```
+
+Open the `gg-step5-hist-02.png` graph in the vscode IDE (above the Terminal console). 
+
+The values in `stars` fit into `20` bins better than the default `30`, because we can see where values are concentrated (and the high frequency of 5-star ratings).
+
+## step 6
+
+- [x] included in step6.md?
+
+### Counting values (2)
+
+The previous step demonstrated how to use a histogram to view the distribution of a single variable. We needed to adjust the `bins` in the histogram to make it's shape easier to interpret. Density plots use [kernel smoothing](https://ggplot2-book.org/statistical-summaries.html) to create cleaner distributions. 
+
+### Build a density plot
+
+We're going to use `ggplot2::geom_density()` to view a density plot of the `stars` variable in `Ramen`. We will use `fill` to color the area underneath the density line with `"dodgerblue"`.
+
+```{r gg_step6_density_01, message=FALSE, warning=FALSE}
+# click to execute code
+gg_step6_density_01 <- Ramen %>% 
+  ggplot(aes(x = stars)) + 
+  geom_density(fill = "dodgerblue") + 
+  labs(title = "Distribution of ramen stars", 
+  caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+# ggsave(plot = gg_step6_density_01,
+#        filename = "gg-step6-density-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step6_density_01
+```
+
+Open the `gg-step6-density-01.png` graph in the vscode IDE (above the Terminal console). 
+
+### Adding useful labels 
+
+Although density plots create a much smoother distribution, the `y` axis is harder to interpret. To overcome this, we will add two summary statistics programmatically to the labels using the `base::paste0()` and `base::round()` functions. 
+
+Run the code below to see how this works: 
+
+```{r subtitle_dens_stars}
+# click to execute code
+subtitle_dens_stars <- paste0("Star rating (mean +/- sd): ", 
+       # use round() to make sure there are only two decimals
+       round(mean(Ramen$stars, na.rm = TRUE), 2),
+       " +/- ",
+       round(sd(Ramen$stars, na.rm = TRUE), 2))
+subtitle_dens_stars
+```
+
+We can now supply `subtitle_dens_stars` to the `labs(subtitle = )` function. 
+
+Creating labels this way ensures they are updated whenever the underlying data change. 
+
+```{r gg_step6_density_02, message=FALSE, warning=FALSE}
+# click to execute code
+gg_step6_density_02 <- Ramen %>% 
+  ggplot(aes(x = stars)) + 
+  geom_density(fill = "dodgerblue") + 
+  labs(title = "Distribution of ramen stars", 
+       # combine text with mean() and sd() for stars in Ramen
+       subtitle = subtitle_dens_stars,
+       # include source
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+# ggsave(plot = gg_step6_density_02,
+#        filename = "gg-step6-density-02.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step6_density_02
+```
+
+Open the `gg-step6-density-02.png` graph in the vscode IDE (above the Terminal console). 
+
+As we've said, an important part of communicating effectively is **knowing your audience**. It's unlikely these exploratory graphs will be part of our final deliverable, so the audience for these graphs will likely be us! 
+
+Using descriptive labels makes sure we know what we're seeing when we're viewing our graphs.
+
+## step 7
+
+- [ ] included in step7.md?
+
+### Comparing counts
+
+We've looked at the distribution of all the values in the `stars` variable, but what if we were interested in the distribution of `stars` across the groups in another categorical variable, like `style`, which is the *Style of container (cup, pack, tray, etc.).*
+
+We can check the levels of style with `dplyr::count()`
+
+```{r count-style}
+Ramen %>% dplyr::count(style, sort = TRUE)
+```
+
+This tells us the top five most common reviews for Ramen came from `Pack`s, `Bowl`s, `Cup`s, `Tray`s, and `Box`s.
+
+### Grouped skims
+
+We can use `dplyr`s `filter`, `select`, and `group_by` functions with `skimr` to see the distribution of the `stars` variable across the five most common `style` levels.
+
+```{r grouped-skim}
+Ramen %>% 
+  # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>% 
+  # select only stars and style
+  dplyr::select(stars, style) %>% 
+  # group dataset by style
+  dplyr::group_by(style) %>% 
+  # skim grouped data
+  skimr::skim() %>% 
+  # focus on select output
+  skimr::focus(n_missing, style,
+               numeric.mean, numeric.sd, numeric.hist,
+               numeric.p0, numeric.p50, numeric.p100) %>% 
+  # only return numeric values
+  skimr::yank("numeric") 
+```
+
+
+### The `ggridges` package
+
+The mean and median (`p50`) in the skimr output tells us the distribution of `stars` varies slightly for the filtered levels of `style`, so we will view the density for each distribution with a ridgeline plot from the [`ggridges` package](https://wilkelab.org/ggridges/).  
+
+```{r ggridges-install, eval=FALSE}
+# click to execute code
+install.packages("ggridges")
+library(ggridges)
+```
+
+```{r ggridges-no-show, include=FALSE, message=FALSE}
+library(ggridges)
+```
+
+### Build labels first!
+
+We'll build the labels for this graph first in `labs_ridge_stars_style`, so we know what we're expecting to see. 
+
+```{r labs_ridge_stars_style}
+# click to execute code
+labs_ridge_stars_style <- labs(
+       title = "Star ratings by style",  
+       subtitle = "Star rating across most common ramen containers",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/",
+       x = "Star rating", 
+       y = NULL) 
+```
+
+I've found this practice to be very helpful for conceptualizing graphs *before* I begin building them, which reduces errors and saves time!
+
+### Overlapping density plots
+
+The code below uses `ggridges::geom_density_ridges()` function to build overlapping density plots. In this plot, we map the `fill` argument to the `style` variable. We also want to set the `guides(fill = )` to `FALSE` because we'll have labels on the graph for each level of `style`.
+
+```{r gg_step7_ridge_01, message=FALSE, warning=FALSE}
+# # click to execute code
+gg_step7_ridge_01 <- Ramen %>%
+  # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>%
+  ggplot(aes(x = stars,
+             y = style,
+             fill = style)) +
+  geom_density_ridges() +
+  guides(fill = FALSE) +
+  # add labels
+  labs_ridge_stars_style
+# # save
+# ggsave(plot = gg_step7_ridge_01,
+#        filename = "gg-step7-ridge-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step7_ridge_01
+```
+
+Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
+
+We can see from the ridgeline plot that the `star` ratings for the `Box` level in `style` is concentrated around `5`.
+
+
+## step 8
+
+- [ ] included in step8.md?
+
+### Visualizing relationships
+
+Now that we know how to explore variable distributions, we will look at relationships between two (or more) variables. 
+
+The most common graph for visualizing the relationship between two numerical variables is the [scatterplot](https://en.wikipedia.org/wiki/Scatter_plot).
+
+A scatterplot displays data for two numeric variables, with one variable on each axis. These can help us detect whether a relationship (or correlation) exists between the two variables.
+
+### Load data
+
+For this graph, we're going to load the `dplyr::starwars` and get a `skimr` of these data. These data are collected from the [Star Wars API](https://swapi.dev/). Read more about this dataset on [`dplyr`s website](https://dplyr.tidyverse.org/reference/starwars.html).
+
+```{r SWSkim}
+# click to execute code
+StarWars <- dplyr::starwars 
+SWSkim <- StarWars %>% skimr::skim()
+```
+
+We're only interested in the numeric variables `StarWars` for now, so we're going to check these columns in `SWSkim`:
+
+```{r SWSkim-numeric}
+# click to execute code
+SWSkim %>% 
+  # only return numeric values
+  skimr::yank("numeric") 
+```
+
+We can see there is at least one value of `mass` is considerably higher than the rest. We can tell because the location statistics are similar to each other (`mean` = `97.3`, median (`p50`) = `84.5`), but the spread is almost twice the value of the location (`sd` = `169`). This is further confirmed by the maximum value (`p100`) of `1358`.
+
+### Labels
+
+We're going to `filter` the `StarWars` data only observations with `mass` less than `200` (to remove the extreme value out of the data before plotting). 
+
+```{r labs_scatter_ht_mass_01}
+# click to execute code
+labs_scatter_ht_mass_01 <- labs(
+  title = "Star Wars Character's height and mass", 
+  subtitle = "Scatter plot for height and mass (mass < 200)",
+  x = "Mass", 
+  y = "Height")
+```
+
+### Scatterplot (2 variables)
+
+We will create a scatterplot with `ggplot2::geom_point()`, map `mass` to the `x` axis, and map `height` to the `y` axis.
+
+```{r gg_step8_scatter_01}
+# click to execute code
+gg_step8_scatter_01 <- StarWars %>% 
+  filter(mass < 200) %>% 
+  ggplot(aes(x = mass, y = height)) + 
+  geom_point() + 
+  # add labels
+  labs_scatter_ht_mass_01
+# save
+# ggsave(plot = gg_step8_scatter_01,
+#        filename = "gg-step8-scatter-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step8_scatter_01
+```
+
+Open the `gg-step8-scatter-01.png` graph in the vscode IDE (above the Terminal console). 
+
+Based on the scatterplot, we can see there is a positive relationship between `mass` and `height` for Star Wars characters. But is this the same for all types of characters? For example, does this relationship hold true for all levels of `gender`?
+
+## step 9
+
+- [ ] included in step9.md?
+
+### Counting with tabyls
+
+Let's view the count of gender below using the `tabyl()` function from the [`janitor` package](https://sfirke.github.io/janitor/).
+
+Install and load the `janitor` package below: 
+
+```{r pckg-janitor, eval=FALSE}
+# click to execute code
+install.packages("janitor")
+library(janitor)
+```
+
+```{r pckg-janitor-no-show, include=FALSE}
+library(janitor)
+```
+
+`janitor::tabyl()` works similar to `dplyr::count()`, but had a lot more options. Read more about the `tabyl` function options [here](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html).
+
+```{r tabyl-gender}
+# click to execute code
+StarWars %>% 
+  janitor::tabyl(gender) 
+```
+
+### Scatterplot (3 variables)
+
+One way to include the `gender` variable in the scatterplot is to map it to the `color` aesthetic. The output from `tabyl` tells us there are `4` missing values in `gender`, so we will also filter these out of the plot.  
+
+We will update our labels and add `gender` to the scatterplot in the code below.
+
+```{r gg_step9_scatter_02}
+# click to execute code
+labs_scatter_ht_mass_02 <- labs(
+  title = "Star Wars Character's height and mass", 
+  subtitle = "Scatter plot for height and mass (mass < 200)",
+  x = "Mass", 
+  color = "Gender",
+  y = "Height")
+
+gg_step9_scatter_02 <- StarWars %>% 
+  filter(!is.na(gender) & mass < 200) %>% 
+  ggplot(aes(x = mass, y = height, color = gender)) + 
+  geom_point() +
+  # add labels
+  labs_scatter_ht_mass_02
+# save
+# ggsave(plot = gg_step9_scatter_02,
+#        filename = "gg-step9-scatter-02.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step9_scatter_02
+```
+
+Open the `gg-step9-scatter-01.png` graph in the vscode IDE (above the Terminal console). 
+
+The color of the points show that the `feminine` characters occupy a smaller range of values for the relationship between `mass` and `height`.
+
+## step 10
+
+- [ ] included in step10.md?
+
+### Load data
+
+We are going to load a dataset which contains information about password quality & strength. Read more about the passwords data [here](hhttps://docs.google.com/spreadsheets/d/1cz7TDhm0ebVpySqbTvrHrD3WpxeyE4hLZtifWSnoNTQ/edit#gid=5).
+
+```{r , message=FALSE, warning=FALSE}
+PWords <- readr::read_csv('https://bit.ly/2JXiMck')
+PWordsSkim <- skimr::skim(PWords)
+```
+
+### Review data 
+
+View the character variables in `PWordsSkim`
+
+```{r PWordsSkim-char}
+PWordsSkim %>% 
+  skimr::yank("character")
+```
+
+*How complete are these data?*
+
+View the numeric variables in `PWordsSkim`
+
+```{r PWordsSkim-num}
+PWordsSkim %>% 
+  skimr::yank("numeric")
+```
+
+*Do these data make sense after reading the documentation?*
+
+## step 11
+
+- [ ] included in step11.md?
+
+## step 12
+
+- [ ] included in step12.md?
+
+## step 13
+
+- [ ] included in step13.md?
+
+## step 14
+
+- [ ] included in step14.md?
+
+## step 15
+
+- [ ] included in step15.md?
+
+## step 16
+
+- [ ] included in step16.md?
+
+## step 17
+
+- [ ] included in step17.md?
+
+## step 18
+
+- [ ] included in step18.md?
+
+## step 19
+
+- [ ] included in step19.md?
+
+## step 20
+
+- [ ] included in step20.md?
+
+## finish 
+
+- [ ] included in finish.md?

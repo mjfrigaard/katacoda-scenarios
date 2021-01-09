@@ -2,7 +2,7 @@
 
 Welcome to '*Combine narrative with numbers for effective storytelling in R*'! In this scenario we will cover how to build data visualizations that present data clearly to your audience. 
 
-Now that we have some experience with data wrangling with [`tidyr` and [`dplyr`](https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data), and [data visualization with `ggplot2`](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2), we can put these tools together to get your point across to stakeholders and audiences. 
+Now that we have some experience with data wrangling with [`tidyr` and `dplyr`](https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data), and [data visualization with `ggplot2`](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2), we can put these tools together to get your point across to stakeholders and audiences. 
 
 #### What makes a bad graphic?
 

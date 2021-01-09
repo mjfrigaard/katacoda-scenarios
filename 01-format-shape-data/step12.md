@@ -19,7 +19,7 @@ Use `utils::head()`, `dplyr::glimpse()`, or `utils::str()` to view the contents 
 
 First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started,
 
-+ the `cols` argument should be `-c(episode, season, episode_num, title)` (this means negate these four columns)  
++ the `cols` argument should be `-c(episode, season, episode_num, title)` (this means negate these four columns)
 
 + assign `names_to` to `"object"` and `values_to` to `"present"`).
 

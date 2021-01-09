@@ -1,55 +1,92 @@
-### Convert questions into actionable steps
+### Comparing counts
 
-Now that we've defined the audience for our data visualization, we can create actionable steps towards building the graphs. Knowing who will be consuming the information in our figures allows us to decide which variables we will use and how. Some questions will have multiple ways to show the correct answer and numerous sources of data to use.
+We've looked at the distribution of all the values in the `stars` variable, but what if we were interested in the distribution of `stars` across the groups in another categorical variable, like `style`, which is the *Style of container (cup, pack, tray, etc.).*
 
-If we need additional information to make the question(s) necessarily precise, we should spend more time engaging with the stakeholders/audience. Our ultimate job is to translate the stakeholder's problem or question into a dataset capable of being represented with data visualizations. 
-
-### Batting statistics
-
-To address the question, *"who is the greatest major league baseball (MLB) hitter?"*, we're going to use the `Batting` dataset from the Lahman database. 
-
-We can access this using the, `baseballDBR::get_bbdb()` function. We will also visualize the missing data in `Batting` using `visdat::vis_miss()` (note we will have to set the `warn_large_data` argument to `FALSE`).
+We can check the levels of style with `dplyr::count()`
 
 ```
-baseballDBR::get_bbdb(table = "Batting")
-# view missing Batting data
-gg_step7_batting_vis_miss <- Batting %>%  
-  visdat::vis_miss(warn_large_data = FALSE) + 
-  ggplot2::coord_flip() + 
-  ggplot2::labs(title = "Missing values in Batting data", 
-                caption = "https://lahman.r-forge.r-project.org/")
+# click to execute code
+Ramen %>% dplyr::count(style, sort = TRUE)
+```{{execute}}
+
+This tells us the top five most common reviews for Ramen came from `Pack`s, `Bowl`s, `Cup`s, `Tray`s, and `Box`s.
+
+### Grouped skims
+
+We can use `dplyr`s `filter`, `select`, and `group_by` functions with `skimr` to see the distribution of the `stars` variable across the five most common `style` levels.
+
+```
+# click to execute code
+Ramen %>% 
+  # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>% 
+  # select only stars and style
+  dplyr::select(stars, style) %>% 
+  # group dataset by style
+  dplyr::group_by(style) %>% 
+  # skim grouped data
+  skimr::skim() %>% 
+  # focus on select output
+  skimr::focus(n_missing, style,
+               numeric.mean, numeric.sd, numeric.hist,
+               numeric.p0, numeric.p50, numeric.p100) %>% 
+  # only return numeric values
+  skimr::yank("numeric") 
+```{{execute}}
+
+### Overlapping density plots
+
+The mean and median (`p50`) in the skimr output tells us the distribution of `stars` varies slightly for the filtered levels of `style`, so we will view the density for each distribution with a ridgeline plot from the [`ggridges` package](https://wilkelab.org/ggridges/).  
+
+Install and load `ggridges` below:
+
+```
+# click to execute code
+install.packages("ggridges")
+library(ggridges)
+```{{execute}}
+
+### Build labels first!
+
+We'll build the labels for this graph first in `labs_ridge_stars_style`, so we know what we're expecting to see. 
+
+```
+# click to execute code
+labs_ridge_stars_style <- labs(
+       title = "Star ratings by style",  
+       subtitle = "Star rating across most common ramen containers",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/",
+       x = "Star rating", 
+       y = NULL) 
+```{{execute}}
+
+I've found this practice to be very helpful for conceptualizing graphs *before* I begin building them, which reduces errors and saves time!
+
+### Overlapping density plots
+
+The code below uses `ggridges::geom_density_ridges()` function to build overlapping density plots. In this plot, we map the `fill` argument to the `style` variable. We also want to set the `guides(fill = )` to `FALSE` because we'll have labels on the graph for each level of `style`.
+
+```
+# click to execute code
+gg_step7_ridge_01 <- Ramen %>% 
+  # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>% 
+  ggplot(aes(x = stars,
+             y = style,
+             fill = style)) +
+  geom_density_ridges() +
+  guides(fill = FALSE) + 
+  # add labels 
+  labs_ridge_stars_style
 # save
-ggsave(filename = "gg-step7-batting-vis-miss.png", device = "png",
-        width = 7, height = 5, units = "in")
+ggsave(plot = gg_step7_ridge_01,
+       filename = "gg-step7-ridge-01.png",
+       device = "png",
+       width = 9,
+       height = 6,
+       units = "in")
 ```{{execute}}
 
-View the `gg-step7-batting-vis-miss.png` graph in the vscode IDE.
-
-### Replace missing values 
-
-We can see from the `skimr::skim()` output that some of the variables in `Batting` are recorded as missing (`NA`).
-
-The missing data will cause problems when we want to calculate new metrics, so we will replace these with `tidyr::replace_na()`.
-
-We will check these variables using the `dplyr::select_if()` function:
-
-```
-Batting <- Batting %>% 
-  # replace missing values with 0
-  tidyr::replace_na(list(RBI = 0, SB = 0, CS = 0, 
-                         SO = 0, IBB = 0, HBP = 0, 
-                         SH = 0, SF = 0, GIDP = 0))
-Batting %>% 
-  dplyr::select_if(is.numeric) %>% 
-  skimr::skim()
-```{{execute}}
-
-As with most measurements, 'hitting' in baseball is measured in a variety of ways. So determining the 'greatest hitter' might require doing some research and asking a few questions. Read more about the `Batting` table on the [Lahman package website](https://lahman.r-forge.r-project.org/doc/Batting.html).
-
-### Incorporating expertise
-
-Useful visualizations incorporate the expertise and knowledge of the stakeholders/audience *and* the analyst's understanding of the data into the display. For baseball, a great example of combining game expertise with numerical and statistical acumen comes from Michael Lewis's Moneyball, 
-
-> "*When the numbers acquire the significance of language," he later wrote, "they acquire the power to do all of the things which language can do: to become fiction and drama and poetry...and it is not just baseball that these numbers, through a fractured mirror, describe. It is a character. It is psychology, it is history, it is power, it is grace, glory, consistency, sacrifice, courage, it is success and failure, it is frustration and bad luck, it is ambition, it is overreaching, it is discipline. And it is victory and defeat, which is all that the idiot sub-conscious really understands.*"
-
-We will use the Batting dataset's existing variables to calculate additional metrics for evaluating each player's hitting statistics. 
+We can see from the ridgeline plot that the `star` ratings for the `Box` level in `style` is concentrated around `5`.
