@@ -8,15 +8,7 @@ For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical
 
 We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
 
-These data come from the [`baseballDBR` package](https://github.com/keberwein/baseballDBR), and it contains an "R version of the 2020 edition of [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/)".
-
-Click to install and load the `baseballDBR` package:
-
-```
-# click to execute code
-install.packages("baseballDBR")
-library(baseballDBR)
-```{{execute}}
+These data come from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/)".
 
 ### Why baseball data? 
 
@@ -66,10 +58,10 @@ Now that we have some background information on this new dataset, we will take a
 
 Whenever we get a new source of data, we should try to view the data in its native format (if possible). We can view the raw data on the [`baseballdatabank` Github repository](https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv). 
 
-Fortunately, we are able to load the data directly into R using the `baseballDBR::get_bbdb()` function. We will load the `People` dataset using `baseballDBR::get_bbdb()`, and assign `"People"` to the `table` argument. 
+Fortunately, we are able to load the raw data directly into R using the `readr::read_csv()` function. We will load the `People` dataset into R using `readr::read_csv()`, and assign `"https://bit.ly/3scsHw7"` to the `file` argument. 
 
 ```
 # click to execute code
-baseballDBR::get_bbdb(table = "People")
+People <- readr::read_csv(file = "https://bit.ly/3scsHw7")
 ```{{execute}}
 

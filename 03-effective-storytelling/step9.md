@@ -14,7 +14,7 @@ library(janitor)
 
 ```
 # click to execute code
-StarWars %>% 
+StarWars %>%
   janitor::tabyl(gender) 
 ```{{execute}}
 
@@ -27,8 +27,8 @@ We will update our labels and add `gender` to the scatterplot in the code below.
 ```
 # click to execute code
 labs_scatter_ht_mass_02 <- labs(
-  title = "Star Wars Character's height and mass", 
-  subtitle = "Scatter plot for height and mass (mass < 200)",
+  title = "Star Wars Character's gender, height and mass", 
+  subtitle = "Data for gender (feminine/masculine), height, and mass < 200",
   x = "Mass", 
   color = "Gender",
   y = "Height")
