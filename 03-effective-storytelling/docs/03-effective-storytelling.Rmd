@@ -16,7 +16,7 @@ library(tint)
 library(tidyverse)
 library(knitr)
 library(rmdformats)
-# folders
+library(skimr)
 knitr::opts_chunk$set(
   echo = TRUE,
   eval = TRUE,
@@ -33,6 +33,9 @@ knitr::opts_chunk$set(
 fs::dir_create("img/")
 # invalidate cache when the package version changes
 options(htmltools.dir.version = FALSE)
+# download People data 
+# download.file(url = "https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv", 
+              # destfile = "../data/People.csv")
 ```
 
 ## Setup 
@@ -122,17 +125,17 @@ This scenario will show you how to make sure your graphs and figures communicate
 
 ### Things to consider about your audience
 
-We need to determine who the audience or stakeholders will be before creating graphs or figures. You'll likely create multiple charts throughout a data analysis that you won't include as a final deliverable.  But in most cases, our stakeholders or audience is whoever is getting the final results or product. 
+You'll need to determine who the audience or stakeholders will be before creating graphs or figures. You'll likely create multiple charts throughout a data analysis that you won't include as a final deliverable.  But in most cases, our stakeholders or audience is whoever is getting the final results or product. 
 
 The final graphs you produce will depend on 1) the question we're trying to answer, and 2) the level of [statistical literacy](https://en.wikipedia.org/wiki/Statistical_literacy#) of our audience. 
 
-If our audience isn't familiar with particular data visualizations, we should consider it part of our job to educate them. However, if we find ourselves spending more time explaining a data visualization's design than what the visualization reveals, we should consider a different graph. 
+If your audience isn't familiar with particular data visualizations, provide them with enough information to interpret the graph (and check their understanding). However, if you find yourself spending more time explaining a data visualization's design than what the visualization reveals, we should consider a different graph. 
 
 ### Asking questions
 
 Data visualization should be an iterative process, and getting regular feedback from your audience will help you understand their point of view. It will also help manage their expectations regarding the final deliverable.  
 
-As Hilary Mason and D.J. Patil point out in their 2015 text, [Data Driven: Creating a Data Culture](https://www.oreilly.com/library/view/data-driven/9781491925454/), asking good questions "*involves domain knowledge and expertise, coupled with a keen ability to see the problem, see the available data, and match up the two.*"
+As Hilary Mason and D.J. Patil point out in their 2015 text, [Data Driven: Creating a Data Culture](https://www.oreilly.com/library/view/data-driven/9781491925454/), asking the right questions "*involves domain knowledge and expertise, coupled with a keen ability to see the problem, see the available data, and match up the two.*"
 
 The questions below can help guide your project and make sure you understand what your audience/stakeholders are expecting:
 
@@ -156,7 +159,7 @@ It's best to start a project off with a '*view of the forest from outside the tr
 
 Having a "birds" eye view' of the data ensures there weren't any problems with exporting or importing. Data lineage also means understanding where the data are coming from--was it collected from an internal relational database, an external vendor, or did it come from the web or social media?
 
-Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle.
+Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. 
 
 ### Initiate R 
 
@@ -165,12 +168,6 @@ Let's get started! Launch an R console by clicking here -> `R` (Click on the *Ru
 ### Load packages
 
 The package we'll use to view the entire datasets with R is [`skimr`](https://docs.ropensci.org/skimr/). We will install and load these packages below:
-
-```{r step2-packages-no-show, echo=FALSE, message=FALSE, warning=FALSE}
-# install.packages(c("tidyverse", "skimr"))
-library(tidyverse)
-library(skimr)
-```
 
 
 ```{r step2-packages, message=FALSE, warning=FALSE, results='hide', eval=FALSE}
@@ -189,36 +186,74 @@ Let's take a quick tour of our Katacoda environment. In the next 18 steps, we'll
 You're reading this in the **Sidebar**. All of the instructions are in the Sidebar, and at the bottom, you'll find a "*Continue*" button to take you to the next step. See the image below:
 
 <!--
-![](https://resources.oreilly.com/katacoda/martin-frigaard/raw/master/03-effective-storytelling/docs/img/sc-03-sidebar.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-sidebar.png)
 -->
 
-```{r img-sc-03-sidebar, echo=FALSE, out.width='80%', out.height='80%'}
+```{r img-sc-03-sidebar, echo=FALSE, out.width='100%', out.height='100%'}
 # fs::dir_ls("img")
-knitr::include_graphics("img/sc-03-sidebar.png")
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-sidebar.png")
 ```
 
 **Code blocks**
 
 You will also find **code blocks** in the Sidebar. All the code blocks will run when you click on them (you've already run a few above!). See the image below for more examples:
 
-```{r img-sc-03-code-blocks, echo=FALSE, out.width='80%', out.height='80%'}
+<!-- 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-blocks.png) 
+-->
+
+```{r img-sc-03-code-blocks, echo=FALSE, out.width='100%', out.height='100%'}
 # fs::dir_ls("img")
-knitr::include_graphics("img/sc-03-code-blocks.png")
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-blocks.png")
 ```
 
 **Terminal**
 
-The **Terminal** is where we'll see the R commands from each code block run. We can also use R interactively by typing them directly into the Terminal after the prompt `>`. Go ahead and try it by typing (or copying and pasting) the following commands.
+The **Terminal** is where the R code from each code block will run, along with any text **output**. We can also use R interactively by typing them directly into the Terminal after the **Prompt `>`**. 
+
+Go ahead and try it by typing (or copying and pasting) the following commands:
 
 ```{r tidyverse_logo}
 tidyverse::tidyverse_logo()
 ```
 
-```{r img-sc-03-terminal-code, echo=FALSE, out.width='80%', out.height='80%'}
+You should see the following output in the **Terminal**: 
+
+<!-- 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-terminal-code.png) 
+-->
+
+```{r img-sc-03-terminal-code, echo=FALSE, out.width='100%', out.height='100%'}
 # fs::dir_ls("img")
-# knitr::include_graphics("img/sc-03-terminal-code.png")
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-terminal-code.png")
 ```
 
+**VSCODE (EXPLORER)**
+
+When we create graphs, we will include the `ggplot2::ggsave()` function in the code block. This function allows us to save the graph image as a `.png` file in the **VSCODE EXPLORER**.
+
+**VSCODE (ROOT)**
+
+Inside the VSCODE EXPLORER, you'll find a section labeled **ROOT.** ROOT is a folder that contains our new graph files. We can open the **Graph file** by clicking on them. See the image below for an example:
+
+<!-- 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-explorer-root.png) 
+-->
+
+```{r img-sc-03-explorer-root, echo=FALSE, out.width='100%', out.height='100%'}
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-explorer-root.png")
+```
+
+The image below gives you an overview of this entire process:
+
+```{r img-sc-03-code-run-png-view.png, echo=FALSE, out.width='100%', out.height='100%'}
+# knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-run-png-view.png")
+knitr::include_graphics("img/sc-03-code-run-png-view.png")
+```
+
+
+
+Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!
 
 
 ## step 3
@@ -230,8 +265,6 @@ tidyverse::tidyverse_logo()
 Generally speaking, we should have an idea about how many columns and rows the new dataset will contain. We should know some general information about the variable formats, too. 
 
 For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or categorical data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
-
-### Load data
 
 We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
 
@@ -280,15 +313,11 @@ The variables in `People` are presented below:
 
 Now that we have some background information on this new dataset, we will take a look at how well `People` meets our expectations.  
 
-Whenever we get a new source of data, we should try to view the data in it's native format (if possible). We can view the raw data on the [`baseballdatabank` Github repository](https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv). 
+Whenever we get a new source of data, we should try to view the data in its native format (if possible). We can view the raw data on the [Github repository](https://resources.oreilly.com/katacoda/martin-frigaard/blob/master/03-effective-storytelling/data/People.csv). 
 
-```{r download-People, include=FALSE, results='hide'}
-download.file(url = "https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv", 
-              destfile = "../data/People.csv")
-```
+### Load data
 
-
-Fortunately, we are able to load the raw data directly into R using the `readr::read_csv()` function. We will load the `People` dataset into R using `readr::read_csv()`, and assign `"https://bit.ly/3scsHw7"` to the `file` argument. 
+Fortunately, we are also able to load the raw data directly into R using the `readr::read_csv()` function. We will load the `People` dataset into R using `readr::read_csv()`, and assign `"https://bit.ly/3scsHw7"` to the `file` argument. 
 
 ```{r get_bbdb-People, message=FALSE, warning=FALSE}
 People <- readr::read_csv(file = "https://bit.ly/3scsHw7")
@@ -302,7 +331,7 @@ People <- readr::read_csv(file = "https://bit.ly/3scsHw7")
 
 Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset so we can see if it was imported correctly.
 
-### Viewing entire datasets
+### Skimming data
 
 We'll be using the [`skimr` package](https://docs.ropensci.org/skimr/), which is designed for
 
@@ -319,26 +348,35 @@ summary(PeopleSkim)
 ```
 
 
-The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`16` of which are `character` and `8` are `numeric`).
+The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`14` columns are `character`s, `2` columns are `Date`s, and `8` are `numeric`).
 
 ### Viewing variables by type
 
-The new `PeopleSkim` object gives us summary information that we can check against the documentation and can help guide our data visualizations. We will start by viewing the 16 character variables in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)).
+The new `PeopleSkim` object gives us summary information that we can check against the documentation and can help guide our data visualizations. We will start by viewing the variables according to their types in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)). The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"Date"`). 
 
-The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"factor"`). Run the code below to view the character values in `People`.
+Run the code below to use `skimr::yank()` to view a `skim` of the `character` variables in the `People` dataset.
 
 ```{r char-vars-skim}
 PeopleSkim %>% 
   skimr::yank(skim_type = "character")
 ```
 
-We can see none of these data are missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `16` character values. 
+We can see none of these data are missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `14` character values. 
+
+Next we use `skimr::yank()` to view a `skim` of the `Date` variables in the `People` dataset.
+
+```{r date-vars-skim}
+PeopleSkim %>% 
+  skimr::yank(skim_type = "Date")
+```
+
+The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), middle (`median`), and unique number (`n_unique`) of dates.
 
 *Do these numbers make sense?*
 
-We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*").
+We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*"). The earliest dates are both for `debut` and `finalGame` are 
 
-Next we will view the `"numeric"` variables in `People`.
+Finally, we will use `skimr::yank()` to view the `"numeric"` variables in `People`.
 
 ```{r num-vars-skim}
 PeopleSkim %>% 

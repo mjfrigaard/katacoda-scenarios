@@ -31,10 +31,36 @@ Let's take a quick tour of our Katacoda environment. In the next 18 steps, we'll
 
 You're reading this in the **Sidebar**. All of the instructions are in the Sidebar, and at the bottom, you'll find a "*Continue*" button to take you to the next step. See the image below:
 
-![](https://resources.oreilly.com/katacoda/martin-frigaard/raw/master/03-effective-storytelling/docs/img/sc-03-sidebar.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-sidebar.png)
 
 **Code blocks**
 
 You will also find **code blocks** in the Sidebar. All the code blocks will run when you click on them (you've already run a few above!). See the image below for more examples:
 
-![](https://resources.oreilly.com/katacoda/martin-frigaard/raw/master/03-effective-storytelling/docs/img/sc-03-code-blocks.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-blocks.png)
+
+**Terminal**
+
+The **Terminal** is where the R code from each code block will run, along with any text **Output**. We can also use R interactively by typing them directly into the Terminal after the **Prompt `>`**. 
+
+Go ahead and try it by typing (or copying and pasting) the following commands:
+
+```
+tidyverse::tidyverse_logo()
+```
+
+You should see the following output in the **Terminal**: 
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-terminal-code.png) 
+
+**VSCODE (EXPLORER)**
+
+When we create graphs, we will include the `ggplot2::ggsave()` function in the code block. This function allows us to save the graph image as a `.png` file in the **VSCODE EXPLORER**.
+
+**VSCODE (ROOT)**
+
+Inside the VSCODE EXPLORER, you'll find a section labeled **ROOT.** ROOT is a folder that contains our new graph files. We can open the **Graph file** by clicking on them. See the image below for an example:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-explorer-root.png)
+
+Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!

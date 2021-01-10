@@ -4,8 +4,6 @@ Generally speaking, we should have an idea about how many columns and rows a new
 
 For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical values (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or text data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
 
-### Load data
-
 We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
 
 These data come from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/)".
@@ -54,11 +52,11 @@ The variables in `People` are presented below:
 
 Now that we have some background information on this new dataset, we will take a look at how well `People` meets our expectations.  
 
-### Load data 
+Whenever we get a new source of data, we should try to view the data in its native format (if possible). We can view the raw data on the [Github repository](https://resources.oreilly.com/katacoda/martin-frigaard/blob/master/03-effective-storytelling/data/People.csv). 
 
-Whenever we get a new source of data, we should try to view the data in its native format (if possible). We can view the raw data on the [`baseballdatabank` Github repository](https://raw.githubusercontent.com/chadwickbureau/baseballdatabank/master/core/People.csv). 
+### Load data
 
-Fortunately, we are able to load the raw data directly into R using the `readr::read_csv()` function. We will load the `People` dataset into R using `readr::read_csv()`, and assign `"https://bit.ly/3scsHw7"` to the `file` argument. 
+Fortunately, we are also able to load the raw data directly into R using the `readr::read_csv()` function. We will load the `People` dataset into R using `readr::read_csv()`, and assign `"https://bit.ly/3scsHw7"` to the `file` argument. 
 
 ```
 # click to execute code

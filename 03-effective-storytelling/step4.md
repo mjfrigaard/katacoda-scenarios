@@ -2,7 +2,7 @@
 
 Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset so we can see if it was imported correctly.
 
-### Viewing entire datasets
+### Skimming data
 
 We'll be using the [`skimr` package](https://docs.ropensci.org/skimr/), which is designed for
 
@@ -19,13 +19,13 @@ PeopleSkim <- People %>%
 summary(PeopleSkim)
 ```{{execute}}
 
-The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`16` of which are `character` and `8` are `numeric`).
+The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`14` columns are `character`s, `2` columns are `Date`s, and `8` are `numeric`).
 
 ### Viewing variables by type
 
-The new `PeopleSkim` object gives us summary information that we can check against the documentation and can help guide our data visualizations. We will start by viewing the 16 character variables in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)).
+The new `PeopleSkim` object gives us summary information that we can check against the documentation and can help guide our data visualizations. We will start by viewing the variables according to their types in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)). The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"Date"`). 
 
-The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"factor"`). Run the code below to view the character values in `People`.
+Run the code below to use `skimr::yank()` to view a `skim` of the `character` variables in the `People` dataset.
 
 ```
 # click to execute code
@@ -33,7 +33,19 @@ PeopleSkim %>%
   skimr::yank(skim_type = "character")
 ```{{execute}}
 
-We can see none of these data are missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `16` character values. 
+
+
+We can see none of these data are missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `14` character values. 
+
+Next we use `skimr::yank()` to view a `skim` of the `Date` variables in the `People` dataset.
+
+```
+# click to execute code
+PeopleSkim %>% 
+  skimr::yank(skim_type = "Date")
+```{{execute}}
+
+The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), middle (`median`), and unique number (`n_unique`) of dates.
 
 *Do these numbers make sense?*
 
