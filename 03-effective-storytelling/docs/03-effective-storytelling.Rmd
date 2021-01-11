@@ -766,9 +766,9 @@ Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal con
 
 ### Contents of a boxplot
 
-Box plots display many of the numbers we see in the `skimr` output.
+Box plots display many of the numbers we see in the `skimr` output. Click on the code below to create a `skimr` summary on the `stars` ratings for the Ramen in `Tray`s.
 
-```{r}
+```{r skimr-trays}
 # click to execute code
 Ramen %>% 
   # filter to most common styles
@@ -788,6 +788,8 @@ Ramen %>%
 ```
 
 
+The figure below displays a box-plot for the distribution of `stars` ratings across `Tray` level of `style`. The summary statistics from the `skimr` output have been labeled on the graph. The 25th percentile (or `p25`) is the first vertical line of the box (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box. The 75th percentile (`p75`) is the last vertical line in the box (or hinge). 
+
 <!-- 
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png) 
 -->
@@ -796,6 +798,24 @@ Ramen %>%
 # fs::dir_ls("img")
 knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png")
 ```
+
+We've also labeled the minimum (`p0`) and maximum (`p100`) values, and the interquartile range (which is similar to the standard deviation). We can calculate the interquartile range using `dplyr` below:
+
+```{r iqr-stars-tray, message=FALSE, warning=FALSE}
+# click to execute code
+Ramen %>% 
+  # filter to most common styles
+  filter(style == "Tray") %>% 
+  # select only stars and style
+  dplyr::select(stars, style) %>% 
+  # group dataset by style
+  dplyr::group_by(style) %>% 
+  # summarize IQR
+  dplyr::summarize(
+    `Stars/Tray IQR` = IQR(stars, na.rm = TRUE))
+```
+
+
 
 
 ## step 9
