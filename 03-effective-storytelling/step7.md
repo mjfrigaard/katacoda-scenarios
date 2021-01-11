@@ -35,7 +35,9 @@ Ramen %>%
   skimr::yank("numeric") 
 ```{{execute}}
 
-### Overlapping density plots
+The output shows Ramen from a `Box` has the highest `stars` rating. We are going to confirm this with a ridgeline plot.
+
+### The `ggridges` package
 
 The mean and median (`p50`) in the skimr output tells us the distribution of `stars` varies slightly for the filtered levels of `style`, so we will view the density for each distribution with a ridgeline plot from the [`ggridges` package](https://wilkelab.org/ggridges/).  
 
@@ -61,7 +63,7 @@ labs_ridge_stars_style <- labs(
        y = NULL) 
 ```{{execute}}
 
-I've found this practice to be very helpful for conceptualizing graphs *before* I begin building them, which reduces errors and saves time!
+> *I've found this practice to be very helpful for conceptualizing graphs before I begin building them, which reduces errors and saves time!*
 
 ### Overlapping density plots
 
@@ -89,4 +91,6 @@ ggsave(plot = gg_step7_ridge_01,
        units = "in")
 ```{{execute}}
 
-We can see from the ridgeline plot that the `star` ratings for the `Box` level in `style` is concentrated around `5`.
+Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
+
+From the ridgeline plot, we can see that the `star` ratings for the `Box` level in `style` are concentrated around `5`.

@@ -1,10 +1,10 @@
 ### Are we seeing what we expected?
 
-Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset so we can see if it was imported correctly.
+Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset. This way, we can see if we imported all the variables and observations correctly.
 
 ### Skimming data
 
-We'll be using the [`skimr` package](https://docs.ropensci.org/skimr/), which is designed for
+We'll be using the [`skimr` package](https://docs.ropensci.org/skimr/). `skimr` was is designed for:
 
 > "displaying summary statistics the user can skim quickly to understand their data"
 
@@ -23,7 +23,7 @@ The output above shows a high-level summary of all the variables in the `People`
 
 ### Viewing variables by type
 
-The new `PeopleSkim` object gives us summary information that we can check against the documentation and can help guide our data visualizations. We will start by viewing the variables according to their types in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)). The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"Date"`). 
+The new `PeopleSkim` object gives us summary information to check against the documentation and help guide our data visualizations. We will start by viewing the variables according to their types in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)). The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"Date"`). 
 
 Run the code below to use `skimr::yank()` to view a `skim` of the `character` variables in the `People` dataset.
 
@@ -33,11 +33,9 @@ PeopleSkim %>%
   skimr::yank(skim_type = "character")
 ```{{execute}}
 
-
-
 We can see none of these data are missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `14` character values. 
 
-Next we use `skimr::yank()` to view a `skim` of the `Date` variables in the `People` dataset.
+Next, we use `skimr::yank()` to view a `skim` of the `Date` variables in the `People` dataset.
 
 ```
 # click to execute code
@@ -45,13 +43,14 @@ PeopleSkim %>%
   skimr::yank(skim_type = "Date")
 ```{{execute}}
 
-The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), middle (`median`), and unique number (`n_unique`) of dates.
+
+The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), middle (`median`), and the number of unique (`n_unique`) of dates.
 
 *Do these numbers make sense?*
 
-We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*").
+We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*"). The earliest dates for both `debut` and `finalGame` are in May of 1871 (which corresponds to the [first MLB game ever played](https://www.retrosheet.org/1stGame.htm)).
 
-Next we will view the `"numeric"` variables in `People`.
+Finally, we will use `skimr::yank()` to view the `"numeric"` variables in `People`.
 
 ```
 # click to execute code
@@ -64,7 +63,7 @@ The numeric variables give us some additional information about these `8` column
 **Location statistics**
 
 - the `mean` (or average) gives us the expected value for each variable  
-- the median (as `p50`) or the 'center' value for each variable (half of the values are above and half are below)  
+- the median (as `p50`) or the 'center' value for each variable. Half of the values are above, and half are below. 
 
 **Spread statistics**
 
@@ -77,7 +76,7 @@ The numeric variables give us some additional information about these `8` column
 *Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles*  
 
 - the standard deviation (as `sd`), a measure of each variable's disbursement.
-*The standard deviation describes how far a variable's values are spread out from their mean*
+*The standard deviation describes how far a variable's values are spread out around their mean*
 
 Below we use `skimr::focus()` and `skimr::yank()` to view the missing, mean, standard deviation, minimum, maximum, and a small histogram for the numeric variables in the `People` dataset:
 
@@ -93,7 +92,7 @@ PeopleSkim %>%
 
 *Do these numbers make sense?*
 
-We notice two implausible values from the `skimr` output: the `weight` variable has max value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven`, `birthMonth`, `birthDay`, `birthYear`, and `weight` for the abnormally high value.
+We notice two implausible values from the `skimr` output: the `weight` variable maximum value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven` for the abnormally high `weight` value.
 
 ```
 # click to execute code
@@ -104,7 +103,7 @@ People %>%
 
 Google the player's name. *What is his listed weight on Wikipedia?*
 
-As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to still be alive.
+As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because, given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to be still alive.
 
 ### Other resources for missing data
 

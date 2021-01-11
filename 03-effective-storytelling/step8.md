@@ -1,66 +1,42 @@
-### Visualizing relationships
+### Multiple variable distributions (2)
 
-Now that we know how to explore variable distributions, we will look at relationships between two (or more) variables. 
+In the last step, we learned the distribution for Ramen `stars`ratings varied across the five most common levels of `style`. In this step, we're going to view the variation of `stars` across `style` with a box-plot. Box-plots are a great way of viewing the summary statistcs for a numeric variable (like `stars`) across multiple levels of a categorical variable (like `style`).
 
-The most common graph for visualizing the relationship between two numerical variables is the [scatterplot](https://en.wikipedia.org/wiki/Scatter_plot).
+### Box-plot labels
 
-A scatterplot displays data for two numeric variables, with one variable on each axis. These can help us detect whether a relationship (or correlation) exists between the two variables.
-
-### Load data
-
-For this graph, we're going to load the `dplyr::starwars` and get a `skimr` of these data. These data are collected from the [Star Wars API](https://swapi.dev/). Read more about this dataset on [`dplyr`s website](https://dplyr.tidyverse.org/reference/starwars.html).
+We'll build the labels for the graph similar to the labels we used for the ridgeline plot, but we'll be a little more explicit with the `subtitle` and `x` axis.
 
 ```
 # click to execute code
-StarWars <- dplyr::starwars 
-SWSkim <- StarWars %>% skimr::skim()
+labs_box_stars_style <- labs(
+     title = "Star ratings by style",  
+     subtitle = "Star ratings across pack, bowl, cup, tray, and box containers",
+     caption = "source: https://www.theramenrater.com/resources-2/the-list/",
+     x = "Ramen star ratings", 
+     y = NULL) 
 ```{{execute}}
 
-We're only interested in the numeric variables `StarWars` for now, so we're going to check these columns in `SWSkim`:
+### Building box-plots
+
+We'll filter the data to the five most common `style`s again, and map `stars` to the `x` axis and `style` to the `y` axis. We will also map `style` to the `fill` aesthetic inside `ggplot2::geom_boxplot()`.
+
+We don't need a guide (or legend), so we will remove it with `guides(fill = FALSE)`.
 
 ```
 # click to execute code
-SWSkim %>% 
-  # only return numeric values
-  skimr::yank("numeric") 
-```{{execute}}
-
-We can see there is at least one value of `mass` is considerably higher than the rest. We can tell because the location statistics are similar to each other (`mean` = `97.3`, median (`p50`) = `84.5`), but the spread is almost twice the value of the location (`sd` = `169`). This is further confirmed by the maximum value (`p100`) of `1358`.
-
-### Labels
-
-We're going to `filter` the `StarWars` data only observations with `mass` less than `200` (to remove the extreme value out of the data before plotting). 
-
-```
-# click to execute code
-labs_scatter_ht_mass_01 <- labs(
-  title = "Star Wars Character's height and mass", 
-  subtitle = "Scatter plot for height and mass (mass < 200)",
-  x = "Mass", 
-  y = "Height")
-```{{execute}}
-
-### Scatterplot (2 variables)
-
-We will create a scatterplot with `ggplot2::geom_point()`, map `mass` to the `x` axis, and map `height` to the `y` axis.
-
-```
-# click to execute code
-gg_step8_scatter_01 <- StarWars %>% 
-  filter(mass < 200) %>% 
-  ggplot(aes(x = mass, y = height)) + 
-  geom_point() + 
-  # add labels
-  labs_scatter_ht_mass_01
+gg_step8_boxplot_01 <- Ramen %>% 
+    # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>%
+  ggplot(aes(x = stars, y = style)) + 
+  geom_boxplot(aes(fill = style)) +
+  guides(fill = FALSE) + 
+  labs_box_stars_style
 # save
-ggsave(plot = gg_step8_scatter_01,
-       filename = "gg-step8-scatter-01.png",
+ggsave(plot = gg_step8_boxplot_01,
+       filename = "gg-step8-boxplot-01.png",
        device = "png",
        width = 9,
        height = 6,
        units = "in")
 ```{{execute}}
-
-Open the `gg-step8-scatter-01.png` graph in the vscode IDE (above the Terminal console). 
-
-Based on the scatterplot, we can see there is a positive relationship between `mass` and `height` for Star Wars characters. But is this the same for all types of characters? For example, does this relationship hold true for all levels of `gender`?

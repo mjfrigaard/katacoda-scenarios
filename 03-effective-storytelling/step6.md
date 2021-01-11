@@ -1,6 +1,7 @@
-### Counting values (2)
+### Single variable distributions (2)
 
-The previous step demonstrated how to use a histogram to view the distribution of a single variable. We needed to adjust the `bins` in the histogram to make it's shape easier to interpret. Density plots use [kernel smoothing](https://ggplot2-book.org/statistical-summaries.html) to create cleaner distributions. 
+The previous step demonstrated how to use a histogram to view the distribution of a single variable. We needed to adjust the `bins` in the histogram to make its shape easier to interpret. Density plots use [kernel smoothing](https://ggplot2-book.org/statistical-summaries.html) to create cleaner distributions. 
+
 
 ### Build a density plot
 
@@ -40,7 +41,9 @@ subtitle_dens_stars <- paste0("Star rating (mean +/- sd): ",
 subtitle_dens_stars
 ```{{execute}}
 
-Creating labels this way ensures they are updated whenever the underlying data change. 
+We can now supply `subtitle_dens_stars` to the `labs(subtitle = )` function. 
+
+Creating labels this way ensures they are updated whenever the underlying data change.  
 
 ```
 # click to execute code
@@ -61,8 +64,9 @@ ggsave(plot = gg_step6_density_02,
        units = "in")
 ```{{execute}}
 
+
 Open the `gg-step6-density-02.png` graph in the vscode IDE (above the Terminal console). 
 
-As we've said, an important part of communicating effectively is **knowing your audience**. It's unlikely these exploratory graphs will be part of our final deliverable, so the audience for these graphs will likely be us! 
+As we've said, an essential part of effective communication is **knowing your audience**. It's unlikely these exploratory graphs will be part of our final deliverable, so the audience for these graphs will likely be us! 
 
 Using descriptive labels makes sure we know what we're seeing when we're viewing our graphs.

@@ -1,12 +1,12 @@
-### Counting values (1)
+### Single variable distributions (1)
 
-In the previous step, the `skimr` output displayed a small histogram for each numeric variable in the `People` dataset. Histograms display the distribution for a single variable.
+The `skimr` output displayed a small histogram for each numeric variable in the `People` dataset in the previous step. Histograms show the distribution for a single variable.
 
 ### Load data
 
 These data come from [the `TidyTuesday` project](https://github.com/rfordatascience/tidytuesday), a data repository who's intent is 
 
-> "to provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions"
+> "to provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions."
 
 We're going to use a dataset of Ramen ratings from [The Ramen Rater](https://www.theramenrater.com/resources-2/the-list/). Read more about these data [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04).
 
@@ -40,11 +40,11 @@ RamenSkim %>%
 
 Pay attention to the `hist` column for `stars`--it shows the distribution for the values. *What are most of the values concentrated?* 
 
-We are going to investigate the distribution of `stars` by building a histogram with `ggplot2`.
+We will investigate the distribution of `stars` by building a histogram with `ggplot2`.
 
 ### Build a histogram
 
-We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`. Note that we are also assigning labels to the graph that include 1) a clear title, 2) descriptive information about the graph, 3) the source of the data.
+We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`. Note that we are also assigning labels to the graph that includes 1) a clear title, 2) descriptive information about the graph, 3) the source of the data.
 
 ```
 # click to execute code
@@ -66,28 +66,30 @@ gg_step5_hist_01 <- Ramen %>%
 
 We will need to open the `gg-step5-hist-01.png` graph in the vscode IDE (above the Terminal console). 
 
-Histograms are built by stacking the variable values into defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument. Run the code below to see how the distribution looks with 20 `bins`.
+Histograms are built by stacking the variable values into a defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument. 
+
+Run the code below to see how the distribution looks with 20 `bins`. Note we also include the `color = "white"` argument to ensure we can see each bar separately. 
 
 ```
 # click to execute code
 gg_step5_hist_02 <- Ramen %>% 
   ggplot2::ggplot(aes(x = stars)) + 
-  ggplot2::geom_histogram(bins = 20) + 
+  ggplot2::geom_histogram(bins = 20, color = "white") + 
   ggplot2::labs(
        title = "Distribution of ramen stars", 
        subtitle = "bins = 20",
        caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 # save
 ggsave(plot = gg_step5_hist_02,
-       filename = "gg-step5-hist-02.png",
-       device = "png",
-       width = 9,
-       height = 6,
-       units = "in")
+        filename = "gg-step5-hist-02.png",
+        device = "png",
+        width = 9,
+        height = 6,
+        units = "in")
 ```{{execute}}
 
 Open the `gg-step5-hist-02.png` graph in the vscode IDE (above the Terminal console). 
 
-The values in `stars` fit into `20` bins better than the default `30`, because we can see where values are concentrated (and the high frequency of 5-star ratings).
+The `stars` values fit into `20` bins better than the default `30` because we can see where values are concentrated (and the high frequency of 5-star ratings).
 
 

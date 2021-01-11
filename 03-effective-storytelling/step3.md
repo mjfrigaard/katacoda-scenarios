@@ -1,8 +1,8 @@
 ### Before you start: what do we expect to see?
 
-Generally speaking, we should have an idea about how many columns and rows a new dataset will contain. We should know some general information about the variable formats, too. 
+Generally speaking, we should have an idea about how many columns and rows the new dataset will contain. We should know some general information about the variable formats, too. 
 
-For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical values (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or text data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
+For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or categorical data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
 
 We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
 
@@ -14,17 +14,16 @@ Now, I am not going to assume everyone participating in this scenario is familia
 
 > "...if you want to work in data visualisation, you need to be relentlessly and systematically curious. You should try to get interested in anything and everything that comes your way." - Alberto Cairo, Knight Chair in Visual Journalism, University of Miami
 
-Analyzing and visualizing data you're not familiar with is a chance to learn something new, and it puts you in a position to ask 'out of the box' questions. 
+Analyzing and visualizing data you're not familiar with is a chance to learn something new, and it puts you in a position to ask 'out of the box' questions.  
 
 ### Doing your homework
 
-It's also important to read any accompanying documentation for new datasets. If we read the documentation on the [Lahman website](http://www.seanlahman.com/files/database/readme2017.txt), we find out that `People` contains "*Player names, DOB, and biographical info.*" 
-
+It's also essential to read any accompanying documentation for new datasets. If we read the documentation on the [Lahman website](http://www.seanlahman.com/files/database/readme2017.txt), we find out that `People` contains "*Player names, DOB, and biographical info.*" 
 The variables in `People` are presented below: 
 
 **People table**
 
-`playerID` = A unique code assigned to each player. The `playerID` links the data in this file with records in the other files     
+`playerID` = A unique code assigned to each player. The `playerID` links the data in this file with records in the other files.
 `birthYear` = Year player was born  
 `birthMonth` = Month player was born  
 `birthDay` = Day player was born  
@@ -50,9 +49,9 @@ The variables in `People` are presented below:
 `bbrefID` = ID used by Baseball Reference website   
 
 
-Now that we have some background information on this new dataset, we will take a look at how well `People` meets our expectations.  
+Now that we have some background information on this new dataset, we will look at how well `People` meets our expectations.  
 
-Whenever we get a new source of data, we should try to view the data in its native format (if possible). We can view the raw data on the [Github repository](https://resources.oreilly.com/katacoda/martin-frigaard/blob/master/03-effective-storytelling/data/People.csv). 
+Whenever we get a new data source, we should try to view the data in its native format (if possible). We can view the raw data on the [Github repository](https://resources.oreilly.com/katacoda/martin-frigaard/blob/master/03-effective-storytelling/data/People.csv). 
 
 ### Load data
 
