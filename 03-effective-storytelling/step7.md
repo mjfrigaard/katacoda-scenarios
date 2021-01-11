@@ -1,4 +1,4 @@
-### Comparing counts
+### Multiple variable distributions (1)
 
 We've looked at the distribution of all the values in the `stars` variable, but what if we were interested in the distribution of `stars` across the groups in another categorical variable, like `style`, which is the *Style of container (cup, pack, tray, etc.).*
 
@@ -9,7 +9,7 @@ We can check the levels of style with `dplyr::count()`
 Ramen %>% dplyr::count(style, sort = TRUE)
 ```{{execute}}
 
-This tells us the top five most common reviews for Ramen came from `Pack`s, `Bowl`s, `Cup`s, `Tray`s, and `Box`s.
+The output above tells us the top five most common reviews for Ramen came from `Pack`s, `Bowl`s, `Cup`s, `Tray`s, and `Box`es.
 
 ### Grouped skims
 
@@ -51,7 +51,7 @@ library(ggridges)
 
 ### Build labels first!
 
-We'll build the labels for this graph first in `labs_ridge_stars_style`, so we know what we're expecting to see. 
+We'll build the labels for this graph first in `labs_ridge_stars_style`, so we know what we're expecting to see.  
 
 ```
 # click to execute code
@@ -93,4 +93,4 @@ ggsave(plot = gg_step7_ridge_01,
 
 Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
 
-From the ridgeline plot, we can see that the `star` ratings for the `Box` level in `style` are concentrated around `5`.
+From the ridgeline plot, we can see that the `stars` ratings for the `Box` level in `style` are concentrated around `5`.

@@ -63,4 +63,8 @@ Inside the VSCODE EXPLORER, you'll find a section labeled **ROOT.** ROOT is a fo
 
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-explorer-root.png)
 
+The image below gives you an overview of this entire process:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-run-png-view.png) 
+
 Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!

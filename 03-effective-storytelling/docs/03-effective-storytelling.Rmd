@@ -248,11 +248,13 @@ knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-s
 
 The image below gives you an overview of this entire process:
 
-```{r img-sc-03-code-run-png-view.png, echo=FALSE, out.width='100%', out.height='100%'}
-# knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-run-png-view.png")
-knitr::include_graphics("img/sc-03-code-run-png-view.png")
-```
+<!-- 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-run-png-view.png) 
+-->
 
+```{r img-sc-03-code-run-png-view.png, echo=FALSE, out.width='100%', out.height='100%'}
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-code-run-png-view.png")
+```
 
 
 Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!
@@ -718,14 +720,14 @@ From the ridgeline plot, we can see that the `stars` ratings for the `Box` level
 
 - [x] included in step8.md?
 
-
 ### Multiple variable distributions (2)
 
-In the last step, we learned the distribution for Ramen `stars`ratings varied across the five most common levels of `style`. In this step, we're going to view the variation of `stars` across `style` with a box-plot. Box-plots are a great way of viewing the summary statistcs for a numeric variable (like `stars`) across multiple levels of a categorical variable (like `style`).
+In the last step, we learned the distribution for Ramen `stars` ratings varied across the five most common levels of `style`. This step will view the variation of `stars` across `style` with a box-plot. Box-plots are a great way of viewing the summary statistics for a numeric variable (like `stars`) across multiple levels of a categorical variable (like `style`).
 
 ### Box-plot labels
 
 We'll build the labels for the graph similar to the labels we used for the ridgeline plot, but we'll be a little more explicit with the `subtitle` and `x` axis.
+
 
 ```{r labs_box_stars_style}
 # click to execute code
@@ -739,11 +741,11 @@ labs_box_stars_style <- labs(
 
 ### Building box-plots
 
-We'll filter the data to the five most common `style`s again, and map `stars` to the `x` axis and `style` to the `y` axis. We will also map `style` to the `fill` aesthetic inside `ggplot2::geom_boxplot()`.
+We'll filter the data to the five most common `style`s again and map `stars` to the `x` axis and `style` to the `y` axis. We will also map `style` to the `fill` aesthetic inside `ggplot2::geom_boxplot()`.
 
 We don't need a guide (or legend), so we will remove it with `guides(fill = FALSE)`.
 
-```{r gg_step8_boxplot_01}
+```{r gg_step8_boxplot_01, message=FALSE, warning=FALSE}
 gg_step8_boxplot_01 <- Ramen %>% 
     # filter to most common styles
   filter(style %in% c("Pack", "Bowl",
@@ -762,11 +764,19 @@ gg_step8_boxplot_01 <- Ramen %>%
 gg_step8_boxplot_01
 ```
 
-Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step8-boxplot-01.png` graph in the vscode IDE (above the Terminal console). 
 
-### Contents of a boxplot
+## step 9
 
-Box plots display many of the numbers we see in the `skimr` output. Click on the code below to create a `skimr` summary on the `stars` ratings for the Ramen in `Tray`s.
+- [x] included in step8.md?
+
+### Multiple variable distributions (3)
+
+Box plots display many of the numbers we see in the `skimr` output. 
+
+### Contents of a box-plot
+
+Click on the code below to create a `skimr` summary of Ramen `stars` ratings in `Tray`s.
 
 ```{r skimr-trays}
 # click to execute code
@@ -787,19 +797,7 @@ Ramen %>%
   skimr::yank("numeric") 
 ```
 
-
-The figure below displays a box-plot for the distribution of `stars` ratings across `Tray` level of `style`. The summary statistics from the `skimr` output have been labeled on the graph. The 25th percentile (or `p25`) is the first vertical line of the box (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box. The 75th percentile (`p75`) is the last vertical line in the box (or hinge). 
-
-<!-- 
-![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png) 
--->
-
-```{r img-sc-03-terminal-code, echo=FALSE, out.width='100%', out.height='100%'}
-# fs::dir_ls("img")
-knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png")
-```
-
-We've also labeled the minimum (`p0`) and maximum (`p100`) values, and the interquartile range (which is similar to the standard deviation). We can calculate the interquartile range using `dplyr` below:
+We can calculate the interquartile range using `dplyr` below:
 
 ```{r iqr-stars-tray, message=FALSE, warning=FALSE}
 # click to execute code
@@ -815,30 +813,37 @@ Ramen %>%
     `Stars/Tray IQR` = IQR(stars, na.rm = TRUE))
 ```
 
+The figure below shows a box-plot for the distribution of `stars` ratings across the `Tray` level of `style`. The summary statistics from the `skimr` output have been labeled on the graph. The 25th percentile (or `p25`) is the box's first vertical line (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box, and the 75th percentile (`p75`) is the last vertical line in the box (or hinge). 
 
+<!-- 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png) 
+-->
 
+```{r sc-03-boxplot-diagram, echo=FALSE, out.width='100%', out.height='100%'}
+# fs::dir_ls("img")
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png")
+```
 
-## step 9
+We've also labeled the minimum (`p0`) and maximum (`p100`) values and the interquartile range (which is similar to the standard deviation). 
 
-- [x] included in step8.md?
+### Communication tip
 
-### Multiple variable distributions (2)
-
-### Box-plots
+If your audience is not familiar with box-plots, the figure above is an example of supporting information to include. It explains *how* to read the graph, using an example from the finished chart. However, using complex plots adds mental labor to your audience and can take attention away from the point you're trying to make. Effective communication means always using the most straightforward (or most common) graphs to reveal your findings. 
 
 ## step 10
 
 - [x] included in step8.md?
 
-### Multiple variable distributions (3)
+### Multiple variable distributions (4)
 
-### Box-plots
+
+
 
 ## step 11
 
 - [x] included in step11.md?
 
-### Visualizing relationships
+### Visualizing relationships (1)
 
 Now that we know how to explore variable distributions, we will look at relationships between two (or more) variables. 
 
