@@ -766,13 +766,35 @@ Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal con
 
 ### Contents of a boxplot
 
+Box plots display many of the numbers we see in the `skimr` output.
+
+```{r}
+# click to execute code
+Ramen %>% 
+  # filter to most common styles
+  filter(style == "Tray") %>% 
+  # select only stars and style
+  dplyr::select(stars, style) %>% 
+  # group dataset by style
+  dplyr::group_by(style) %>% 
+  # skim grouped data
+  skimr::skim() %>% 
+  # focus on select output
+  skimr::focus(style,
+               numeric.p0, numeric.p25, numeric.p50,
+               numeric.p75, numeric.p100, numeric.hist) %>% 
+  # only return numeric values
+  skimr::yank("numeric") 
+```
+
+
 <!-- 
-![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram) 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png) 
 -->
 
 ```{r img-sc-03-terminal-code, echo=FALSE, out.width='100%', out.height='100%'}
 # fs::dir_ls("img")
-knitr::include_graphics("img/sc-03-boxplot-diagram.png")
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png")
 ```
 
 
