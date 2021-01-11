@@ -6,7 +6,7 @@ For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical
 
 We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
 
-These data come from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/)".
+These data come from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/).
 
 ### Why baseball data? 
 
