@@ -1,14 +1,16 @@
 ### Things to consider about your audience
 
-We need to determine before creating a graph or figure is who the audience or stakeholders will be. In most cases, our stakeholders or audience is whoever is getting the final results of our analysis. 
+You'll need to determine who the audience or stakeholders will be before creating graphs or figures. You'll likely create multiple charts throughout a data analysis that you won't include as a final deliverable.  But in most cases, our stakeholders or audience is whoever is getting the final results or product. 
 
-You'll likely create multiple graphs throughout a data analysis that you won't include as a final deliverable.  
+The final graphs you produce will depend on 1) the question we're trying to answer, and 2) the level of [statistical literacy](https://en.wikipedia.org/wiki/Statistical_literacy#) of our audience. 
 
-The final graphs you produce will depend on 1) the question we've been asked, and 2) the level of [statistical literacy](https://en.wikipedia.org/wiki/Statistical_literacy#) of our audience. 
+If your audience isn't familiar with particular data visualizations, provide them with enough information to interpret the graph (and check their understanding). However, if you find yourself spending more time explaining a data visualization's design than what the visualization reveals, we should consider a different graph. 
 
-If our audience isn't familiar with particular data visualizations, we should consider it part of our job to educate them. However, if we find ourselves spending more time explaining a data visualization's design than what the visualization reveals, we should consider a different graph. 
+### Asking questions
 
-Data visualization should be an iterative process, and getting regular feedback from your audience will help you understand their point of view. It will also help manage their expectations regarding the final deliverable.
+Data visualization should be an iterative process, and getting regular feedback from your audience will help you understand their point of view. It will also help manage their expectations regarding the final deliverable.  
+
+As Hilary Mason and D.J. Patil point out in their 2015 text, [Data Driven: Creating a Data Culture](https://www.oreilly.com/library/view/data-driven/9781491925454/), asking the right questions "*involves domain knowledge and expertise, coupled with a keen ability to see the problem, see the available data, and match up the two.*"
 
 The questions below can help guide your project and make sure you understand what your audience/stakeholders are expecting:
 
@@ -18,4 +20,6 @@ The questions below can help guide your project and make sure you understand wha
 4. *What context will we present the deliverable(s) in?* (slide deck, website, report, etc.)  
 5. *How familiar will the audience be with the data in our project?* (how much background information should we be providing?)
 
-Having the answers to these questions documented will 1) keep your project focused and timely, 2) ensure both you and your client/customer have a clear vision for successful completion. 
+We recommended having the answers to these questions documented somewhere, as this will 1) keep your project focused and timely, 2) ensure both you and your client/customer have a clear vision for successful completion. 
+
+**You want to fully understand what you are visualizing, who the audience will be, and why they will care about the results.**

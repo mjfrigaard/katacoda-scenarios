@@ -1,9 +1,9 @@
 ---
 title: "Combine narrative with numbers for effective storytelling in R"
 author: "Martin Frigaard"
-output: 
-  html_document: 
-    toc: yes
+output:
+  rmdformats::downcute:
+    self_contained: true 
     toc_float: yes
     highlight: tango
     theme: cosmo
@@ -88,7 +88,7 @@ The learners I'm expecting to be participating in this course are:
 
 ## intro
 
-- [x] included in intro.md?
+- [ ] included in intro.md?
 
 ### Welcome!
 
@@ -124,6 +124,8 @@ This scenario will show you how to make sure your graphs and figures communicate
 ## step 1
 
 - [x] included in step1.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Things to consider about your audience
 
@@ -147,11 +149,15 @@ The questions below can help guide your project and make sure you understand wha
 4. *What context will we present the deliverable(s) in?* (slide deck, website, report, etc.)  
 5. *How familiar will the audience be with the data in our project?* (how much background information should we be providing?)
 
-Having the answers to these questions documented will 1) keep your project focused and timely, 2) ensure both you and your client/customer have a clear vision for successful completion. 
+We recommended having the answers to these questions documented somewhere, as this will 1) keep your project focused and timely, 2) ensure both you and your client/customer have a clear vision for successful completion. 
+
+**You want to fully understand what you are visualizing, who the audience will be, and why they will care about the results.**
 
 ## step 2 
 
 - [x] included in step2.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Data lineage: the background on our data
 
@@ -161,11 +167,11 @@ It's best to start a project off with a '*view of the forest from outside the tr
 
 Having a "birds" eye view' of the data ensures there weren't any problems with exporting or importing. Data lineage also means understanding where the data are coming from--was it collected from an internal relational database, an external vendor, or did it come from the web or social media?
 
-Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. 
+Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. In this scenario, we will use a variety of data sources, but they will all be [tabular](https://en.wikipedia.org/wiki/Table_(information). Tabular data, like [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet), organize data into columns and rows. R can handle multiple kinds of data, but that is a topic that extends beyond the scope of this scenario.
 
 ### Initiate R 
 
-Let's get started! Launch an R console by clicking here -> `R` (Click on the *Run command* icon)
+Let's load some data and get started! Launch an R console by clicking here -> `R` (Click on the *Run command* icon)
 
 ### Load packages
 
@@ -259,22 +265,23 @@ knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-s
 
 Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!
 
-
 ## step 3
 
-- [x] included in step3.md?
+- [ ] included in step3.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Before you start: what do we expect to see?
 
-Generally speaking, we should have an idea about how many columns and rows the new dataset will contain. We should know some general information about the variable formats, too. 
+Before starting a new project, we want to set some expectations. The questions we covered in the previous step help us understand what kind of data we'll be encountering. Sometimes we'll be dealing with unknown data, but we should know approximately how many columns and rows the new dataset will contain. We might know some basic information about the variable formats, too. 
 
-For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or categorical data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
+For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or categorical data (character (`male` and `female`) or factor ('low`, `medium`, `high`)).
 
-We're going to load a dataset to demonstrate how to investigate a dataset's quality or *how well it matches our expectations*? 
+### Baseball data 
+
+We're going to load a dataset to demonstrate a few ways to investigate a dataset's quality (or how well it matches our expectations).
 
 These data come from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/).
-
-### Why baseball data? 
 
 Now, I am not going to assume everyone participating in this scenario is familiar with baseball. However, this exercise is arguably more rewarding if you are *not* a baseball fan. If you're working with data, part of your job to be interested in whatever you've been asked to analyze (even if it is only for the monetary reward).
 
@@ -312,8 +319,9 @@ The variables in `People` are presented below:
 `debut` = Date that player made first major league appearance  
 `finalGame` = Date that player made first major league appearance (blank if still active)  
 `retroID` = ID used by retrosheet  
-`bbrefID` = ID used by Baseball Reference website   
+`bbrefID` = ID used by Baseball Reference website
 
+Most of the data pre-processing steps center around a single question: *Is this what I expected to see*? Reading the documentation gives you expectations about the data to confirm or refute (and then investigate).
 
 Now that we have some background information on this new dataset, we will look at how well `People` meets our expectations.  
 
@@ -327,13 +335,17 @@ Fortunately, we are also able to load the raw data directly into R using the `re
 People <- readr::read_csv(file = "https://bit.ly/3scsHw7")
 ```
 
+
 ## step 4
 
-- [x] included in step4.md?
+- [ ] included in step4.md?
+- [ ] grammar  
+- [ ] spelling  
 
-### Are we seeing what we expected?
 
-Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset. This way, we can see if we imported all the variables and observations correctly.
+### Are we seeing what we expected? (1)
+
+Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset. In the previous step, we went over some of the `People` dataset documentation, so we know what to expect.  
 
 ### Skimming data
 
@@ -354,7 +366,7 @@ summary(PeopleSkim)
 
 The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`14` columns are `character`s, `2` columns are `Date`s, and `8` are `numeric`).
 
-### Viewing variables by type
+### Viewing character variables 
 
 The new `PeopleSkim` object gives us summary information to check against the documentation and help guide our data visualizations. We will start by viewing the variables according to their types in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)). The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"Date"`). 
 
@@ -367,6 +379,8 @@ PeopleSkim %>%
 
 We can see none of these data are missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `14` character values. 
 
+### Viewing date variables
+
 Next, we use `skimr::yank()` to view a `skim` of the `Date` variables in the `People` dataset.
 
 ```{r date-vars-skim}
@@ -374,21 +388,54 @@ PeopleSkim %>%
   skimr::yank(skim_type = "Date")
 ```
 
-The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), middle (`median`), and the number of unique (`n_unique`) of dates.
+The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), and middle (`median`).
 
-*Do these numbers make sense?*
+The number of unique (`n_unique`) of dates prints to the next line. This is because the terminal window has a width limit, so wide content is printed to the line below.
+
+<!-- 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/n_unique-col.png) 
+-->
+
+```{r n_unique-col.png, echo=FALSE, out.width='100%', out.height='100%'}
+# "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/n_unique-col.png"
+knitr::include_graphics("img/n_unique-col.png")
+```
+
+### Do these numbers make sense?
 
 We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*"). The earliest dates for both `debut` and `finalGame` are in May of 1871 (which corresponds to the [first MLB game ever played](https://www.retrosheet.org/1stGame.htm)).
 
-Finally, we will use `skimr::yank()` to view the `"numeric"` variables in `People`.
+## step 5
 
-```{r num-vars-skim}
+- [ ] included in step5.md?
+
+### Are we seeing what we expected? (2)
+
+In the previous step, we viewed a `skim()` of the `"character"` and `"Date"` variables in the `People` dataset. We're going to continue 'skimming' these data and check them against our expectations.
+
+### Viewing numeric variables
+
+We'll use `skimr::yank()` and `skimr::focus()` to view the `n_missing` and `complete_rate` for the `"numeric"` variables in `People`.
+
+```{r num-n_missing-complete_rate}
 PeopleSkim %>% 
-  skimr::yank("numeric")
+  focus(n_missing, complete_rate) %>% 
+    yank("numeric")
 ```
 
+The `complete_rate` for  `birthYear`, `birthMonth`, `birthDay`, `weight` and `height` are over 90%. However, the `deathYear`, `deathMonth` and `height` is under 50%. *Why do you think these data have missing values?*
 
-The numeric variables give us some additional information about these `8` columns. Along with `n_missing` and `complete_rate`, we get [set of summary statistics](https://en.wikipedia.org/wiki/Summary_statistics): 
+Below we use `skimr::focus()` and `skimr::yank()` to view the mean, standard deviation, minimum, maximum, and a small histogram for the numeric variables in the `People` dataset:
+
+```{r focus-num-missing}
+PeopleSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p100,
+               numeric.hist) %>% 
+    skimr::yank("numeric") 
+```
+
+The `skim()` output for the `"numeric"` variables give us a [set of summary statistics](https://en.wikipedia.org/wiki/Summary_statistics): 
 
 **Location statistics**
 
@@ -399,30 +446,20 @@ The numeric variables give us some additional information about these `8` column
 
 - the lowest value for each variable, or minimum (as `p0`)  
 - the highest value for each variable, or maximum (as `p100`)  
-*Together, these two values can give us the range, which is the difference between the maximum and minimum values*
+- *Together, these two values can give us the range, which is the difference between the maximum and minimum values*
 
 - the first quartile (as `p25`), which is the 'middle' of the data points *below* the median  
 - the third quartile (as `p75`), which is the 'middle' of the data points *above* the median  
-*Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles*  
+- *Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles*  
 
 - the standard deviation (as `sd`), a measure of each variable's disbursement.
-*The standard deviation describes how far a variable's values are spread out around their mean*
+- *The standard deviation describes how far a variable's values are spread out around their mean*
 
-Below we use `skimr::focus()` and `skimr::yank()` to view the missing, mean, standard deviation, minimum, maximum, and a small histogram for the numeric variables in the `People` dataset:
+### Do these numbers make sense?
 
-```{r focus-num-missing}
-PeopleSkim %>% 
-  skimr::focus(n_missing, 
-               numeric.mean, numeric.sd, 
-               numeric.p0, numeric.p100,
-               numeric.hist) %>% 
-    skimr::yank("numeric") 
-```
+As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because, given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to be still alive.
 
-
-*Do these numbers make sense?*
-
-We notice two implausible values from the `skimr` output: the `weight` variable maximum value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven` for the abnormally high `weight` value.
+We also notice an implausible value from the `skimr` output: the `weight` variable maximum value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven` for the abnormally high `weight` value.
 
 ```{r weight-outlier}
 People %>% 
@@ -432,16 +469,134 @@ People %>%
 
 Google the player's name. *What is his listed weight on Wikipedia?*
 
-As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because, given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to be still alive.
 
-### Other resources for missing data
+## step 6
 
-Read more about visualizing missing data [here](http://naniar.njtierney.com/articles/naniar-visualisation.html) and on the [`visdat` package site](https://docs.ropensci.org/visdat/), or on the [`inspectdf` package](https://github.com/alastairrushworth/inspectdf) website. 
+- [ ] included in step5.md?
+
+### Counting things 
+
+> "Data science is mostly counting things." - [Sam Firke](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html)
+
+Data visualizations are drawings made with numbers. The challenge is picking the best image for the numbers you want to show. Before you can choose what you want to draw, you need to decide which numbers you'd like to display. 
+
+### Column/bar charts
+
+In a bar (or column) chart, each bar/column length represents a numeric value. The number of levels determines the number of bars or columns.
+
+We will create a bar chart of the `bats` variable in `People`, which measures whether the player bats left-handed (`L`), right-handed (`R`), both (`B`), or if these data are missing (`NA`). Below we'll use `dplyr`'s `count()` function to tally the number of values for the different category items in `bats`.
+
+```{r count-bats}
+People %>% 
+  count(bats, sort = TRUE)
+```
 
 
-## step 5
+In `ggplot2`, we create a bar chart using the `geom_bar()` function. First we map `bats` to both `x` and `fill` inside the `ggplot(aes())` functions. If you need a refresher on `ggplot2` layers and mapping, check out the [previous scenario](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2). 
 
-- [x] included in step5.md?
+We also remove the legend with `guides(fill = FALSE)`, and add labels for `title`, `subtitle`, `caption`, and `y` axis (`x` is set to `NULL`).
+
+```{r gg_step6_bar_01}
+# click to execute code
+gg_step6_bar_01 <- People %>% 
+  ggplot(aes(x = bats, fill = bats)) + 
+  geom_bar() + 
+  guides(fill = FALSE) +
+  labs(title = "MILB Player's batting hand",
+       subtitle = "Left (L), right (R), or both (B)",
+       caption = "source: http://www.seanlahman.com/",
+       x = NULL, y = "Number of birth countries")
+# save
+# ggsave(plot = gg_step6_bar_01,
+#        filename = "gg-step6-bar-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step6_bar_01
+```
+
+We will need to open the `gg-step6-bar-01.png` graph in the vscode IDE (above the Terminal console). 
+
+### Counting top 10 birth countries
+
+`geom_bar()` only takes a single categorical (or factor) variable. Sometimes we'll need to specify the variable we want to map to the `y` axis. For example, the code below uses `dplyr::filter()` and `dplyr::count()` to get return top 10 non-US 'Country of birth' for players in the `People` dataset. We then use `utils::head()` to return the top 10 rows, and `dplyr::mutate()` with `forcats::fct_inorder()` to change the format of the `birthCountry` variable to a factor.
+
+```{r count-non-us-birthCountry}
+People %>% 
+  filter(birthCountry != "USA" & !is.na(birthCountry)) %>% 
+  count(birthCountry, sort = TRUE) %>% 
+  head(10) %>% 
+  mutate(birthCountry = fct_inorder(birthCountry))
+```
+
+In this case, we have two variables in this output: `birthCountry` and `n`. If we're going to build a graph from these data, we know we'll need a way to represent both the name of the country, and the number of times it occurs.
+
+For this graph, we will need to use `ggplot2`s `geom_col()` function (we will include the code from above which creates a dataset with only the top 10 non-US birth countries). 
+
+We also map `birthCountry` to `fill`, remove the legend with `guides(fill = FALSE)`, and add a label for the `y` axis with `ggplot2::labs()`.
+
+```{r gg_step6_col_01}
+# click to execute code
+gg_step6_col_01 <- People %>% 
+  filter(birthCountry != "USA" & !is.na(birthCountry)) %>% 
+  count(birthCountry, sort = TRUE) %>% 
+  head(10) %>% 
+  mutate(birthCountry = fct_inorder(birthCountry)) %>%  
+  ggplot(aes(x = birthCountry, y = n, fill = birthCountry)) + 
+  geom_col() +
+  guides(fill = FALSE) +
+  labs(title = "Top 10 Non-US brith countries", 
+       subtitle = "source: http://www.seanlahman.com/",
+       x = NULL, y = "Number of birth countries")
+# save
+# ggsave(plot = gg_step6_col_01,
+#        filename = "gg-step6-col-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step6_col_01
+```
+
+We will need to open the `gg-step6-bar-01.png` graph in the vscode IDE (above the Terminal console). 
+
+### Flip the coordinates
+
+If we find the `x` axis is difficult to read, we can pivot the display of the columns with the `ggplot2::coord_flip()` function. Note that we also need to change the `forcats` function in `mutate()` to `fct_reorder()`.
+
+```{r gg_step6_col_02}
+# click to execute code
+gg_step6_col_02 <- People %>% 
+  filter(birthCountry != "USA" & !is.na(birthCountry)) %>% 
+  count(birthCountry, sort = TRUE) %>% 
+  head(10) %>% 
+  # reorder the birthCountry by n
+  mutate(birthCountry = fct_reorder(birthCountry, n)) %>%  
+  ggplot(aes(x = birthCountry, y = n, 
+             fill = birthCountry)) + 
+  geom_col() +
+  guides(fill = FALSE) +
+  # flip coordinates
+  coord_flip() +
+  labs(title = "Top 10 Non-US brith countries", 
+       subtitle = "source: http://www.seanlahman.com/",
+       y = NULL, x = "Number of birth countries")
+# save
+# ggsave(plot = gg_step6_col_02,
+#        filename = "gg-step6-col-02.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step6_col_02
+```
+
+We will need to open the `gg-step6-bar-02.png` graph in the vscode IDE (above the Terminal console). 
+
+### Communication tips
+
+Bar charts and column charts display the counts for each different response in categorical variable. We can help our audience interpret these graphs by always setting the count axis scale to zero, sorting the responses in the chart so make it easier to read, and flipping the `x` axis if it is difficult to read.  
 
 ### Single variable distributions (1)
 
@@ -538,7 +693,7 @@ The `stars` values fit into `20` bins better than the default `30` because we ca
 
 ## step 6
 
-- [x] included in step6.md?
+- [ ] included in step6.md?
 
 ### Single variable distributions (2)
 
@@ -616,7 +771,7 @@ Using descriptive labels makes sure we know what we're seeing when we're viewing
 
 ## step 7
 
-- [x] included in step7.md?
+- [ ] included in step7.md?
 
 ### Multiple variable distributions (1)
 
@@ -718,7 +873,7 @@ From the ridgeline plot, we can see that the `stars` ratings for the `Box` level
 
 ## step 8
 
-- [x] included in step8.md?
+- [ ] included in step8.md?
 
 ### Multiple variable distributions (2)
 
@@ -768,7 +923,7 @@ Open the `gg-step8-boxplot-01.png` graph in the vscode IDE (above the Terminal c
 
 ## step 9
 
-- [x] included in step8.md?
+- [ ] included in step8.md?
 
 ### Multiple variable distributions (3)
 
@@ -832,7 +987,7 @@ If your audience is not familiar with box-plots, the figure above is an example 
 
 ## step 10
 
-- [x] included in step8.md?
+- [ ] included in step8.md?
 
 ### Multiple variable distributions (4)
 
@@ -841,7 +996,7 @@ If your audience is not familiar with box-plots, the figure above is an example 
 
 ## step 11
 
-- [x] included in step11.md?
+- [ ] included in step11.md?
 
 ### Visualizing relationships (1)
 
@@ -913,7 +1068,7 @@ Based on the scatterplot, we can see a positive relationship between `mass` and 
 
 ## step 12
 
-- [x] included in step9.md?
+- [ ] included in step9.md?
 
 ### Counting with tabyls
 
@@ -974,7 +1129,7 @@ The color of the points shows that the `feminine` characters occupy a smaller ra
 
 ## step 13
 
-- [x] included in step13.md?
+- [ ] included in step13.md?
 
 ### Combining narrative and numbers 
 
@@ -1003,7 +1158,7 @@ It's also important not to confuse your audience when designing graphs. Relation
 
 ## step 11
 
-- [x] included in step11.md?
+- [ ] included in step11.md?
 
 ### 
 
@@ -1042,6 +1197,10 @@ It's also important not to confuse your audience when designing graphs. Relation
 ## step 20
 
 - [ ] included in step20.md?
+
+### Other resources for missing data
+
+Read more about visualizing missing data [here](http://naniar.njtierney.com/articles/naniar-visualisation.html) and on the [`visdat` package site](https://docs.ropensci.org/visdat/), or on the [`inspectdf` package](https://github.com/alastairrushworth/inspectdf) website.
 
 ## finish 
 
