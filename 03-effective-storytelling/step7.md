@@ -1,96 +1,93 @@
-### Multiple variable distributions (1)
+### Single variable distributions (1)
 
-We've looked at the distribution of all the values in the `stars` variable, but what if we were interested in the distribution of `stars` across the groups in another categorical variable, like `style`, which is the *Style of container (cup, pack, tray, etc.).*
+The `skimr` output displayed a small histogram for each numeric variable in the `People` dataset in the previous steps. Histograms are a special kind of bar/column chart--they show the distribution for numeric variables by 'binning' each response into a set number of bars/columns.
 
-We can check the levels of style with `dplyr::count()`
+### Load data
+
+These data come from [the `TidyTuesday` project](https://github.com/rfordatascience/tidytuesday), a data repository who's intent is 
+
+> "to provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions."
+
+We're going to use a dataset of Ramen ratings from [The Ramen Rater](https://www.theramenrater.com/resources-2/the-list/). Read more about these data [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04).
+
+Below we import the raw data from an external .csv file into `Ramen` and get a `skimr::skim()` summary (stored in `RamenSkim`)
 
 ```
-# click to execute code
-Ramen %>% dplyr::count(style, sort = TRUE)
+Ramen <- readr::read_csv("https://bit.ly/38sO0S7")
+RamenSkim <- skimr::skim(Ramen)
 ```{{execute}}
 
-The output above tells us the top five most common reviews for Ramen came from `Pack`s, `Bowl`s, `Cup`s, `Tray`s, and `Box`es.
+### Review data 
 
-### Grouped skims
-
-We can use `dplyr`s `filter`, `select`, and `group_by` functions with `skimr` to see the distribution of the `stars` variable across the five most common `style` levels.
+View the character variables in `RamenSkim`
 
 ```
-# click to execute code
-Ramen %>% 
-  # filter to most common styles
-  filter(style %in% c("Pack", "Bowl",
-                      "Cup", "Tray", "Box")) %>% 
-  # select only stars and style
-  dplyr::select(stars, style) %>% 
-  # group dataset by style
-  dplyr::group_by(style) %>% 
-  # skim grouped data
-  skimr::skim() %>% 
-  # focus on select output
-  skimr::focus(n_missing, style,
-               numeric.mean, numeric.sd, numeric.hist,
-               numeric.p0, numeric.p50, numeric.p100) %>% 
-  # only return numeric values
-  skimr::yank("numeric") 
+RamenSkim %>% 
+  skimr::yank("character")
 ```{{execute}}
 
-The output shows Ramen from a `Box` has the highest `stars` rating. We are going to confirm this with a ridgeline plot.
+*How complete are these data?*
 
-### The `ggridges` package
-
-The mean and median (`p50`) in the skimr output tells us the distribution of `stars` varies slightly for the filtered levels of `style`, so we will view the density for each distribution with a ridgeline plot from the [`ggridges` package](https://wilkelab.org/ggridges/).  
-
-Install and load `ggridges` below:
+View the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `Ramen`.
 
 ```
-# click to execute code
-install.packages("ggridges")
-library(ggridges)
+RamenSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>% 
+  skimr::yank("numeric")
 ```{{execute}}
 
-### Build labels first!
+Pay attention to the `hist` column for `stars`--it shows the distribution for the values. *Where are most of the values concentrated?* 
 
-We'll build the labels for this graph first in `labs_ridge_stars_style`, so we know what we're expecting to see.  
+We will investigate the distribution of `stars` by building a histogram with `ggplot2`.
 
-```
-# click to execute code
-labs_ridge_stars_style <- labs(
-       title = "Star ratings by style",  
-       subtitle = "Star rating across most common ramen containers",
-       caption = "source: https://www.theramenrater.com/resources-2/the-list/",
-       x = "Star rating", 
-       y = NULL) 
-```{{execute}}
+### Build a histogram
 
-> *I've found this practice to be very helpful for conceptualizing graphs before I begin building them, which reduces errors and saves time!*
-
-### Overlapping density plots
-
-The code below uses `ggridges::geom_density_ridges()` function to build overlapping density plots. In this plot, we map the `fill` argument to the `style` variable. We also want to set the `guides(fill = )` to `FALSE` because we'll have labels on the graph for each level of `style`.
+We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`. Note that we are also assigning labels to the graph that includes 1) a clear title, 2) descriptive information about the graph, 3) the source of the data.
 
 ```
 # click to execute code
-gg_step7_ridge_01 <- Ramen %>% 
-  # filter to most common styles
-  filter(style %in% c("Pack", "Bowl",
-                      "Cup", "Tray", "Box")) %>% 
-  ggplot(aes(x = stars,
-             y = style,
-             fill = style)) +
-  geom_density_ridges() +
-  guides(fill = FALSE) + 
-  # add labels 
-  labs_ridge_stars_style
+gg_step7_hist_01 <- Ramen %>% 
+  ggplot(aes(x = stars)) + 
+  geom_histogram() + 
+  labs(
+       title = "Distribution of ramen stars", 
+       subtitle = "bins = 30",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 # save
-ggsave(plot = gg_step7_ridge_01,
-       filename = "gg-step7-ridge-01.png",
-       device = "png",
-       width = 9,
-       height = 6,
-       units = "in")
+ggsave(plot = gg_step7_hist_01,
+        filename = "gg-step7-hist-01.png",
+        device = "png",
+        width = 9,
+        height = 6,
+        units = "in")
 ```{{execute}}
 
-Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
+We will need to open the `gg-step7-hist-01.png` graph in the vscode IDE (above the Terminal console). 
 
-From the ridgeline plot, we can see that the `stars` ratings for the `Box` level in `style` are concentrated around `5`.
+As we stated above, histograms stack the variable values into a defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument. 
+
+Run the code below to see how the distribution looks with 20 `bins`. Note we also include the `color = "white"` argument to ensure we can see each bar separately. 
+
+```
+# click to execute code
+gg_step7_hist_02 <- Ramen %>% 
+  ggplot(aes(x = stars)) + 
+  geom_histogram(bins = 20, color = "white") + 
+  labs(
+       title = "Distribution of ramen stars", 
+       subtitle = "bins = 20",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+ggsave(plot = gg_step7_hist_02,
+        filename = "gg-step7-hist-02.png",
+        device = "png",
+        width = 9,
+        height = 6,
+        units = "in")
+```{{execute}}
+
+Open the `gg-step7-hist-02.png` graph in the vscode IDE (above the Terminal console). 
+
+The `stars` values fit into `20` bins better than the default `30` because we can see where values are concentrated (and the high frequency of 5-star ratings).

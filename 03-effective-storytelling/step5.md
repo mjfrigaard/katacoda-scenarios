@@ -1,95 +1,90 @@
-### Single variable distributions (1)
+### Are we seeing what we expected? (2)
 
-The `skimr` output displayed a small histogram for each numeric variable in the `People` dataset in the previous step. Histograms show the distribution for a single variable.
+In the previous step, we viewed a `skim()` of the `"character"` and `"Date"` variables in the `People` dataset. We're going to continue 'skimming' these data and check them against our expectations.
 
-### Load data
+### Viewing numeric variables
 
-These data come from [the `TidyTuesday` project](https://github.com/rfordatascience/tidytuesday), a data repository who's intent is 
-
-> "to provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions."
-
-We're going to use a dataset of Ramen ratings from [The Ramen Rater](https://www.theramenrater.com/resources-2/the-list/). Read more about these data [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04).
-
-Below we import the raw data from an external .csv file into `Ramen` and get a `skimr::skim()` summary (stored in `RamenSkim`)
+We'll use `skimr::yank()` and `skimr::focus()` to view the `n_missing` and `complete_rate` for the `"numeric"` variables in `People`.
 
 ```
-# click to execute code
-Ramen <- readr::read_csv("https://bit.ly/38sO0S7")
-RamenSkim <- skimr::skim(Ramen)
+PeopleSkim %>% 
+  focus(n_missing, complete_rate) %>% 
+    yank("numeric")
 ```{{execute}}
 
-### Review data 
+The `complete_rate` for  `birthYear`, `birthMonth`, `birthDay`, `weight` and `height` are over 90%. However, the `deathYear`, `deathMonth` and `height` is under 50%. *Why do you think these data have missing values?*
 
-View the character variables in `RamenSkim`
+The `skim()` output for the `"numeric"` variables give us a [set of summary statistics](https://en.wikipedia.org/wiki/Summary_statistics): 
+
+**Location statistics**
+
+- the `mean` (or average) gives us the expected value for each variable  
+- the median (as `p50`) or the 'center' value for each variable. Half of the values are above, and half are below.
 
 ```
-# click to execute code
-RamenSkim %>% 
-  skimr::yank("character")
+PeopleSkim %>% 
+  skimr::focus(numeric.mean, numeric.p50) %>% 
+    skimr::yank("numeric") 
 ```{{execute}}
 
-*How complete are these data?*
 
-View the numeric variables in `RamenSkim`
+**Spread statistics**
+
+- the lowest value for each variable, or minimum (as `p0`)  
+- the highest value for each variable, or maximum (as `p100`)  
+- *Together, these two values can give us the range, which is the difference between the maximum and minimum values*
 
 ```
-# click to execute code
-RamenSkim %>% 
-  skimr::yank("numeric")
+PeopleSkim %>% 
+  skimr::focus(numeric.p0, numeric.p100) %>% 
+    skimr::yank("numeric") 
 ```{{execute}}
 
-Pay attention to the `hist` column for `stars`--it shows the distribution for the values. *What are most of the values concentrated?* 
-
-We will investigate the distribution of `stars` by building a histogram with `ggplot2`.
-
-### Build a histogram
-
-We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`. Note that we are also assigning labels to the graph that includes 1) a clear title, 2) descriptive information about the graph, 3) the source of the data.
+- the first quartile (as `p25`), which is the 'middle' of the data points *below* the median  
+- the third quartile (as `p75`), which is the 'middle' of the data points *above* the median  
+- *Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles* 
 
 ```
-# click to execute code
-gg_step5_hist_01 <- Ramen %>% 
-  ggplot2::ggplot(aes(x = stars)) + 
-  ggplot2::geom_histogram() + 
-  ggplot2::labs(
-       title = "Distribution of ramen stars", 
-       subtitle = "bins = 30",
-       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
-# save
- ggsave(plot = gg_step5_hist_01, 
-        filename = "gg-step5-hist-01.png", 
-        device = "png", 
-        width = 9,
-        height = 6,
-        units = "in")
+PeopleSkim %>% 
+  skimr::focus(numeric.p25, numeric.p75) %>% 
+    skimr::yank("numeric") 
 ```{{execute}}
 
-We will need to open the `gg-step5-hist-01.png` graph in the vscode IDE (above the Terminal console). 
 
-Histograms are built by stacking the variable values into a defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument. 
-
-Run the code below to see how the distribution looks with 20 `bins`. Note we also include the `color = "white"` argument to ensure we can see each bar separately. 
+- the standard deviation (as `sd`), a measure of each variable's disbursement.
+- *The standard deviation describes how far a variable's values are spread out around their mean*
 
 ```
-# click to execute code
-gg_step5_hist_02 <- Ramen %>% 
-  ggplot2::ggplot(aes(x = stars)) + 
-  ggplot2::geom_histogram(bins = 20, color = "white") + 
-  ggplot2::labs(
-       title = "Distribution of ramen stars", 
-       subtitle = "bins = 20",
-       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
-# save
-ggsave(plot = gg_step5_hist_02,
-        filename = "gg-step5-hist-02.png",
-        device = "png",
-        width = 9,
-        height = 6,
-        units = "in")
+PeopleSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd) %>% 
+    skimr::yank("numeric") 
 ```{{execute}}
 
-Open the `gg-step5-hist-02.png` graph in the vscode IDE (above the Terminal console). 
 
-The `stars` values fit into `20` bins better than the default `30` because we can see where values are concentrated (and the high frequency of 5-star ratings).
+These numbers can be challenging to make sense of by themselves. Fortunately, the `skimr::skim()` output comes with a `hist` column. The `hist` column is a small histogram for the `numeric` variables. 
 
+Below we use `skimr::focus()` and `skimr::yank()` to view the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `People`. 
 
+```
+PeopleSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>% 
+    skimr::yank("numeric") 
+```{{execute}}
+
+The `hist` column shows us a miniature distribution of the values in each numeric variable.
+
+### Do these numbers make sense?
+
+- As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because, given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to be still alive.
+
+- We also notice an implausible value from the `skimr` output: the `weight` variable maximum value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven` for the abnormally high `weight` value.
+
+```
+People %>% 
+  filter(weight == 2125) %>% 
+  select(nameGiven, birthMonth, birthDay, birthYear, weight)
+```{{execute}}
+
+Google the player's name. *What is his listed weight on Wikipedia?*

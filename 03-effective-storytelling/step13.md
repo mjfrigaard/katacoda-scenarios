@@ -1,23 +1,68 @@
-### Combining narrative and numbers 
+### Visualizing relationships (1)
 
-Now that we've created a few graphs, we should stop and consider what narrative information to include with our displayed numbers. 
+Now that we know how to explore variable distributions, we will look at relationships between two (or more) variables. 
 
-The text to accompany your graphs will largely depend on the context of the problem you're trying to solve (or question you're trying to answer), but there are a few general guidelines we can apply to each type of graph. 
+The most common graph for visualizing the relationship between two numerical variables is the [scatterplot](https://en.wikipedia.org/wiki/Scatter_plot).
 
-### Communcation (labels)
+A scatterplot displays data for two numeric variables, with one variable on each axis. These can help us detect whether a relationship (or correlation) exists between the two variables.
 
-Titles should be objective and neutral, expressing the "who," "what," and "where" of the figure's measurements. Avoid jargon and unnecessary descriptive words. Stick with 1) what was measured, 2) when it was measured, and 3) how it was measured (i.e., the units).
+### Load data
 
-When you are building labels, plan on providing enough information that the chart becomes a 'stand-alone product.' By this, we mean that if a new observer viewed your graph, they would at minimum be able to understand what point the figure was trying to make (i.e., "this graph shows the values in X variable," or "this figure shows the relationship between X and Y").
+We will load the `dplyr::starwars` data and get a `skimr` of these data. These data come from the [Star Wars API](https://swapi.dev/). Read more about this dataset on [`dplyr`s website](https://dplyr.tidyverse.org/reference/starwars.html).
 
-### Communication (distributions)
+```
+# click to execute code
+StarWars <- dplyr::starwars 
+SWSkim <- StarWars %>% skimr::skim()
+```{{execute}}
 
-You aren't likely to include the variable distribution graphs in your final deliverable, but they provide essential information for your audience. For example, single-variable plots can tell us if the data had any outliers (or extreme values). Histograms, density, and ridgeline plots can also tell us if a variable has a normal distribution, which is a crucial assumption to check before modeling. Summary statistics are also vital to include (usually in a table) because it tethers the figure to mathematical values. 
+We're only interested in the numeric variables `StarWars` for now, so we will view the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` from `SWSkim`.
 
-The information from these exploratory charts gives your narrative context and frames the problem. If we were telling a story, this would be the portion that tells us the setting or universe in which our characters live.
+```
+# click to execute code
+SWSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>% 
+  skimr::yank("numeric") 
+```{{execute}}
 
-### Communication (relationships)
+We can see at least one value of `mass` that is considerably higher than the rest. We can tell because the location statistics are similar to each other (`mean` = `97.3`, median (`p50`) = `84.5`), but the spread is almost twice the value of the location (`sd` = `169`). The maximum value (`p100`) of `1358` also confirms this finding.
 
-Describing a relationship answers a certain kind of question, i.e., "What is the relationship between two quantitative measures?" When presenting a graph with relationships, consider the context and framing for the conclusions your audience will draw. Is this good news? For example, if the chart displays a drop in sales over time, anticipate how this will change your presentation's tone, and be ready to answer questions. 
+### Labels
 
-It's also important not to confuse your audience when designing graphs. Relationships with 'good news' should have the data points showing a positive trend (i.e., as X values increase, so do Y values), and vice-versa. You don't want to find yourself in a situation where you're explaining that your graph doesn't show what you're audience is *seeing*.
+We're going to `filter` the `StarWars` data only observations with `mass` less than `200` (to remove the extreme value out of the data before plotting). 
+
+```
+# click to execute code
+labs_scatter_ht_mass_01 <- labs(
+  title = "Star Wars Character's height and mass", 
+  subtitle = "Scatter plot for height and mass (mass < 200)",
+  x = "Mass", 
+  y = "Height")
+```{{execute}}
+
+### Scatterplot (2 variables)
+
+We will create a scatterplot with `ggplot2::geom_point()`, map `mass` to the `x` axis, and map `height` to the `y` axis.
+
+```
+# click to execute code
+gg_step13_scatter_01 <- StarWars %>% 
+  filter(mass < 200) %>% 
+  ggplot(aes(x = mass, y = height)) + 
+  geom_point() + 
+  # add labels
+  labs_scatter_ht_mass_01
+# save
+ggsave(plot = gg_step13_scatter_01,
+        filename = "gg-step13-scatter-01.png",
+        device = "png",
+        width = 9,
+        height = 6,
+        units = "in")
+```{{execute}}
+
+Open the `gg-step13-scatter-01.png` graph in the vscode IDE (above the Terminal console). 
+
+Based on the scatterplot, we can see a positive relationship between `mass` and `height` for Star Wars characters. But is this the same for all types of characters? For example, does this relationship hold for all levels of `gender`?

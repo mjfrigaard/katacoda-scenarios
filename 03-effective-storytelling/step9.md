@@ -1,52 +1,96 @@
-### Multiple variable distributions (3)
+### Multiple variable distributions (1)
 
-Box plots display many of the numbers we see in the `skimr` output. 
+We've looked at the distribution of all the values in the `stars` variable, but what if we were interested in the distribution of `stars` across the groups in another categorical variable, like `style`, which is the *Style of container (cup, pack, tray, etc.).*
 
-### Contents of a box-plot
+We can check the levels of style with `dplyr::count()`
 
-Click on the code below to create a `skimr` summary of Ramen `stars` ratings in `Tray`s.
+```
+Ramen %>% 
+  count(style, sort = TRUE)
+```{{execute}}
+
+The output above tells us the top five most common reviews for Ramen came from `Pack`s, `Bowl`s, `Cup`s, `Tray`s, and `Box`es.
+
+### Grouped skims
+
+We can use `dplyr`s `filter`, `select`, and `group_by` functions with `skimr` to see the distribution of the `stars` variable across the five most common `style` levels.
 
 ```
 # click to execute code
 Ramen %>% 
   # filter to most common styles
-  filter(style == "Tray") %>% 
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>% 
   # select only stars and style
-  dplyr::select(stars, style) %>% 
+  select(stars, style) %>% 
   # group dataset by style
-  dplyr::group_by(style) %>% 
+  group_by(style) %>% 
   # skim grouped data
-  skimr::skim() %>% 
+  skim() %>% 
   # focus on select output
-  skimr::focus(style,
-               numeric.p0, numeric.p25, numeric.p50,
-               numeric.p75, numeric.p100, numeric.hist) %>% 
+  skimr::focus(n_missing, style,
+               numeric.mean, numeric.sd, numeric.hist,
+               numeric.p0, numeric.p50, numeric.p100) %>% 
   # only return numeric values
   skimr::yank("numeric") 
 ```{{execute}}
 
-We can calculate the interquartile range using `dplyr` below:
+The output shows Ramen from a `Box` has the highest `stars` rating. We are going to confirm this with a ridgeline plot.
+
+### The `ggridges` package
+
+The mean and median (`p50`) in the skimr output tells us the distribution of `stars` varies slightly for the filtered levels of `style`, so we will view the density for each distribution with a ridgeline plot from the [`ggridges` package](https://wilkelab.org/ggridges/).  
+
+Install and load `ggridges` below:
 
 ```
 # click to execute code
-Ramen %>% 
-  # filter to most common styles
-  filter(style == "Tray") %>% 
-  # select only stars and style
-  dplyr::select(stars, style) %>% 
-  # group dataset by style
-  dplyr::group_by(style) %>% 
-  # summarize IQR
-  dplyr::summarize(
-    `Stars/Tray IQR` = IQR(stars, na.rm = TRUE))
+install.packages("ggridges")
+library(ggridges)
 ```{{execute}}
 
-The figure below shows a box-plot for the distribution of `stars` ratings across the `Tray` level of `style`. The summary statistics from the `skimr` output have been labeled on the graph. The 25th percentile (or `p25`) is the box's first vertical line (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box, and the 75th percentile (`p75`) is the last vertical line in the box (or hinge). 
+### Build labels first!
 
-![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png)
+We'll build the labels for this graph first in `labs_ridge_stars_style`, so we know what we're expecting to see. 
 
-We've also labeled the minimum (`p0`) and maximum (`p100`) values and the interquartile range (which is similar to the standard deviation). 
+```
+# click to execute code
+labs_ridge_stars_style <- labs(
+       title = "Star ratings by style",  
+       subtitle = "Star rating across most common ramen containers",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/",
+       x = "Star rating", 
+       y = NULL) 
+```{{execute}}
 
-### Communication tip
+> *I've found this practice to be very helpful for conceptualizing graphs before I begin building them, which reduces errors and saves time!*
 
-If your audience is not familiar with box-plots, the figure above is an example of supporting information to include. It explains *how* to read the graph, using an example from the finished chart. However, using complex plots adds mental labor to your audience and can take attention away from the point you're trying to make. Effective communication means always using the most straightforward (or most common) graphs to reveal your findings. 
+### Overlapping density plots
+
+The code below uses `ggridges::geom_density_ridges()` function to build overlapping density plots. In this plot, we map the `fill` argument to the `style` variable. We also want to set the `guides(fill = )` to `FALSE` because we'll have labels on the graph for each level of `style`.
+
+```
+# click to execute code
+gg_step9_ridge_01 <- Ramen %>%
+  # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>%
+  ggplot(aes(x = stars,
+             y = style,
+             fill = style)) +
+  geom_density_ridges() +
+  guides(fill = FALSE) +
+  # add labels
+  labs_ridge_stars_style
+# # save
+ggsave(plot = gg_step9_ridge_01,
+        filename = "gg-step9-ridge-01.png",
+        device = "png",
+        width = 9,
+        height = 6,
+        units = "in")
+```{{execute}}
+
+Open the `gg-step9-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
+
+We can see that the `stars` ratings for the `Box` level in `style` are concentrated around `5` from the ridgeline plot.

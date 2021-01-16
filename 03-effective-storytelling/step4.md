@@ -43,7 +43,9 @@ PeopleSkim %>%
   skimr::yank(skim_type = "Date")
 ```{{execute}}
 
-The `skim` of the `Date` variables shows us which data are missing ( `complete_rate`), along with the earliest (`min`), latest (`max`), middle (`median`), and the number of unique (`n_unique`) of dates.
+The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), and middle (`median`).
+
+The number of unique (`n_unique`) dates prints to the next line. This behavior is because the terminal window has a width limit. If the Terminal output extends past this limit, the content gets printed to the line below.
 
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/n_unique-col.png)
 

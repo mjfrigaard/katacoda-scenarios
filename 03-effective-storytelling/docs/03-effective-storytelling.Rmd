@@ -338,9 +338,9 @@ People <- readr::read_csv(file = "https://bit.ly/3scsHw7")
 
 ## step 4
 
-- [ ] included in step4.md?
-- [ ] grammar  
-- [ ] spelling  
+- [x] included in step4.md?
+- [x] grammar  
+- [x] spelling  
 
 
 ### Are we seeing what we expected? (1)
@@ -364,7 +364,7 @@ summary(PeopleSkim)
 ```
 
 
-The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`14` columns are `character`s, `2` columns are `Date`s, and `8` are `numeric`).
+The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns ('14' columns are `character's, `2` columns are `Date's, and `8` are `numeric`).
 
 ### Viewing character variables 
 
@@ -390,7 +390,7 @@ PeopleSkim %>%
 
 The `skim` of the `Date` variables shows us which data are missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), and middle (`median`).
 
-The number of unique (`n_unique`) of dates prints to the next line. This is because the terminal window has a width limit, so wide content is printed to the line below.
+The number of unique (`n_unique`) dates prints to the next line. This behavior is because the terminal window has a width limit. If the Terminal output extends past this limit, the content gets printed to the line below.
 
 <!-- 
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/n_unique-col.png) 
@@ -398,16 +398,19 @@ The number of unique (`n_unique`) of dates prints to the next line. This is beca
 
 ```{r n_unique-col.png, echo=FALSE, out.width='100%', out.height='100%'}
 # "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/n_unique-col.png"
-knitr::include_graphics("img/n_unique-col.png")
+knitr::include_graphics("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/n_unique-col.png")
 ```
 
 ### Do these numbers make sense?
 
 We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*"). The earliest dates for both `debut` and `finalGame` are in May of 1871 (which corresponds to the [first MLB game ever played](https://www.retrosheet.org/1stGame.htm)).
 
+
 ## step 5
 
-- [ ] included in step5.md?
+- [x] included in step5.md?
+- [x] grammar  
+- [x] spelling 
 
 ### Are we seeing what we expected? (2)
 
@@ -425,16 +428,6 @@ PeopleSkim %>%
 
 The `complete_rate` for  `birthYear`, `birthMonth`, `birthDay`, `weight` and `height` are over 90%. However, the `deathYear`, `deathMonth` and `height` is under 50%. *Why do you think these data have missing values?*
 
-Below we use `skimr::focus()` and `skimr::yank()` to view the mean, standard deviation, minimum, maximum, and a small histogram for the numeric variables in the `People` dataset:
-
-```{r focus-num-missing}
-PeopleSkim %>% 
-  skimr::focus(numeric.mean, numeric.sd, 
-               numeric.p0, numeric.p100,
-               numeric.hist) %>% 
-    skimr::yank("numeric") 
-```
-
 The `skim()` output for the `"numeric"` variables give us a [set of summary statistics](https://en.wikipedia.org/wiki/Summary_statistics): 
 
 **Location statistics**
@@ -442,24 +435,65 @@ The `skim()` output for the `"numeric"` variables give us a [set of summary stat
 - the `mean` (or average) gives us the expected value for each variable  
 - the median (as `p50`) or the 'center' value for each variable. Half of the values are above, and half are below.
 
+```{r mean-p50}
+PeopleSkim %>% 
+  skimr::focus(numeric.mean, numeric.p50) %>% 
+    skimr::yank("numeric") 
+```
+
+
 **Spread statistics**
 
 - the lowest value for each variable, or minimum (as `p0`)  
 - the highest value for each variable, or maximum (as `p100`)  
 - *Together, these two values can give us the range, which is the difference between the maximum and minimum values*
 
+```{r p0-p100}
+PeopleSkim %>% 
+  skimr::focus(numeric.p0, numeric.p100) %>% 
+    skimr::yank("numeric") 
+```
+
 - the first quartile (as `p25`), which is the 'middle' of the data points *below* the median  
 - the third quartile (as `p75`), which is the 'middle' of the data points *above* the median  
-- *Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles*  
+- *Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles* 
+
+```{r p25-p100}
+PeopleSkim %>% 
+  skimr::focus(numeric.p25, numeric.p75) %>% 
+    skimr::yank("numeric") 
+```
+
 
 - the standard deviation (as `sd`), a measure of each variable's disbursement.
 - *The standard deviation describes how far a variable's values are spread out around their mean*
 
+```{r mean-sd}
+PeopleSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd) %>% 
+    skimr::yank("numeric") 
+```
+
+
+These numbers can be challenging to make sense of by themselves. Fortunately, the `skimr::skim()` output comes with a `hist` column. The `hist` column is a small histogram for the `numeric` variables. 
+
+Below we use `skimr::focus()` and `skimr::yank()` to view the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `People`. 
+
+```{r skim-focus-yank-people}
+PeopleSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>% 
+    skimr::yank("numeric") 
+```
+
+The `hist` column shows us a miniature distribution of the values in each numeric variable.
+
 ### Do these numbers make sense?
 
-As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because, given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to be still alive.
+- As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because, given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to be still alive.
 
-We also notice an implausible value from the `skimr` output: the `weight` variable maximum value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven` for the abnormally high `weight` value.
+- We also notice an implausible value from the `skimr` output: the `weight` variable maximum value (`2125`). We can use `dplyr`'s `filter` and `select` functions to find the `nameGiven` for the abnormally high `weight` value.
 
 ```{r weight-outlier}
 People %>% 
@@ -472,7 +506,9 @@ Google the player's name. *What is his listed weight on Wikipedia?*
 
 ## step 6
 
-- [ ] included in step5.md?
+- [ ] included in step6.md?
+- [x] grammar  
+- [x] spelling 
 
 ### Counting things 
 
@@ -484,7 +520,7 @@ Data visualizations are drawings made with numbers. The challenge is picking the
 
 In a bar (or column) chart, each bar/column length represents a numeric value. The number of levels determines the number of bars or columns.
 
-We will create a bar chart of the `bats` variable in `People`, which measures whether the player bats left-handed (`L`), right-handed (`R`), both (`B`), or if these data are missing (`NA`). Below we'll use `dplyr`'s `count()` function to tally the number of values for the different category items in `bats`.
+We will create a bar chart of the `bats` variable in `People`, which measures whether the player bats left-handed (`L`), right-handed (`R`), both (`B`), or if these data are missing (`NA`). Below we'll use `dplyr` 's `count()` function to tally the number of values for the different category items in `bats`.
 
 ```{r count-bats}
 People %>% 
@@ -496,7 +532,7 @@ In `ggplot2`, we create a bar chart using the `geom_bar()` function. First we ma
 
 We also remove the legend with `guides(fill = FALSE)`, and add labels for `title`, `subtitle`, `caption`, and `y` axis (`x` is set to `NULL`).
 
-```{r gg_step6_bar_01}
+````{r gg_step6_bar_01}
 # click to execute code
 gg_step6_bar_01 <- People %>% 
   ggplot(aes(x = bats, fill = bats)) + 
@@ -530,9 +566,9 @@ People %>%
   mutate(birthCountry = fct_inorder(birthCountry))
 ```
 
-In this case, we have two variables in this output: `birthCountry` and `n`. If we're going to build a graph from these data, we know we'll need a way to represent both the name of the country, and the number of times it occurs.
+In this case, we have two variables in this output: `birthCountry` and 'n'. If we're going to build a graph from these data, we know we'll need a way to represent both the country's name and the number of times it occurs.
 
-For this graph, we will need to use `ggplot2`s `geom_col()` function (we will include the code from above which creates a dataset with only the top 10 non-US birth countries). 
+For this graph, we will need to use `ggplot2's `geom_col()` function (we will include the code from above, which creates a dataset with only the top 10 non-US birth countries). 
 
 We also map `birthCountry` to `fill`, remove the legend with `guides(fill = FALSE)`, and add a label for the `y` axis with `ggplot2::labs()`.
 
@@ -559,11 +595,11 @@ gg_step6_col_01 <- People %>%
 gg_step6_col_01
 ```
 
-We will need to open the `gg-step6-bar-01.png` graph in the vscode IDE (above the Terminal console). 
+We will need to open the `gg-step6-col-01.png` graph in the vscode IDE (above the Terminal console). 
 
 ### Flip the coordinates
 
-If we find the `x` axis is difficult to read, we can pivot the display of the columns with the `ggplot2::coord_flip()` function. Note that we also need to change the `forcats` function in `mutate()` to `fct_reorder()`.
+If we find the `x` axis gets cluttered and difficult to read, we can pivot the columns' display with the `ggplot2::coord_flip()` function. Note that we also need to change the `forcats` function in `mutate()` to `fct_reorder()`.
 
 ```{r gg_step6_col_02}
 # click to execute code
@@ -592,15 +628,21 @@ gg_step6_col_02 <- People %>%
 gg_step6_col_02
 ```
 
-We will need to open the `gg-step6-bar-02.png` graph in the vscode IDE (above the Terminal console). 
+We will need to open the `gg-step6-col-02.png` graph in the vscode IDE (above the Terminal console). 
 
 ### Communication tips
 
-Bar charts and column charts display the counts for each different response in categorical variable. We can help our audience interpret these graphs by always setting the count axis scale to zero, sorting the responses in the chart so make it easier to read, and flipping the `x` axis if it is difficult to read.  
+Bar charts and column charts display the counts for each different response in the categorical variable. We can help our audience interpret these graphs by always setting the count axis scale to zero, sorting the chart's values to make it easier to read, and flipping the `x` axis if it is difficult to read.  
+
+## step 7
+
+- [x] included in step7.md?
+- [x] grammar?  
+- [x] spelling?  
 
 ### Single variable distributions (1)
 
-The `skimr` output displayed a small histogram for each numeric variable in the `People` dataset in the previous step. Histograms show the distribution for a single variable.
+The `skimr` output displayed a small histogram for each numeric variable in the `People` dataset in the previous steps. Histograms are a special kind of bar/column chart--they show the distribution for numeric variables by 'binning' each response into a set number of bars/columns.
 
 ### Load data
 
@@ -628,14 +670,17 @@ RamenSkim %>%
 
 *How complete are these data?*
 
-View the numeric variables in `RamenSkim`
+View the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `Ramen`.
 
 ```{r RamenSkim-num}
 RamenSkim %>% 
+  skimr::focus(numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>% 
   skimr::yank("numeric")
 ```
 
-Pay attention to the `hist` column for `stars`--it shows the distribution for the values. *What are most of the values concentrated?* 
+Pay attention to the `hist` column for `stars`--it shows the distribution for the values. *Where are most of the values concentrated?* 
 
 We will investigate the distribution of `stars` by building a histogram with `ggplot2`.
 
@@ -643,85 +688,86 @@ We will investigate the distribution of `stars` by building a histogram with `gg
 
 We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`. Note that we are also assigning labels to the graph that includes 1) a clear title, 2) descriptive information about the graph, 3) the source of the data.
 
-```{r step5-hist-01, message=FALSE, warning=FALSE}
+```{r step7-hist-01, message=FALSE, warning=FALSE}
 # click to execute code
-gg_step5_hist_01 <- Ramen %>% 
-  ggplot2::ggplot(aes(x = stars)) + 
-  ggplot2::geom_histogram() + 
-  ggplot2::labs(
+gg_step7_hist_01 <- Ramen %>% 
+  ggplot(aes(x = stars)) + 
+  geom_histogram() + 
+  labs(
        title = "Distribution of ramen stars", 
        subtitle = "bins = 30",
        caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 # save
-# ggsave(plot = gg_step5_hist_01,
-#        filename = "gg-step5-hist-01.png",
+# ggsave(plot = gg_step7_hist_01,
+#        filename = "gg-step7-hist-01.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step5_hist_01
+gg_step7_hist_01
 ```
 
-We will need to open the `gg-step5-hist-01.png` graph in the vscode IDE (above the Terminal console). 
+We will need to open the `gg-step7-hist-01.png` graph in the vscode IDE (above the Terminal console). 
 
-Histograms are built by stacking the variable values into a defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument. 
+As we stated above, histograms stack the variable values into a defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument. 
 
 Run the code below to see how the distribution looks with 20 `bins`. Note we also include the `color = "white"` argument to ensure we can see each bar separately. 
 
-```{r gg_step5_hist_02, message=FALSE, warning=FALSE}
+```{r gg_step7_hist_02, message=FALSE, warning=FALSE}
 # click to execute code
-gg_step5_hist_02 <- Ramen %>% 
-  ggplot2::ggplot(aes(x = stars)) + 
-  ggplot2::geom_histogram(bins = 20, color = "white") + 
-  ggplot2::labs(
+gg_step7_hist_02 <- Ramen %>% 
+  ggplot(aes(x = stars)) + 
+  geom_histogram(bins = 20, color = "white") + 
+  labs(
        title = "Distribution of ramen stars", 
        subtitle = "bins = 20",
        caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 # save
-# ggsave(plot = gg_step5_hist_02,
-#        filename = "gg-step5-hist-02.png",
+# ggsave(plot = gg_step7_hist_02,
+#        filename = "gg-step7-hist-02.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step5_hist_02
+gg_step7_hist_02
 ```
 
-Open the `gg-step5-hist-02.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step7-hist-02.png` graph in the vscode IDE (above the Terminal console). 
 
 The `stars` values fit into `20` bins better than the default `30` because we can see where values are concentrated (and the high frequency of 5-star ratings).
 
-## step 6
+## step 8
 
-- [ ] included in step6.md?
+- [ ] included in step8.md?
+- [ ] grammar?
+- [ ] spelling?
 
 ### Single variable distributions (2)
 
 The previous step demonstrated how to use a histogram to view the distribution of a single variable. We needed to adjust the `bins` in the histogram to make its shape easier to interpret. Density plots use [kernel smoothing](https://ggplot2-book.org/statistical-summaries.html) to create cleaner distributions. 
 
-
 ### Build a density plot
 
 We're going to use `ggplot2::geom_density()` to view a density plot of the `stars` variable in `Ramen`. We will use `fill` to color the area underneath the density line with `"dodgerblue"`.
 
-```{r gg_step6_density_01, message=FALSE, warning=FALSE}
+```{r gg_step8_density_01, message=FALSE, warning=FALSE}
 # click to execute code
-gg_step6_density_01 <- Ramen %>% 
+gg_step8_density_01 <- Ramen %>% 
   ggplot(aes(x = stars)) + 
   geom_density(fill = "dodgerblue") + 
   labs(title = "Distribution of ramen stars", 
   caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 # save
-# ggsave(plot = gg_step6_density_01,
-#        filename = "gg-step6-density-01.png",
+# ggsave(plot = gg_step8_density_01,
+#        filename = "gg-step8-density-01.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step6_density_01
+gg_step8_density_01
 ```
 
-Open the `gg-step6-density-01.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step8-density-01.png` graph in the vscode IDE (above the Terminal console). 
 
 ### Adding useful labels 
 
@@ -743,9 +789,9 @@ We can now supply `subtitle_dens_stars` to the `labs(subtitle = )` function.
 
 Creating labels this way ensures they are updated whenever the underlying data change. 
 
-```{r gg_step6_density_02, message=FALSE, warning=FALSE}
+```{r gg_step8_density_02, message=FALSE, warning=FALSE}
 # click to execute code
-gg_step6_density_02 <- Ramen %>% 
+gg_step8_density_02 <- Ramen %>% 
   ggplot(aes(x = stars)) + 
   geom_density(fill = "dodgerblue") + 
   labs(title = "Distribution of ramen stars", 
@@ -754,24 +800,26 @@ gg_step6_density_02 <- Ramen %>%
        # include source
        caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 # save
-# ggsave(plot = gg_step6_density_02,
-#        filename = "gg-step6-density-02.png",
+# ggsave(plot = gg_step8_density_02,
+#        filename = "gg-step8-density-02.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step6_density_02
+gg_step8_density_02
 ```
 
-Open the `gg-step6-density-02.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step8-density-02.png` graph in the vscode IDE (above the Terminal console). 
 
 As we've said, an essential part of effective communication is **knowing your audience**. It's unlikely these exploratory graphs will be part of our final deliverable, so the audience for these graphs will likely be us! 
 
 Using descriptive labels makes sure we know what we're seeing when we're viewing our graphs.
 
-## step 7
+## step 9
 
-- [ ] included in step7.md?
+- [ ] included in step9.md?
+- [ ] grammar?
+- [ ] spelling?
 
 ### Multiple variable distributions (1)
 
@@ -780,7 +828,8 @@ We've looked at the distribution of all the values in the `stars` variable, but 
 We can check the levels of style with `dplyr::count()`
 
 ```{r count-style}
-Ramen %>% dplyr::count(style, sort = TRUE)
+Ramen %>% 
+  count(style, sort = TRUE)
 ```
 
 The output above tells us the top five most common reviews for Ramen came from `Pack`s, `Bowl`s, `Cup`s, `Tray`s, and `Box`es.
@@ -796,11 +845,11 @@ Ramen %>%
   filter(style %in% c("Pack", "Bowl",
                       "Cup", "Tray", "Box")) %>% 
   # select only stars and style
-  dplyr::select(stars, style) %>% 
+  select(stars, style) %>% 
   # group dataset by style
-  dplyr::group_by(style) %>% 
+  group_by(style) %>% 
   # skim grouped data
-  skimr::skim() %>% 
+  skim() %>% 
   # focus on select output
   skimr::focus(n_missing, style,
                numeric.mean, numeric.sd, numeric.hist,
@@ -843,9 +892,9 @@ labs_ridge_stars_style <- labs(
 
 The code below uses `ggridges::geom_density_ridges()` function to build overlapping density plots. In this plot, we map the `fill` argument to the `style` variable. We also want to set the `guides(fill = )` to `FALSE` because we'll have labels on the graph for each level of `style`.
 
-```{r gg_step7_ridge_01, message=FALSE, warning=FALSE}
+```{r gg_step9_ridge_01, message=FALSE, warning=FALSE}
 # # click to execute code
-gg_step7_ridge_01 <- Ramen %>%
+gg_step9_ridge_01 <- Ramen %>%
   # filter to most common styles
   filter(style %in% c("Pack", "Bowl",
                       "Cup", "Tray", "Box")) %>%
@@ -857,23 +906,25 @@ gg_step7_ridge_01 <- Ramen %>%
   # add labels
   labs_ridge_stars_style
 # # save
-# ggsave(plot = gg_step7_ridge_01,
-#        filename = "gg-step7-ridge-01.png",
+# ggsave(plot = gg_step9_ridge_01,
+#        filename = "gg-step9-ridge-01.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step7_ridge_01
+gg_step9_ridge_01
 ```
 
-Open the `gg-step7-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step9-ridge-01.png` graph in the vscode IDE (above the Terminal console). 
 
-From the ridgeline plot, we can see that the `stars` ratings for the `Box` level in `style` are concentrated around `5`.
+We can see that the `stars` ratings for the `Box` level in `style` are concentrated around `5` from the ridgeline plot.
 
 
-## step 8
+## step 10
 
-- [ ] included in step8.md?
+- [x] included in step10.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Multiple variable distributions (2)
 
@@ -882,7 +933,6 @@ In the last step, we learned the distribution for Ramen `stars` ratings varied a
 ### Box-plot labels
 
 We'll build the labels for the graph similar to the labels we used for the ridgeline plot, but we'll be a little more explicit with the `subtitle` and `x` axis.
-
 
 ```{r labs_box_stars_style}
 # click to execute code
@@ -896,12 +946,12 @@ labs_box_stars_style <- labs(
 
 ### Building box-plots
 
-We'll filter the data to the five most common `style`s again and map `stars` to the `x` axis and `style` to the `y` axis. We will also map `style` to the `fill` aesthetic inside `ggplot2::geom_boxplot()`.
+We'll filter the data to the five most common `style`'s again and map `stars` to the `x` axis and `style` to the `y` axis. We will also map `style` to the `fill` aesthetic inside `ggplot2::geom_boxplot()`.
 
 We don't need a guide (or legend), so we will remove it with `guides(fill = FALSE)`.
 
-```{r gg_step8_boxplot_01, message=FALSE, warning=FALSE}
-gg_step8_boxplot_01 <- Ramen %>% 
+```{r gg_step10_boxplot_01, message=FALSE, warning=FALSE}
+gg_step10_boxplot_01 <- Ramen %>% 
     # filter to most common styles
   filter(style %in% c("Pack", "Bowl",
                       "Cup", "Tray", "Box")) %>%
@@ -910,20 +960,24 @@ gg_step8_boxplot_01 <- Ramen %>%
   guides(fill = FALSE) + 
   labs_box_stars_style
 # save
-# ggsave(plot = gg_step8_boxplot_01,
-#        filename = "gg-step8-boxplot-01.png",
+# ggsave(plot = gg_step10_boxplot_01,
+#        filename = "gg-step10-boxplot-01.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step8_boxplot_01
+gg_step10_boxplot_01
 ```
 
-Open the `gg-step8-boxplot-01.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step10-boxplot-01.png` graph in the vscode IDE (above the Terminal console). 
 
-## step 9
+In the next step, we will cover how to interpret the contents of a box-plot.
 
-- [ ] included in step8.md?
+## step 11
+
+- [x] included in step11.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Multiple variable distributions (3)
 
@@ -931,7 +985,7 @@ Box plots display many of the numbers we see in the `skimr` output.
 
 ### Contents of a box-plot
 
-Click on the code below to create a `skimr` summary of Ramen `stars` ratings in `Tray`s.
+Click on the code below to create a `skimr` summary of Ramen `stars` ratings in `Tray's.
 
 ```{r skimr-trays}
 # click to execute code
@@ -939,9 +993,9 @@ Ramen %>%
   # filter to most common styles
   filter(style == "Tray") %>% 
   # select only stars and style
-  dplyr::select(stars, style) %>% 
+  select(stars, style) %>% 
   # group dataset by style
-  dplyr::group_by(style) %>% 
+  group_by(style) %>% 
   # skim grouped data
   skimr::skim() %>% 
   # focus on select output
@@ -960,15 +1014,15 @@ Ramen %>%
   # filter to most common styles
   filter(style == "Tray") %>% 
   # select only stars and style
-  dplyr::select(stars, style) %>% 
+  select(stars, style) %>% 
   # group dataset by style
-  dplyr::group_by(style) %>% 
+  group_by(style) %>% 
   # summarize IQR
-  dplyr::summarize(
+  summarize(
     `Stars/Tray IQR` = IQR(stars, na.rm = TRUE))
 ```
 
-The figure below shows a box-plot for the distribution of `stars` ratings across the `Tray` level of `style`. The summary statistics from the `skimr` output have been labeled on the graph. The 25th percentile (or `p25`) is the box's first vertical line (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box, and the 75th percentile (`p75`) is the last vertical line in the box (or hinge). 
+The figure below shows a box-plot for the distribution of `stars` ratings across the `Tray` level of `style`. We've labeled the summary statistics from the `skimr` output on the graph. The 25th percentile (or `p25`) is the box's first vertical line (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box, and the 75th percentile (`p75`) is the last vertical line in the box (or hinge). 
 
 <!-- 
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/sc-03-boxplot-diagram.png) 
@@ -985,18 +1039,35 @@ We've also labeled the minimum (`p0`) and maximum (`p100`) values and the interq
 
 If your audience is not familiar with box-plots, the figure above is an example of supporting information to include. It explains *how* to read the graph, using an example from the finished chart. However, using complex plots adds mental labor to your audience and can take attention away from the point you're trying to make. Effective communication means always using the most straightforward (or most common) graphs to reveal your findings. 
 
-## step 10
+## step 12
 
-- [ ] included in step8.md?
+- [ ] included in step12.md?
+- [ ] grammar?
+- [ ] spelling?
 
-### Multiple variable distributions (4)
+### Combining narrative and numbers 
 
+Now that we've created a few graphs, we should stop and consider what narrative information to include with our displayed numbers. 
 
+The text to accompany your graphs will largely depend on the context of the problem you're trying to solve (or question you're trying to answer), but there are a few general guidelines we can apply to each type of graph. 
 
+### Communcation (labels)
 
-## step 11
+Titles should be objective and neutral, expressing the "who," "what," and "where" of the figure's measurements. Avoid jargon and unnecessary descriptive words. Stick with 1) what data was measured, 2) when the data was measured, and 3) how the data was counted (i.e., the units).
 
-- [ ] included in step11.md?
+When you are building labels, plan on providing enough information that the chart becomes a 'stand-alone product.' By this, we mean that if a new observer viewed your graph, they would at minimum be able to understand what point the figure was trying to make (i.e., "this graph shows the values in X variable," or "this figure shows the relationship between X and Y").
+
+### Communication (distributions)
+
+You aren't likely to include the variable distribution graphs in your final deliverable, but they provide essential information for your audience. For example, single-variable plots can tell us if the data had any outliers (or extreme values). Histograms, density, and ridgeline plots can also tell us if a variable has a normal distribution, which is a crucial assumption to check before modeling. Summary statistics are also vital to include (usually in a table) because it tethers the figure to mathematical values. 
+
+The information from these exploratory charts gives your narrative context and frames the problem. If we were telling a story, this would be the portion that tells us the setting or universe in which our characters live.
+
+## step 13
+
+- [x] included in step13.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Visualizing relationships (1)
 
@@ -1008,7 +1079,7 @@ A scatterplot displays data for two numeric variables, with one variable on each
 
 ### Load data
 
-For this graph, we will load the `dplyr::starwars` and get a `skimr` of these data. These data come from the [Star Wars API](https://swapi.dev/). Read more about this dataset on [`dplyr`s website](https://dplyr.tidyverse.org/reference/starwars.html).
+We will load the `dplyr::starwars` data and get a `skimr` of these data. These data come from the [Star Wars API](https://swapi.dev/). Read more about this dataset on [`dplyr`s website](https://dplyr.tidyverse.org/reference/starwars.html).
 
 ```{r SWSkim}
 # click to execute code
@@ -1016,12 +1087,14 @@ StarWars <- dplyr::starwars
 SWSkim <- StarWars %>% skimr::skim()
 ```
 
-We're only interested in the numeric variables `StarWars` for now, so we're going to check these columns in `SWSkim`:
+We're only interested in the numeric variables `StarWars` for now, so we will view the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` from `SWSkim`.
 
 ```{r SWSkim-numeric}
 # click to execute code
 SWSkim %>% 
-  # only return numeric values
+  skimr::focus(numeric.mean, numeric.sd, 
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>% 
   skimr::yank("numeric") 
 ```
 
@@ -1044,31 +1117,33 @@ labs_scatter_ht_mass_01 <- labs(
 
 We will create a scatterplot with `ggplot2::geom_point()`, map `mass` to the `x` axis, and map `height` to the `y` axis.
 
-```{r gg_step11_scatter_01}
+```{r gg_step13_scatter_01}
 # click to execute code
-gg_step11_scatter_01 <- StarWars %>% 
+gg_step13_scatter_01 <- StarWars %>% 
   filter(mass < 200) %>% 
   ggplot(aes(x = mass, y = height)) + 
   geom_point() + 
   # add labels
   labs_scatter_ht_mass_01
 # save
-# ggsave(plot = gg_step11_scatter_01,
-#        filename = "gg-step11-scatter-01.png",
+# ggsave(plot = gg_step13_scatter_01,
+#        filename = "gg-step13-scatter-01.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step11_scatter_01
+gg_step13_scatter_01
 ```
 
-Open the `gg-step8-scatter-01.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step13-scatter-01.png` graph in the vscode IDE (above the Terminal console). 
 
 Based on the scatterplot, we can see a positive relationship between `mass` and `height` for Star Wars characters. But is this the same for all types of characters? For example, does this relationship hold for all levels of `gender`?
 
-## step 12
+## step 14
 
-- [ ] included in step9.md?
+- [ ] included in step14.md?
+- [ ] grammar?
+- [ ] spelling?
 
 ### Counting with tabyls
 
@@ -1090,7 +1165,16 @@ StarWars %>%
   janitor::tabyl(gender) 
 ```
 
-We can see the standard output produces a `percent` and `valid_percent` columns.Read more about the `tabyl` function options [here](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html).
+We can see the standard output produces a `percent` and `valid_percent` columns. We can also add percent formatting with `janitor::adorn_pct_formatting()`:
+
+```{r adorn_pct_formatting}
+# click to execute code
+StarWars %>% 
+  janitor::tabyl(gender) %>% 
+  janitor::adorn_pct_formatting()
+```
+
+This output tells us `4` characters in the `StarWars` dataset will not show up if we use the `gender` variable. Read more about the `tabyl` function options [here](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html).
 
 ### Scatterplot (3 variables)
 
@@ -1098,7 +1182,7 @@ One way to include the `gender` variable in the scatterplot is to map it to the 
 
 We will update our labels and add `gender` to the scatterplot in the code below.
 
-```{r gg_step12_scatter_02}
+```{r gg_step14_scatter_01}
 # click to execute code
 labs_scatter_ht_mass_02 <- labs(
   title = "Star Wars Character's gender, height and mass", 
@@ -1107,101 +1191,84 @@ labs_scatter_ht_mass_02 <- labs(
   color = "Gender",
   y = "Height")
 
-gg_step12_scatter_02 <- StarWars %>% 
+gg_step14_scatter_02 <- StarWars %>% 
   filter(!is.na(gender) & mass < 200) %>% 
   ggplot(aes(x = mass, y = height, color = gender)) + 
   geom_point() +
   # add labels
   labs_scatter_ht_mass_02
 # save
-# ggsave(plot = gg_step12_scatter_02,
-#        filename = "gg-step12-scatter-02.png",
+# ggsave(plot = gg_step14_scatter_02,
+#        filename = "gg-step14-scatter-02.png",
 #        device = "png",
 #        width = 9,
 #        height = 6,
 #        units = "in")
-gg_step12_scatter_02
+gg_step14_scatter_02
 ```
 
-Open the `gg-step9-scatter-01.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step14-scatter-02.png` graph in the vscode IDE (above the Terminal console). 
 
 The color of the points shows that the `feminine` characters occupy a smaller range of values for the relationship between `mass` and `height`.
 
-## step 13
+## step 15
 
 - [ ] included in step13.md?
+- [ ] grammar?
+- [ ] spelling?
 
-### Combining narrative and numbers 
+### Visualizing relationships (2)
 
-Now that we've created a few graphs, we should stop and consider what narrative information to include with our displayed numbers. 
+We'll often want to display a particular measurement over time.
 
-The text to accompany your graphs will largely depend on the context of the problem you're trying to solve (or question you're trying to answer), but there are a few general guidelines we can apply to each type of graph. 
+```{r}
+OnlineRetail <- read_csv(file = "../data/OnlineRetail2.csv")
+```
 
-### Communcation (labels)
 
-Titles should be objective and neutral, expressing the "who," "what," and "where" of the figure's measurements. Avoid jargon and unnecessary descriptive words. Stick with 1) what was measured, 2) when it was measured, and 3) how it was measured (i.e., the units).
+## step 16
 
-When you are building labels, plan on providing enough information that the chart becomes a 'stand-alone product.' By this, we mean that if a new observer viewed your graph, they would at minimum be able to understand what point the figure was trying to make (i.e., "this graph shows the values in X variable," or "this figure shows the relationship between X and Y").
-
-### Communication (distributions)
-
-You aren't likely to include the variable distribution graphs in your final deliverable, but they provide essential information for your audience. For example, single-variable plots can tell us if the data had any outliers (or extreme values). Histograms, density, and ridgeline plots can also tell us if a variable has a normal distribution, which is a crucial assumption to check before modeling. Summary statistics are also vital to include (usually in a table) because it tethers the figure to mathematical values. 
-
-The information from these exploratory charts gives your narrative context and frames the problem. If we were telling a story, this would be the portion that tells us the setting or universe in which our characters live.
+- [ ] included in step16.md?
+- [ ] grammar?
+- [ ] spelling?
 
 ### Communication (relationships)
 
 Describing a relationship answers a certain kind of question, i.e., "What is the relationship between two quantitative measures?" When presenting a graph with relationships, consider the context and framing for the conclusions your audience will draw. Is this good news? For example, if the chart displays a drop in sales over time, anticipate how this will change your presentation's tone, and be ready to answer questions. 
 
 It's also important not to confuse your audience when designing graphs. Relationships with 'good news' should have the data points showing a positive trend (i.e., as X values increase, so do Y values), and vice-versa. You don't want to find yourself in a situation where you're explaining that your graph doesn't show what you're audience is *seeing*.
- 
-
-## step 11
-
-- [ ] included in step11.md?
-
-### 
-
-## step 12
-
-- [ ] included in step12.md?
-
-## step 13
-
-- [ ] included in step13.md?
-
-## step 14
-
-- [ ] included in step14.md?
-
-## step 15
-
-- [ ] included in step15.md?
-
-## step 16
-
-- [ ] included in step16.md?
-
-## step 17
-
-- [ ] included in step17.md?
-
-## step 18
-
-- [ ] included in step18.md?
-
-## step 19
-
-- [ ] included in step19.md?
-
-## step 20
-
-- [ ] included in step20.md?
 
 ### Other resources for missing data
 
 Read more about visualizing missing data [here](http://naniar.njtierney.com/articles/naniar-visualisation.html) and on the [`visdat` package site](https://docs.ropensci.org/visdat/), or on the [`inspectdf` package](https://github.com/alastairrushworth/inspectdf) website.
 
+
+## step 17
+
+- [ ] included in step16.md?
+- [ ] grammar?
+- [ ] spelling?
+
+## step 18
+
+- [ ] included in step17.md?
+- [ ] grammar?
+- [ ] spelling?
+
+## step 19
+
+- [ ] included in step18.md?
+- [ ] grammar?
+- [ ] spelling?
+
+## step 20
+
+- [ ] included in step19.md?
+- [ ] grammar?
+- [ ] spelling?
+
 ## finish 
 
 - [ ] included in finish.md?
+- [ ] grammar?
+- [ ] spelling?
