@@ -11,24 +11,23 @@ We're going to re-create this chart using data from the `fivethirtyeightdata` pa
 
 The [`fivethirtyeightdata` package](https://fivethirtyeight-r.netlify.app/) contains data from the [FiveThirtyEight Github repository](https://github.com/fivethirtyeight/data), but these data have been formatted to provide "*tame data principles for introductory statistics and data science courses.*"
 
-Install and load the `fivethirtyeightdata` package.
-
-```
-# click to execute code
-install.packages('fivethirtyeightdata', 
-    repos = 'https://fivethirtyeightdata.github.io/drat/', 
-    type = 'source')
-library(fivethirtyeightdata)
-```{{execute}}
-
 We are going to load the `comic_characters` dataset from the article above. We're only interested in a subset of this dataset, so we select the relevant variables and do some initial formatting steps before assigning them to the `ComicData` (read more about the data [here](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html)).
 
 ```
 # click to execute code
-ComicData <- fivethirtyeightdata::comic_characters %>% 
-  # select only publisher, name, sex, year, and date
+ComicData <- read_csv("https://bit.ly/3oS1zQY") 
+```{{execute}}
+
+```
+# click to execute code
+
+# subset data
+ComicData <- ComicData %>% 
+  # select only publisher, name, sex, year, 
+  # and date
   select(publisher, name, sex, year, date) %>% 
-  # filter to only the rows containing either male or female characters
+  # filter to only the rows containing either 
+  # male or female characters
   filter(sex %in% c("Female Characters", "Male Characters")) %>% 
   # convert these two variables to factors
   mutate(sex = factor(sex, 
@@ -57,7 +56,7 @@ ComicData %>%
   skimr::yank("factor") 
 ```{{execute}}
 
-The `top_counts` column tells us that both levels in `publisher` and `sex` each have `62` responses.
+The `top_counts` column tells us the counts for both levels in `publisher` and `sex`.
 
 ### Summarizing data 
 
