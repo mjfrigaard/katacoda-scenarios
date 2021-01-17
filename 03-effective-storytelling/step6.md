@@ -69,8 +69,9 @@ gg_step6_col_01 <- People %>%
   ggplot(aes(x = birthCountry, y = n, fill = birthCountry)) + 
   geom_col() +
   guides(fill = FALSE) +
-  labs(title = "Top 10 Non-US brith countries", 
-       subtitle = "source: http://www.seanlahman.com/",
+  labs(title = "Top 10 Non-US birth countries for MLB players",
+       subtitle = "Based on birthCountry",
+       caption = "source: http://www.seanlahman.com/",
        x = NULL, y = "Number of birth countries")
 # save
 ggsave(plot = gg_step6_col_01,
@@ -101,9 +102,10 @@ gg_step6_col_02 <- People %>%
   guides(fill = FALSE) +
   # flip coordinates
   coord_flip() +
-  labs(title = "Top 10 Non-US brith countries", 
-       subtitle = "source: http://www.seanlahman.com/",
-       y = NULL, x = "Number of birth countries")
+  labs(title = "Top 10 Non-US birth countries for MLB players",
+       subtitle = "Based on birthCountry",
+       caption = "source: http://www.seanlahman.com/",
+       x = NULL, y = "Number of birth countries")
 # save
 ggsave(plot = gg_step6_col_02,
         filename = "gg-step6-col-02.png",
