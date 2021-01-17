@@ -27,8 +27,8 @@ knitr::opts_chunk$set(
   tidy = FALSE,
   comment = "#>",
   message = TRUE,
-  fig.width = 9,
-  fig.height = 6,
+  fig.width = 7,
+  fig.height = 5,
   warning = TRUE,
   fig.path = "img/"
 )
@@ -1300,12 +1300,6 @@ The [`fivethirtyeightdata` package](https://fivethirtyeight-r.netlify.app/) cont
 
 We are going to load the `comic_characters` dataset from the article above. We're only interested in a subset of this dataset, so we select the relevant variables and do some initial formatting steps before assigning them to the `ComicData` (read more about the data [here](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html)).
 
-```{r export-comic_characters, include=FALSE, eval=TRUE}
-fivethirtyeightdata::comic_characters %>% 
-  write_csv(x = ., file = "../data/comic_characters.csv")
-fs::dir_ls("../data")
-```
-
 ```{r ComicData}
 # click to execute code
 ComicData <- read_csv("https://bit.ly/3oS1zQY") 
@@ -1429,41 +1423,58 @@ Our graph is starting to look like the figure in the article, but we still need 
 - [ ] grammar?
 - [ ] spelling?
 
+### Adding text annotations
+
+In the previous step, we started recreating the following graph from the FiveThirtyEight article titled, ["Comic Books Are Still Made By Men, For Men And About Men"](https://fivethirtyeight.com/features/women-in-comic-books/).
+
+<!--
+![](https://fivethirtyeight.com/wp-content/uploads/2014/10/hickey-feature-comics-3.png?w=1220)
+-->
+
+```{r hickey-feature-comics-3-2, echo=FALSE}
+knitr::include_graphics(path = "https://fivethirtyeight.com/wp-content/uploads/2014/10/hickey-feature-comics-3.png?w=1220")
+```
+
+We left off with the line graph in the ``gg-step15-line-01.png` file. The designers of the FiveThirtyEight graph chose to remove the legend and add text labels directly to the graph, which can help communicate the trend to audiences. This practice isn't always the best choice, but it works in this graph for a few reasons which we will cover below. 
+
+### When to add text to graphs
 
 
 
-```{r}
-ComicNewFemalePerc %>% 
+
+```{r gg_step16_line_01}
+# click to execute code
+gg_step16_line_01 <- ComicNewFemalePerc %>% 
   filter(sex == "Female Characters") %>% 
   ggplot(aes(x = year, y = sex_pct_per_yr_pub)) + 
   geom_line(aes(group = publisher, color = publisher),
             size = 2) + 
-  theme(legend.position = "none") + 
   scale_y_continuous(limits = c(0.00, 0.50),
                      labels = scales::percent_format(accuracy = 1)) + 
+  # adjust text on labels and axes
+  theme(legend.position = "none", 
+        plot.title = element_text(size = 18, face = "bold"),
+        plot.subtitle = element_text(size = 15),
+        axis.text.y = element_text(size = 14, face = "bold"),
+        axis.text.x = element_text(size = 14, face = "bold")) +
+  # color the axis
   scale_color_manual(values = c("firebrick3", "dodgerblue")) +
-  annotate(geom = "text", x = 2001, 
-           y = .45, 
+  # add text annotations
+  annotate(geom = "text", x = 2001, y = .45, 
            label = "DC", size = 7, color = "dodgerblue") +
   annotate(geom = "text", x = 2002, y = .27, 
            label = "Marvel", size = 7, color = "firebrick3") + 
-    # add labels
+  # add labels
   labs_line_comics
+# save
+# ggsave(plot = gg_step16_line_01,
+#        filename = "gg-step16-line-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step16_line_01
 ```
-
-
-```{r}
-ComicData %>% 
-  mutate(
-    invoice_date = lubridate::as_date(date),
-    dow = lubridate::day(date),
-    week = lubridate::week(date),
-    yr = lubridate::year(date),
-    week_year = lubridate::floor_date(date, unit = "week"),
-    month = lubridate::month(week_year, abbr = TRUE, label = TRUE),
-    floor_month = lubridate::floor_date(week_year, unit = "month"))
-```
-
 
 
 ### Communication (relationships)
