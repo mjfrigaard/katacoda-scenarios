@@ -1047,18 +1047,17 @@ If your audience is not familiar with box-plots, the figure above is an example 
 - [ ] grammar?
 - [ ] spelling?
 
-### Combining narrative and numbers 
+### Communicating column/bar charts
 
-Now that we've created a few graphs, we should stop and consider what narrative information is contained in each plot. 
-
-#### Column/bar charts
-
-We used column and bar charts to display the counts for two categorical variables: 
+Now that we've created a few graphs, we should stop and consider what narrative information we've contained in each plot. We used column and bar charts for displaying the counts for two categorical variables: 
 
 - `bats`, which measures whether MLB players are left-handed (`L`), right-handed (`R`), both (`B`), or if these data are missing (`NA`)  
 - `birthCountry`, which tells us the 'Country of Birth' for each MLB player  
 
-These graphs can be used to convey *comparison* information. For example, we can see from the bar graph that the majority of MLB players are right-handed batters. 
+We can use these graphs to convey *comparison* information. For example, we can see from the bar graph that most MLB players are right-handed batters. 
+
+
+#### Bar graph 
 
 <!--
 ![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_bar_01-1.png")
@@ -1069,6 +1068,10 @@ knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/kat
 ```
 
 
+The column chart displays similar information. The columns can be used for comparing the frequency of one country to the other. We've also arranged the columns in a way that makes it clear which country appears the most and which country appears the least. 
+
+#### Column graph 
+
 <!--
 ![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_col_02-1.png")
 --> 
@@ -1076,7 +1079,6 @@ knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/kat
 ```{r gg_step6_col_02-1, echo=FALSE}
 knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_col_02-1.png")
 ```
-
 
 The text to accompany your graphs will largely depend on the context of the problem you're trying to solve (or question you're trying to answer), but there are a few general guidelines we can apply to each type of graph. 
 
@@ -1088,7 +1090,49 @@ When you are building labels, plan on providing enough information that the char
 
 ### Communication (distributions)
 
-You aren't likely to include the variable distribution graphs in your final deliverable, but they provide essential information for your audience. For example, single-variable plots can tell us if the data had any outliers (or extreme values). Histograms, density, and ridgeline plots can also tell us if a variable has a normal distribution, which is a crucial assumption to check before modeling. Summary statistics are also vital to include (usually in a table) because it tethers the figure to mathematical values. 
+We've explored the distribution of the `stars` rating variable in the `Ramen` dataset by itself in the histogram and density plot and across the top five `type`s in the ridgeline plot and box-plot. 
+
+#### Histogram
+
+<!--
+![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_hist_02-1.png")
+--> 
+
+```{r gg_step7_hist_02-1, echo=FALSE}
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_hist_02-1.png")
+```
+
+#### Density graph
+
+<!--
+![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_density_02-1.png")
+--> 
+
+```{r gg_step6_density_02-1, echo=FALSE}
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_density_02-1.png")
+```
+
+#### Ridgeline plot
+
+<!--
+![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_ridge_01-1.png")
+--> 
+
+```{r gg_step7_ridge_01-1, echo=FALSE}
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_ridge_01-1.png")
+```
+
+#### Box-plot
+
+<!--
+![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step8_boxplot_01-1.png")
+--> 
+
+```{r gg_step8_boxplot_01-1, echo=FALSE}
+knitr::include_graphics(path = "https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step8_boxplot_01-1.png")
+```
+
+Distribution plots are useful if we're answering exploratory questions about a variable before calculating statistics or building a model. Histograms, density, and ridgeline plots can quickly tell us if a variable has a normal (bell-shaped) distribution, which is a crucial assumption to check before modeling. Box-plots require a higher degree of statistical literacy for interpretation, so we recommend confirming your audience is familiar with these graphs before relying on them. Summary statistics are also vital to include with distribution graphs (usually in a supplementary table) because it tethers the figure to mathematical values. 
 
 The information from these exploratory charts gives your narrative context and frames the problem. If we were telling a story, this would be the portion that tells us the setting or universe in which our characters live.
 
