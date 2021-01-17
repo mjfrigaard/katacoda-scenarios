@@ -10,7 +10,7 @@ We can use these graphs to convey *comparison* information. For example, we can 
 
 #### Bar graph 
 
-![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_bar_01-1.png")
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_bar_01-1.png)
 
 
 
@@ -18,7 +18,7 @@ The column chart displays similar information. The columns can be used for compa
 
 #### Column graph 
 
-![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_col_02-1.png")
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_col_02-1.png)
 
 
 The text to accompany your graphs will largely depend on the context of the problem you're trying to solve (or question you're trying to answer), but there are a few general guidelines we can apply to each type of graph. 
@@ -35,23 +35,23 @@ We've explored the distribution of the `stars` rating variable in the `Ramen` da
 
 #### Histogram
 
-![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_hist_02-1.png")
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_hist_02-1.png)
 
 
 #### Density graph
 
 
-![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_density_02-1.png")
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step6_density_02-1.png)
 
 
 #### Ridgeline plot
 
 
-![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_ridge_01-1.png")
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step7_ridge_01-1.png)
 
 #### Box-plot
 
-![]("https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step8_boxplot_01-1.png")
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/03-effective-storytelling/docs/img/gg_step8_boxplot_01-1.png)
 
 Distribution plots are useful if we're answering exploratory questions about a variable before calculating statistics or building a model. Histograms, density, and ridgeline plots can quickly tell us if a variable has a normal (bell-shaped) distribution, which is a crucial assumption to check before modeling. Box-plots require a higher degree of statistical literacy for interpretation, so we recommend confirming your audience is familiar with these graphs before relying on them. Summary statistics are also vital to include with distribution graphs (usually in a supplementary table) because it tethers the figure to mathematical values. 
 
