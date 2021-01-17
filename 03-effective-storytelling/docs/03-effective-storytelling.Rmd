@@ -19,6 +19,7 @@ library(rmdformats)
 library(skimr)
 library(ggridges)
 library(janitor)
+library(fivethirtyeightdata)
 knitr::opts_chunk$set(
   echo = TRUE,
   eval = TRUE,
@@ -1299,6 +1300,12 @@ We're going to re-create this chart using data from the `fivethirtyeightdata` pa
 The [`fivethirtyeightdata` package](https://fivethirtyeight-r.netlify.app/) contains data from the [FiveThirtyEight Github repository](https://github.com/fivethirtyeight/data), but these data have been formatted to provide "*tame data principles for introductory statistics and data science courses.*"
 
 We are going to load the `comic_characters` dataset from the article above. We're only interested in a subset of this dataset, so we select the relevant variables and do some initial formatting steps before assigning them to the `ComicData` (read more about the data [here](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html)).
+
+```{r export-comic_characters.csv, include=FALSE, eval=TRUE}
+fivethirtyeightdata::comic_characters %>% 
+  write_csv(x = ., file = "../data/comic_characters.csv")
+```
+
 
 ```{r ComicData}
 # click to execute code
