@@ -28,7 +28,8 @@ ComicData <- ComicData %>%
   select(publisher, name, sex, year, date) %>% 
   # filter to only the rows containing either 
   # male or female characters
-  filter(sex %in% c("Female Characters", "Male Characters")) %>% 
+  filter(sex %in% c("Female Characters", 
+                    "Male Characters")) %>% 
   # convert these two variables to factors
   mutate(sex = factor(sex, 
                       levels = c("Female Characters", 
@@ -117,7 +118,7 @@ gg_step15_line_01 <- ComicNewFemalePerc %>%
             size = 2) + 
   theme(legend.position = "none") + 
   scale_y_continuous(limits = c(0.00, 0.50),
-                     labels = scales::percent_format(accuracy = 1)) +
+         labels = scales::percent_format(accuracy = 1)) +
   # add labels
   labs_line_comics
 # save

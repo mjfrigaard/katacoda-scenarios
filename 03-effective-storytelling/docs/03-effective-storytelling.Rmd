@@ -1476,7 +1476,7 @@ gg_step15_line_01 <- ComicNewFemalePerc %>%
             size = 2) + 
   theme(legend.position = "none") + 
   scale_y_continuous(limits = c(0.00, 0.50),
-                     labels = scales::percent_format(accuracy = 1)) +
+              labels = scales::percent_format(accuracy = 1)) +
   # add labels
   labs_line_comics
 # save
@@ -1544,14 +1544,17 @@ gg_step16_line_01 <- ComicNewFemalePerc %>%
   geom_line(aes(group = publisher, color = publisher),
             size = 2) + 
   scale_y_continuous(limits = c(0.00, 0.50),
-                     labels = scales::percent_format(accuracy = 1)) + 
+           labels = scales::percent_format(accuracy = 1)) + 
   # color the axis
-  scale_color_manual(values = c("firebrick3", "dodgerblue")) +
+  scale_color_manual(values = c("firebrick3", 
+                                "dodgerblue")) +
   # add text annotations
   annotate(geom = "text", x = 2001, y = .47, 
-           label = "DC", size = 7, color = "dodgerblue") +
+           label = "DC", size = 7, 
+           color = "dodgerblue") +
   annotate(geom = "text", x = 2002, y = .25, 
-           label = "Marvel", size = 7, color = "firebrick3") + 
+           label = "Marvel", size = 7, 
+           color = "firebrick3") + 
   # add labels
   labs_line_comics
 # save
@@ -1588,20 +1591,24 @@ gg_step16_line_02 <- ComicNewFemalePerc %>%
   geom_line(aes(group = publisher, color = publisher),
             size = 2) + 
   scale_y_continuous(limits = c(0.00, 0.50),
-                     labels = scales::percent_format(accuracy = 1)) + 
+           labels = scales::percent_format(accuracy = 1)) + 
   # adjust text on labels and axes
   theme(legend.position = "none", 
-        plot.title = element_text(size = 18, face = "bold"),
+        plot.title = element_text(size = 18, 
+                                  face = "bold"),
         plot.subtitle = element_text(size = 15),
         axis.text.y = element_text(size = 14),
         axis.text.x = element_text(size = 14)) +
   # color the axis
-  scale_color_manual(values = c("firebrick3", "dodgerblue")) +
+  scale_color_manual(values = c("firebrick3", 
+                                "dodgerblue")) +
   # add text annotations
   annotate(geom = "text", x = 2001, y = .47, 
-           label = "DC", size = 7, color = "dodgerblue") +
+           label = "DC", size = 7, 
+           color = "dodgerblue") +
   annotate(geom = "text", x = 2002, y = .25, 
-           label = "Marvel", size = 7, color = "firebrick3") + 
+           label = "Marvel", size = 7, 
+           color = "firebrick3") + 
   # add labels
   labs_line_comics
 # save
