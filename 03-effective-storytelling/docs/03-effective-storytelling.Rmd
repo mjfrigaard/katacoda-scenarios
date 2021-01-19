@@ -1633,26 +1633,58 @@ Now our plot looks very close to the original graph in the FiveThirtyEight artic
 
 ### Faceting 
 
-Sometimes we want have a variables 
+Up to this point, the data we've presented resulted in a single visualization. Sometimes data are so complex and layered that they will require multiple graphs. In this case, we will want to arrange multiple graphs together in a grid, or facet. Graphs presented this way are called ['Small Multiples'](https://en.wikipedia.org/wiki/Small_multiple), a term popularized by [Edward Tufte](https://www.edwardtufte.com/tufte/).
 
-Data and Methods
+> "Small multiples resemble the frames of a movie: a series of graphics, showing the same combination of variables, indexed by changes in another variable." Edward Tufte, [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi). 
 
-Data for this story were collected and processed using the Wikipedia API. The period of collection was from July, 2015–May, 2019, from English Wikipedia. It was inspired in part by this map.
+We are going to demonstrate faceting with a dataset from the internet movie database (IMDB).
 
-Person/city associations were based on the thousands of “People from X city” pages on Wikipedia. The top person from each city was determined by using median pageviews (with a minimum of 1 year of traffic). We chose to include multiple occurrences for a single person because there is both no way to determine which is more accurate and people can “be from” multiple places. Note: This map was updated on May 31 to account for missing data.
+If you wish to facilitate direct comparisons you ideally need to juxtapose individual frames within the same view. The common technique used to achieve this in visualization is through small multiples, where you repeat the same representation for each moment in time of interest and present them collectively in an adjacent view, often through a grid layout. This enables far more incisive comparisons.
+
+
 
 ```{r WW2Aces, message=FALSE, warning=FALSE}
 WW2Aces <- readr::read_csv("https://bit.ly/38QNLjU")
-WW2Aces %>% glimpse(78)
-```
-
-```{r}
-WW2Aces %>% count(mia_or_kia, sort = TRUE)
+WW2Aces %>% glimpse()
 ```
 
 
+```{r WW2Aces-filter-air_vic}
+WW2Aces %>% 
+  filter(air_vic > 10)
+```
 
-If you wish to facilitate direct comparisons you ideally need to juxtapose individual frames within the same view. The common technique used to achieve this in visualization is through small multiples, where you repeat the same representation for each moment in time of interest and present them collectively in an adjacent view, often through a grid layout. This enables far more incisive comparisons.
+```{r TopWW2AcePerCountry}
+TopWW2AcePerCountry <- WW2Aces %>% 
+  # all aces
+  filter(air_vic >= 10) %>% 
+  # 
+  group_by(country) %>% 
+  top_n(n = 1, wt = air_vic) %>% 
+  mutate(country = reorder(country, air_vic)) %>% 
+  
+TopWW2AcePerCountry
+```
+
+```{r TopWW2AcePerCountry-geom_point}
+TopWW2AcePerCountry %>% 
+  ggplot(aes(x = air_vic, 
+             y = forcats::fct_reorder(country, air_vic), 
+             fill = country, 
+             group = force)) + 
+  geom_point(show.legend = FALSE) 
+```
+
+```{r TopWW2AcePerCountry-geom_point-facet_wrap}
+TopWW2AcePerCountry %>% 
+  ggplot(aes(x = air_vic, y = country, fill = country, group = force)) + 
+  geom_point(show.legend = FALSE) + 
+  facet_wrap(. ~ force)
+```
+
+
+
+
 
 
 
