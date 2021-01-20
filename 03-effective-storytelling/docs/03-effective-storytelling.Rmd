@@ -1627,13 +1627,13 @@ Now our plot looks very close to the original graph in the FiveThirtyEight artic
 
 ## step 17
 
-- [ ] included in step16.md?
-- [ ] grammar?
-- [ ] spelling?
+- [ ] included in step17.md?
+- [x] grammar?
+- [x] spelling?
 
-### Faceting 
+### Multiple graph displays 
 
-Up to this point, the data we've presented resulted in a single visualization. Sometimes data are so complex and layered that they will require multiple graphs. In this case, we will want to arrange multiple graphs together in a grid, or facet. Graphs presented this way are called ['Small Multiples'](https://en.wikipedia.org/wiki/Small_multiple), a term popularized by [Edward Tufte](https://www.edwardtufte.com/tufte/).
+Up to this point, the data we've presented resulted in a single visualization. Sometimes data are so complex and layered that they will require multiple graphs. In this case, we will want to arrange numerous figures together in a grid or facet. Charts presented this way are called ['Small Multiples'](https://en.wikipedia.org/wiki/Small_multiple), a term popularized by [Edward Tufte](https://www.edwardtufte.com/tufte/).
 
 > "Small multiples resemble the frames of a movie: a series of graphics, showing the same combination of variables, indexed by changes in another variable." Edward Tufte, [The Visual Display of Quantitative Information](https://www.edwardtufte.com/tufte/books_vdqi). 
 
@@ -1643,9 +1643,9 @@ We are going to demonstrate faceting with a dataset we've created from the [inte
 
 IMDB makes multiple datasets available for [download](https://datasets.imdbws.com/). We've combined the `title.ratings.tsv`, `name.basics.tsv`, and `title.principals.tsv` datasets into  the `ImdbData` dataset with the following columns. 
 
-`tconst` - alphanumeric unique identifier of the title  
+`tconst` - alphanumeric unique identifier of the title (used for joining)
 
-`nconst` - alphanumeric unique identifier of the name/person
+`nconst` - alphanumeric unique identifier of the name/person (used for joining)
 
 `category` - the category of job that person was in  
 
@@ -1663,11 +1663,11 @@ IMDB makes multiple datasets available for [download](https://datasets.imdbws.co
 
 `isAdult` - `non-adult title` or `adult title`
 
-`startYear` – represents the release year of a title. In the case of TV Series, it is the series start year
+`startYear` – represents the release year of a title. In the case of TV Series, it is the series start year.
 
 `runtimeMinutes` – primary runtime of the title, in minutes
 
-`genres` – includes up to three genres associated with the title
+`genres` – includes up to three genres associated with the title.
 
 `age_lead` - age of actor/actress at time of film (`age_lead = startYear - birthYear`)
 
@@ -1685,7 +1685,7 @@ SkimImdbData <- skimr::skim(ImdbData)
 summary(SkimImdbData)
 ```
 
-First we will review the character variables. 
+First, we will review the character variables. 
 
 ```{r SkimImdbData}
 # click to execute code
@@ -1698,11 +1698,11 @@ These all look complete.
 
 #### Do these numbers make sense?
 
-The number of unique responses (`n_unique`) for each character variable is a good source for sanity checks. For example, the largest number of unique responses belongs to the title id variable (`tconst` = `136925`), and this is identical to the number of rows in the dataset. The next largest number belongs to the `originalTitle` variable (`128171`), and the documentation tells us this variable is the title for the film in it's original language. By itself, this number doesn't tell us much, but we can see the next largest number (`124228`) is the film's `primaryTitle`, and it makes sense that the number of unique responses for these two variables are almost the same. 
+The number of individual responses (`n_unique`) for each character variable is a good source for sanity checks. For example, the largest number of unique values belongs to the title id variable (`tconst` = `136925`), and this is identical to the number of rows in the dataset. The next largest number belongs to the `originalTitle` variable (`128171`), and the documentation tells us this variable is the title for the film in its original language. By itself, this number doesn't tell us much, but we can see the next largest number (`124228`) is the film's `primaryTitle`, and it makes sense that the number of unique responses for these two variables is almost the same. 
 
-It also makes sense that the unique identifier for actor/actress (`nconst`) is close to the actor/actress `primaryName`. There should be way more titles (`originalTitle` or `primaryTitle`) than `genres`, and there is (`1056`).
+It also makes sense that the `n_unique` for actor/actress (`nconst`) is close to the actor/actress `primaryName`. There should be way more titles (`originalTitle` or `primaryTitle`) than `genres`, and there are (`1056`).
 
-Finally, we can see the two binary variables we read about above (`category` and `isAdult`) only list `2` unique values (in `n_unique`), so we can feel confident these were imported correctly.
+Finally, we can see the two binary variables we read about above (`category` and `isAdult`) only list `2` unique values (in `n_unique`), so it appears we imported these variables correctly.
 
 Next, we will review the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `ImdbData`. 
 
@@ -1723,25 +1723,19 @@ SkimImdbData %>%
 
 + The number of votes (`numVotes`) is the most skewed variable because it ranges from `10` to `2334927`. 
 
-+ The `startYear` for the movie has an average of `1985`, and increases steadily from `1906` to `2021`, which makes sense because more movies are being made every year. 
++ The `startYear` for the movie has an average of `1985`, and increases steadily from `1906` to `2021`, making sense because more films are being made every year. 
 
 + The average length of each movie in `ImdbData` is `97.1` minutes (`runtimeMinutes`). But we can also see from the `hist` that the range for `runtimeMinutes` includes some very low and high values (`p0` = `2` and `p100` = `1500`). 
 
-The average age of the actor/actress is `38.4`, with a low of `1` and a high of `98` (both plausible).
+The actor/actress's average age is `38.4`, with a low of `1` and a high of `98` (both plausible).
 
-### Number of votes vs. average rating
+### Creating categories from a numerical variable
 
-We've been asked to help explain the relationship between the average rating a movie received (`averageRating`), and the number of votes that went into the score (`numVotes`). 
+We will proceed under the assumption that our stakeholders asked us to help explain the relationship between the average rating a movie received (`averageRating`) and the number of votes that went into the score (`numVotes`). 
 
-```{r}
-ImdbData %>% 
-  ggplot(aes(x = numVotes, y = averageRating)) + 
-  geom_point(alpha = 2/5) + 
-  geom_smooth(size = 1.25)
-```
+There are quite a few years in this dataset, so instead, we will split each measure into decades. To do this, we need a categorical variable from the `startYear` variable. The `cut()` function is handy because we can supply the number of `breaks` we want to split the numeric `startYear` variable into (`12` in this case). We will also create some clear labels for this categorical variable with the `labels` argument and make sure the format is `ordered`.
 
-
-We will look to see how much the `averageRating` for movies has increased over the decades. In order to do this, we need a categorical variable from the `startYear` variable. The `cut()` function is handy for this because we can supply the number of `breaks` we want to split the numeric `startYear` variable into (`12` in this case). We will also create some clear labels for this categorical variable with the `labels` argument, and make sure the format is `ordered`.
+We check our new factor variable with the `fct_count()` from the `forcats` package.
 
 ```{r year_cat10}
 # click to execute code
@@ -1757,132 +1751,318 @@ ImdbData <- ImdbData %>%
 fct_count(f = ImdbData$year_cat10, sort = TRUE)
 ```
 
-### Scatterplots (`geom_jitter`)
-
-Now we want to make sure 
-
-```{r labs_jitter_avgratng_yearcat10}
-labs_jitter_avgratng_yearcat10 <- labs(
-  title = "Number of IMDB review votes by decade", 
-  subtitle = "Internet Movie Database (IMDB)",
-  caption = "https://www.imdb.com/", 
-  x = "Decade", 
-  y = "Number of votes")
-```
-
-```{r}
-ImdbData %>% 
-  ggplot(aes(x = year_cat10, y = numVotes)) + 
-  geom_jitter(alpha = 2/5, show.legend = FALSE) + 
-  labs_jitter_avgratng_yearcat10
-```
-
-
-
-### Violin plots (`geom_jitter`)
-
-```{r labs_jitter_avgratng_yearcat10}
-labs_jitter_avgratng_yearcat10 <- labs(
-  title = "Number of IMDB review votes by decade", 
-  subtitle = "Internet Movie Database (IMDB)",
-  caption = "https://www.imdb.com/", 
-  x = "Decade", 
-  y = "Number of votes")
-```
-
-
-
-```{r gg_step17_ridge__01}
-# # click to execute code
-gg_step17_ridge__01 <- ImdbData %>%
-  ggplot(aes(x = year_cat10,
-             y = averageRating,
-             fill = year_cat10)) +
-  geom_violin() +
-  guides(fill = FALSE) +
-  # add labels
-  labs_ridge_avg_ratng_year_cat10
-# # save
-# ggsave(plot = gg_step9_ridge_01,
-#        filename = "gg-step9-ridge-01.png",
-#        device = "png",
-#        width = 9,
-#        height = 6,
-#        units = "in")
-gg_step17_ridge__01
-```
-
-
-If you wish to facilitate direct comparisons you ideally need to juxtapose individual frames within the same view. The common technique used to achieve this in visualization is through small multiples, where you repeat the same representation for each moment in time of interest and present them collectively in an adjacent view, often through a grid layout. This enables far more incisive comparisons.
-
-
 ## step 18
-
-- [ ] included in step17.md?
-- [ ] grammar?
-- [ ] spelling?
-
-### Small multiples (2)
-
-
-```{r WW2Aces, message=FALSE, warning=FALSE}
-WW2Aces <- readr::read_csv("https://bit.ly/38QNLjU")
-WW2Aces %>% glimpse()
-```
-
-
-```{r WW2Aces-filter-air_vic}
-WW2Aces %>% 
-  filter(air_vic > 10)
-```
-
-```{r TopWW2AcePerCountry}
-TopWW2AcePerCountry <- WW2Aces %>% 
-  # all aces
-  filter(air_vic >= 10) %>% 
-  # 
-  group_by(country) %>% 
-  top_n(n = 1, wt = air_vic) %>% 
-  mutate(country = reorder(country, air_vic)) %>% 
-  
-TopWW2AcePerCountry
-```
-
-```{r TopWW2AcePerCountry-geom_point}
-TopWW2AcePerCountry %>% 
-  ggplot(aes(x = air_vic, 
-             y = forcats::fct_reorder(country, air_vic), 
-             fill = country, 
-             group = force)) + 
-  geom_point(show.legend = FALSE) 
-```
-
-```{r TopWW2AcePerCountry-geom_point-facet_wrap}
-TopWW2AcePerCountry %>% 
-  ggplot(aes(x = air_vic, y = country, fill = country, group = force)) + 
-  geom_point(show.legend = FALSE) + 
-  facet_wrap(. ~ force)
-```
-
-
-
-
-
-
-
-
-
-## step 19
 
 - [ ] included in step18.md?
 - [ ] grammar?
 - [ ] spelling?
 
-### Small multiples (3)
+### Number of votes 
+
+We want to examine how the `numVotes` variable changed over time (`year_cat10`). We want each decade on the `x` axis and the `numVotes` for each film on the `y`. Let's review the `numVotes` variable below with `skimr::skim()`
+
+```{r skim-numVotes}
+ImdbData$numVotes %>% 
+  skimr::skim()
+```
+
+We can see the values for this variable are concentrated, or skewed, towards `0`. However, we know enough information to build our labels.
+
+```{r labs_numvotes_yearcat10}
+labs_numvotes_yearcat10 <- labs(
+  title = "Number of IMDB review votes by decade", 
+  subtitle = "Internet Movie Database (IMDB)",
+  caption = "https://www.imdb.com/", 
+  x = "Decade", 
+  y = "Number of votes")
+```
+
+### Scatterplots with `geom_jitter`
+
+We're going to view the distribution of `numVotes` across each decade in `year_cat10` with `ggplot2::geom_jitter()`. `geom_jitter()` geom is similar to `geom_point()`, except it adds "*a small amount of random variation to the location of each point*." We will set the following arguments inside the `geom_jitter()` to help demonstrate how it works. 
+
++ `size = 0.9` = this controls how small/large the point will be   
++ `width = 0.25` = determines how wide we want the points to 'jitter' (the default value is `.40`, so we're decreasing it slightly)  
++ `alpha = 1/6` = the alpha controls the saturation (or transparency) of the points  
++ `show.legend = FALSE` = remove the legend (it's labeled across the `x` axis)
+
+```{r gg_step18_jitter_01}
+# # click to execute code
+gg_step18_jitter_01 <- ImdbData %>%
+  ggplot(aes(x = year_cat10,
+             y = numVotes,
+             fill = year_cat10)) +
+  geom_jitter(size = 0.9, 
+            width = 0.25,
+            alpha = 1/6, 
+            show.legend = FALSE) + 
+  guides(fill = FALSE) +
+  # add labels
+  labs_numvotes_yearcat10
+# # save
+# ggsave(plot = gg_step18_jitter_01,
+#        filename = "gg-step18-jitter-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step18_jitter_01
+```
+
+Open the `gg-step18-jitter-01.png` graph in the vscode IDE (above the Terminal console). Notice how there are a handful of extreme points above `15000000`? 
+
+Data with extreme values like this can be removed or transformed. If we have a reason to exclude these data, we can do `filter` the data to only the range we want in the graph (say `Number of votes < 1500000`), and then include this in the graph. 
+
+Run the code below to see what this would look like:
+
+```{r gg_step18_jitter_02}
+# click to execute code
+labs_jitter_numvote_yearcat10_02 <- labs(
+  title = "Number of IMDB review votes by decade", 
+  subtitle = "Internet Movie Database (IMDB)",
+  caption = "*Number of votes < 1500000; https://www.imdb.com", 
+  x = "Decade", 
+  y = "Number of votes")
+
+gg_step18_jitter_02 <- ImdbData %>% 
+  filter(numVotes < 1500000) %>% 
+  ggplot(aes(x = year_cat10, 
+             y = numVotes)) + 
+  geom_jitter(size = 0.9, 
+              width = 0.25,
+              alpha = 1/6, 
+              show.legend = FALSE) + 
+  labs_jitter_numvote_yearcat10_02
+# save
+# ggsave(plot = gg_step18_jitter_02,
+#        filename = "gg-step18-jitter-02.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step18_jitter_02
+```
+
+Open the `gg-step18-jitter-02.png` graph in the vscode IDE (above the Terminal console). Now the extreme points above `15000000` have been removed. 
+
+Another option is to transform the axis, which we can do with `ggplot2::scale_y_log10()`. This changes the `y` axis scale using a base-10 log transformation.
+
+We will also use the handy [`label_log10` function](https://bit.ly/35Ywt2q) developed by [Claus Wilke](https://wilkelab.org/)
+
+```{r gg_step18_jitter_03}
+# click to execute code
+
+#   load label_log10 function 
+source("https://bit.ly/35Ywt2q")
+
+#  create new labels
+labs_jitter_numvote_yearcat10_03 <- labs(
+  title = "Number of IMDB review votes by decade", 
+  subtitle = "Internet Movie Database (IMDB)",
+  caption = "*Number of votes log10 transformed; https://www.imdb.com", 
+  x = "Decade", 
+  y = "log10(Number of votes)")
+
+#   create new graph
+gg_step18_jitter_03 <- ImdbData %>% 
+  ggplot(aes(x = year_cat10, 
+             y = numVotes)) + 
+  geom_jitter(size = 0.9, 
+              width = 0.25,
+              alpha = 1/6, 
+              show.legend = FALSE) + 
+    scale_y_log10(
+    labels = label_log10) + 
+  labs_jitter_numvote_yearcat10_03
+#   save
+# ggsave(plot = gg_step18_jitter_03,
+#        filename = "gg-step18-jitter-03.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step18_jitter_03
+```
+
+Open the `gg-step18-jitter-03.png` graph in the vscode IDE (above the Terminal console). We can see the `log10` transformation spreads the points out more uniformly across the `y` axis, but is also makes it more difficult to interpret the number of votes. 
+
+Regardless of choice we make (removal of extreme values or transforming the scale), we want to make sure we communicate either of these changes to our stakeholders' and include them in any reports or write-ups so we don't give them a distorted view of the underlying variable.
+
+Read more about transforming a scale in [R for Data Science](https://r4ds.had.co.nz/graphics-for-communication.html?q=log10#replacing-a-scale).
+
+
+## step 19
+
+- [ ] included in step17.md?
+- [ ] grammar?
+- [ ] spelling?
+
+### Average individual user ratings
+
+The `averageRating` gives us the *weighted average of all the individual user ratings*. We will refresh our memory about this variable by taking a quick look at the `skimr::skim()` output below: 
+
+```{r skim-averageRating}
+ImdbData$averageRating %>% 
+  skimr::skim()
+```
+
+The distribution for `averageRating` looks evenly distributed around the mean and median, and the `hist` looks fairly symmetrical. We will see if this holds true for `averageRating` when we look at it across the levels of `year_cat10`.
+
+We now know enough about what we're expecting to see in the graph to build the labels for the average individual user ratings (`averageRating`) vs. time (`year_cat10`).
+
+```{r labs_avgratng_yearcat10}
+labs_avgratng_yearcat10 <- labs(
+  title = "Average IMDB individual user ratings by decade", 
+  subtitle = "Internet Movie Database (IMDB)",
+  caption = "https://www.imdb.com/", 
+  x = "Decade", 
+  y = "Average individual user ratings")
+```
+
+### Violin plots with `geom_violin`
+
+We're going to view the distribution of `averageRating` using the `ggplot2::geom_violin()` function. This function takes the following arguments: 
+
++ map `year_cat10` to `fill` *inside* the initial `ggplot(aes())` functions  
++ set `show.legend = FALSE` inside the `geom_violin()` function  
+
+```{r gg_step19_violin_01}
+# # click to execute code
+gg_step19_violin_01 <- ImdbData %>%
+  ggplot(aes(x = year_cat10,
+             y = averageRating,
+             fill = year_cat10)) +
+  geom_violin(show.legend = FALSE) + 
+  # add labels
+  labs_avgratng_yearcat10
+# # save
+# ggsave(plot = gg_step19_violin_01,
+#        filename = "gg-step19-violin-01.png",
+#        device = "png",
+#        width = 9,
+#        height = 6,
+#        units = "in")
+gg_step19_violin_01
+```
+
+Open the `gg-step19-violin-01.png` graph in the vscode IDE (above the Terminal console). We can see the violin plot shows us the `averageRating` variable as a smoothed area, with tails extending out to the ends of the distribution (towards the 'neck' of the violin).
+
+In the next section, we are going to examine how the `numVotes` and `averageRating` relate to each other over time. 
 
 ## step 20
 
-- [ ] included in step19.md?
+- [ ] included in step17.md?
+- [ ] grammar?
+- [ ] spelling?
+
+### Small multiples 
+
+We've been exploring...
+
+
+### Votes vs. user rating 
+
+```{r gg_step20_scatter_01}
+# # click to execute code
+gg_step20_scatter_01 <- ImdbData %>%
+  ggplot(aes(x = numVotes,
+             y = averageRating,
+             geoup = year_cat10)) +
+  geom_point(size = 0.9, 
+              alpha = 1/6, 
+              show.legend = FALSE) 
+
+gg_step20_scatter_01
+```
+
+
+### log10(Votes) vs. user rating 
+
+
+
+```{r gg_step20_scatter_02}
+gg_step20_scatter_02 <- ImdbData %>%
+  ggplot(aes(x = numVotes,
+             y = averageRating,
+             geoup = year_cat10)) +
+  geom_point(size = 0.9, 
+              alpha = 1/6, 
+              show.legend = FALSE) + 
+    scale_x_log10(labels = label_log10) 
+
+gg_step20_scatter_02
+```
+
+### Facetting for multiple comparisons
+
+If you wish to facilitate direct comparisons you ideally need to juxtapose individual frames within the same view. The common technique used to achieve this in visualization is through small multiples, where you repeat the same representation for each moment in time of interest and present them collectively in an adjacent view, often through a grid layout. 
+
+
+
+`scale_x_continuous()`
+
+```{r gg_step20_facet_01}
+gg_step20_facet_01 <- ImdbData %>%
+  ggplot(aes(x = numVotes,
+             y = averageRating,
+             geoup = year_cat10)) +
+  geom_point(size = 0.5, 
+              alpha = 1/10, 
+              show.legend = FALSE) + 
+  scale_x_continuous(limits = c(10, 2334927),
+                     breaks = c(10, 1167464, 2334927), 
+                     labels = c('10', '~1.2M', '~2.3M')) +
+    facet_wrap(~ year_cat10)
+
+gg_step20_facet_01
+```
+
+This enables far more incisive comparisons.
+
+`facet_wrap`
+
+```{r gg_step20_facet_02}
+gg_step20_facet_02 <- ImdbData %>%
+  ggplot(aes(x = numVotes,
+             y = averageRating,
+             group = year_cat10)) +
+  geom_point(size = 0.5, 
+             alpha = 1/10, 
+             show.legend = FALSE) + 
+    scale_x_log10(labels = label_log10) +
+    facet_wrap(~ year_cat10)
+
+gg_step20_facet_02
+```
+
+`geom_smooth()`
+
+```{r gg_step20_facet_03}
+gg_step20_facet_03 <- ImdbData %>%
+  ggplot(aes(x = numVotes,
+             y = averageRating,
+             geoup = year_cat10)) +
+  
+  geom_point(size = 0.5, 
+              alpha = 1/10, 
+              show.legend = FALSE) + 
+  
+  geom_smooth(se = FALSE,
+              method = 'lm',
+              size = 0.75,
+              color = "firebrick2",
+              fullrange = TRUE) +
+  
+    scale_x_log10(labels = label_log10) +
+  
+    facet_wrap(~ year_cat10)
+gg_step20_facet_03
+```
+
+
+## finish 
+
+- [ ] included in finish.md?
 - [ ] grammar?
 - [ ] spelling?
 
@@ -1894,12 +2074,7 @@ When presenting a graph with relationships, consider the context and framing for
 
 It's also important not to confuse your audience when designing graphs. Relationships with 'good news' should have the data points showing a positive trend (i.e., as X values increase, so do Y values), and vice-versa. You don't want to find yourself in a situation where you're explaining that your graph doesn't show what you're audience is *seeing*.
 
+
 ### Other resources for missing data
 
 Read more about visualizing missing data [here](http://naniar.njtierney.com/articles/naniar-visualisation.html) and on the [`visdat` package site](https://docs.ropensci.org/visdat/), or on the [`inspectdf` package](https://github.com/alastairrushworth/inspectdf) website.
-
-## finish 
-
-- [ ] included in finish.md?
-- [ ] grammar?
-- [ ] spelling?
