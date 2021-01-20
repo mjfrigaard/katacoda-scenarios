@@ -88,7 +88,7 @@ The learners I'm expecting to be participating in this course are:
 
 ## intro
 
-- [ ] included in intro.md?
+- [x] included in intro.md?
 
 ### Welcome!
 
@@ -267,7 +267,7 @@ Now that we know how to navigate the Katacoda environment, we can start explorin
 
 ## step 3
 
-- [ ] included in step3.md?
+- [x] included in step3.md?
 - [x] grammar?
 - [x] spelling?
 
@@ -506,7 +506,7 @@ Google the player's name. *What is his listed weight on Wikipedia?*
 
 ## step 6
 
-- [ ] included in step6.md?
+- [x] included in step6.md?
 - [x] grammar  
 - [x] spelling 
 
@@ -740,9 +740,9 @@ The `stars` values fit into `20` bins better than the default `30` because we ca
 
 ## step 8
 
-- [ ] included in step8.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step8.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Single variable distributions (2)
 
@@ -819,9 +819,9 @@ Using descriptive labels makes sure we know what we're seeing when we're viewing
 
 ## step 9
 
-- [ ] included in step9.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step9.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Multiple variable distributions (1)
 
@@ -1043,9 +1043,9 @@ If your audience is not familiar with box-plots, the figure above is an example 
 
 ## step 12
 
-- [ ] included in step12.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step12.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Communicating column/bar charts
 
@@ -1273,9 +1273,9 @@ Based on the scatterplot, we can see a positive relationship between `mass` and 
 
 ## step 14
 
-- [ ] included in step14.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step14.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Visualizing relationships (2)
 
@@ -1347,9 +1347,9 @@ The color of the points shows that the `feminine` characters occupy a smaller ra
 
 ## step 15
 
-- [ ] included in step13.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step13.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Visualizing relationships (3)
 
@@ -1495,9 +1495,9 @@ Our graph is starting to look like the figure in the article, but we still need 
 
 ## step 16
 
-- [ ] included in step16.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step16.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Adding text annotations
 
@@ -1891,9 +1891,9 @@ Read more about transforming a scale in [R for Data Science](https://r4ds.had.co
 
 ## step 19
 
-- [ ] included in step19.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step19.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Average individual user ratings
 
@@ -1952,9 +1952,9 @@ The next section will examine how the `numVotes` and `averageRating` relate to e
 
 ## step 20
 
-- [ ] included in step20.md?
-- [ ] grammar?
-- [ ] spelling?
+- [x] included in step20.md?
+- [x] grammar?
+- [x] spelling?
 
 ### Small multiples 
 
@@ -2229,7 +2229,7 @@ Open the `gg-step20-facet-03.png` graph in the vscode IDE (above the Terminal co
 
 ## finish 
 
-- [ ] included in finish.md?
+- [x] included in finish.md?
 - [x] grammar?
 - [x] spelling?
 
