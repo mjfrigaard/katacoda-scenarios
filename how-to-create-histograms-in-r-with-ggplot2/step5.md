@@ -39,6 +39,6 @@ ggsave(plot = gg_step5_hist_03,
 
 Let's view the graph we just created:
 
-`gg-step4-hist-03.png`{{open}} 
+`gg-step5-hist-03.png`{{open}} 
 
 When we use facets to display variable distributions, we must pay attention to the axes. In the graph we just created, all three histograms have the same `y` axis scale. If we had chosen all the levels in `style`, the number of responses would be a lot smaller and it would be hard to compare the histograms to each other. 
