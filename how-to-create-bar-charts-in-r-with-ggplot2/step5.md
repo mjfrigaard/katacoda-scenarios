@@ -1,0 +1,30 @@
+### Building a Bar Chart
+
+In `ggplot2`, we create a bar chart using the `geom_bar()` function. First we map `bats` to both `x` and `fill` inside the `ggplot(aes())` functions. 
+
+We also remove the legend with `guides(fill = FALSE)`, and add labels for `title`, `subtitle`, `caption`, and `y` axis (`x` is set to `NULL`).
+
+Finally, we pass the `plot` object to the `ggplot2::ggsave()` function and include the `filename` (with extension), the `device`, `width`, `height`, and `units`. 
+
+```
+# click to execute code
+gg_step5_bar_01 <- People %>%
+  ggplot(aes(x = bats, fill = bats)) +
+  geom_bar() +
+  guides(fill = FALSE) +
+  labs(title = "MILB Player's batting hand",
+       subtitle = "Left (L), right (R), or both (B)",
+       caption = "source: http://www.seanlahman.com/",
+       x = NULL, y = "Number of birth countries")
+# save
+ggsave(plot = gg_step5_bar_01,
+        filename = "gg-step5-bar-01.png",
+        device = "png",
+        width = 9,
+        height = 6,
+        units = "in")
+```{{execute}}
+
+Click here on the `gg-step5-bar-01.png`{{open}} file to view the graph (or open the graph in the vscode IDE above the Terminal console).
+
+There you have it! You've created a bar chart in R using `ggplot2`. 
