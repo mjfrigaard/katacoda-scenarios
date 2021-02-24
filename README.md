@@ -5,7 +5,11 @@ This is the `README` file for the Katacoda scenarios. All the scenarios
 and courses can be found on my profile page
 [here](https://katacoda.com/mjfrigaard).
 
-## Scenario 1: Format and shape your data with R in the tidyverse
+## Format and shape your data with R in the tidyverse
+
+-   [x] on gitlab?
+-   [x] tested?
+-   [x] reviewed?
 
 Link to scenario:
 <https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data>
@@ -15,7 +19,11 @@ Link to Google doc:
 Link to Github repo:
 <https://resources.oreilly.com/katacoda/martin-frigaard>
 
-## Scenario 2: Introduction to the grammar of graphics
+## Introduction to the grammar of graphics
+
+-   [x] on gitlab?
+-   [x] tested?
+-   [x] reviewed?
 
 Link to scenario:
 <https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2>
@@ -25,11 +33,107 @@ Link to Google doc:
 Link to Github repo:
 <https://resources.oreilly.com/katacoda/martin-frigaard>
 
-## Scenario 3: Combine narrative with numbers for effective storytelling in R
+## How to Create Column Charts in R with ggplot2
 
-Link to scenario:
+-   [x] on gitlab?
+-   [x] tested?
+-   [ ] reviewed?
 
-Link to Google doc:
+how-to-create-column-charts-in-r-with-ggplot2
+
+Display counts with column charts
+
+## How to Create Bar Charts in R with ggplot2
+
+-   [x] on gitlab?
+-   [x] tested?
+-   [ ] reviewed?
+
+how-to-create-bar-charts-in-r-with-ggplot2
+
+Display counts with bar charts
+
+## How to Create Histograms in R with ggplot2
+
+-   [x] on gitlab?
+-   [x] tested?
+-   [ ] reviewed?
+
+how-to-create-histograms-in-r-with-ggplot2
+
+View single variable distributions with histograms
+
+## How to Create Density Plots in R with ggplot2
+
+-   [ ] on gitlab?
+-   [ ] tested?
+-   [ ] reviewed?
+
+how-to-create-density-plots-in-r-with-ggplot2
+
+View single variable distributions with density plots
+
+## How to Create Ridgeline Plots in R with ggridges
+
+-   [ ] on gitlab?
+-   [ ] tested?
+-   [ ] reviewed?
+
+how-to-create-ridgeline-plots-in-r-with-ggridges
+
+View multiple variable distributions with ridgeline plots
+
+## How to Create Boxplots in R with ggplot2
+
+-   [ ] on gitlab?
+-   [ ] tested?
+-   [ ] reviewed?
+
+how-to-create-boxplots-in-r-with-ggplot2
+
+View multiple variable distributions with boxplots plots
+
+## How to Create Scatter-plots in R with ggplot2
+
+-   [ ] on gitlab?
+-   [ ] tested?
+-   [ ] reviewed?
+
+how-to-create-scatter-plots–in-r-with-ggplot2
+
+View relationships between variables with scatter plots
+
+## How to Create Line-plots in R with ggplot2
+
+-   [ ] on gitlab?
+-   [ ] tested?
+-   [ ] reviewed?
+
+how-to-create-line-plots-in-r-with-ggplot2
+
+View trends over time with line-plots
+
+## How to Create Jitter plots in R with ggplot2
+
+-   [ ] on gitlab?
+-   [ ] tested?
+-   [ ] reviewed?
+
+how-to-create-jitter-plots-in-r-with-ggplot2
+
+Add noise to a scatter plot with jitter plots
+
+## How to Create Small Multiples in R with ggplot2
+
+-   [ ] on gitlab?
+-   [ ] tested?
+-   [ ] reviewed?
+
+how-to-create-small-multiples-in-r-with-ggplot2
+
+Arrange multiple graphs in a grid layout with small multiples
+
+------------------------------------------------------------------------
 
 Link to Github repo:
 <https://resources.oreilly.com/katacoda/martin-frigaard>
