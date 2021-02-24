@@ -21,26 +21,13 @@ Let's take a quick tour of our Katacoda environment. In the next 18 steps, we'll
 
 You're reading this in the **Sidebar**. All of the instructions are in the Sidebar, and at the bottom, you'll find a "*Continue*" button to take you to the next step. See the image below:
 
-
-<!--
-
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-column-charts-in-r-with-ggplot2/img/sc-03-sidebar.png)
-
--->
-
-
-
 
 **Code blocks**
 
 You will also find **code blocks** in the Sidebar. All the code blocks will run when you click on them (you've already run a few above!). See the image below for more examples:
 
-
-<!--
-
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-column-charts-in-r-with-ggplot2/img/sc-03-code-blocks.png)
-
--->
 
 **Terminal**
 

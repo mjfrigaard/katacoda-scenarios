@@ -1,6 +1,6 @@
 ### Welcome!
 
-Welcome to '*(scenario name from index.json)*'! In this scenario, we will cover how to build a **(type of graph** of a [data type].
+Welcome to '*How to Create Histograms in R with ggplot2*'! In this scenario, we will cover how to build a **histogram** of a single variable.
 
 This scenario assumes you've done some data wrangling with [`tidyr` and `dplyr`](https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data), and [data visualization with `ggplot2`](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2).
 

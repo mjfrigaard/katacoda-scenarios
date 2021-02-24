@@ -1,6 +1,6 @@
 ### Welcome!
 
-Welcome to '*How to Create Column Charts in R with ggplot2*'! In this scenario, we will cover how to build a **column charts** of two variables.
+Welcome to '*How to Create Column Charts in R with ggplot2*'! In this scenario, we will cover how to build a **column chart** using two variables.
 
 This scenario assumes you've done some data wrangling with [`tidyr` and `dplyr`](https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data), and [data visualization with `ggplot2`](https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2).
 
