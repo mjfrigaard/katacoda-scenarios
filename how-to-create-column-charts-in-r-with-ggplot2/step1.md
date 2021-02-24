@@ -54,11 +54,7 @@ tidyverse::tidyverse_logo()
 
 You should see the following output in the **Terminal**:
 
-<!--
-
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-column-charts-in-r-with-ggplot2/img/sc-03-terminal-code.png)
-
--->
 
 
 **VSCODE (EXPLORER)**
@@ -69,19 +65,11 @@ When we create graphs, we will include the `ggplot2::ggsave()` function in the c
 
 Inside the VSCODE EXPLORER, you'll find a section labeled **ROOT.** ROOT is a folder that contains our new graph files. We can open the **Graph file** by clicking on them. See the image below for an example:
 
-<!--
-
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-column-charts-in-r-with-ggplot2/img/sc-03-explorer-root.png)
-
--->
 
 The image below gives you an overview of this entire process:
 
-<!--
-
 ![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-column-charts-in-r-with-ggplot2/img/sc-03-code-run-png-view.png)
-
--->
 
 
 Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!
