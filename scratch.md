@@ -55,7 +55,7 @@ You're reading this in the **Sidebar**. All of the instructions are in the Sideb
 
 <!--
 
-![](img/sc-03-sidebar.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/[insert path]/img/sc-03-sidebar.png)
 
 -->
 
@@ -69,7 +69,7 @@ You will also find **code blocks** in the Sidebar. All the code blocks will run 
 
 <!--
 
-![](img/sc-03-code-blocks.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/[insert path]/img/sc-03-code-blocks.png)
 
 -->
 
@@ -87,7 +87,7 @@ You should see the following output in the **Terminal**:
 
 <!--
 
-![](img/sc-03-terminal-code.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/[insert path]/img/sc-03-terminal-code.png)
 
 -->
 
@@ -102,7 +102,7 @@ Inside the VSCODE EXPLORER, you'll find a section labeled **ROOT.** ROOT is a fo
 
 <!--
 
-![](img/sc-03-explorer-root.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/[insert path]/img/sc-03-explorer-root.png)
 
 -->
 
@@ -110,7 +110,7 @@ The image below gives you an overview of this entire process:
 
 <!--
 
-![](img/sc-03-code-run-png-view.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/[insert path]/img/sc-03-code-run-png-view.png)
 
 -->
 
