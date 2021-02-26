@@ -156,7 +156,7 @@ If you need a refresher on `ggplot2` layers and mapping, check out the [Introduc
 
 ```
 
-### [title from index.json] in R with ggplot
+### [title from index.json]
 
 In this scenario we covered how to:
 
