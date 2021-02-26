@@ -5,6 +5,21 @@ This is the `README` file for the Katacoda scenarios. All the scenarios
 and courses can be found on my profile page
 [here](https://katacoda.com/mjfrigaard).
 
+Link to Github repo:
+<https://resources.oreilly.com/katacoda/martin-frigaard>
+
+## The `index.json` file
+
+The environment for the scenario’s creating images (i.e. graphs) should
+look like this:
+
+``` json
+  "environment": {
+    "uilayout": "vscode-terminal-split",
+    "showide": true
+  },
+```
+
 ## Format and shape your data with R in the tidyverse
 
 -   [x] on gitlab?
@@ -13,8 +28,6 @@ and courses can be found on my profile page
 
 Link to scenario:
 <https://katacoda.com/orm-mfrigaard/scenarios/01-format-shape-data>
-
-Link to Google doc:
 
 Link to Github repo:
 <https://resources.oreilly.com/katacoda/martin-frigaard>
@@ -28,8 +41,6 @@ Link to Github repo:
 Link to scenario:
 <https://www.katacoda.com/orm-mfrigaard/scenarios/02-intro-ggplot2>
 
-Link to Google doc:
-
 Link to Github repo:
 <https://resources.oreilly.com/katacoda/martin-frigaard>
 
@@ -39,9 +50,9 @@ Link to Github repo:
 -   [x] tested?
 -   [ ] reviewed?
 
-how-to-create-column-charts-in-r-with-ggplot2
+**slug:** how-to-create-column-charts-in-r-with-ggplot2
 
-Display counts with column charts
+**description:** Display counts with column charts
 
 ## How to Create Bar Charts in R with ggplot2
 
@@ -49,9 +60,9 @@ Display counts with column charts
 -   [x] tested?
 -   [ ] reviewed?
 
-how-to-create-bar-charts-in-r-with-ggplot2
+**slug:** how-to-create-bar-charts-in-r-with-ggplot2
 
-Display counts with bar charts
+**description:** Display counts with bar charts
 
 ## How to Create Histograms in R with ggplot2
 
@@ -59,9 +70,9 @@ Display counts with bar charts
 -   [x] tested?
 -   [ ] reviewed?
 
-how-to-create-histograms-in-r-with-ggplot2
+**slug:** how-to-create-histograms-in-r-with-ggplot2
 
-View single variable distributions with histograms
+**description:** View single variable distributions with histograms
 
 ## How to Create Density Plots in R with ggplot2
 
@@ -69,9 +80,9 @@ View single variable distributions with histograms
 -   [ ] tested?
 -   [ ] reviewed?
 
-how-to-create-density-plots-in-r-with-ggplot2
+**slug:** how-to-create-density-plots-in-r-with-ggplot2
 
-View single variable distributions with density plots
+**description:** View single variable distributions with density plots
 
 ## How to Create Ridgeline Plots in R with ggridges
 
@@ -79,19 +90,21 @@ View single variable distributions with density plots
 -   [ ] tested?
 -   [ ] reviewed?
 
-how-to-create-ridgeline-plots-in-r-with-ggridges
+**slug:** how-to-create-ridgeline-plots-in-r-with-ggridges
 
-View multiple variable distributions with ridgeline plots
+**description:** View multiple variable distributions with ridgeline
+plots
 
 ## How to Create Boxplots in R with ggplot2
 
--   [ ] on gitlab?
--   [ ] tested?
+-   [x] on gitlab?
+-   [x] tested?
 -   [ ] reviewed?
 
-how-to-create-boxplots-in-r-with-ggplot2
+**slug:** how-to-create-boxplots-in-r-with-ggplot2
 
-View multiple variable distributions with boxplots plots
+**description:** View multiple variable distributions with boxplots
+plots
 
 ## How to Create Scatter-plots in R with ggplot2
 
@@ -99,9 +112,9 @@ View multiple variable distributions with boxplots plots
 -   [ ] tested?
 -   [ ] reviewed?
 
-how-to-create-scatter-plots–in-r-with-ggplot2
+**slug:** how-to-create-scatter-plots–in-r-with-ggplot2
 
-View relationships between variables with scatter plots
+**description:** View relationships between variables with scatter plots
 
 ## How to Create Line-plots in R with ggplot2
 
@@ -109,9 +122,9 @@ View relationships between variables with scatter plots
 -   [ ] tested?
 -   [ ] reviewed?
 
-how-to-create-line-plots-in-r-with-ggplot2
+**slug:** how-to-create-line-plots-in-r-with-ggplot2
 
-View trends over time with line-plots
+**description:** View trends over time with line-plots
 
 ## How to Create Jitter plots in R with ggplot2
 
@@ -119,9 +132,9 @@ View trends over time with line-plots
 -   [ ] tested?
 -   [ ] reviewed?
 
-how-to-create-jitter-plots-in-r-with-ggplot2
+**slug:** how-to-create-jitter-plots-in-r-with-ggplot2
 
-Add noise to a scatter plot with jitter plots
+**description:** Add noise to a scatter plot with jitter plots
 
 ## How to Create Small Multiples in R with ggplot2
 
@@ -129,19 +142,12 @@ Add noise to a scatter plot with jitter plots
 -   [ ] tested?
 -   [ ] reviewed?
 
-how-to-create-small-multiples-in-r-with-ggplot2
+**slug:** how-to-create-small-multiples-in-r-with-ggplot2
 
-Arrange multiple graphs in a grid layout with small multiples
+**description:** Arrange multiple graphs in a grid layout with small
+multiples
 
 ------------------------------------------------------------------------
-
-Link to Github repo:
-<https://resources.oreilly.com/katacoda/martin-frigaard>
-
-## Taking notes?
-
-It would also be great if the learners were able to use something like
-[HackMD](https://hackmd.io/) to keep a copy of the code they’re writing?
 
 ## Resources
 
