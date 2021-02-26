@@ -76,8 +76,8 @@ Link to Github repo:
 
 ## How to Create Density Plots in R with ggplot2
 
--   [ ] on gitlab?
--   [ ] tested?
+-   [x] on gitlab?
+-   [x] tested?
 -   [ ] reviewed?
 
 **slug:** how-to-create-density-plots-in-r-with-ggplot2
