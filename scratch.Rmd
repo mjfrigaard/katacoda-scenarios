@@ -180,7 +180,7 @@ Ramen <- readr::read_csv("https://bit.ly/38sO0S7")
 Ramen %>% count(style, sort = TRUE)
 ```
 
-```{r}
+```{r histogram-filter-plot}
 Ramen %>% 
   filter(style %in% c("Bowl", "Pack", "Cup")) %>% 
 ggplot(aes(x = stars)) +
@@ -193,4 +193,6 @@ ggplot(aes(x = stars)) +
        subtitle = "For Ramin in Bowls, Packs and Cups",
        caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 ```
+
+
 
