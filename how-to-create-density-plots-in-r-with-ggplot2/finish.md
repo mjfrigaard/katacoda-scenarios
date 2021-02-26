@@ -1,10 +1,10 @@
-### 
+### How to Create Density Plots in R with ggplot2
 
 In this scenario we covered how to:
 
 1. `skim()` variables to get summary statistics
-2. [wrangling steps]
-3. Build [graph type] with `package::function()`
+2. Build density plots with `ggplot2::geom_density()`  
+3. Creating labels that update with the underlying data  
 4. Save graph images with `ggplot2::ggsave()`
 
 ### Thank you!
