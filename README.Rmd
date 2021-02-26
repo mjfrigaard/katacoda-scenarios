@@ -131,8 +131,8 @@ Link to Github repo: https://resources.oreilly.com/katacoda/martin-frigaard
 
 ## How to Create Jitter plots in R with ggplot2
 
-- [ ] on gitlab? 
-- [ ] tested? 
+- [x] on gitlab? 
+- [x] tested? 
 - [ ] reviewed? 
 
 **slug:** how-to-create-jitter-plots-in-r-with-ggplot2
