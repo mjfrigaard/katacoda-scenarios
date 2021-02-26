@@ -40,7 +40,7 @@ Ramen %>%
 The figure below shows a box-plot for the distribution of `stars` ratings across the `Tray` level of `style`. We've labeled the summary statistics from the `skimr` output on the graph. The 25th percentile (or `p25`) is the box's first vertical line (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box, and the 75th percentile (`p75`) is the last vertical line in the box (or hinge). 
 
 
-![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-histograms-in-r-with-ggplot2/img/sc-03-boxplot-diagram.png) 
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-boxplot-diagram.png) 
 
 We've also labeled the minimum (`p0`) and maximum (`p100`) values and the interquartile range (which is similar to the standard deviation). 
 
