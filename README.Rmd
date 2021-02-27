@@ -87,7 +87,7 @@ Link to Github repo: https://resources.oreilly.com/katacoda/martin-frigaard
 
 ## How to Create Ridgeline Plots in R with ggridges
 
-- [ ] on gitlab? 
+- [x] on gitlab? 
 - [ ] tested? 
 - [ ] reviewed? 
 
@@ -109,7 +109,7 @@ Link to Github repo: https://resources.oreilly.com/katacoda/martin-frigaard
 
 ## How to Create Scatter-plots  in R with ggplot2
 
-- [ ] on gitlab? 
+- [x] on gitlab? 
 - [ ] tested? 
 - [ ] reviewed? 
 
@@ -120,7 +120,7 @@ Link to Github repo: https://resources.oreilly.com/katacoda/martin-frigaard
 
 ## How to Create Line-plots in R with ggplot2
 
-- [ ] on gitlab? 
+- [x] on gitlab? 
 - [ ] tested? 
 - [ ] reviewed? 
 
@@ -142,7 +142,7 @@ Link to Github repo: https://resources.oreilly.com/katacoda/martin-frigaard
 
 ## How to Create Small Multiples in R with ggplot2
 
-- [ ] on gitlab? 
+- [x] on gitlab? 
 - [ ] tested? 
 - [ ] reviewed? 
 

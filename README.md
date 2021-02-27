@@ -86,7 +86,7 @@ Link to Github repo:
 
 ## How to Create Ridgeline Plots in R with ggridges
 
--   [ ] on gitlab?
+-   [x] on gitlab?
 -   [ ] tested?
 -   [ ] reviewed?
 
@@ -108,7 +108,7 @@ plots
 
 ## How to Create Scatter-plots in R with ggplot2
 
--   [ ] on gitlab?
+-   [x] on gitlab?
 -   [ ] tested?
 -   [ ] reviewed?
 
@@ -118,7 +118,7 @@ plots
 
 ## How to Create Line-plots in R with ggplot2
 
--   [ ] on gitlab?
+-   [x] on gitlab?
 -   [ ] tested?
 -   [ ] reviewed?
 
@@ -128,8 +128,8 @@ plots
 
 ## How to Create Jitter plots in R with ggplot2
 
--   [ ] on gitlab?
--   [ ] tested?
+-   [x] on gitlab?
+-   [x] tested?
 -   [ ] reviewed?
 
 **slug:** how-to-create-jitter-plots-in-r-with-ggplot2
@@ -138,7 +138,7 @@ plots
 
 ## How to Create Small Multiples in R with ggplot2
 
--   [ ] on gitlab?
+-   [x] on gitlab?
 -   [ ] tested?
 -   [ ] reviewed?
 
