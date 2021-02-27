@@ -1,13 +1,13 @@
 ### Comic Book Data
 
-Sometimes we will want to look at how a particular measurement changes over time or trends. When we're visualizing trends, the `x` axis typically the measure of time, and the `y` axis contains our measurement of interest. Each time point along the `x` axis has a corresponding value on the `y` axis, and lines connect these points. These lines are extended along the `x` axis's full scale to display the change over time (or the trend). See the example from the FiveThirtyEight article titled, ["Comic Books Are Still Made By Men, For Men And About Men"](https://fivethirtyeight.com/features/women-in-comic-books/):
+When we want to look at how a particular measurement changes over time (also known as a trendline), we use the `x` axis to display the measure of time (days, weeks, months, etc.), and the `y` axis contains our measurement of interest. 
+
+Each time point along the `x` axis has a corresponding value on the `y` axis, and we use lines connect these points. These lines then extend along the `x` axis's full scale to display the change over time (or the *trend*). See the example from the FiveThirtyEight article titled, ["Comic Books Are Still Made By Men, For Men And About Men"](https://fivethirtyeight.com/features/women-in-comic-books/):
 
 
 ![](https://fivethirtyeight.com/wp-content/uploads/2014/10/hickey-feature-comics-3.png?w=1220)
 
-We're going to re-create this chart using data from the `fivethirtyeightdata` package. 
-
-The [`fivethirtyeightdata` package](https://fivethirtyeight-r.netlify.app/) contains data from the [FiveThirtyEight Github repository](https://github.com/fivethirtyeight/data), but these data have been formatted to provide "*tame data principles for introductory statistics and data science courses.*"
+We're going to re-create this chart using data from the `fivethirtyeightdata` package. The [`fivethirtyeightdata` package](https://fivethirtyeight-r.netlify.app/) contains data from the [FiveThirtyEight Github repository](https://github.com/fivethirtyeight/data), but these data have been formatted to provide "*tame data principles for introductory statistics and data science courses.*"
 
 We are going to load the `comic_characters` dataset from the article above. We're only interested in a subset of this dataset, so we select the relevant variables and do some initial formatting steps before assigning them to the `ComicData` (read more about the data [here](https://cran.r-project.org/web/packages/fivethirtyeight/vignettes/fivethirtyeight.html)).
 

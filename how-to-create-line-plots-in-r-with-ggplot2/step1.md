@@ -1,4 +1,3 @@
-
 ### Initiate R
 
 Launch an R console by clicking here -> `R`{{execute}}
