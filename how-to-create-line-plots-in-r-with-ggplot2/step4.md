@@ -4,7 +4,7 @@ In the previous step, we started recreating the following graph from the FiveThi
 
 ![](https://fivethirtyeight.com/wp-content/uploads/2014/10/hickey-feature-comics-3.png?w=1220)
 
-We left off with the line graph in the `gg-step15-line-01.png` file. The FiveThirtyEight graph designers chose to remove the legend and add text labels directly to the chart, helping communicate the trend to audiences. This practice isn't always the best choice, but it works in this graph for a few reasons, which we will cover below.
+We left off with the line graph in the `gg-step3-line-01.png`{{open}} file. The FiveThirtyEight graph designers chose to remove the legend and add text labels directly to the chart, helping communicate the trend to audiences. This practice isn't always the best choice, but it works in this graph for a few reasons, which we will cover below.
 
 ### When to add text to graphs
 
