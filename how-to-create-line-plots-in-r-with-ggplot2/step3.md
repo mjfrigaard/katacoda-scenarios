@@ -44,6 +44,6 @@ ggsave(plot = gg_step3_line_01,
 gg_step3_line_01
 ```{{execute}}
 
-Click here to open the graph: `gg-step3-line-01.png`  
+Click here to open the graph: `gg-step3-line-01.png`{{open}} 
 
 Our graph is starting to look like the figure in the article, but we still need to make a few changes. We removed the legend, so we have no way of knowing which line belongs to which publisher (`DC` or `Marvel`). In the next section, we will learn how to add these labels onto the graph near their respective lines.

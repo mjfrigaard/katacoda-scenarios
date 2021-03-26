@@ -66,3 +66,6 @@ Click here on the `gg-step5-col-02.png`{{open}} file to view the graph (or open 
 ### Communication tips
 
 Bar charts and column charts display the counts for each different response in the categorical variable. We can help our audience interpret these graphs by always setting the count axis scale to zero, sorting the chart's values to make it easier to read, and flipping the `x` axis if it is difficult to read.  
+ 
+
+

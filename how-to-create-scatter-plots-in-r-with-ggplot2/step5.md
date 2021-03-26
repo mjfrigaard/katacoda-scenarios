@@ -59,7 +59,7 @@ ggsave(plot = gg_step5_scatter_03,
         units = "in")
 ```{{execute}}
 
-Open the `gg-step5-scatter-03.png` graph in the vscode IDE (above the Terminal console). 
+Open the `gg-step5-scatter-03.png`{{open}} graph in the vscode IDE (above the Terminal console). 
 
 The color of the points shows that the `feminine` characters occupy a smaller range of values for the relationship between `mass` and `height`. 
 

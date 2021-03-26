@@ -14,6 +14,6 @@ Having a "birds" eye view' of the data ensures there weren't any problems with e
 
 ### Tabular data
 
-Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. In this scenario, we will use [tabular data](https://en.wikipedia.org/wiki/Table_(information) data (i.e. [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet), Tabular data organizes information into columns and rows. 
+Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. In this scenario, we will use [tabular data](http://bit.ly/3aXXB4I) data (i.e. [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet), Tabular data organizes information into columns and rows. 
 
 Let's load some data and get started!

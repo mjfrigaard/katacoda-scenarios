@@ -41,6 +41,6 @@ We will investigate the variation of `stars` across `style` with a box-plot. Box
 
 Now we have an idea of the numbers we want to include in our visualization, so we're ready to create our graph. Building graphs with the `ggplot2` syntax can be expressed in the following template:
 
-![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/ggplot2-template.png)
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-histograms-in-r-with-ggplot2/img/ggplot2-template.png)
 
 If you need a refresher on `ggplot2` layers and mapping, check out the [Introduction to the Grammar of Graphics scenario](https://www.katacoda.com/orm-mfrigaard/scenarios/intro-ggplot2).
