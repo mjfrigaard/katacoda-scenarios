@@ -1,45 +1,45 @@
-### Combine `case_when` and `pivot`
+# Combine casewhen and pivot
 
 After creating new variables, it's always a good idea to check your work. Now that we have some tools for creating new variables, we can use the `tidyr::pivot_` functions to check and make sure all the rows were assigned correctly.
 
-#### Small Bob Ross
+## Small Bob Ross
 
-We'll import a small version of the `bob_ross` dataset to demonstrate how we can combine both levels of data wrangling to create new variables and check our work.
+We'll import a small version of the `bob_ross` dataset to demonstrate how we can combine both levels of data wrangling to create new variables and check our work:
 
 ```
 BobRossStep12 <- readr::read_csv(file = "https://bit.ly/bob-ross-step12")
 head(BobRossStep12)
 ```{{execute}}
 
-#### View the data
+## View the Data
 
 Use `utils::head()`, `dplyr::glimpse()`, or `utils::str()` to view the contents of `BobRossStep12`.
 
-#### Create long (tidy) dataset
+## Create a Long (Tidy) Dataset
 
-First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started,
+First create a long version of `BobRossStep12` using `tidyr::pivot_longer()`. We've provided some code to get you started:
 
-+ the `cols` argument should be `-c(episode, season, episode_num, title)` (this means negate these four columns)
++ The `cols` argument should be `-c(episode, season, episode_num, title)` (this means negate these four columns).
 
-+ assign `names_to` to `"object"` and `values_to` to `"present"`).
++ Assign `names_to` to `"object"` and `values_to` to `"present"`).
 
-+ when you're confident you have it correct, assign these changes to `BobRossStep12`.
++ When you're confident you have it correct, assign these changes to `BobRossStep12`.
 
 ```
 BobRossStep12 <- tidyr::pivot_longer(data = BobRossStep12, cols = -c(episode, season, episode_num, title), names_to = "_______",  values_to = "________")
 ```{{copy}}
 
-Now that we have a long dataset, we can create a new variable (`painting_cats`) for the following categories.
+Now that we have a long dataset, we can create a new variable (`painting_cats`) for the following categories:
 
-+ Label any mention of cabin as `Cabins` (*there should only be one*)
++ Label any mention of cabin as `Cabins` (*there should only be one*).
 
-+ Capture all framed paintings under the label `Frames` (*a single pattern of `frame` should do the trick*)
++ Capture all framed paintings under the label `Frames` (*a single pattern of `frame` should do the trick*).
 
-+ Create a category for all the `Trees` (*there are different types of trees here, so we can combine multiple arguments by placing a pipe (|) between them*)
++ Create a category for all the `Trees` (*there are different types of trees here, so we can combine multiple arguments by placing a pipe (|) between them*).
 
-+ Label all the clouds as `Clouds` (*same as above, but with different types of clouds*)
++ Label all the clouds as `Clouds` (*same as above, but with different types of clouds*).
 
-+ All other missing values should be labeled `NA` with `NA_character_` (*here we will use `TRUE` as the condition, and the `NA` type as a result *)
++ All other missing values should be labeled `NA` with `NA_character_` (*here we will use `TRUE` as the condition, and the `NA` type as a result*).
 
 ```
 dplyr::mutate(.data = BobRossStep12,
@@ -53,7 +53,7 @@ dplyr::mutate(.data = BobRossStep12,
 
 **Did you get it?**
 
-You can run the code below to check
+You can run the following code to check your work:
 
 ```
 BobRossStep12 <- dplyr::mutate(.data = BobRossStep12,
@@ -67,7 +67,7 @@ BobRossStep12
 ```{{execute}}
 
 
-Now we want to check our work by creating a cross-tabulation between `object` and `painting_cats`. We can do this with `dplyr::count()`, which tallies up all the values in a column. Copy the code below to see the new values in `painting_cats`.
+Now we want to check our work by creating a cross-tabulation between `object` and `painting_cats`. We can do this with `dplyr::count()`, which tallies up all the values in a column. Copy the following code to see the new values in `painting_cats`:
 
 ```
 # click to copy code
@@ -75,7 +75,7 @@ Now we want to check our work by creating a cross-tabulation between `object` an
 dplyr::count(BobRossStep12, painting_cats)
 ```{{copy}}
 
-If we want to count two variables, we simply separate them with a comma (see below).
+If we want to count two variables, we simply separate them with a comma (see the following):
 
 ```
 # click to copy code
@@ -83,7 +83,7 @@ If we want to count two variables, we simply separate them with a comma (see bel
 dplyr::count(BobRossStep12, object, painting_cats)
 ```{{copy}}
 
-As you can see, this is returning a `tibble`. We know how to reshape `tibbles` with the `pivot_` functions now, so let's restructure the output to view the values of `painting_cats` across columns.
+As you can see, this is returning a `tibble`. We know how to reshape `tibbles` with the `pivot_` functions now, so let's restructure the output to view the values of `painting_cats` across columns:
 
 ```
 # click to copy code
@@ -91,7 +91,7 @@ As you can see, this is returning a `tibble`. We know how to reshape `tibbles` w
 BobRossCounts <- dplyr::count(BobRossStep12, painting_cats, ______)
 ```{{copy}}
 
-Assign the names from our new `painting_cats` variable and values from `n`
+Assign the names from our new `painting_cats` variable and values from `n`:
 
 ```
 # click to copy code

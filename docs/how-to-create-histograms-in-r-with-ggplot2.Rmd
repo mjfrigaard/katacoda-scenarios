@@ -1,0 +1,288 @@
+---
+title: "How to Create Histograms in R with ggplot2"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: tango
+    theme: cosmo
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(rmdformats)
+library(fivethirtyeight)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
+  tidy = FALSE,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "../figs/"
+)
+knitr::opts_knit$set(
+  width = 78
+)
+base::options(
+  tibble.print_max = 10,
+  tibble.width = 78,
+  scipen = 100000000
+)
+```
+
+# intro.md
+
+## Welcome!
+
+Welcome to "How to Create Histograms in R with ggplot2!" In this scenario, we will cover how to build a _histogram_ of a single variable.
+
+This scenario assumes you've done some data wrangling with [`tidyr` and `dplyr`](https://learning.oreilly.com/scenarios/-/9781492079064), and [data visualization with `ggplot2`](https://learning.oreilly.com/scenarios/-/9781492079071).
+
+## Knowing your Data
+
+It's best to start a project off with a "view of the forest from outside the trees." The technical term for this is [data lineage](https://en.wikipedia.org/wiki/Data_lineage#), which:
+
+> "Includes the data origin, what happens to it, and where it moves over time."
+
+Having a "bird's eye view" of the data ensures there weren't any problems with exporting or importing. Data lineage also means understanding where the data is coming from (e.g., a relational database, API, flat _.csv_ files, etc.).
+
+## Tabular Data
+
+Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. In this scenario, we will use [tabular data](http://bit.ly/3aXXB4I) data (i.e., [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet)). Tabular data organizes information into columns and rows.
+
+Let's load some data and get started!
+
+# step1.md
+
+### Initiate R
+
+Launch an R console by clicking here: `R`
+
+
+### Load packages
+
+The package we'll use to view the entire dataset with R is [`skimr`](https://docs.ropensci.org/skimr/). We will install and load the following packages:
+
+```{r , eval=FALSE}
+install.packages(c("tidyverse", "skimr"))
+library(tidyverse)
+library(skimr)
+```
+
+## Navigating Katacoda
+
+Let's take a quick tour of our Katacoda environment. In the following steps, we'll be running code, viewing output, and creating graphs. To accomplish this, we'll need to understand what tools are at our disposal.
+
+### Sidebar
+
+You're reading this in the *Sidebar*. All of the instructions are in the Sidebar, and at the bottom, you'll find a "Continue" button to take you to the next step. See the image below:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-sidebar.png)
+
+
+### Code Blocks
+
+You will also find *code blocks* in the Sidebar. All the code blocks will run when you click on them (you've already run a few above!). See the following image for more examples:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-code-blocks.png)
+
+### Terminal
+
+The *Terminal* is where the R code from each code block will run, along with any text *output*. We can also use R interactively by typing them directly into the Terminal after the *prompt* (`>`).
+
+Go ahead and try it by typing (or copying and pasting) the following commands:
+
+```{r}
+tidyverse::tidyverse_logo()
+```
+
+You should see the following output in the Terminal:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/sc-03-terminal-code.png)
+
+### VS Code (Explorer)
+
+When we create graphs, we will include the `ggplot2::ggsave()` function in the code block. This function allows us to save the graph image as a _.png_ file in the _VS Code explorer_.
+
+### VS Code (ROOT)
+
+Inside the VS Code explorer, you'll find a section labeled _ROOT_. _ROOT_ is a folder that contains our new graph files. We can open the _Graph file_ by clicking on them. See the following image for an example:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-explorer-root.png)
+
+The following image gives you an overview of this entire process:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-code-run-png-view.png)
+
+Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!
+
+
+# step2.md
+
+## Load Data
+
+The data we'll be using in this scenario comes from [the `TidyTuesday` project](https://github.com/rfordatascience/tidytuesday), a data repository whose intent is:
+
+> "To provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions."
+
+We're going to use a dataset of ramen ratings from [The Ramen Rater](https://www.theramenrater.com/resources-2/the-list/). Read more about the data [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04).
+
+In the following, we import the raw data from an external .csv file into `Ramen` and get a `skimr::skim()` summary (stored in `RamenSkim`):
+
+```{r}
+Ramen <- readr::read_csv("https://bit.ly/38sO0S7")
+RamenSkim <- skimr::skim(Ramen)
+```
+
+### Review data
+
+View the character variables in `RamenSkim`:
+
+```{r}
+RamenSkim %>%
+  skimr::yank("character")
+```
+
+## How Complete Is the Data?
+
+View the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `Ramen`:
+
+```{r}
+RamenSkim %>%
+  skimr::focus(numeric.mean, numeric.sd,
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>%
+  skimr::yank("numeric")
+```
+
+Pay attention to the `hist` column for `stars`--it shows the distribution for the values. *Where are most of the values concentrated?*
+
+We will investigate the distribution of `stars` by building a histogram with `ggplot2`. Now we have an idea of the numbers we want to include in our visualization, so we're ready to create our graph. Building graphs with the `ggplot2` syntax can be expressed in the following template:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-histograms-in-r-with-ggplot2/img/ggplot2-template.png)
+
+If you need a refresher on `ggplot2` layers and mapping, check out the ["Build Beautiful, Customized Graphs and Charts in R with ggplot2" scenario](https://learning.oreilly.com/scenarios/-/9781492079071).
+
+
+# step3.md
+
+## Build a Histogram
+
+We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`.
+
+Note that we are also assigning labels to the graph that includes a clear title, descriptive information about the graph, and the source of the data:
+
+```{r}
+# click to execute code
+gg_step3_hist_01 <- Ramen %>%
+  ggplot(aes(x = stars)) +
+  geom_histogram() +
+  labs(
+       title = "Distribution of ramen stars",
+       subtitle = "bins = 30",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+# ggsave(plot = gg_step3_hist_01,
+#         filename = "gg-step3-hist-01.png",
+#         device = "png",
+#         width = 9,
+#         height = 6,
+#         units = "in")
+gg_step3_hist_01
+```
+
+Let's view the graph we just created; open _gg-step3-hist-01.png_ in the VS Code IDE above the Terminal console to view the graph.
+
+As we stated above, histograms stack the variable values into a defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument.
+
+
+# step4.md
+
+## Adjusting the Bins
+
+Run the following code to see how the distribution looks with 20 `bins`. Note that we also include the `color = "white"` argument to ensure we can see each bar separately:
+
+```{r}
+# click to execute code
+gg_step4_hist_02 <- Ramen %>%
+  ggplot(aes(x = stars)) +
+  geom_histogram(bins = 20, color = "white") +
+  labs(
+       title = "Distribution of ramen stars",
+       subtitle = "bins = 20",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+ggsave(plot = gg_step4_hist_02,
+        filename = "gg-step4-hist-02.png",
+        device = "png",
+        width = 9,
+        height = 6,
+        units = "in")
+```
+
+Let's view the graph we just created.
+Open _gg-step4-hist-02.png_ in the VS Code IDE above the Terminal console to view the graph.
+
+The `stars` values fit into `20` bins better than the default `30` because we can see where values are concentrated (and the high frequency of 5-star ratings).
+
+
+# step5.md
+
+## Multiple Variable Distributions
+
+The previous step demonstrated how to use a histogram to view the distribution of a single variable. We needed to adjust the `bins` in the histogram to make its shape easier to interpret.
+
+What if we wanted to compare the distribution of a single variable (like `stars`) across the levels of a categorical variable (like `style`)? Let's use `dplyr::count()` to see the relative counts in the `style` variable:
+
+```{r}
+# click to execute code
+Ramen %>% count(style, sort = TRUE)
+```
+
+We can see the three most common levels of style are `Pack`, `Bowl`, and `Cup`. Let's filter the Ramen data to only these categories and view their histograms using `ggplot2::facet_grid()`.
+
+<!--
+We can see the three most common levels of style are `Pack`, `Bowl`, and `Cup`. Let's filter the Ramen data to only these categories and view their histograms using `ggplot2::facet_grid()`:
+
+Was there to be an example here?
+-->
+
+The filtered dataset gets passed directly to the `ggplot()` functions, where we include the `stars` variable. Then we add a histogram geom, but specify the `bins`, `fill`, and `color` arguments. Finally, we pass the histogram to `facet_grid()` and assign the variable we want to 'facet' the histograms by using the `style ~ .` syntax.
+
+We also adjust the labels to communicate the contents of the new graph:
+
+```{r}
+# click to execute code
+gg_step5_hist_03 <- Ramen %>%
+  filter(style %in% c("Bowl", "Pack", "Cup")) %>%
+ggplot(aes(x = stars)) +
+     geom_histogram(bins = 20,
+                    fill = "white",
+                    color = "black") +
+     facet_grid(style ~ .) +
+    labs(
+       title = "Distribution of ramen stars",
+       subtitle = "For Ramin in Bowls, Packs and Cups",
+       caption = "source: https://www.theramenrater.com/resources-2/the-list/")
+# save
+# ggsave(plot = gg_step5_hist_03,
+#         filename = "gg-step5-hist-03.png",
+#         device = "png",
+#         width = 9,
+#         height = 6,
+#         units = "in")
+gg_step5_hist_03
+```
+
+Let's view the graph we just created.
+Open
+_gg-step5-hist-03.png_ in the VS Code IDE above the Terminal console to view the graph.
+
+When we use facets to display variable distributions, we must pay attention to the axes. In the graph we just created, all three histograms have the same `y` axis scale. If we had chosen all the levels in `style`, the number of responses would be a lot smaller and it would be hard to compare the histograms to each other.
+
+# finish.md

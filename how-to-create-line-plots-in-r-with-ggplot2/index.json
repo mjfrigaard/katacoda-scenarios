@@ -1,6 +1,6 @@
 {
-  "title": "How to Create Line-plots in R with ggplot2",
-  "description": "View trends over time with line-plots",
+  "title": "How to Create Line Plots in R with ggplot2",
+  "description": "View trends over time with line plots",
   "difficulty": "Advanced",
   "time": "15 min",
   "details": {
@@ -31,6 +31,14 @@
     },
     "finish": {
       "text": "finish.md"
+    },
+    "assets": {
+      "client": [
+        {
+          "file": "comic_characters.csv",
+          "target": "/root"
+        }
+      ]
     }
   },
   "environment": {

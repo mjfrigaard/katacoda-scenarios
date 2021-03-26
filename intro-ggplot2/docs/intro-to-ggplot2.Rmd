@@ -329,7 +329,7 @@ How we visualize a variable's distribution depends on whether it's **continuous*
 
 **Continuous** variables mean they can be any value including `0`--and are typically thought of as raw measurements (i.e., human body weight, speed, time in seconds, etc.). Continuous variables also can have decimal values that make sense.
 
-**Categorical** variables count discrete items or events, such as Facebook 'like's or the number of page views. Categorical variables are different from continuous variables because they have a fixed set of possible values (i.e. you can't have 1/2 a Facebook 'like'). 
+**Categorical** variables count discrete items or events, such as Facebook 'like's or the number of page views. Categorical variables are different from continuous variables because they have a fixed set of possible values (i.e., you can't have 1/2 a Facebook 'like'). 
 
 A particular case of a categorical variable is a **binary** variable, which only has two possible values (`0` or `1`, `alive` or `dead`, `yes` or `no`, etc.).
 

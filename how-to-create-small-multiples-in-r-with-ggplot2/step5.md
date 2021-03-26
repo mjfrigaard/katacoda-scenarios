@@ -1,9 +1,8 @@
-### Transforming Axes
+# Transforming Axes
 
-We will use small multiples again, but this time we will view a log10 transformed `numVotes` variable. Transforming an axis can sometimes make the display easier to see, but we also need to find a way to explain this change to our audience. 
+We will use small multiples again, but this time we will view a log10 transformed `numVotes` variable. Transforming an axis can sometimes make the display easier to see, but we also need to find a way to explain this change to our audience.
 
-We will need to update our labels, add the `scale_x_log10()` layer, and use `facet_wrap()` with `year_cat10`. We will also use the handy [`label_log10` function](https://bit.ly/35Ywt2q) developed by [Claus Wilke](https://wilkelab.org/)
-
+We will need to update our labels, add the `scale_x_log10()` layer, and use `facet_wrap()` with `year_cat10`. We will also use the handy [`label_log10` function](https://bit.ly/35Ywt2q) developed by [Claus Wilke](https://wilkelab.org/):
 
 ```
 # click to execute code
@@ -16,7 +15,7 @@ labs_avgusr_lognmvote_yearcat10 <- labs(
   y = "Average individual user ratings",
   x = "log10(Number of votes)")
 
-# load label_log10 function 
+# load label_log10 function
 source("https://bit.ly/35Ywt2q")
 
 # build plot
@@ -43,20 +42,20 @@ ggsave(plot = gg_step5_facet_02,
         units = "in")
 ```{{execute}}
 
-Click here to open the graph: `gg-step5-facet-02.png`{{open}} 
+Open _gg-step5-facet-02.png_ in the VS Code IDE above the Terminal console to view the graph.
 
-Now the small multiples show the relationship between the log10 transformed number of votes and average user rating. The majority of the data points appear concentrated around the same value for average user rating (~`6.125`).
+Now the small multiples show the relationship between the log10 transformed number of votes and average user rating. The majority of the data points appear concentrated around the same value for average user rating (~6.125).
 
-### Adding A Best Fit Line 
+## Adding A Best Fit Line
 
 We can use `ggplot2`'s `geom_smooth()` function to draw a smoothed 'best-fit line' through the data points in each decade. Modeling is beyond the scope of this scenario, but feel free to read more about building models in this chapter of [R for Data Science](https://r4ds.had.co.nz/model-intro.html).
 
 For now, know the following:
 
-+ `method = 'lm'` tells geom_smooth to fit the best straight line through the data points  
-+ `size = 0.75` is the size of the line  
-+ `color = "firebrick2"` will make the line color red  
-+ `fullrange = TRUE` will draw the line through the entire range of the graph  
++ `method = 'lm'` tells geom_smooth to fit the best straight line through the data points
++ `size = 0.75` is the size of the line
++ `color = "firebrick2"` will make the line color red
++ `fullrange = TRUE` will draw the line through the entire range of the graph
 
 ```
 # click to execute code
@@ -95,6 +94,6 @@ ggsave(plot = gg_step5_facet_03,
         units = "in")
 ```{{execute}}
 
-Click here to open the graph: `gg-step5-facet-03.png`{{open}}
+Open _gg-step5-facet-03.png_ in the VS Code IDE above the Terminal console to view the graph.
 
-We can see the relationship for the log10 transformed number of votes vs. average user rating is slightly positive but has become less pronounced over time. The gray band is the standard error associated with the red smoothed line we've drawn (fewer data points = more error).
+We can see the relationship for the log10 transformed number of votes versus average user rating is slightly positive but has become less pronounced over time. The gray band is the standard error associated with the red smoothed line we've drawn (fewer data points = more error).

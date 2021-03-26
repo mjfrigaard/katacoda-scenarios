@@ -1,5 +1,5 @@
 {
-  "title": "Introduction to the grammar of graphics",
+  "title": "Build Beautiful, Customized Graphs and Charts in R with ggplot2",
   "description": "Learn how to make customizable graphs with the ggplot2 package",
   "difficulty": "Intermediate",
   "time": "40",
@@ -72,7 +72,7 @@
     "finish": {
       "text": "finish.md"
     }
-  }, 
+  },
   "environment": {
     "uilayout": "vscode-terminal-split",
     "showide": true

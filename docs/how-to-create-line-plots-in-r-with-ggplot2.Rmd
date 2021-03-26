@@ -1,0 +1,50 @@
+---
+title: "How to Create Line-plots in R with ggplot2"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: tango
+    theme: cosmo
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(rmdformats)
+library(fivethirtyeight)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
+  tidy = FALSE,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "../figs/"
+)
+knitr::opts_knit$set(
+  width = 78
+)
+base::options(
+  tibble.print_max = 10,
+  tibble.width = 78,
+  scipen = 100000000
+)
+```
+
+# intro.md
+
+# step1.md
+
+# step2.md
+
+# step3.md
+
+# step4.md
+
+# step5.md
+
+# finish.md

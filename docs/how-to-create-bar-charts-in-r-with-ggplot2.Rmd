@@ -1,0 +1,453 @@
+---
+title: "How to Create Bar Charts in R with ggplot2"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: tango
+    theme: cosmo
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(rmdformats)
+library(fivethirtyeight)
+library(skimr)
+# figs folder
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
+  tidy = FALSE,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "../figs/"
+)
+knitr::opts_knit$set(
+  width = 78
+)
+base::options(
+  tibble.print_max = 10,
+  tibble.width = 78,
+  scipen = 100000000
+)
+```
+
+# intro.md
+
+## Welcome!
+
+Welcome to "How to Create Bar Charts in R with ggplot2!" In this scenario, we will cover how to build a *bar chart* of a single variable.
+
+This scenario assumes you've done some data wrangling with [`tidyr` and `dplyr`](https://learning.oreilly.com/scenarios/-/9781492079064), and [data visualization with `ggplot2`](https://learning.oreilly.com/scenarios/-/9781492079071).
+
+
+### Knowing your Data
+
+It's best to start a project off with a "view of the forest from outside the trees." The technical term for this is [data lineage](https://en.wikipedia.org/wiki/Data_lineage#), which:
+
+> "Includes the data origin, what happens to it, and where it moves over time."
+
+Having a "bird's eye view" of the data ensures there weren't any problems with exporting or importing. Data lineage also means understanding where the data is coming from (e.g., a relational database, API, flat _.csv_ files, etc.).
+
+### Tabular Data
+
+Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. In this scenario, we will use [tabular data](http://bit.ly/3aXXB4I) data (i.e., [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet)). Tabular data organizes information into columns and rows.
+
+Let's load some data and get started!
+
+# step1.md
+
+## Initiate R
+
+Launch an R console by clicking here: `R`{{execute}}.
+
+
+### Load packages
+
+The package we'll use to view the entire dataset with R is [`skimr`](https://docs.ropensci.org/skimr/). We will install and load the following packages:
+
+
+```{r , eval=FALSE}
+install.packages(c("tidyverse", "skimr"))
+library(tidyverse)
+library(skimr)
+```
+
+## Navigating Katacoda
+
+Let's take a quick tour of our Katacoda environment. In the following steps, we'll be running code, viewing output, and creating graphs. To accomplish this, we'll need to understand what tools are at our disposal.
+
+### Sidebar
+
+You're reading this in the **Sidebar**. All of the instructions are in the Sidebar, and at the bottom, you'll find a "*Continue*" button to take you to the next step. See the image below:
+
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-bar-charts-in-r-with-ggplot2/img/sc-03-sidebar.png)
+
+### Code blocks
+
+You will also find **code blocks** in the Sidebar. All the code blocks will run when you click on them (you've already run a few above!). See the image below for more examples:
+
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-bar-charts-in-r-with-ggplot2/img/sc-03-code-blocks.png)
+
+### Terminal
+
+The *Terminal* is where the R code from each code block will run, along with any text **output**. We can also use R interactively by typing them directly into the Terminal after the **Prompt `>`**.
+
+Go ahead and try it by typing (or copying and pasting) the following commands:
+
+```{r}
+tidyverse::tidyverse_logo()
+```
+
+You should see the following output in the **Terminal**:
+
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-bar-charts-in-r-with-ggplot2/img/sc-03-terminal-code.png)
+
+
+### VS Code (Explorer)
+
+When we create graphs, we will include the `ggplot2::ggsave()` function in the code block. This function allows us to save the graph image as a `.png` file in the *VS Code Explorer*.
+
+### VS Code (ROOT)
+
+Inside the VS Code explorer, you'll find a section labeled *ROOT.* _ROOT_ is a folder that contains our new graph files. We can open the *Graph file* by clicking on them. See the image below for an example:
+
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-bar-charts-in-r-with-ggplot2/img/sc-03-explorer-root.png)
+
+The image below gives you an overview of this entire process:
+
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-bar-charts-in-r-with-ggplot2/img/sc-03-code-run-png-view.png)
+
+
+Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!
+
+# step2.md
+
+## Before We Start: What Do We Expect to See?
+
+Before starting a new project, we want to set some expectations. The questions we covered in the previous step help us understand what kind of data we'll be encountering. Sometimes we'll be dealing with unknown data, but we should know approximately how many columns and rows the new dataset will contain. We might know some basic information about the variable formats, too.
+
+For example, we should see if we're getting date columns (`YYYY-MM-DD`), logical (`TRUE`, `FALSE`, `NA`), numerical measurements (integer (`1L`) or double (`1`)), or categorical data (character (`male` and `female`) or factor (`low`, `medium`, `high`)).
+
+## Baseball Data
+
+We're going to load a dataset to demonstrate a few ways to investigate a dataset's quality (or how well it matches our expectations).
+
+This data comes from [Sean Lahman's Baseball Database](http://www.seanlahman.com/baseball-archive/statistics/).
+
+Now, I am not going to assume everyone participating in this scenario is familiar with baseball. However, this exercise is arguably more rewarding if you are *not* a baseball fan. If you're working with data, part of your job to be interested in whatever you've been asked to analyze (even if it is only for the monetary reward).
+
+> "...If you want to work in data visualization, you need to be relentlessly and systematically curious. You should try to get interested in anything and everything that comes your way." &ndash; Alberto Cairo, Knight Chair in Visual Journalism, University of Miami
+
+Analyzing and visualizing data you're not familiar with is a chance to learn something new, and it puts you in a position to ask "out of the box" questions.
+
+### Doing Your Homework
+
+It's also essential to read any accompanying documentation for new datasets. If we read the documentation on the [Lahman website](http://www.seanlahman.com/files/database/readme2017.txt), we find out that `People` contains "*Player names, DOB, and biographical info.*"
+The variables in `People` are presented in the following list:
+
+<!-- **People table** -->
+
+* `playerID` = A unique code assigned to each player; the `playerID` links the data in this file with records in the other files
+* `birthYear` = Year player was born
+* `birthMonth` = Month player was born
+* `birthDay` = Day player was born
+* `birthCountry` = Country where player was born
+* `birthState` = State where player was born
+* `birthCity` = City where player was born
+* `deathYear` = Year player died
+* `deathMonth` = Month player died
+* `deathDay` = Day player died
+* `deathCountry` = Country where player died
+* `deathState` = State where player died
+* `deathCity` = City where player died
+* `nameFirst` = Player's first name
+* `nameLast` = Player's last name
+* `nameGiven` = Player's given name (typically first and middle)
+* `weight` = Player's weight in pounds
+* `height` = Player's height in inches
+* `bats` = Player's batting hand (left, right, or both)
+* `throws` = Player's throwing hand (left or right)
+* `debut` = Date that player made first major league appearance
+* `finalGame` = Date that player made first major league appearance (blank if still active)
+* `retroID` = ID used by retrosheet
+* `bbrefID` = ID used by Baseball Reference website
+
+Most of the data pre-processing steps center around a single question: *Is this what I expected to see*? Reading the documentation gives you expectations about the data to confirm or refute (and then investigate).
+
+Now that we have some background information on this new dataset, we will look at how well `People` meets our expectations.
+
+Whenever we get a new data source, we should try to view the data in its native format (if possible). We can view the raw data on the [Github repository](https://resources.oreilly.com/katacoda/martin-frigaard/blob/master/data/People.csv).
+
+### Load Data
+
+Fortunately, we are also able to load the raw data directly into R using the `readr::read_csv()` function. We will load the `People` dataset into R using `readr::read_csv()`, and assign `"https://bit.ly/2ZMZjzv"` to the `file` argument:
+
+```{r}
+People <- readr::read_csv(file = "https://bit.ly/2ZMZjzv")
+```
+
+# step3.md
+
+## Are We Seeing What We Expected?
+
+Before creating any visualizations, we want a display that gives us an overview of the entire `People` dataset. In the previous step, we went over some of the `People` dataset documentation, so we know what to expect.
+
+## Skimming Data
+
+We'll be using the [`skimr` package](https://docs.ropensci.org/skimr/). `skimr` was is designed for:
+
+> "Displaying summary statistics the user can skim quickly to understand their data."
+
+In the following, we pass the `People` dataset to the `skimr::skim()` function to create `PeopleSkim`. We then use the `base::summary()` function to review the new object.
+
+If this code looks unfamiliar to you, review the [introduction to `ggplot2` scenario](https://learning.oreilly.com/scenarios/-/9781492079071):
+
+```{r}
+PeopleSkim <- People %>%
+  skimr::skim()
+summary(PeopleSkim)
+```
+
+
+The output above shows a high-level summary of all the variables in the `People` dataset. We can see there are `20090` rows and `24` columns (`14` columns are `character`s, `2` columns are `Date`s, and `8` are `numeric`).
+
+## Viewing Character Variables
+
+The new `PeopleSkim` object gives us summary information to check against the documentation and help guide our data visualizations. We will start by viewing the variables according to their types in `People` using `skimr::yank()` (read the [function documentation on Github](https://github.com/ropensci/skimr/blob/master/R/reshape.R#L138)). The `skim_type` argument in `skimr::yank()` takes a variable type (`"character"`, `"numeric"`, or `"Date"`).
+
+Run the following code to use `skimr::yank()` to view a `skim` of the `character` variables in the `People` dataset:
+
+```{r}
+PeopleSkim %>%
+  skimr::yank(skim_type = "character")
+```
+
+We can see none of the data is missing (`n_missing` and `complete_rate`). `Skimr::skim()` also shows us the `min`, `max`, `empty`, `n_unique`, and `whitespace` for the `14` character values.
+
+### Viewing Date Variables
+
+Next, we use `skimr::yank()` to view a `skim` of the `Date` variables in the `People` dataset:
+
+```{r}
+PeopleSkim %>%
+  skimr::yank(skim_type = "Date")
+```
+
+The `skim` of the `Date` variables shows us what data is missing (`n_missing` and `complete_rate`), along with the earliest (`min`), latest (`max`), and middle (`median`).
+
+The number of unique (`n_unique`) dates prints to the next line. This behavior is because the terminal window has a width limit. If the Terminal output extends past this limit, the content gets printed to the following line:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-bar-charts-in-r-with-ggplot2/img/n_unique-col.png)
+
+## Do These Numbers Make Sense?
+
+We can use these values for sanity checks. For example, the `n_unique` for `playerID` matches the total number of rows in `People`, which we should expect from the documentation (`playerID` = "*A unique code assigned to each player*"). The earliest dates for both `debut` and `finalGame` are in May of 1871 (which corresponds to the [first MLB game ever played](https://www.retrosheet.org/1stGame.htm)).
+
+In the previous step, we viewed a `skim()` of the `"character"` and `"Date"` variables in the `People` dataset. We're going to continue 'skimming' this data and check it against our expectations.
+
+## Viewing Numeric Variables
+
+We'll use `skimr::yank()` and `skimr::focus()` to view the `n_missing` and `complete_rate` for the `"numeric"` variables in `People`:
+
+```{r}
+PeopleSkim %>%
+  focus(n_missing, complete_rate) %>%
+    yank("numeric")
+```
+
+The `complete_rate` for  `birthYear`, `birthMonth`, `birthDay`, `weight`, and `height` are over 90%. However, the `deathYear`, `deathMonth`, and `height` is under 50%. *Why do you think this data has missing values?*
+
+The `skim()` output for the `"numeric"` variables give us a [set of summary statistics](https://en.wikipedia.org/wiki/Summary_statistics):
+
+### Location Statistics
+
+Location statistics include:
+
+- The `mean` (or average) gives us the expected value for each variable.
+- The median (as `p50`) or the 'center' value for each variable. Half of the values are above, and half are below.
+
+```{r}
+PeopleSkim %>%
+  skimr::focus(numeric.mean, numeric.p50) %>%
+    skimr::yank("numeric")
+```
+
+
+### Spread Statistics
+
+Spread statistics include:
+
+- The lowest value for each variable, or minimum (as `p0`)
+- The highest value for each variable, or maximum (as `p100`)
+- *Together, these two values can give us the range, which is the difference between the maximum and minimum values*
+
+```{r}
+PeopleSkim %>%
+  skimr::focus(numeric.p0, numeric.p100) %>%
+    skimr::yank("numeric")
+```
+
+- The first quartile (as `p25`), which is the 'middle' of the data points *below* the median
+- The third quartile (as `p75`), which is the 'middle' of the data points *above* the median
+- *Together, these two values can give us the interquartile range (IQR), which is the difference between the third and first quartiles*
+
+```{r}
+PeopleSkim %>%
+  skimr::focus(numeric.p25, numeric.p75) %>%
+    skimr::yank("numeric")
+```
+
+
+- The standard deviation (as `sd`), a measure of each variable's disbursement
+- *The standard deviation describes how far a variable's values are spread out around their mean*
+
+```{r}
+PeopleSkim %>%
+  skimr::focus(numeric.mean, numeric.sd) %>%
+    skimr::yank("numeric")
+```
+
+
+These numbers can be challenging to make sense of by themselves. Fortunately, the `skimr::skim()` output comes with a `hist` column. The `hist` column is a small histogram for the `numeric` variables.
+
+In the following, we use `skimr::focus()` and `skimr::yank()` to view the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `People`:
+
+```{r}
+PeopleSkim %>%
+  skimr::focus(numeric.mean, numeric.sd,
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>%
+    skimr::yank("numeric")
+```
+
+The `hist` column shows us a miniature distribution of the values in each numeric variable.
+
+## Do These Numbers Make Sense?
+
+As we can see, the majority of the missing values are in the variables with the `death` prefix (`deathDay`, `deathMonth`, and `deathYear`). The missing values in these variables make sense because, given the lowest `birthYear` value (`1820`), we should expect approximately half of the baseball players in the `People` dataset to be still alive.
+
+We also notice an implausible value from the `skimr` output: the `weight` variable maximum value (`2125`). We can use `dplyr`'s `filter`, and `select` functions to find the `nameGiven` for the abnormally high `weight` value:
+
+```{r}
+People %>%
+  filter(weight == 2125) %>%
+  select(nameGiven, birthMonth, birthDay, birthYear, weight)
+```
+
+Google the player's name. *What is his listed weight on Wikipedia?*
+
+
+# step4.md
+
+## Counting Things With Bar Charts
+
+> "Data science is mostly counting things." - [Sam Firke](https://cran.r-project.org/web/packages/janitor/vignettes/tabyls.html)
+
+At bottom, data visualizations are drawings used to represent numbers. The challenge is matching the design to the numbers we want to display. Before choosing the type of graph we want to create, we need to decide which numbers we'd like to communicate.
+
+## Bars Charts
+
+In a bar (or column) chart, each bar/column length represents a numeric value. The number of levels determines the number of bars or columns.
+
+We will create a bar chart of the `bats` variable in `People`, which measures whether the player bats left-handed (`L`), right-handed (`R`), both (`B`), or if the data is missing (`NA`).
+
+First, want to create a table view of the numbers in the bar chart. Seeing the data summarized in a table gives us an idea of what to expect. It's always a good idea to set some expectations about the underlying data we want to display because this helps us determine if our visualization is the right choice for communication.
+
+In the following, we'll use `dplyr` 's `count()` function to tally the number of values for the different category items in `bats`. `dplyr::count()` returns a table of each category in the `bats` variable and their relative occurrence in the `People` dataset:
+
+```{r}
+# click to execute code
+People %>%
+  count(bats)
+```
+
+Add `sort = TRUE` to see the counts sorted descending (with the most common categories at the top):
+
+```{r}
+# click to execute code
+People %>%
+  count(bats, sort = TRUE)
+```
+
+Now we have an idea of the numbers we want to include in our visualization, so we're ready to create our graph. Building graphs with the `ggplot2` syntax can be expressed in the following template:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-bar-charts-in-r-with-ggplot2/img/ggplot2-template.png)
+
+If you need a refresher on `ggplot2` layers and mapping, check out the ["Build Beautiful, Customized Graphs and Charts in R with ggplot2" scenario](https://learning.oreilly.com/scenarios/-/9781492079071).
+
+
+# step5.md
+
+## Building a Bar Chart
+
+In `ggplot2`, we create a bar chart using the `geom_bar()` function. First we map `bats` to both `x` and `fill` inside the `ggplot(aes())` functions.
+
+We also remove the legend with `show.legend = FALSE`, and add labels for `title`, `subtitle`, `caption`, and `y` axis (`x` is set to `NULL`).
+
+Finally, we pass the `plot` object to the `ggplot2::ggsave()` function and include the `filename` (with extension), the `device`, `width`, `height`, and `units`:
+
+```{r gg_step5_bar_01}
+# click to execute code
+gg_step5_bar_01 <- People %>%
+  ggplot(aes(x = bats, fill = bats)) +
+  # remove legend
+  geom_bar(show.legend = FALSE) +
+  # add labels
+  labs(title = "MILB Player's batting hand",
+       subtitle = "Left (L), right (R), or both (B)",
+       caption = "source: http://www.seanlahman.com/",
+       x = NULL, y = "Number of birth countries")
+gg_step5_bar_01
+# save
+# ggsave(plot = gg_step5_bar_01,
+#         filename = "gg-step5-bar-01.png",
+#         device = "png",
+#         width = 9,
+#         height = 6,
+#         units = "in")
+```
+
+View the graph by opening _gg-step5-bar-01.png_ in the VS Code IDE above the Terminal console.
+
+There you have it! You've created a bar chart in R using `ggplot2`!
+
+# finish.md
+
+## Creating Bar Charts in R with ggplot
+
+In this scenario we covered how to:
+
+1. `skim()` variables to get summary statistics
+2. Count variable values with `dplyr::count()`
+3. Build bar charts with `ggplot2::geom_bar()`
+4. Save graph images with `ggplot2::ggsave()`
+
+## Thank you!
+
+We've concluded the "How to Create Bar Charts in R with ggplot2" scenario! Thank you for completing this scenario, and be sure to check out the other scenarios on the [O'Reilly Learning Platform](https://learning.oreilly.com/).
+
+## Related Scenarios
+
+* [Format and Shape Your Data in R with the Tidyverse](https://learning.oreilly.com/scenarios/-/9781492079064)
+* [Built Beautiful, Customized Graphs and Charts in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781492079071)
+* [How to Create Column Charts in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107390)
+* [How to Create Histograms in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107406)
+* [How to Create Density Plots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107543)
+* [How to Create Ridgeline Plots in R with ggridges](https://learning.oreilly.com/scenarios/-/9781098107550)
+* [How to Create Boxplots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107437)
+* [How to Create Scatterplots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107444)
+* [How to Create Line Plots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107413)
+* [How to Create Jitter Plots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107734)
+* [How to Create Small Multiples in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107741)
+

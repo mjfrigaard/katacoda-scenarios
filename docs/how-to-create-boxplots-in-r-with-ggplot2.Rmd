@@ -1,0 +1,350 @@
+---
+title: "How to Create Boxplots in R with ggplot2"
+output: 
+  html_document: 
+    toc: yes
+    toc_float: yes
+    highlight: tango
+    theme: cosmo
+    df_print: paged
+---
+
+```{r setup, include=FALSE}
+library(tidyverse)
+library(knitr)
+library(rmdformats)
+library(skimr)
+library(fivethirtyeight)
+knitr::opts_chunk$set(
+  echo = TRUE,
+  eval = TRUE,
+  cache = FALSE,
+  prompt = FALSE,
+  tidy = FALSE,
+  comment = "#>",
+  message = FALSE,
+  warning = FALSE,
+  fig.path = "../figs/"
+)
+knitr::opts_knit$set(
+  width = 78
+)
+base::options(
+  tibble.print_max = 10,
+  tibble.width = 78,
+  scipen = 100000000
+)
+```
+
+# intro.md
+
+## Welcome!
+
+Welcome to "How to Create Boxplots in R with ggplot2!" In this scenario, we will cover how to build a *boxplot* with numeric and categorical variables.
+
+This scenario assumes you've done some data wrangling with [`tidyr` and `dplyr`](https://learning.oreilly.com/scenarios/-/9781492079064), and [data visualization with `ggplot2`](https://learning.oreilly.com/scenarios/-/9781492079071).
+
+
+## Knowing your Data
+
+It's best to start a project off with a "view of the forest from outside the trees." The technical term for this is [data lineage](https://en.wikipedia.org/wiki/Data_lineage#), which:
+
+> "Includes the data origin, what happens to it, and where it moves over time."
+
+Having a "bird's eye view" of the data ensures there weren't any problems with exporting or importing. Data lineage also means understanding where the data is coming from (e.g., a relational database, API, flat _.csv_ files, etc.).
+
+## Tabular Data
+
+Knowing some of the technical details behind a dataset lets us frame the questions or problems we're trying to tackle. In this scenario, we will use [tabular data](http://bit.ly/3aXXB4I) data (i.e., [spreadsheets](https://en.wikipedia.org/wiki/Spreadsheet)). Tabular data organizes information into columns and rows.
+
+Let's load some data and get started!
+
+# step1.md
+
+## Initiate R
+
+Launch an R console by clicking here: `R`
+
+## Load Packages
+
+The package we'll use to view the entire dataset with R is [`skimr`](https://docs.ropensci.org/skimr/). We will install and load the following packages:
+
+```{r , eval=FALSE}
+install.packages(c("tidyverse", "skimr"))
+library(tidyverse)
+library(skimr)
+```
+
+## Navigating Katacoda
+
+Let's take a quick tour of our Katacoda environment. In the following steps, we'll be running code, viewing output, and creating graphs. To accomplish this, we'll need to understand what tools are at our disposal.
+
+### Sidebar
+
+You're reading this in the *Sidebar*. All of the instructions are in the Sidebar, and at the bottom, you'll find a "Continue" button to take you to the next step. See the image below:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-sidebar.png)
+
+
+### Code Blocks
+
+You will also find *code blocks* in the Sidebar. All the code blocks will run when you click on them (you've already run a few above!). See the following image for more examples:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-code-blocks.png)
+
+### Terminal
+
+The *Terminal* is where the R code from each code block will run, along with any text *output*. We can also use R interactively by typing them directly into the Terminal after the *prompt* (`>`).
+
+Go ahead and try it by typing (or copying and pasting) the following commands:
+
+```{r}
+tidyverse::tidyverse_logo()
+```
+
+You should see the following output in the Terminal:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/figs/sc-03-terminal-code.png)
+
+### VS Code (Explorer)
+
+When we create graphs, we will include the `ggplot2::ggsave()` function in the code block. This function allows us to save the graph image as a _.png_ file in the _VS Code explorer_.
+
+**VS Code (ROOT)**
+
+Inside the VS Code explorer, you'll find a section labeled _ROOT_. _ROOT_ is a folder that contains our new graph files. We can open the _Graph file_ by clicking on them. See the following image for an example:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-explorer-root.png)
+
+The following image gives you an overview of this entire process:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-code-run-png-view.png)
+
+Now that we know how to navigate the Katacoda environment, we can start exploring data and building graphs!
+
+
+# step2.md
+
+## Load Data
+
+The data we'll be working with in this scenario comes from [the `TidyTuesday` project](https://github.com/rfordatascience/tidytuesday), a data repository whose intent is:
+
+> "To provide a safe and supportive forum for individuals to practice their wrangling and data visualization skills independent of drawing conclusions."
+
+We're going to use a dataset of ramen ratings from [The Ramen Rater](https://www.theramenrater.com/resources-2/the-list/). Read more about the data [here](https://github.com/rfordatascience/tidytuesday/tree/master/data/2019/2019-06-04).
+
+In the following, we import the raw data from an external ._csv_ file into `Ramen` and get a `skimr::skim()` summary (stored in `RamenSkim`):
+
+```{r}
+Ramen <- readr::read_csv("https://bit.ly/38sO0S7")
+RamenSkim <- skimr::skim(Ramen)
+```
+
+## Review Data
+
+View the character variables in `RamenSkim`:
+
+```{r}
+RamenSkim %>%
+  skimr::yank("character")
+```
+
+*How complete is this data?*
+
+View the `mean`, standard deviation (`sd`), minimum (`p0`), median (`p50`), maximum (`p100`), and `hist` for the numeric variables in `Ramen`:
+
+```{r}
+RamenSkim %>%
+  skimr::focus(numeric.mean, numeric.sd,
+               numeric.p0, numeric.p50, numeric.p100,
+               numeric.hist) %>%
+  skimr::yank("numeric")
+```
+
+Pay attention to the `hist` column for `stars`&mdash;it shows the distribution for the values. *Where are most of the values concentrated?*
+
+We will investigate the variation of `stars` across `style` with a boxplot. Boxplots are a great way of viewing the summary statistics for a numeric variable (like `stars`) across multiple levels of a categorical variable (like `style`).
+
+We now have an idea of the numbers we want to include in our visualization, so we're ready to create our graph. Building graphs with the `ggplot2` syntax can be expressed in the following template:
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-histograms-in-r-with-ggplot2/img/ggplot2-template.png)
+
+If you need a refresher on `ggplot2` layers and mapping, check out the ["Build Beautiful, Customized Graphs and Charts in R with ggplot2" scenario](https://learning.oreilly.com/scenarios/-/9781492079071).
+
+
+# step3.md
+
+## Multiple Variable Distributions
+
+The `skimr` output from the previous step showed us the distribution the values in the `stars` variable, but what if we were interested in the distribution of `stars` across the groups in another categorical variable like `style`? `style` is the *style of container* (cup, pack, tray, etc.).
+
+We can check the levels of style with `dplyr::count()`:
+
+```{r}
+Ramen %>%
+  count(style, sort = TRUE)
+```
+
+The output above tells us the top five most common reviews for ramen came from packs, bowls, cups, trays, and boxes.
+
+## Grouped Skims
+
+We can use the `dplyr`, `filter`, `select`, and `group_by` functions with `skimr` to see the distribution of the `stars` variable across the five most common `style` levels:
+
+```{r}
+# click to execute code
+Ramen %>%
+  # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>%
+  # select only stars and style
+  select(stars, style) %>%
+  # group dataset by style
+  group_by(style) %>%
+  # skim grouped data
+  skim() %>%
+  # focus on select output
+  skimr::focus(n_missing, style,
+               numeric.mean, numeric.sd, numeric.hist,
+               numeric.p0, numeric.p50, numeric.p100) %>%
+  # only return numeric values
+  skimr::yank("numeric")
+```
+
+The output shows ramen from a `Box` has the highest `stars` rating.
+
+### Boxplot Labels
+
+Before building our graph, we'll start by building the labels. This ensures we know what we're expecting to see (*before* we start assigning variables to axes). The `ggplot2::labs()` function has arguments for `title`, `subtitle`, `caption`, `x`, and `y`.
+
+Note that we want to be specific with the `subtitle` and only include the five most common types by number of reviews:
+
+```{r}
+# click to execute code
+labs_box_stars_style <- labs(
+     title = "Star ratings by style",
+     subtitle = "Star ratings across pack, bowl, cup, tray, and box containers",
+     caption = "source: https://www.theramenrater.com/resources-2/the-list/",
+     x = "Ramen star ratings",
+     y = NULL)
+```
+
+Print the `labs_box_stars_style` in the console to see what it looks like.
+
+
+# step4.md
+
+### Building Boxplots
+
+We'll filter the data to the five most common styles again and map `stars` to the `x` axis and `style` to the `y` axis.
+
+We will also map `style` to the `fill` aesthetic inside `ggplot2::geom_boxplot()`.
+
+We don't need a guide (or legend), so we will remove it with `show.legend = FALSE` in the `geom_boxplot()` function (outside the `aes()`):
+
+```{r}
+# click to execute code
+gg_step4_boxplot_01 <- Ramen %>%
+    # filter to most common styles
+  filter(style %in% c("Pack", "Bowl",
+                      "Cup", "Tray", "Box")) %>%
+  ggplot(aes(x = stars, y = style)) +
+  geom_boxplot(aes(fill = style),
+                   show.legend = FALSE) +
+  labs_box_stars_style
+# save
+# ggsave(plot = gg_step4_boxplot_01,
+#         filename = "gg-step4-boxplot-01.png",
+#         device = "png",
+#         width = 9,
+#         height = 6,
+#         units = "in")
+gg_step4_boxplot_01
+```
+
+Open the graph in the VS Code IDE above the Terminal console.
+
+In the next step, we will cover how to interpret the contents of a boxplot.
+
+
+# step5.md
+
+## Contents of a Boxplot
+
+Box plots display many of the numbers we see in the `skimr` output. Click on the following code to create a `skimr` summary of ramen `stars` ratings in `Tray`s:
+
+```{r}
+# click to execute code
+Ramen %>%
+  # filter to most common styles
+  filter(style == "Tray") %>%
+  # select only stars and style
+  select(stars, style) %>%
+  # group dataset by style
+  group_by(style) %>%
+  # skim grouped data
+  skimr::skim() %>%
+  # focus on select output
+  skimr::focus(style,
+               numeric.p0, numeric.p25, numeric.p50,
+               numeric.p75, numeric.p100, numeric.hist) %>%
+  # only return numeric values
+  skimr::yank("numeric")
+```
+
+We can calculate the interquartile range using `dplyr`:
+
+```{r}
+# click to execute code
+Ramen %>%
+  # filter to most common styles
+  filter(style == "Tray") %>%
+  # select only stars and style
+  select(stars, style) %>%
+  # group dataset by style
+  group_by(style) %>%
+  # summarize IQR
+  summarize(
+    `Stars/Tray IQR` = IQR(stars, na.rm = TRUE))
+```
+
+The figure below shows a boxplot for the distribution of `stars` ratings across the `Tray` level of `style`. We've labeled the summary statistics from the `skimr` output on the graph. The 25th percentile (or `p25`) is the box's first vertical line (or hinge). The 50th percentile (or `p50`) is the median and middle line of the box, and the 75th percentile (`p75`) is the last vertical line in the box (or hinge):
+
+![](https://raw.githubusercontent.com/mjfrigaard/katacoda-scenarios/master/how-to-create-boxplots-in-r-with-ggplot2/img/sc-03-boxplot-diagram.png)
+
+We've also labeled the minimum (`p0`) and maximum (`p100`) values and the interquartile range (which is similar to the standard deviation).
+
+## Communication Tip
+
+If your audience is not familiar with boxplots, the figure above is an example of supporting information to include. It explains *how* to read the graph, using an example from the finished chart. However, using complex plots adds mental labor to your audience and can take attention away from the point you're trying to make. Effective communication means always using the most straightforward (or most common) graphs to reveal your findings.
+
+
+# finish.md
+
+### How to Create Boxplots in R with ggplot2
+
+In this scenario we covered how to:
+
+1. `skim()` variables to get summary statistics
+2. `count()` values within a categorical variable
+3. Build box-plot with `ggplot2::geom_boxplot()`
+4. Save graph images with `ggplot2::ggsave()`
+
+### Thank you!
+
+We've concluded the "How to Create Boxplots in R with ggplot2" scenario! Thank you for completing this scenario, and be sure to check out the other scenarios on the [O'Reilly Learning Platform](https://learning.oreilly.com/).
+
+## Related Scenarios
+
+* [Format and Shape Your Data in R with the Tidyverse](https://learning.oreilly.com/scenarios/-/9781492079064)
+* [Built Beautiful, Customized Graphs and Charts in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781492079071)
+* [How to Create Column Charts in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107390)
+* [How to Create Bar Charts in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781492079088)
+* [How to Create Histograms in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107406)
+* [How to Create Density Plots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107543)
+* [How to Create Ridgeline Plots in R with ggridges](https://learning.oreilly.com/scenarios/-/9781098107550)
+* [How to Create Scatterplots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107444)
+* [How to Create Line Plots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107413)
+* [How to Create Jitter Plots in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107734)
+* [How to Create Small Multiples in R with ggplot2](https://learning.oreilly.com/scenarios/-/9781098107741)
+

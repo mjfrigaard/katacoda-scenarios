@@ -1,6 +1,6 @@
-### Adjusting the Bins
+# Adjusting the Bins
 
-Run the code below to see how the distribution looks with 20 `bins`. Note we also include the `color = "white"` argument to ensure we can see each bar separately.
+Run the following code to see how the distribution looks with 20 `bins`. Note that we also include the `color = "white"` argument to ensure we can see each bar separately:
 
 ```
 # click to execute code
@@ -20,8 +20,7 @@ ggsave(plot = gg_step4_hist_02,
         units = "in")
 ```{{execute}}
 
-Let's view the graph we just created:
-
-`gg-step4-hist-02.png`{{open}}
+Let's view the graph we just created.
+Open _gg-step4-hist-02.png_ in the VS Code IDE above the Terminal console to view the graph.
 
 The `stars` values fit into `20` bins better than the default `30` because we can see where values are concentrated (and the high frequency of 5-star ratings).

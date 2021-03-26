@@ -1,52 +1,52 @@
-### Adding aesthetics and layers 
+# Adding Aesthetics and Layers
 
-In the last step we added a `geom_smooth()` to the `gg_p9_col_smth` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `gg-step9-col-smth.png` file. Refer to the template below for a refresher.
+In the last step, we added a `geom_smooth()` to the `gg_p9_col_smth` object and removed the standard errors (`se = FALSE`) and legend (`show.legend = FALSE`). We stored these changes in the `gg-step9-col-smth.png` file. Refer to the follwoing template for a refresher:
 
 ```
-<DATA> %>% 
-  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
-    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), 
+<DATA> %>%
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) +
+    <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>),
                     optional_arguments = "values")
 ```
 
 We're going to continue building our plot by adding the `ggplot2::geom_point()` function. We need to specify the `aes()` argument (`color = poll`), and we'll also include the `show.legend = FALSE` argument again to remove the legend for the two `poll` categories.
 
-Click on the section below to add points to the smooth plot:
+Click on the following section to add points to the smooth plot:
 
 ```
 # click to execute code
 gg_p9_col_smth + geom_point(aes(color = poll), show.legend = FALSE)
 # save
-ggsave(filename = "gg-step10-col-smth.png", device = "png", 
+ggsave(filename = "gg-step10-col-smth.png", device = "png",
        width = 7, height = 5, units = "in")
 ```{{execute}}
 
-View `gg-step10-col-smth.png` in the vscode IDE. This is starting to look more like the graph in the medium article, but we still need to make a few minor adjustments. 
+View `gg-step10-col-smth.png` in the VS Code IDE. This is starting to look more like the graph in the medium article, but we still need to make a few minor adjustments.
 
-![](https://github.com/mjfrigaard/katacoda-data-wrangle-viz-show/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
+![](https://github.com/mjfrigaard/katacoda-scenarios/blob/master/figs/10-bremorse-plots-medium.png?raw=true)
 
-`ggplot2` allows us to build graphs layer-by-layer using the geoms and aesthetics to customize each plot so that they are necessarily expressive. Each time we need to add something to a graph, we can either add a new `geom`, or look for ways to adjust a geoms with new aesthetic options. 
+`ggplot2` allows us to build graphs layer-by-layer using the geoms and aesthetics to customize each plot so that they are necessarily expressive. Each time we need to add something to a graph, we can either add a new `geom`, or look for ways to adjust a geoms with new aesthetic options.
 
-For example, we can see from the 'Original' graph in the medium article that the points are slightly transparent. This is the alpha transparency argument, and it's available inside nearly every `geom`. 
+For example, we can see from the "Original" graph in the medium article that the points are slightly transparent. This is the alpha transparency argument, and it's available inside nearly every `geom`.
 
 We can add the `alpha` argument inside the `ggplot2::geom_point()` function, and specify either a decimal, fraction, or numeric value. In this case, we want the value set to `1/3`.
 
-Click below to change the `alpha` level.
+Click the following to change the `alpha` level:
 
 ```
 # click to execute code
-gg_p10_alpha <- gg_p9_col_smth + 
+gg_p10_alpha <- gg_p9_col_smth +
   geom_point(aes(color = poll), show.legend = FALSE, alpha = 1/3)
- 
+
 ggsave(filename = "gg-step10-alpha.png", device = "png",
        width = 7, height = 5, units = "in")
 ```{{execute}}
 
-View `gg-step10-alpha.png` in the vscode IDE. Now the points are slightly transparent, which helps with over-plotting. Review the template below for adding layers. 
+View `gg-step10-alpha.png` in the VS Code IDE. Now the points are slightly transparent, which helps with over-plotting. Review the following template for adding layers:
 
 ```
-<DATA> %>% 
-  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) + 
+<DATA> %>%
+  ggplot(mapping = aes(x = <MAPPINGS>, y = <MAPPINGS>)) +
     <GEOM_FUNCTION>(mapping = aes(<MAPPINGS>), args = "options")
 ```
 

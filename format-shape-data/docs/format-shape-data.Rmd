@@ -98,7 +98,7 @@ This scenario will introduce the following topics in R:
 1. how to get data into R (manually, importing rectangular files, from packages)
 2. how to use R to reshape (or *reformat* and *reshape*) your data (pivot functions)  
 3. how to create new variables based on existing columns
-4. how to create new variables based on conditions (i.e. the values in) existing columns
+4. how to create new variables based on conditions (i.e., the values in) existing columns
 5. how to check your work with pivoting  
 
 #### The `tidyverse`
@@ -205,7 +205,7 @@ tidyverse::tidyverse_logo()
 ```
 
 
-The `tidyverse::tidyverse_logo()` function can run without any arguments (i.e. nothing inside the parentheses), but we can view the arguments by placing the cursor inside the parenthesis and hitting the <kbd>tab</kbd> key.
+The `tidyverse::tidyverse_logo()` function can run without any arguments (i.e., nothing inside the parentheses), but we can view the arguments by placing the cursor inside the parenthesis and hitting the <kbd>tab</kbd> key.
 
 We can enter function arguments by position or name (see below).
 
@@ -336,7 +336,7 @@ Both data frames (called `data.frame`s in R) and `tibble`s are rectangular data 
 
 #### Create a `tibble`
 
-The `tibble::tribble()` function takes column names preceded by the tilde (i.e. `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored above.
+The `tibble::tribble()` function takes column names preceded by the tilde (i.e., `~column`), then get separated by commas (`~column1`, `~column2`, `~column3`). Then `tibble::tribble()` reads the data starting on the second line, similar to the way the actual data are stored above.
 
 The `tibble` we create below is a small sample from the [`bob_ross`](https://fivethirtyeight-r.netlify.app/articles/fivethirtyeight.html) dataset. The code below creates `BobRossTibble` from the data above in the R environment.
 
@@ -627,7 +627,7 @@ Does the `BobRossWide` dataset have the same information as the original `BobRos
 dplyr::setdiff(x = BobRoss, y = BobRossWide)
 ```
 
-Notice this returned an empty tibble? That means `BobRoss` and `BobRossWide` are identical (i.e. no set differences).
+Notice this returned an empty tibble? That means `BobRoss` and `BobRossWide` are identical (i.e., no set differences).
 
 ### Long or wide?
 
@@ -1173,7 +1173,7 @@ We've gone over how to:
 
 3. how to create new variables based on existing columns `dplyr::mutate()` and `dplyr::if_else()`
 
-4. how to create new variables based on multiple conditions (i.e. `dplyr::mutate()` and `dplyr::case_when()`)
+4. how to create new variables based on multiple conditions (i.e., `dplyr::mutate()` and `dplyr::case_when()`)
 
 5. how to check your work with counting and pivoting (`dplyr::count()` and `tidyr::pivot_wider()`)
 

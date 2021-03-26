@@ -1,17 +1,17 @@
-### Combining two columns  
+# Combining Two Columns
 
 Just like with the two `pivot_` functions, there is an opposite version of `tidyr::separate()` called `tidyr::unite()`. The `unite()` function takes multiple columns and sticks them together into a single new column.
 
-##### *First, a little house cleaning...*
+## First, a Little House Cleaning...
 
-We've accumulated quite a few datasets in our R environment, which can make things seem cluttered. You can check the objects in R using `ls()`.
+We've accumulated quite a few datasets in our R environment, which can make things seem cluttered. You can check the objects in R using `ls()`:
 
 ```
 # click to execute code
 ls()
 ```{{execute}}
 
-Yikes--so many Bob Ross's! We will remove the `SmallBobRoss`, `BobRoss` and `BobRossStep7` datasets using `rm()`.
+Yikes--so many Bob Rosses! We will remove the `SmallBobRoss`, `BobRoss`, and `BobRossStep7` datasets using `rm()`:
 
 ```
 # click to execute code
@@ -20,9 +20,9 @@ rm(SmallBobRoss, BobRoss, BobRossStep7)
 
 Now check again with `ls()` just to make sure (you can remove any additional datasets with `rm()`).
 
-##### *...back to `unite()`*
+## Back to unite()
 
-We'll load another alternative version of `BobRossLong` into R and view it with `head()`
+We'll load another alternative version of `BobRossLong` into R and view it with `head()`:
 
 ```
 # click to execute code
@@ -33,14 +33,11 @@ head(BobRossStep8)
 Now use `tidyr::unite()` with the following arguments:
 
 1. `data` = `BobRossStep8`
+2. The columns we want to unite (`season_text` and `episode_text`)
+3. The new column name (`col = episode_new`)
+4. And `sep =`, a regular expression pattern to place between the two columns we're uniting (in this case, it's `E`)
 
-2. the columns we want to unite (`season_text` and `episode_text`)
-
-3. the new column name (`col = episode_new`)
-
-4. And `sep =`, a regular expression pattern to place between the two columns we're uniting (in this case, it's `E`).
-
-Replace `col = '___________'` below with the new united column name before entering and running it in the Terminal.
+Replace `col = '___________'` below with the new united column name before entering and running it in the Terminal:
 
 ```
 # click to copy code
@@ -70,6 +67,5 @@ As we can see, `unite()` placed the `E` between `season_text` and `episode_text`
 
 Now we should feel more comfortable answering the last two questions related to this level of data wrangling:
 
-3. Does each measurement have a column (or variable)? *Yes, and if not I can pivot the data into another arrangement*
-
-4. Are these variables each measuring exactly one thing? *Yes, and if not I can separate/unite columns to capture that one thing*
+1. Does each measurement have a column (or variable)? *Yes, and if not I can pivot the data into another arrangement*
+1. Are these variables each measuring exactly one thing? *Yes, and if not I can separate/unite columns to capture that one thing*

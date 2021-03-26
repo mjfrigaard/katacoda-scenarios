@@ -1,8 +1,8 @@
-### Building Ridgeline Plots 
+# Building Ridgeline Plots
 
-The code below uses `ggridges::geom_density_ridges()` function to build overlapping density plots. 
+The following code uses `ggridges::geom_density_ridges()` function to build overlapping density plots.
 
-In this plot, we map the `fill` argument to the `style` variable. We also want to set the `show.legend = FALSE` to `FALSE` because we'll have labels on the graph for each level of `style`.
+In this plot, we map the `fill` argument to the `style` variable. We also want to set the `show.legend = FALSE` to `FALSE` because we'll have labels on the graph for each level of `style`:
 
 ```
 # click to execute code
@@ -25,6 +25,6 @@ ggsave(plot = gg_step5_ridge_01,
         units = "in")
 ```{{execute}}
 
-Click here to open the graph: `gg-step5-ridge-01.png`{{open}}
+Open _gg-step5-ridge-01.png_ in the VS Code IDE above the Terminal console to view the graph.
 
 We can see that the `stars` ratings for the `Box` level in `style` are concentrated around `5` from the ridgeline plot.

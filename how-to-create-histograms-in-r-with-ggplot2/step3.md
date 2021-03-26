@@ -1,8 +1,8 @@
-### Build a histogram
+# Build a Histogram
 
 We're going to use `ggplot2::geom_histogram()` to view the distribution the `stars` variable in `Ramen`.
 
-Note that we are also assigning labels to the graph that includes 1) a clear title, 2) descriptive information about the graph, 3) the source of the data.
+Note that we are also assigning labels to the graph that includes a clear title, descriptive information about the graph, and the source of the data:
 
 ```
 # click to execute code
@@ -22,8 +22,6 @@ ggsave(plot = gg_step3_hist_01,
         units = "in")
 ```{{execute}}
 
-Let's view the graph we just created:
-
-`gg-step3-hist-01.png`{{open}}
+Let's view the graph we just created; open _gg-step3-hist-01.png_ in the VS Code IDE above the Terminal console to view the graph.
 
 As we stated above, histograms stack the variable values into a defined set of `bins`. The default number for `bins` is `30`. We can change the shape of the histogram by changing the `bins` argument.

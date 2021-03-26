@@ -1,8 +1,9 @@
-### Install and load the tidyverse
+# Install and Load the tidyverse
 
-Launch an R console by clicking here -> `R`{{execute}} (Click on the *Run command* icon)
+Launch an R console by clicking here: `R`{{execute}}.
 
-Load the `tidyverse` package by typing or copying and pasting the code below.
+
+Load the `tidyverse` package by typing or copying and pasting the following code:
 
 ```
 # click to execute code
@@ -10,17 +11,17 @@ install.packages("tidyverse")
 library(tidyverse)
 ```{{execute}}
 
-### Terms and definitions: `geoms` and `aes`thetics
+## Terms and Definitions: geoms and aesthetics
 
-A *geom* (or geometric object) is the 'thing' we see on a graph or plot (this includes dots or points, lines, bars, etc.).
+A *geom* (or geometric object) is the "thing" we see on a graph or plot (this includes dots or points, lines, bars, etc.).
 
-*geoms* are combined with aesthetic mappings, which are properties of the 'thing' on the plot or graph (this includes things like color, size, position, and shape).
+Geoms are combined with aesthetic mappings, which are properties of the "thing" on the plot or graph (this includes things like color, size, position, and shape).
 
-So every graph or plot has a geom, and that geom will also have some visual properties called aesthetics.
+So every graph or plot has a geom, and that geom will also have some visual properties called _aesthetics_.
 
-### Starting with quick plots
+## Starting with Quick Plots
 
-We will start using `ggplot2` with the `qplot()` function. `qplot()` is short for 'quick plot', and it takes the following arguments: 
+We will start using `ggplot2` with the `qplot()` function. `qplot()` is short for 'quick plot', and it takes the following arguments:
 
 ```
 ggplot2::qplot(data = Data, # assume dataset 'Data'
