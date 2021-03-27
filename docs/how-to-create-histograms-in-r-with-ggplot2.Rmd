@@ -217,12 +217,13 @@ gg_step4_hist_02 <- Ramen %>%
        subtitle = "bins = 20",
        caption = "source: https://www.theramenrater.com/resources-2/the-list/")
 # save
-ggsave(plot = gg_step4_hist_02,
-        filename = "gg-step4-hist-02.png",
-        device = "png",
-        width = 9,
-        height = 6,
-        units = "in")
+# ggsave(plot = gg_step4_hist_02,
+#         filename = "gg-step4-hist-02.png",
+#         device = "png",
+#         width = 9,
+#         height = 6,
+#         units = "in")
+gg_step4_hist_02
 ```
 
 Let's view the graph we just created.
