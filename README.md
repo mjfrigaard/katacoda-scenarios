@@ -48,7 +48,7 @@ Link to Github repo:
 
 -   [x] on gitlab?
 -   [x] tested?
--   [ ] reviewed?
+-   [x] reviewed?
 
 **slug:** how-to-create-column-charts-in-r-with-ggplot2
 
@@ -58,7 +58,7 @@ Link to Github repo:
 
 -   [x] on gitlab?
 -   [x] tested?
--   [ ] reviewed?
+-   [x] reviewed?
 
 **slug:** how-to-create-bar-charts-in-r-with-ggplot2
 
@@ -68,7 +68,7 @@ Link to Github repo:
 
 -   [x] on gitlab?
 -   [x] tested?
--   [ ] reviewed?
+-   [x] reviewed?
 
 **slug:** how-to-create-histograms-in-r-with-ggplot2
 
@@ -78,7 +78,7 @@ Link to Github repo:
 
 -   [x] on gitlab?
 -   [x] tested?
--   [ ] reviewed?
+-   [x] reviewed?
 
 **slug:** how-to-create-density-plots-in-r-with-ggplot2
 
@@ -87,8 +87,8 @@ Link to Github repo:
 ## How to Create Ridgeline Plots in R with ggridges
 
 -   [x] on gitlab?
--   [ ] tested?
--   [ ] reviewed?
+-   [x] tested?
+-   [x] reviewed?
 
 **slug:** how-to-create-ridgeline-plots-in-r-with-ggridges
 
@@ -99,7 +99,7 @@ plots
 
 -   [x] on gitlab?
 -   [x] tested?
--   [ ] reviewed?
+-   [x] reviewed?
 
 **slug:** how-to-create-boxplots-in-r-with-ggplot2
 
@@ -109,8 +109,8 @@ plots
 ## How to Create Scatter-plots in R with ggplot2
 
 -   [x] on gitlab?
--   [ ] tested?
--   [ ] reviewed?
+-   [x] tested?
+-   [x] reviewed?
 
 **slug:** how-to-create-scatter-plots–in-r-with-ggplot2
 
@@ -119,8 +119,8 @@ plots
 ## How to Create Line-plots in R with ggplot2
 
 -   [x] on gitlab?
--   [ ] tested?
--   [ ] reviewed?
+-   [x] tested?
+-   [x] reviewed?
 
 **slug:** how-to-create-line-plots-in-r-with-ggplot2
 
@@ -130,7 +130,7 @@ plots
 
 -   [x] on gitlab?
 -   [x] tested?
--   [ ] reviewed?
+-   [x] reviewed?
 
 **slug:** how-to-create-jitter-plots-in-r-with-ggplot2
 
@@ -139,8 +139,8 @@ plots
 ## How to Create Small Multiples in R with ggplot2
 
 -   [x] on gitlab?
--   [ ] tested?
--   [ ] reviewed?
+-   [x] tested?
+-   [x] reviewed?
 
 **slug:** how-to-create-small-multiples-in-r-with-ggplot2
 
