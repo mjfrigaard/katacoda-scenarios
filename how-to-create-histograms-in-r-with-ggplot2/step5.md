@@ -11,12 +11,6 @@ Ramen %>% count(style, sort = TRUE)
 
 We can see the three most common levels of style are `Pack`, `Bowl`, and `Cup`. Let's filter the Ramen data to only these categories and view their histograms using `ggplot2::facet_grid()`.
 
-<!--
-We can see the three most common levels of style are `Pack`, `Bowl`, and `Cup`. Let's filter the Ramen data to only these categories and view their histograms using `ggplot2::facet_grid()`:
-
-Was there to be an example here?
--->
-
 The filtered dataset gets passed directly to the `ggplot()` functions, where we include the `stars` variable. Then we add a histogram geom, but specify the `bins`, `fill`, and `color` arguments. Finally, we pass the histogram to `facet_grid()` and assign the variable we want to 'facet' the histograms by using the `style ~ .` syntax.
 
 We also adjust the labels to communicate the contents of the new graph:

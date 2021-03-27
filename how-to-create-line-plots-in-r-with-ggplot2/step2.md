@@ -12,7 +12,7 @@ We are going to load the `comic_characters` dataset from the article above. We'r
 
 ```
 # click to execute code
-ComicData <- read_csv("./assets/comic_characters.csv")
+ComicData <- read_csv("https://bit.ly/2QJARxG")
 ```{{execute}}
 
 ```

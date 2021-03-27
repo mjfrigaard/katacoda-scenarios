@@ -27,7 +27,7 @@ IMDB makes multiple datasets available for [download](https://datasets.imdbws.co
 
 ```
 # click to execute code
-ImdbData <- readr::read_csv("https://oreil.ly/f1XnR")
+ImdbData <- readr::read_csv("https://bit.ly/2O2ZKDC")
 glimpse(ImdbData)
 ```{{execute}}
 
